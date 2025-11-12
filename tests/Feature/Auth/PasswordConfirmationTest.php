@@ -17,6 +17,7 @@ uses(TestCase::class);
     $lang = app()->getLocale();
     $response = actingAs($user)->get('/'.$lang.'/confirm-password');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
@@ -26,6 +27,7 @@ uses(TestCase::class);
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'password')->call('confirmPassword');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
@@ -35,5 +37,6 @@ uses(TestCase::class);
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'wrong-password')->call('confirmPassword');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasErrors(['password']);
 });
