@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Modules\Cms\Models\Section as SectionModel;
@@ -14,9 +13,9 @@ use Modules\Cms\Models\Section as SectionModel;
  *
  * Renders a reusable section of the site using the Section model.
  *
- * @property string $slug The unique identifier for the section
+ * @property string      $slug The unique identifier for the section
  * @property string|null $view Custom view path for rendering
- * @property array $data Additional data to pass to the view
+ * @property array       $data Additional data to pass to the view
  */
 class Section extends Component
 {
@@ -35,9 +34,9 @@ class Section extends Component
     /**
      * Create a new component instance.
      *
-     * @param  string  $slug  Unique identifier for the section
-     * @param  string|null  $class  Additional CSS classes
-     * @param  string|null  $id  Custom ID for the section
+     * @param string      $slug  Unique identifier for the section
+     * @param string|null $class Additional CSS classes
+     * @param string|null $id    Custom ID for the section
      */
     public function __construct(
         string $slug,
@@ -61,7 +60,7 @@ class Section extends Component
         if ($this->tpl) {
             $view .= '.'.$this->tpl;
         }
-        
+
         // Verifica che la view esista, con gestione più robusta per i namespace
         // Se la view usa un namespace (es. pub_theme::), verifica anche il file fisico
         if (! view()->exists($view)) {
@@ -89,7 +88,7 @@ class Section extends Component
                 }
             }
             // Se arriviamo qui, la view non esiste
-            throw new Exception('View '.$view.' not found');
+            throw new \Exception('View '.$view.' not found');
         }
 
         return view($view);

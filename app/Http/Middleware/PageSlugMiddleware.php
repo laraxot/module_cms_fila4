@@ -63,7 +63,7 @@ class PageSlugMiddleware
     }
 
     /**
-     * Execute middleware chain manually
+     * Execute middleware chain manually.
      */
     protected function executeMiddlewareChain(Request $request, array $middlewares, \Closure $finalNext): Response
     {
@@ -113,7 +113,7 @@ class PageSlugMiddleware
     }
 
     /**
-     * Resolve middleware class name from alias
+     * Resolve middleware class name from alias.
      */
     protected function resolveMiddlewareClass(string $middleware): string
     {

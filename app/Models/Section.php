@@ -8,38 +8,37 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Cms\Models\Traits\HasBlocks;
 use Modules\Tenant\Models\Traits\SushiToJsons;
-use Override;
 
 /**
- * Modules\Cms\Models\Section
+ * Modules\Cms\Models\Section.
  *
- * @property string $id
- * @property array<array-key, mixed>|null $name
- * @property string|null $slug
- * @property array<array-key, mixed>|null $blocks
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read mixed $translations
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property string                                      $id
+ * @property array<array-key, mixed>|null                $name
+ * @property string|null                                 $slug
+ * @property array<array-key, mixed>|null                $blocks
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property string|null                                 $created_by
+ * @property string|null                                 $updated_by
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property mixed                                       $translations
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
- * @method static Builder<static>|Section newModelQuery()
- * @method static Builder<static>|Section newQuery()
- * @method static Builder<static>|Section query()
- * @method static Builder<static>|Section whereBlocks($value)
- * @method static Builder<static>|Section whereCreatedAt($value)
- * @method static Builder<static>|Section whereCreatedBy($value)
- * @method static Builder<static>|Section whereId($value)
+ * @method static Builder<static>|Section                               newModelQuery()
+ * @method static Builder<static>|Section                               newQuery()
+ * @method static Builder<static>|Section                               query()
+ * @method static Builder<static>|Section                               whereBlocks($value)
+ * @method static Builder<static>|Section                               whereCreatedAt($value)
+ * @method static Builder<static>|Section                               whereCreatedBy($value)
+ * @method static Builder<static>|Section                               whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereJsonContainsLocale(string $column, string $locale, ?mixed $value, string $operand = '=')
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereJsonContainsLocales(string $column, array $locales, ?mixed $value, string $operand = '=')
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereLocale(string $column, string $locale)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereLocales(string $column, array $locales)
- * @method static Builder<static>|Section whereName($value)
- * @method static Builder<static>|Section whereSlug($value)
- * @method static Builder<static>|Section whereUpdatedAt($value)
- * @method static Builder<static>|Section whereUpdatedBy($value)
+ * @method static Builder<static>|Section                               whereName($value)
+ * @method static Builder<static>|Section                               whereSlug($value)
+ * @method static Builder<static>|Section                               whereUpdatedAt($value)
+ * @method static Builder<static>|Section                               whereUpdatedBy($value)
  *
  * @mixin \Eloquent
  */
@@ -79,7 +78,7 @@ class Section extends BaseModelLang
     {
         return $this->getSushiRows();
 
-        /** @var array<int, array<string, mixed>> $typedRows */
+        /* @var array<int, array<string, mixed>> $typedRows */
     }
 
     /**
@@ -87,7 +86,7 @@ class Section extends BaseModelLang
      *
      * @return array<string, string>
      */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

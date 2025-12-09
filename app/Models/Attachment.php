@@ -7,28 +7,27 @@ namespace Modules\Cms\Models;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Modules\Tenant\Models\Traits\SushiToJsons;
-use Override;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 
 /**
- * ---
+ * ---.
  *
- * @property string $id
- * @property array<array-key, mixed>|null $title
- * @property array<array-key, mixed>|null $description
- * @property string|null $slug
- * @property string|null $disk
- * @property array<array-key, mixed>|null $attachment
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
- * @property-read int|null $media_count
- * @property-read mixed $translations
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property string                                                                                                                            $id
+ * @property array<array-key, mixed>|null                                                                                                      $title
+ * @property array<array-key, mixed>|null                                                                                                      $description
+ * @property string|null                                                                                                                       $slug
+ * @property string|null                                                                                                                       $disk
+ * @property array<array-key, mixed>|null                                                                                                      $attachment
+ * @property Carbon|null                                                                                                                       $created_at
+ * @property Carbon|null                                                                                                                       $updated_at
+ * @property string|null                                                                                                                       $created_by
+ * @property string|null                                                                                                                       $updated_by
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                                                       $creator
+ * @property \Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection<int, \Spatie\MediaLibrary\MediaCollections\Models\Media> $media
+ * @property int|null                                                                                                                          $media_count
+ * @property mixed                                                                                                                             $translations
+ * @property \Modules\Xot\Contracts\ProfileContract|null                                                                                       $updater
  *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newQuery()
@@ -179,7 +178,7 @@ class Attachment extends BaseModelLang implements HasMedia
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

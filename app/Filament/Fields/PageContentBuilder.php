@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Fields;
 
-use Error;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Modules\UI\Actions\Block\GetAllBlocksAction;
@@ -21,14 +20,15 @@ class PageContentBuilder
 
         $blockList = self::buildBlockList($blocks, $context);
 
-        /** @var list<Block> $blockList */
+        /* @var list<Block> $blockList */
         return Builder::make($name)
             ->blocks($blockList)
             ->collapsible();
     }
 
     /**
-     * @param  DataCollection<int, ComponentFileData>  $blocks
+     * @param DataCollection<int, ComponentFileData> $blocks
+     *
      * @return list<Block>
      */
     private static function buildBlockList(DataCollection $blocks, string $context): array
@@ -45,7 +45,7 @@ class PageContentBuilder
                     name: $block->name,
                     context: $context,
                 );
-            } catch (Error $e) {
+            } catch (\Error $e) {
                 dddx([
                     'e' => $e->getMessage(),
                     'block' => $block,

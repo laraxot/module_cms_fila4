@@ -14,7 +14,6 @@ use Illuminate\Support\HtmlString;
 use Modules\Cms\Models\Menu;
 use Modules\UI\Filament\Forms\Components\IconPicker;
 use Modules\Xot\Filament\Resources\XotBaseResource;
-use Override;
 
 class MenuResource extends XotBaseResource
 {
@@ -23,7 +22,7 @@ class MenuResource extends XotBaseResource
     /**
      * @return array<Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

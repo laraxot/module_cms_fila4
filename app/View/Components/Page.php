@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
@@ -27,14 +26,14 @@ class Page extends Component
     {
         $this->data = $data;
         $this->side = $side;
-        if ($type !== null) {
+        if (null !== $type) {
             $slug = $type.'-'.$slug;
         }
         $this->slug = $slug;
         $field = $side.'_blocks';
         // Assert::isInstanceOf($page = PageModel::firstOrCreate(['slug' => $slug], ['title' => $slug, $field => []]), PageModel::class, '['.__LINE__.']['.__FILE__.']');
         $page = PageModel::firstWhere(['slug' => $slug]);
-        if ($page === null) {
+        if (null === $page) {
             abort(404, 'page not found: '.$slug);
         }
         $metatag = MetatagData::make();
@@ -90,7 +89,7 @@ class Page extends Component
         $view_params = [];
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('view not found: '.$view);
+            throw new \Exception('view not found: '.$view);
         }
 
         return view($view, $view_params);

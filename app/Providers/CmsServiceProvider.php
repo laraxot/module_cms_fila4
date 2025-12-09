@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Config;
 use Modules\Xot\Actions\File\FixPathAction;
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Providers\XotBaseServiceProvider;
-use Override;
 use Webmozart\Assert\Assert;
 
 class CmsServiceProvider extends XotBaseServiceProvider
@@ -22,7 +21,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[Override]
+    #[\Override]
     public function boot(): void
     {
         parent::boot();
@@ -40,7 +39,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
     /**
      * Register the service provider.
      */
-    #[Override]
+    #[\Override]
     public function register(): void
     {
         parent::register();

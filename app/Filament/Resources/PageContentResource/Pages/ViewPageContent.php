@@ -12,7 +12,6 @@ use Filament\Schemas\Components\Section;
 use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
 use Modules\Cms\Filament\Resources\PageContentResource;
 use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
-use Override;
 
 class ViewPageContent extends XotBaseViewRecord
 {
@@ -31,7 +30,7 @@ class ViewPageContent extends XotBaseViewRecord
     /**
      * @return array<int, Component>
      */
-    #[Override]
+    #[\Override]
     protected function getInfolistSchema(): array
     {
         return [

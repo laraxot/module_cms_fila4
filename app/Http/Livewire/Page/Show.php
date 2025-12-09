@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Livewire\Page;
 
-use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Cache;
 use Livewire\Component;
@@ -120,7 +119,7 @@ class Show extends Component
                 'blocks' => $page->content_blocks ?? [],
                 'layout' => 'default',
             ];
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             if ($this->debug) {
                 return [
                     'error' => $e->getMessage(),

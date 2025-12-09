@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
@@ -94,7 +93,7 @@ class Headernav extends Page implements HasForms
                 ->title(__('Saved successfully'))
                 ->success()
                 ->send();
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             Notification::make()
                 ->title(__('Error!'))
                 ->danger()

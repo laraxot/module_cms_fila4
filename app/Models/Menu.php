@@ -13,21 +13,21 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
 /**
  * Modules\Cms\Models\Menu.
  *
- * @property string $id
- * @property string|null $title
- * @property int|null $parent_id
- * @property string|null $created_at
- * @property string|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property Collection<int, Menu> $children
- * @property int|null $children_count
+ * @property string                                      $id
+ * @property string|null                                 $title
+ * @property int|null                                    $parent_id
+ * @property string|null                                 $created_at
+ * @property string|null                                 $updated_at
+ * @property string|null                                 $created_by
+ * @property string|null                                 $updated_by
+ * @property Collection<int, Menu>                       $children
+ * @property int|null                                    $children_count
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property Menu|null $parent
+ * @property Menu|null                                   $parent
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- * @property int $depth
- * @property string $path
- * @property Collection<int, Menu> $ancestors The model's recursive parents.
+ * @property int                                         $depth
+ * @property string                                      $path
+ * @property Collection<int, Menu>                       $ancestors      The model's recursive parents.
  * @property-read int|null $ancestors_count
  * @property-read Collection<int, Menu> $ancestorsAndSelf The model's recursive parents and itself.
  * @property-read int|null $ancestors_and_self_count
@@ -47,11 +47,11 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @property-read Collection<int, Menu> $siblingsAndSelf All the parent's children.
  * @property-read int|null $siblings_and_self_count
  *
- * @method static Collection<int, static> all($columns = ['*'])
+ * @method static Collection<int, static>                                         all($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu breadthFirst()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu depthFirst()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu doesntHaveChildren()
- * @method static Collection<int, static> get($columns = ['*'])
+ * @method static Collection<int, static>                                         get($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu getExpressionGrammar()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu hasChildren()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu hasParent()

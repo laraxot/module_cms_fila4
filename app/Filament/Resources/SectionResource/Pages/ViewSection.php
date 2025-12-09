@@ -4,25 +4,23 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources\SectionResource\Pages;
 
-use Exception;
 use Filament\Infolists\Components\ViewEntry;
 use Filament\Schemas\Components\Section;
 use Modules\Cms\Filament\Resources\SectionResource;
 use Modules\Lang\Filament\Resources\Pages\LangBaseViewRecord;
-use Override;
 
 class ViewSection extends LangBaseViewRecord
 {
     protected static string $resource = SectionResource::class;
 
-    #[Override]
+    #[\Override]
     public function getInfolistSchema(): array
     {
         // $view='pub_theme::components.sections.'.$this->record->slug;
         $view = 'cms::sections.preview';
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('View '.$view.' not found');
+            throw new \Exception('View '.$view.' not found');
         }
 
         return [

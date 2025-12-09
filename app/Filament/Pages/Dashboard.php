@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Pages;
 
-use BackedEnum;
 use Filament\Facades\Filament;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentIcon;
@@ -34,7 +33,7 @@ class Dashboard extends XotBaseDashboard
             FilamentIcon::resolve('panels::pages.dashboard.navigation-item') ??
                 (Filament::hasTopNavigation() ? 'heroicon-m-home' : 'heroicon-o-home');
 
-        if ($icon instanceof BackedEnum) {
+        if ($icon instanceof \BackedEnum) {
             return (string) $icon->value;
         }
 
@@ -65,7 +64,7 @@ class Dashboard extends XotBaseDashboard
      */
     public function getWidgets(): array
     {
-        /**
+        /*
          * @var array<class-string<Widget>|WidgetConfiguration>
          */
         return Filament::getWidgets();

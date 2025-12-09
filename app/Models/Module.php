@@ -11,10 +11,10 @@ use Sushi\Sushi;
 /**
  * Modules\Cms\Models\Module.
  *
- * @property string $id
- * @property string|null $name
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property string                                      $id
+ * @property string|null                                 $name
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static Builder<static>|Module newModelQuery()
  * @method static Builder<static>|Module newQuery()

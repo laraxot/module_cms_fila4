@@ -15,7 +15,6 @@ use Modules\Cms\Filament\Resources\AttachmentResource\Pages\EditAttachment;
 use Modules\Cms\Filament\Resources\AttachmentResource\Pages\ListAttachments;
 use Modules\Cms\Models\Attachment;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-use Override;
 
 class AttachmentResource extends LangBaseResource
 {
@@ -24,7 +23,7 @@ class AttachmentResource extends LangBaseResource
     /**
      * @return array<string, \Filament\Support\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -49,11 +48,10 @@ class AttachmentResource extends LangBaseResource
     public static function getRelations(): array
     {
         return [
-
         ];
     }
 
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

@@ -8,10 +8,10 @@ use Filament\Forms\Components\Builder\Block;
 use Modules\Cms\Tests\TestCase;
 use Modules\UI\Actions\Block\GetAllBlocksAction;
 use Modules\UI\View\Components\Render\Blocks;
-use ReflectionClass;
-use Spatie\LaravelData\DataCollection;
 
 use function Pest\Laravel\get;
+
+use Spatie\LaravelData\DataCollection;
 
 uses(TestCase::class);
 
@@ -32,12 +32,12 @@ describe('Filament Builder Blocks System', function () {
     test('xot base block pattern is followed by cms blocks', function () {
         $allBlocks = app(GetAllBlocksAction::class)->execute();
 
-        $cmsBlocks = $allBlocks->filter(fn ($block) => $block->module === 'Cms');
+        $cmsBlocks = $allBlocks->filter(fn ($block) => 'Cms' === $block->module);
 
         expect($cmsBlocks->count())->toBeGreaterThan(0, 'CMS module should have blocks');
 
         $cmsBlocks->each(function ($block) {
-            $reflection = new ReflectionClass($block->class);
+            $reflection = new \ReflectionClass($block->class);
 
             // Verify extends XotBaseBlock or has make() method
             expect($reflection->hasMethod('make'))->toBeTrue("Block {$block->class} should have make() method");
@@ -141,7 +141,7 @@ describe('Filament Builder Blocks System', function () {
         $blocksClass = Blocks::class;
         expect(class_exists($blocksClass))->toBeTrue('Blocks render component should exist');
 
-        $reflection = new ReflectionClass($blocksClass);
+        $reflection = new \ReflectionClass($blocksClass);
         expect($reflection->hasMethod('render'))->toBeTrue('Blocks component should have render method');
         expect($reflection->hasMethod('__construct'))->toBeTrue('Blocks component should have constructor');
 
@@ -206,10 +206,10 @@ describe('Filament Builder Blocks System', function () {
 
     test('cms module blocks extend xot base block correctly', function () {
         $allBlocks = app(GetAllBlocksAction::class)->execute();
-        $cmsBlocks = $allBlocks->filter(fn ($block) => $block->module === 'Cms');
+        $cmsBlocks = $allBlocks->filter(fn ($block) => 'Cms' === $block->module);
 
         $cmsBlocks->each(function ($block) {
-            $reflection = new ReflectionClass($block->class);
+            $reflection = new \ReflectionClass($block->class);
 
             // Check if it's a proper block class
             if ($reflection->hasMethod('make') && $reflection->hasMethod('getBlockSchema')) {

@@ -12,7 +12,6 @@ use Illuminate\Support\Str;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\Page;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-use Override;
 
 /**
  * @property Page $record
@@ -24,7 +23,7 @@ class PageResource extends LangBaseResource
     /**
      * @return array<string, \Filament\Support\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

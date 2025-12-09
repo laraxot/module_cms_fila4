@@ -9,11 +9,10 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Utilities\Get;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use Override;
 
 class NavigationBlock extends XotBaseBlock
 {
-    #[Override]
+    #[\Override]
     public static function getBlockSchema(): array
     {
         return [
@@ -39,7 +38,7 @@ class NavigationBlock extends XotBaseBlock
                             'secondary' => 'Secondario',
                         ])
                         ->default('default')
-                        ->visible(fn (Get $get) => $get('type') === 'button'),
+                        ->visible(fn (Get $get) => 'button' === $get('type')),
                     Repeater::make('children')
                         ->label('Sottomenu')
                         ->schema([
@@ -53,7 +52,7 @@ class NavigationBlock extends XotBaseBlock
                                 ])
                                 ->default('link'),
                         ])
-                        ->visible(fn (Get $get) => $get('type') === 'dropdown')
+                        ->visible(fn (Get $get) => 'dropdown' === $get('type'))
                         ->collapsible(),
                 ])
                 ->collapsible()

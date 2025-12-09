@@ -7,7 +7,6 @@ namespace Modules\Cms\Providers;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Str;
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
-use Override;
 
 // public function boot(\Illuminate\Routing\Router $router)
 
@@ -30,7 +29,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
      */
     protected string $module_ns = __NAMESPACE__;
 
-    #[Override]
+    #[\Override]
     public function boot(): void
     {
         parent::boot();

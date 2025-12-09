@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Forms\Components;
 
-use Exception;
 use Filament\Forms\Components\Placeholder;
 use Illuminate\Support\HtmlString;
 use Modules\Cms\Models\Attachment;
@@ -32,7 +31,7 @@ class DownloadAttachmentPlaceHolder extends Placeholder
         /** @var view-string $view */
         $view = 'pub_theme::filament.forms.components.download-attachment-place-holder';
         if (! view()->exists($view)) {
-            throw new Exception('View '.$view.' not found');
+            throw new \Exception('View '.$view.' not found');
         }
         $out = view($view, $data);
 

@@ -16,14 +16,15 @@ use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
-use Webmozart\Assert\Assert;
 
 class FolioVoltServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
      */
-    public function register(): void {}
+    public function register(): void
+    {
+    }
 
     /**
      * Bootstrap services.
@@ -68,7 +69,7 @@ class FolioVoltServiceProvider extends ServiceProvider
         // $base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class;
 
         $theme_path = XotData::make()->getPubThemeViewPath('pages');
-        
+
         /*
          * // Ottieni la lingua corrente in modo sicuro
          * $currentLocale = app()->getLocale();

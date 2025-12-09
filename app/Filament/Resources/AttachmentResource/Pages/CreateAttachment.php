@@ -30,7 +30,7 @@ class CreateAttachment extends LangBaseCreateRecord
             ];
         }
 
-        /** @phpstan-ignore-next-line */
+        /* @phpstan-ignore-next-line */
         return parent::mutateFormDataBeforeSave($data);
     }
 }

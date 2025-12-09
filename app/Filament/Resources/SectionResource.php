@@ -8,7 +8,6 @@ use Filament\Forms\Components\TextInput;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\Section;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-use Override;
 
 class SectionResource extends LangBaseResource
 {
@@ -17,7 +16,7 @@ class SectionResource extends LangBaseResource
     /**
      * @return array<string, \Filament\Support\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

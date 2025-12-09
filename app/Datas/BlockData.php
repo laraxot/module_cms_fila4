@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Datas;
 
-use Exception;
 use Illuminate\Support\Arr;
 use Livewire\Wireable;
 use Spatie\LaravelData\Concerns\WireableData;
@@ -26,7 +25,7 @@ class BlockData extends Data implements Wireable
         $this->type = $type;
         $this->data = $data;
         Assert::string($view = Arr::get($data, 'view', 'ui::empty'), '['.__LINE__.']['.__FILE__.']');
-        
+
         // Verifica che la view esista, con gestione più robusta per i namespace
         // Se la view usa un namespace (es. pub_theme::), verifica anche il file fisico
         if (! view()->exists($view)) {
@@ -47,6 +46,7 @@ class BlockData extends Data implements Wireable
                             // Questo risolve problemi di timing durante il bootstrap
                             if (file_exists($filePath)) {
                                 $this->view = $view;
+
                                 return;
                             }
                         }
@@ -54,9 +54,9 @@ class BlockData extends Data implements Wireable
                 }
             }
             // Se arriviamo qui, la view non esiste
-            throw new Exception('view not found: '.$view);
+            throw new \Exception('view not found: '.$view);
         }
-        
+
         $this->view = $view;
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Database\Seeders;
 
-use Exception;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -55,8 +54,8 @@ class CmsMassSeeder extends Seeder
 
             $this->command->info("🎉 Seeding modulo Cms completato in {$executionTime} secondi!");
             $this->displaySummary();
-        } catch (Exception $e) {
-            $this->command->error('❌ Errore durante il seeding: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            $this->command->error('❌ Errore durante il seeding: '.$e->getMessage());
             throw $e;
         }
     }
@@ -76,7 +75,7 @@ class CmsMassSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati ' . $modules->count() . ' moduli CMS');
+        $this->command->info('✅ Creati '.$modules->count().' moduli CMS');
     }
 
     /**
@@ -94,7 +93,7 @@ class CmsMassSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Create ' . $sections->count() . ' sezioni');
+        $this->command->info('✅ Create '.$sections->count().' sezioni');
     }
 
     /**
@@ -112,7 +111,7 @@ class CmsMassSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Create ' . $pages->count() . ' pagine');
+        $this->command->info('✅ Create '.$pages->count().' pagine');
     }
 
     /**
@@ -129,7 +128,7 @@ class CmsMassSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati ' . $contents->count() . ' contenuti di pagina');
+        $this->command->info('✅ Creati '.$contents->count().' contenuti di pagina');
     }
 
     /**
@@ -147,7 +146,7 @@ class CmsMassSeeder extends Seeder
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati ' . $menus->count() . ' menu');
+        $this->command->info('✅ Creati '.$menus->count().' menu');
     }
 
     /**
@@ -161,7 +160,7 @@ class CmsMassSeeder extends Seeder
         // Non supporta factories, i dati sono caricati dinamicamente
         $configs = Conf::all();
 
-        $this->command->info('✅ Caricati ' . $configs->count() . ' configurazioni da Sushi');
+        $this->command->info('✅ Caricati '.$configs->count().' configurazioni da Sushi');
     }
 
     /**
@@ -177,61 +176,61 @@ class CmsMassSeeder extends Seeder
             $totalModules = Module::count();
             $activeModules = Module::where('is_active', true)->count();
 
-            $this->command->info('│ 🔧 Moduli totali:             ' .
-            str_pad((string) $totalModules, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ 🔧 Moduli totali:             '.
+            str_pad((string) $totalModules, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attivi:                  ' .
-            str_pad((string) $activeModules, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│    - Attivi:                  '.
+            str_pad((string) $activeModules, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta sezioni
             $totalSections = Section::count();
             $activeSections = Section::where('is_active', true)->count();
 
-            $this->command->info('│ 📑 Sezioni totali:            ' .
-            str_pad((string) $totalSections, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ 📑 Sezioni totali:            '.
+            str_pad((string) $totalSections, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attive:                  ' .
-            str_pad((string) $activeSections, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│    - Attive:                  '.
+            str_pad((string) $activeSections, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta pagine
             $totalPages = Page::count();
             $activePages = Page::where('is_active', true)->count();
 
-            $this->command->info('│ 📄 Pagine totali:             ' .
-            str_pad((string) $totalPages, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ 📄 Pagine totali:             '.
+            str_pad((string) $totalPages, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attive:                  ' .
-            str_pad((string) $activePages, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│    - Attive:                  '.
+            str_pad((string) $activePages, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta contenuti
             $totalContents = PageContent::count();
 
-            $this->command->info('│ 📝 Contenuti totali:          ' .
-            str_pad((string) $totalContents, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ 📝 Contenuti totali:          '.
+            str_pad((string) $totalContents, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta menu
             $totalMenus = Menu::count();
             $activeMenus = Menu::where('is_active', true)->count();
 
-            $this->command->info('│ 🍽️ Menu totali:               ' .
-            str_pad((string) $totalMenus, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ 🍽️ Menu totali:               '.
+            str_pad((string) $totalMenus, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attivi:                  ' .
-            str_pad((string) $activeMenus, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│    - Attivi:                  '.
+            str_pad((string) $activeMenus, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta configurazioni
             $totalConfigs = Conf::count();
 
-            $this->command->info('│ ⚙️ Configurazioni totali:     ' .
-            str_pad((string) $totalConfigs, 6, ' ', STR_PAD_LEFT) .
+            $this->command->info('│ ⚙️ Configurazioni totali:     '.
+            str_pad((string) $totalConfigs, 6, ' ', STR_PAD_LEFT).
                 ' │');
-        } catch (Exception $e) {
-            $this->command->info('│ ❌ Errore nel conteggio: ' . $e->getMessage());
+        } catch (\Exception $e) {
+            $this->command->info('│ ❌ Errore nel conteggio: '.$e->getMessage());
         }
 
         $this->command->info('└─────────────────────────────────────┘');

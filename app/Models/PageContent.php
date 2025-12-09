@@ -7,23 +7,22 @@ namespace Modules\Cms\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Tenant\Models\Traits\SushiToJsons;
-use Override;
 use Spatie\Translatable\HasTranslations;
 
 /**
  * Modules\Cms\Models\PageContent.
  *
- * @property string $id
- * @property array<array-key, mixed>|null $name
- * @property string|null $slug
- * @property array<array-key, mixed>|null $blocks
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null $created_by
- * @property string|null $updated_by
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property-read mixed $translations
- * @property-read \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property string                                      $id
+ * @property array<array-key, mixed>|null                $name
+ * @property string|null                                 $slug
+ * @property array<array-key, mixed>|null                $blocks
+ * @property Carbon|null                                 $created_at
+ * @property Carbon|null                                 $updated_at
+ * @property string|null                                 $created_by
+ * @property string|null                                 $updated_by
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property mixed                                       $translations
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static Builder<static>|PageContent newModelQuery()
  * @method static Builder<static>|PageContent newQuery()
@@ -90,7 +89,7 @@ class PageContent extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

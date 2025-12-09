@@ -7,13 +7,12 @@ namespace Modules\Cms\Providers\Filament;
 use Filament\Panel;
 // use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
 use Modules\Xot\Providers\Filament\XotBasePanelProvider;
-use Override;
 
 class AdminPanelProvider extends XotBasePanelProvider
 {
     protected string $module = 'Cms';
 
-    #[Override]
+    #[\Override]
     public function panel(Panel $panel): Panel
     {
         $panel->plugins([

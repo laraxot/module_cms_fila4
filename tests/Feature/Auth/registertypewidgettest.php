@@ -4,15 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
-use Exception;
 use Livewire\Livewire;
 use Modules\User\Filament\Widgets\RegistrationWidget;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\get;
+use Modules\Xot\Tests\TestCase;
 
 // Use Cms specific TestCase only for this file
 uses(TestCase::class);
@@ -51,7 +46,7 @@ test('widget requires type parameter', function () {
     expect(function () {
         Livewire::test(RegistrationWidget::class);
     })
-        ->toThrow(Exception::class);
+        ->toThrow(\Exception::class);
 });
 
 test('widget can handle form data input', function () {
@@ -96,9 +91,9 @@ test('widget calls register method without fatal errors', function () {
     try {
         $widget->call('register');
         expect(true)->toBeTrue(); // Success path
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
         // Se fallisce per action class o validation, è normale in test
-        expect($e)->toBeInstanceOf(Exception::class);
+        expect($e)->toBeInstanceOf(\Exception::class);
     }
 });
 
@@ -119,9 +114,9 @@ test('widget handles different user types', function () {
         try {
             $widget->call('register');
             expect(true)->toBeTrue();
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Normale per environment di test
-            expect($e)->toBeInstanceOf(Exception::class);
+            expect($e)->toBeInstanceOf(\Exception::class);
         }
     }
 });

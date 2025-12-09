@@ -14,7 +14,6 @@ use Illuminate\Support\Str;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\PageContent;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-use Override;
 
 // use Illuminate\Database\Eloquent\Builder;
 // use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -26,7 +25,7 @@ class PageContentResource extends LangBaseResource
     /**
      * @return array<string, \Filament\Support\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

@@ -16,7 +16,7 @@ class PageManagementBusinessLogicTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_create_page_with_basic_information(): void
+    public function itCanCreatePageWithBasicInformation(): void
     {
         // Arrange
         $pageData = [
@@ -46,7 +46,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_page_with_content(): void
+    public function itCanCreatePageWithContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -76,7 +76,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_page_with_sections(): void
+    public function itCanCreatePageWithSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -106,7 +106,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_page_status(): void
+    public function itCanUpdatePageStatus(): void
     {
         // Arrange
         $page = Page::factory()->create(['status' => 'draft']);
@@ -124,7 +124,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_page_seo_metadata(): void
+    public function itCanUpdatePageSeoMetadata(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -149,7 +149,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_versions(): void
+    public function itCanManagePageVersions(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -181,7 +181,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_multilingual_page_content(): void
+    public function itCanManageMultilingualPageContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -212,7 +212,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_sections_order(): void
+    public function itCanManagePageSectionsOrder(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -248,7 +248,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reorder_page_sections(): void
+    public function itCanReorderPageSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -283,7 +283,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_validate_page_slug_uniqueness(): void
+    public function itCanValidatePageSlugUniqueness(): void
     {
         // Arrange
         Page::factory()->create(['slug' => 'unique-page']);
@@ -299,7 +299,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_handle_page_soft_delete(): void
+    public function itCanHandlePageSoftDelete(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -313,7 +313,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_restore_soft_deleted_page(): void
+    public function itCanRestoreSoftDeletedPage(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -328,7 +328,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_force_delete_page_with_related_data(): void
+    public function itCanForceDeletePageWithRelatedData(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -356,7 +356,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_search_pages_by_title(): void
+    public function itCanSearchPagesByTitle(): void
     {
         // Arrange
         $page1 = Page::factory()->create(['title' => 'Home Page']);
@@ -374,7 +374,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_search_pages_by_status(): void
+    public function itCanSearchPagesByStatus(): void
     {
         // Arrange
         $publishedPage = Page::factory()->create(['status' => 'published']);
@@ -393,7 +393,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_pages_with_related_content(): void
+    public function itCanGetPagesWithRelatedContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -415,7 +415,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_pages_with_related_sections(): void
+    public function itCanGetPagesWithRelatedSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -437,7 +437,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_templates(): void
+    public function itCanManagePageTemplates(): void
     {
         // Arrange
         $page = Page::factory()->create(['template' => 'default']);
@@ -455,7 +455,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_permissions(): void
+    public function itCanManagePagePermissions(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -479,7 +479,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_scheduling(): void
+    public function itCanManagePageScheduling(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -501,7 +501,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_categories(): void
+    public function itCanManagePageCategories(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -522,7 +522,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_tags(): void
+    public function itCanManagePageTags(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -543,7 +543,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_redirects(): void
+    public function itCanManagePageRedirects(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -566,7 +566,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_analytics(): void
+    public function itCanManagePageAnalytics(): void
     {
         // Arrange
         $page = Page::factory()->create();
