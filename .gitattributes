@@ -2,12 +2,4 @@
 *.css linguist-vendored
 *.scss linguist-vendored
 *.js linguist-vendored
-<<<<<<< HEAD
 CHANGELOG.md export-ignore
-=======
-<<<<<<< HEAD
-CHANGELOG.md export-ignore
-=======
-CHANGELOG.md export-ignore
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
