@@ -10,7 +10,7 @@ declare(strict_types=1);
 
 <div class="p-4 bg-white rounded-lg shadow">
     <div class="prose max-w-none">
-        @if($content)
+        @if ($content)
             {!! $content !!}
         @else
             <div class="text-gray-500">

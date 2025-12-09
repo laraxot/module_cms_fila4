@@ -12,10 +12,10 @@ declare(strict_types=1);
 @php
     // Use dynamic widget namespace from config or props
     $namespace = $widgetNamespace ?? config('cms.calendar_widget_namespace', 'App\\Filament\\Widgets');
-    
+
     $widgetClass = match($type) {
         'patient' => $namespace . '\\PatientCalendarWidget',
-        'doctor' => $namespace . '\\DoctorCalendarWidget', 
+        'doctor' => $namespace . '\\DoctorCalendarWidget',
         'admin' => $namespace . '\\AdminCalendarWidget',
         default => $namespace . '\\PatientCalendarWidget',
     };
