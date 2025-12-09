@@ -14,6 +14,7 @@ use Modules\Cms\Models\Module;
 use Modules\Cms\Models\Page;
 use Modules\Cms\Models\PageContent;
 use Modules\Cms\Models\Section;
+use Modules\Xot\Actions\Cast\SafeIntCastAction;
 
 /**
  * Seeder per creare grandi quantità di dati per il modulo Cms.
@@ -68,13 +69,14 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('🔧 Creazione moduli CMS...');
 
-        // Crea 20 moduli CMS
-        $modules = Module::factory(20)->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Module> $factory */
+        $factory = Module::factory();
+        $modules = $factory->count(20)->create([
             'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati '.$modules->count().' moduli CMS');
+        $this->command->info('✅ Creati '.SafeIntCastAction::cast($modules->count()).' moduli CMS');
     }
 
     /**
@@ -84,13 +86,14 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('📑 Creazione sezioni...');
 
-        // Crea 100 sezioni
-        $sections = Section::factory(100)->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Section> $factory */
+        $factory = Section::factory();
+        $sections = $factory->count(100)->create([
             'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Create '.$sections->count().' sezioni');
+        $this->command->info('✅ Create '.SafeIntCastAction::cast($sections->count()).' sezioni');
     }
 
     /**
@@ -100,13 +103,14 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('📄 Creazione pagine...');
 
-        // Crea 500 pagine
-        $pages = Page::factory(500)->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Page> $factory */
+        $factory = Page::factory();
+        $pages = $factory->count(500)->create([
             'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Create '.$pages->count().' pagine');
+        $this->command->info('✅ Create '.SafeIntCastAction::cast($pages->count()).' pagine');
     }
 
     /**
@@ -116,12 +120,13 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('📝 Creazione contenuti delle pagine...');
 
-        // Crea 1000 contenuti di pagina
-        $contents = PageContent::factory(1000)->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<PageContent> $factory */
+        $factory = PageContent::factory();
+        $contents = $factory->count(1000)->create([
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati '.$contents->count().' contenuti di pagina');
+        $this->command->info('✅ Creati '.SafeIntCastAction::cast($contents->count()).' contenuti di pagina');
     }
 
     /**
@@ -131,13 +136,14 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('🍽️ Creazione menu...');
 
-        // Crea 50 menu
-        $menus = Menu::factory(50)->create([
+        /** @var \Illuminate\Database\Eloquent\Factories\Factory<Menu> $factory */
+        $factory = Menu::factory();
+        $menus = $factory->count(50)->create([
             'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
 
-        $this->command->info('✅ Creati '.$menus->count().' menu');
+        $this->command->info('✅ Creati '.SafeIntCastAction::cast($menus->count()).' menu');
     }
 
     /**
