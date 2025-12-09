@@ -35,6 +35,9 @@ class RegisterComponent extends Component
     {
         /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
          * $validated = $this->validate([
          * 'name' => ['required', 'string', 'max:255'],
          * 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -51,6 +54,7 @@ class RegisterComponent extends Component
          *
          * return redirect()->intended(route('cms.dashboard'));
          */
+<<<<<<< HEAD
 =======
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -69,6 +73,8 @@ class RegisterComponent extends Component
         return redirect()->intended(route('cms.dashboard'));
         */
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         $this->validate();
 
         /** @var User $user */
