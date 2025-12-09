@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Cms\Models\Menu;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Menu>
-=======
-<<<<<<< HEAD
- * @extends Factory<Menu>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Cms\Models\Menu>
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
  */
 class MenuFactory extends Factory
 {
