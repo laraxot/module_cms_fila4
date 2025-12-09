@@ -40,7 +40,7 @@ $containerClasses = 'flex items-center ' .
 @endphp
 
 <div class="{{ $containerClasses }}">
-    @foreach($items as $item)
+    @foreach ($items as $item)
         @php
             $type = $item['type'] ?? 'button';
             $style = $item['style'] ?? 'default';
@@ -57,7 +57,7 @@ $containerClasses = 'flex items-center ' .
                $buttonClasses[$style] ?? $buttonClasses['default'],
                'gap-2' => $icon
            ])>
-            @if($icon)
+            @if ($icon)
                 <x-dynamic-component :component="$icon" class="w-5 h-5" />
             @endif
             {{ $label }}
