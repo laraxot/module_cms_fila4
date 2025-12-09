@@ -11,9 +11,9 @@ declare(strict_types=1);
     'page' => null
 ])
 
-@if(!empty($blocks))
+@if (!empty($blocks))
     <div class="page-{{ $side }}-content" data-slug="{{ $slug }}" data-side="{{ $side }}">
-        @foreach($blocks as $block)
+        @foreach ($blocks as $block)
             {{-- BlockData ha già gestito tutto: vista, dati, fallback --}}
             @include($block->view, $block->data)
         @endforeach
