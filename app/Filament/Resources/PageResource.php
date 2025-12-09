@@ -26,7 +26,7 @@ class PageResource extends LangBaseResource
     #[\Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'title' => TextInput::make('title')
                 ->required()
                 ->lazy()
@@ -48,6 +48,6 @@ class PageResource extends LangBaseResource
             'footer' => Section::make('Footer')->schema([
                 PageContentBuilder::make('footer_blocks')->columnSpanFull(),
             ]),
-        ];
+        ]);
     }
 }

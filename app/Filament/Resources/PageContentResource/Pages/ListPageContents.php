@@ -14,6 +14,9 @@ class ListPageContents extends LangBaseListRecords
 
     // protected static string $resource = PageContentResource::class;
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getGridTableColumns(): array
     {
         return [
@@ -21,6 +24,9 @@ class ListPageContents extends LangBaseListRecords
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getTableColumns(): array
     {
         return [

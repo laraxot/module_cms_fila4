@@ -11,6 +11,9 @@ use Modules\Xot\Datas\XotData;
 
 trait HasBlocks
 {
+    /**
+     * @return array<string, mixed>
+     */
     public function getBlocks(): array
     {
         $blocks = $this->blocks;
@@ -29,6 +32,9 @@ trait HasBlocks
         return BlockData::collect($blocks);
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function compile(array $blocks): array
     {
         foreach ($blocks as $key => $value) {

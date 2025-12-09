@@ -12,7 +12,7 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
-test('profile page is displayed', function () {
+test('profile page is displayed', function (): void {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
@@ -20,7 +20,7 @@ test('profile page is displayed', function () {
     actingAs($user)->get('/'.$lang.'/settings/profile')->assertOk();
 });
 
-test('profile information can be updated', function () {
+test('profile information can be updated', function (): void {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
@@ -43,7 +43,7 @@ test('profile information can be updated', function () {
         ->toBeNull();
 });
 
-test('email verification status is unchanged when email address is unchanged', function () {
+test('email verification status is unchanged when email address is unchanged', function (): void {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
@@ -59,7 +59,7 @@ test('email verification status is unchanged when email address is unchanged', f
     expect($user->refresh()->email_verified_at)->not->toBeNull();
 });
 
-test('user can delete their account', function () {
+test('user can delete their account', function (): void {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 
@@ -72,7 +72,7 @@ test('user can delete their account', function () {
     expect($user->fresh())->toBeNull()->and(auth()->check())->toBeFalse();
 });
 
-test('correct password must be provided to delete account', function () {
+test('correct password must be provided to delete account', function (): void {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->create();
 

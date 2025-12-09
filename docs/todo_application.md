@@ -66,7 +66,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Todo extends Model
 {
-    use HasFactory;
+    use \Modules\Xot\Models\Traits\HasXotFactory;
 
     protected $fillable = [
         'description',

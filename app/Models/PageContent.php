@@ -41,7 +41,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|PageContent whereUpdatedBy($value)
  *
  * @mixin \Eloquent
- */
+  * */
 class PageContent extends BaseModel
 {
     use HasTranslations;
@@ -71,11 +71,17 @@ class PageContent extends BaseModel
         'updated_by' => 'string',
     ];
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getRows(): array
     {
         return $this->getSushiRows();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function sluggable(): array
     {
         return [

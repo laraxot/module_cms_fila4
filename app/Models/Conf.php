@@ -32,6 +32,9 @@ class Conf extends BaseModel
         'name',
     ];
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getRows(): array
     {
         //  local/ptvx

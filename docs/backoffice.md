@@ -132,7 +132,7 @@ class AppointmentResource extends XotBaseResource
         ];
     }
     
-    public static function getListTableColumns(): array
+    public static function getTableColumns(): array
     {
         return [
             'patient.full_name' => Tables\Columns\TextColumn::make('patient.full_name')

@@ -14,14 +14,15 @@ use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
-test('reset password link screen can be rendered', function () {
+test('reset password link screen can be rendered', function (): void {
     $lang = app()->getLocale();
     $response = get('/'.$lang.'/forgot-password');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
-test('reset password link can be requested', function () {
+test('reset password link can be requested', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
@@ -32,7 +33,7 @@ test('reset password link can be requested', function () {
     Notification::assertSentTo($user, ResetPassword::class);
 });
 
-test('reset password screen can be rendered', function () {
+test('reset password screen can be rendered', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
@@ -43,13 +44,14 @@ test('reset password screen can be rendered', function () {
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($lang) {
         $response = get('/'.$lang.'/reset-password/'.$notification->token);
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
 
         return true;
     });
 });
 
-test('password can be reset with valid token', function () {
+test('password can be reset with valid token', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
@@ -65,6 +67,7 @@ test('password can be reset with valid token', function () {
             ->set('password_confirmation', 'password')
             ->call('resetPassword');
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors()->assertRedirect(route('login', absolute: false));
 
         return true;

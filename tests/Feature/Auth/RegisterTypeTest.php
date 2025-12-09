@@ -27,6 +27,7 @@ uses(TestCase::class);
  */
 
 // NOTE: Helper functions moved to Modules\Xot\Tests\TestCase for DRY pattern
+/** @phpstan-ignore-next-line property.notFound, method.nonObject */
 // Use $this->createTestUser()
 
 // Dataset statico per tipi utente comuni
@@ -35,13 +36,14 @@ dataset('userTypes', [
     'patient' => ['patient'],
 ]);
 
-describe('Registration Page Accessibility', function () {
+describe('Registration Page Accessibility', function (): void {
     test('guest can view :type registration page', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
         expect($response->status())->toBe(200);
     })->with('userTypes');
 
     test('authenticated user is redirected from :type registration page', function (string $type): void {
+        /** @phpstan-ignore-next-line property.notFound */
         $user = $this->createTestUser();
         actingAs($user);
 
@@ -50,12 +52,13 @@ describe('Registration Page Accessibility', function () {
     })->with('userTypes');
 });
 
-describe('Registration Page Content', function () {
+describe('Registration Page Content', function (): void {
     test(':type registration page contains expected elements', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
         expect($response->status())->toBe(200);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $content = $response->getContent();
         expect($content)->toContain('Registrazione')->toContain('Crea il tuo account'); // ->toContain('<x-ui.logo')
         // ->toContain('RegistrationWidget')
@@ -64,6 +67,7 @@ describe('Registration Page Content', function () {
     test(':type registration page has proper HTML structure', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $content = $response->getContent();
         expect($content)
             ->toContain('<!DOCTYPE html>')
@@ -74,18 +78,19 @@ describe('Registration Page Content', function () {
     })->with('userTypes');
 });
 
-describe('Registration Page Localization', function () {
+describe('Registration Page Localization', function (): void {
     test(':type registration page uses Italian localization', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
         expect($response->status())->toBe(200);
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $content = $response->getContent();
         expect($content)->toContain('Registrazione')->toContain('Crea il tuo account');
     })->with('userTypes');
 });
 
-describe('Registration Page Security', function () {
+describe('Registration Page Security', function (): void {
     // test('handles invalid user type gracefully', function (): void {
     //    $response = get('/it/auth/invalid-type/register');
     //     expect($response->status())->toBe(404);
@@ -96,7 +101,7 @@ describe('Registration Page Security', function () {
     // });
 });
 
-describe('Registration Page Performance', function () {
+describe('Registration Page Performance', function (): void {
     test(':type registration page loads within acceptable time limits', function (string $type): void {
         $startTime = microtime(true);
 

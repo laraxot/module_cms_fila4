@@ -28,7 +28,7 @@ class PageContentResource extends LangBaseResource
     #[\Override]
     public static function getFormSchema(): array
     {
-        return [
+        return array_values([
             'name' => TextInput::make('name')
                 ->required()
                 ->lazy()
@@ -44,6 +44,6 @@ class PageContentResource extends LangBaseResource
             'content' => Section::make('Content')->schema([
                 PageContentBuilder::make('blocks')->columnSpanFull(),
             ]),
-        ];
+        ]);
     }
 }
