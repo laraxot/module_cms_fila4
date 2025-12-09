@@ -8,14 +8,14 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
 use Spatie\Translatable\HasTranslations;
 
 test('page content model uses required traits', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     expect($pageContent)->toBeInstanceOf(SushiToJsons::class);
     expect(in_array(HasTranslations::class, class_uses($pageContent), strict: true))->toBeTrue();
 });
 
 test('page content has correct translatable attributes', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $expectedTranslatable = [
         'name',
@@ -26,7 +26,7 @@ test('page content has correct translatable attributes', function () {
 });
 
 test('page content has correct fillable attributes', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $expectedFillable = [
         'name',
@@ -38,7 +38,7 @@ test('page content has correct fillable attributes', function () {
 });
 
 test('page content has correct schema definition', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $expectedSchema = [
         'id' => 'integer',
@@ -55,7 +55,7 @@ test('page content has correct schema definition', function () {
 });
 
 test('page content has correct casts', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $expectedCasts = [
         'id' => 'string',
@@ -211,7 +211,7 @@ test('page content name validation for multilingual support', function () {
 });
 
 test('page content getRows method returns sushi rows', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $rows = $pageContent->getRows();
 
@@ -219,7 +219,7 @@ test('page content getRows method returns sushi rows', function () {
 });
 
 test('page content sluggable configuration', function () {
-    $pageContent = new PageContent;
+    $pageContent = new PageContent();
 
     $sluggable = $pageContent->sluggable();
 

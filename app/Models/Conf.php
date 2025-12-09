@@ -38,7 +38,7 @@ class Conf extends BaseModel
     public function getRows(): array
     {
         //  local/ptvx
-        /** @var array<string, mixed> */
+        /* @var array<string, mixed> */
         return TenantService::getConfigNames();
     }
 

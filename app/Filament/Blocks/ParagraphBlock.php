@@ -6,7 +6,6 @@ namespace Modules\Cms\Filament\Blocks;
 
 use Filament\Forms\Components\RichEditor;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use Override;
 
 class ParagraphBlock extends XotBaseBlock
 {
