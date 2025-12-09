@@ -12,10 +12,14 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  */
 return new class extends XotBaseMigration {
 <<<<<<< HEAD
+<<<<<<< HEAD
     protected null|string $model_class = Page::class;
 =======
     protected ?string $model_class = Page::class;
 >>>>>>> 3401a6b (.)
+=======
+    protected null|string $model_class = Page::class;
+>>>>>>> 1377a46 (.)
 
     /**
      * db up.
@@ -24,6 +28,9 @@ return new class extends XotBaseMigration {
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
 
@@ -62,6 +69,7 @@ return new class extends XotBaseMigration {
                 hasSoftDeletes: true,
             );
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -100,5 +108,7 @@ return new class extends XotBaseMigration {
             }
         );
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     }
 };

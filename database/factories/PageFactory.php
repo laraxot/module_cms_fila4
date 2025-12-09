@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Modules\Cms\Database\Factories;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -13,6 +16,7 @@ use Webmozart\Assert\Assert;
 
 use function Safe\preg_replace;
 
+<<<<<<< HEAD
 =======
 use Illuminate\Support\Str;
 use Modules\Cms\Models\Page;
@@ -23,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 /**
  * @extends Factory<Page>
  */

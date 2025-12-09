@@ -41,10 +41,14 @@ class BaseModelFactory extends Factory
     public function active(): static
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
 =======
         return $this->state(fn (array $attributes) => [
 >>>>>>> 3401a6b (.)
+=======
+        return $this->state(fn(array $_attributes) => [
+>>>>>>> 1377a46 (.)
             'is_active' => true,
         ]);
     }
@@ -55,10 +59,14 @@ class BaseModelFactory extends Factory
     public function visible(): static
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
 =======
         return $this->state(fn (array $attributes) => [
 >>>>>>> 3401a6b (.)
+=======
+        return $this->state(fn(array $_attributes) => [
+>>>>>>> 1377a46 (.)
             'is_visible' => true,
         ]);
     }

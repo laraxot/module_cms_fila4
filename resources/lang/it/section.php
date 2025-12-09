@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 
@@ -9,6 +12,7 @@ return [
         'label' => 'section.navigation',
         'group' => 'section.navigation',
         'icon' => 'section.navigation',
+<<<<<<< HEAD
 =======
 return [
     'navigation' => [
@@ -17,6 +21,8 @@ return [
         'group' => 'Contenuti',
         'icon' => 'heroicon-o-document-text',
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         'sort' => 65,
     ],
 ];

@@ -10,10 +10,14 @@ use Modules\Cms\Models\Conf;
 /**
  * Conf Factory
 <<<<<<< HEAD
+<<<<<<< HEAD
  *
 =======
  * 
 >>>>>>> 3401a6b (.)
+=======
+ *
+>>>>>>> 1377a46 (.)
  * @extends Factory<Conf>
  */
 class ConfFactory extends Factory
@@ -44,7 +48,11 @@ class ConfFactory extends Factory
         ]);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> 3401a6b (.)
+=======
+}
+>>>>>>> 1377a46 (.)

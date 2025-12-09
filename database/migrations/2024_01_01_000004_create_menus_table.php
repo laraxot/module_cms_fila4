@@ -16,6 +16,9 @@ return new class extends XotBaseMigration {
     {
         // -- CREATE --
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
 
@@ -40,6 +43,7 @@ return new class extends XotBaseMigration {
                 hasSoftDeletes: true,
             );
         });
+<<<<<<< HEAD
 =======
         $this->tableCreate(
             static function (Blueprint $table): void {
@@ -67,5 +71,7 @@ return new class extends XotBaseMigration {
             }
         );
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     }
 };

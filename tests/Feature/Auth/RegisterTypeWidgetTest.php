@@ -11,12 +11,18 @@ use Modules\User\Filament\Widgets\RegistrationWidget;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 =======
 use function Pest\Laravel\{get, actingAs};
 >>>>>>> 3401a6b (.)
+=======
+
+use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
+>>>>>>> 1377a46 (.)
 
 // Use Cms specific TestCase only for this file
 uses(TestCase::class);
@@ -55,31 +61,44 @@ test('widget requires type parameter', function () {
     expect(function () {
         Livewire::test(RegistrationWidget::class);
 <<<<<<< HEAD
+<<<<<<< HEAD
     })
         ->toThrow(Exception::class);
 =======
     })->toThrow(Exception::class);
 >>>>>>> 3401a6b (.)
+=======
+    })
+        ->toThrow(Exception::class);
+>>>>>>> 1377a46 (.)
 });
 
 test('widget can handle form data input', function () {
     // ✅ Utilizzo funzione centralizzata dal TestCase
     $email = static::generateUniqueEmail();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+
+>>>>>>> 1377a46 (.)
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->set('data.email', $email)
         ->set('data.name', 'Test User')
         ->assertSet('data.email', $email)
         ->assertSet('data.name', 'Test User');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+
+>>>>>>> 1377a46 (.)
     expect($widget->get('data.email'))->toBe($email);
 });
 
@@ -88,6 +107,9 @@ test('widget maintains state after setting multiple fields', function () {
         'name' => 'Test Patient',
         'email' => static::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
         'password' => 'TestPassword123!',
     ];
 
@@ -97,6 +119,7 @@ test('widget maintains state after setting multiple fields', function () {
         $widget->set("data.{$field}", $value);
     }
 
+<<<<<<< HEAD
 =======
         'password' => 'TestPassword123!'
     ];
@@ -108,6 +131,8 @@ test('widget maintains state after setting multiple fields', function () {
     }
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     foreach ($testData as $field => $value) {
         expect($widget->get("data.{$field}"))->toBe($value);
     }
@@ -133,10 +158,14 @@ test('widget calls register method without fatal errors', function () {
 test('widget works with Livewire testing framework', function () {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient']);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+
+>>>>>>> 1377a46 (.)
     // Verifica che il widget sia compatibile con Livewire testing
     expect($widget)->not()->toBeNull();
 });
@@ -162,6 +191,9 @@ test('widget maintains state after form errors', function () {
     $email = 'invalid-email';
     $name = 'Test User';
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])->set('data.email', $email)->set(
         'data.name',
@@ -170,6 +202,7 @@ test('widget maintains state after form errors', function () {
 
     // Anche dopo errori, i dati dovrebbero rimanere
     expect($widget->get('data.email'))->toBe($email)->and($widget->get('data.name'))->toBe($name);
+<<<<<<< HEAD
 =======
     
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
@@ -180,4 +213,6 @@ test('widget maintains state after form errors', function () {
     expect($widget->get('data.email'))->toBe($email)
         ->and($widget->get('data.name'))->toBe($name);
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 });

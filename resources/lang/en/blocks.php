@@ -1,11 +1,17 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
 =======
 >>>>>>> 3401a6b (.)
+=======
+declare(strict_types=1);
+
+
+>>>>>>> 1377a46 (.)
 return [
     'logo' => [
         'label' => 'Logo',
@@ -29,9 +35,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'navigation' => [
         'label' => 'Navigation',
         'fields' => [
@@ -46,9 +55,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'social' => [
         'label' => 'Social',
         'fields' => [
