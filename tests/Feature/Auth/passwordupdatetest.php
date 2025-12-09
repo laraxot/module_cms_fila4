@@ -1,22 +1,10 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-<<<<<<< HEAD
-=======
-namespace Modules\Cms\Tests\Feature\Auth;
-
-
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
 use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
@@ -55,12 +43,4 @@ test('correct password must be provided to update password', function () {
         ->call('updatePassword');
 
     $response->assertHasErrors(['current_password']);
-<<<<<<< HEAD
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 3401a6b (.)
-=======
-});
->>>>>>> 1377a46 (.)
