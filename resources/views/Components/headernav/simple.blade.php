@@ -19,25 +19,25 @@ declare(strict_types=1);
                     </div>
                 </div>
             </div>
-            
+
             <div :class="{ 'flex' : mobileMenuOpen, 'hidden md:flex' :  !mobileMenuOpen }" class="fixed top-0 left-0 z-40 flex-col items-start justify-start hidden w-full h-full min-h-screen pt-20 space-y-5 text-sm font-medium duration-150 ease-out transform md:pt-0 text-neutral-500 md:h-auto md:min-h-0 md:left-auto md:items-center md:relative">
                 <nav class="flex flex-col w-full p-6 space-y-2 bg-white md:p-0 md:flex-row md:space-x-2 md:space-y-0 md:w-auto md:bg-transparent md:flex">
                     {{-- <x-ui.nav-link href="/">Home</x-ui.nav-link> --}}
-                    @foreach($_theme->getMenu('headernav_right') as $item)
+                    @foreach ($_theme->getMenu('headernav_right') as $item)
                         <x-ui.nav-link href="{{ $_theme->getMenuUrl($item) }}">{{ $item['title'] }}</x-ui.nav-link>
                     @endforeach
 
-                    {{-- 
+                    {{--
                     <x-ui.nav-link href="/">Home</x-ui.nav-link>
                     <x-ui.nav-link href="/genesis/about">About</x-ui.nav-link>
-                    @if(view()->exists('pages.blog.index'))
+                    @if (view()->exists('pages.blog.index'))
                         <x-ui.nav-link href="/blog">Blog</x-ui.nav-link>
                     @endif
-                    <x-ui.nav-link href="/genesis/power-ups">Power-ups</x-ui.nav-link> 
+                    <x-ui.nav-link href="/genesis/power-ups">Power-ups</x-ui.nav-link>
                     --}}
                 </nav>
             </div>
-           
+
         </div>
         <div class="relative z-50 flex items-stretch space-x-3 text-neutral-800">
         {{--<livewire:lang.change></livewire:lang.change>
@@ -45,14 +45,14 @@ declare(strict_types=1);
                 <x-ui.light-dark-switch></x-ui.light-dark-switch>
             </div>--}}
             @auth
-                {{--  
+                {{--
                 <div class="flex items-center w-auto">
                     <x-ui.button type="primary" submit="true" tag="a" href="{{ route('profile.edit') }}">
                         View Dashboard
                     </x-ui.button>
                 </div>
                 --}}
-                  
+
                 <div class="flex items-center w-auto">
                     <x-filament::dropdown>
                         <x-slot name="trigger">
@@ -91,7 +91,7 @@ declare(strict_types=1);
                         </x-filament::dropdown.list>
                     </x-filament::dropdown>
                 </div>
-                
+
             @else
                 <div class="flex items-center w-auto">
                     <x-ui.button type="secondary" submit="true" tag="a" href="{{ route('login') }}">

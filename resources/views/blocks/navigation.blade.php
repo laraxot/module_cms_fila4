@@ -32,7 +32,7 @@ $navClasses = $orientationClasses[$orientation] . ' ' . $alignmentClasses[$align
 @endphp
 
 <nav class="{{ $navClasses }}">
-    @foreach($items as $item)
+    @foreach ($items as $item)
         @php
             $type = $item['type'] ?? 'link';
             $label = is_array($item['label']) ? ($item['label'][$locale] ?? '') : ($item['label'] ?? '');
@@ -41,7 +41,7 @@ $navClasses = $orientationClasses[$orientation] . ' ' . $alignmentClasses[$align
             $buttonStyle = $type === 'button' ? ($item['style'] ?? 'default') : 'default';
         @endphp
 
-        @if($type === 'dropdown' && $hasChildren)
+        @if ($type === 'dropdown' && $hasChildren)
             <div class="relative group">
                 <button class="flex items-center px-3 py-2 text-gray-700 hover:text-gray-900">
                     {{ $label }}
@@ -51,7 +51,7 @@ $navClasses = $orientationClasses[$orientation] . ' ' . $alignmentClasses[$align
                 </button>
                 <div class="absolute left-0 hidden pt-2 group-hover:block z-50">
                     <div class="bg-white border rounded-md shadow-lg min-w-[200px]">
-                        @foreach($item['children'] as $child)
+                        @foreach ($item['children'] as $child)
                             @php
                                 $childLabel = is_array($child['label']) ? ($child['label'][$locale] ?? '') : ($child['label'] ?? '');
                                 $childUrl = is_array($child['url']) ? ($child['url'][$locale] ?? '#') : ($child['url'] ?? '#');
@@ -66,7 +66,7 @@ $navClasses = $orientationClasses[$orientation] . ' ' . $alignmentClasses[$align
                     </div>
                 </div>
             </div>
-        @elseif($type === 'button')
+        @elseif ($type === 'button')
             <a href="{{ $url }}"
                class="inline-flex items-center px-4 py-2 border rounded-md shadow-sm text-sm font-medium {{ $buttonClasses[$buttonStyle] }}">
                 {{ $label }}
