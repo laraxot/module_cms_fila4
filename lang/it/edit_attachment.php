@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 return [
@@ -15,3 +16,22 @@ return [
         ],
     ],
 ];
+=======
+return array (
+  'actions' => 
+  array (
+    'activeLocale' => 
+    array (
+      'label' => 'activeLocale',
+    ),
+    'save' => 
+    array (
+      'label' => 'save',
+    ),
+    'cancel' => 
+    array (
+      'label' => 'cancel',
+    ),
+  ),
+);
+>>>>>>> 3401a6b (.)
