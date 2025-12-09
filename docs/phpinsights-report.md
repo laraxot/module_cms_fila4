@@ -6,7 +6,7 @@
 - Blocco principale: **Style score < 90%** dovuto a conflitti irrisolti e violazioni PSR / naming.
 
 ## finding prioritari
-- **File con sintassi non valida** (`<<` ancora presenti in molte Blade e test del modulo UI) → PHPStan/Insights non possono raggiungere 100% finché non si sanano i merge conflicts cross-modulo.
+- **File con sintassi non valida** (`[CONFLICT markers]` ancora presenti in molte Blade e test del modulo UI) → PHPStan/Insights non possono raggiungere 100% finché non si sanano i merge conflicts cross-modulo.
 - **Setter vietati** (`Welcome::setModel`) e variabili temporanee inutili (`Dashboard::$widgets`, `HasBlocks::$res`).
 - **Naming non conforme**: uso esteso di snake_case in proprietà pubbliche (`$view_type`, `$primary_lang`, `$theme_path`, `$lang_dir`...).
 - **Classi non `final|abstract`**: componenti Blade/Filament devono essere finalizzati secondo regole Laraxot.
