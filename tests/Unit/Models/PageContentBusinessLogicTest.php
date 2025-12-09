@@ -1,21 +1,20 @@
 <?php
 
 declare(strict_types=1);
-use function Safe\class_uses;
 
 use Illuminate\Database\QueryException;
 use Modules\Cms\Models\PageContent;
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Spatie\Translatable\HasTranslations;
 
-test('page content model uses required traits', function (): void {
+test('page content model uses required traits', function () {
     $pageContent = new PageContent;
 
     expect($pageContent)->toBeInstanceOf(SushiToJsons::class);
     expect(in_array(HasTranslations::class, class_uses($pageContent), strict: true))->toBeTrue();
 });
 
-test('page content has correct translatable attributes', function (): void {
+test('page content has correct translatable attributes', function () {
     $pageContent = new PageContent;
 
     $expectedTranslatable = [
@@ -26,7 +25,7 @@ test('page content has correct translatable attributes', function (): void {
     expect($pageContent->translatable)->toBe($expectedTranslatable);
 });
 
-test('page content has correct fillable attributes', function (): void {
+test('page content has correct fillable attributes', function () {
     $pageContent = new PageContent;
 
     $expectedFillable = [
@@ -38,7 +37,7 @@ test('page content has correct fillable attributes', function (): void {
     expect($pageContent->getFillable())->toBe($expectedFillable);
 });
 
-test('page content has correct schema definition', function (): void {
+test('page content has correct schema definition', function () {
     $pageContent = new PageContent;
 
     $expectedSchema = [
@@ -55,7 +54,7 @@ test('page content has correct schema definition', function (): void {
     expect($pageContent->schema)->toBe($expectedSchema);
 });
 
-test('page content has correct casts', function (): void {
+test('page content has correct casts', function () {
     $pageContent = new PageContent;
 
     $expectedCasts = [
@@ -71,9 +70,8 @@ test('page content has correct casts', function (): void {
     expect($pageContent->casts())->toBe($expectedCasts);
 });
 
-test('page content can be created with basic data', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create([
+test('page content can be created with basic data', function () {
+    $pageContent = PageContent::factory()->create([
         'slug' => 'test-content',
         'name' => ['en' => 'Test Content', 'it' => 'Contenuto di Test'],
         'blocks' => [['type' => 'text', 'content' => 'Test content']],
@@ -85,7 +83,7 @@ test('page content can be created with basic data', function (): void {
         ->blocks->toBe([['type' => 'text', 'content' => 'Test content']]);
 });
 
-test('page content blocks support complex structures', function (): void {
+test('page content blocks support complex structures', function () {
     $blocks = [
         [
             'type' => 'hero',
@@ -112,8 +110,7 @@ test('page content blocks support complex structures', function (): void {
         ],
     ];
 
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create(['blocks' => $blocks]);
+    $pageContent = PageContent::factory()->create(['blocks' => $blocks]);
 
     expect($pageContent->blocks)
         ->toBeArray()
@@ -125,9 +122,8 @@ test('page content blocks support complex structures', function (): void {
         );
 });
 
-test('page content supports multilingual name', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create([
+test('page content supports multilingual name', function () {
+    $pageContent = PageContent::factory()->create([
         'name' => [
             'en' => 'Home Content',
             'it' => 'Contenuto Home',
@@ -144,7 +140,7 @@ test('page content supports multilingual name', function (): void {
         ->toHaveKey('fr', 'Contenu Principal');
 });
 
-test('page content supports multilingual blocks', function (): void {
+test('page content supports multilingual blocks', function () {
     $blocks = [
         'en' => [
             ['type' => 'text', 'content' => 'English content'],
@@ -157,8 +153,7 @@ test('page content supports multilingual blocks', function (): void {
         ],
     ];
 
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create(['blocks' => $blocks]);
+    $pageContent = PageContent::factory()->create(['blocks' => $blocks]);
 
     expect($pageContent->blocks)
         ->toBeArray()
@@ -168,9 +163,8 @@ test('page content supports multilingual blocks', function (): void {
         ->es->toBeArray()->toHaveCount(1);
 });
 
-test('page content factory creates valid instances', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->make();
+test('page content factory creates valid instances', function () {
+    $pageContent = PageContent::factory()->make();
 
     expect($pageContent)
         ->slug->toBeString()
@@ -180,22 +174,20 @@ test('page content factory creates valid instances', function (): void {
         ->blocks->toBeArray();
 });
 
-test('page content slug must be unique', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent1 = PageContent/** @phpstan-ignore-line */ ::factory()->create(['slug' => 'unique-content']);
+test('page content slug must be unique', function () {
+    $pageContent1 = PageContent::factory()->create(['slug' => 'unique-content']);
 
-    expect(fn () => PageContent/** @phpstan-ignore-line */ ::factory()->create(['slug' => 'unique-content']))
+    expect(fn () => PageContent::factory()->create(['slug' => 'unique-content']))
         ->toThrow(QueryException::class);
 });
 
-test('page content blocks validation', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->make(['blocks' => 'invalid-string']);
+test('page content blocks validation', function () {
+    $pageContent = PageContent::factory()->make(['blocks' => 'invalid-string']);
 
     expect($pageContent->save(...))->toThrow(QueryException::class);
 });
 
-test('page content handles large blocks efficiently', function (): void {
+test('page content handles large blocks efficiently', function () {
     $largeBlocks = array_map(
         fn ($i) => [
             'type' => 'card',
@@ -207,38 +199,34 @@ test('page content handles large blocks efficiently', function (): void {
         range(1, 50),
     );
 
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create(['blocks' => $largeBlocks]);
+    $pageContent = PageContent::factory()->create(['blocks' => $largeBlocks]);
 
     expect($pageContent->fresh()->blocks)->toBeArray()->toHaveCount(50);
 });
 
-test('page content name validation for multilingual support', function (): void {
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->make(['name' => 'invalid-string']);
+test('page content name validation for multilingual support', function () {
+    $pageContent = PageContent::factory()->make(['name' => 'invalid-string']);
 
     expect($pageContent->save(...))->toThrow(QueryException::class);
 });
 
-test('page content getRows method returns sushi rows', function (): void {
+test('page content getRows method returns sushi rows', function () {
     $pageContent = new PageContent;
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $rows = $pageContent->getRows();
 
     expect($rows)->toBeArray();
 });
 
-test('page content sluggable configuration', function (): void {
+test('page content sluggable configuration', function () {
     $pageContent = new PageContent;
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $sluggable = $pageContent->sluggable();
 
     expect($sluggable)->toBeArray()->toHaveKey('slug')->slug->toBeArray()->toHaveKey('source', 'title');
 });
 
-test('page content with complex nested block structures', function (): void {
+test('page content with complex nested block structures', function () {
     $complexBlocks = [
         [
             'type' => 'accordion',
@@ -291,8 +279,7 @@ test('page content with complex nested block structures', function (): void {
         ],
     ];
 
-    /** @var \Illuminate\Database\Eloquent\Collection */
-        $pageContent = PageContent/** @phpstan-ignore-line */ ::factory()->create(['blocks' => $complexBlocks]);
+    $pageContent = PageContent::factory()->create(['blocks' => $complexBlocks]);
 
     expect($pageContent->fresh()->blocks)
         ->toBeArray()
