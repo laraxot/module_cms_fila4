@@ -1,8 +1,8 @@
-# Strategia Contenuti Pagine - SaluteOra
+# Strategia Contenuti Pagine - <main module>
 
 ## Filosofia dei Contenuti
 
-SaluteOra segue una filosofia di contenuti modulari e riutilizzabili che riflette la missione sociale del progetto: **garantire l'accesso alla salute orale per le gestanti vulnerabili**.
+<main module> segue una filosofia di contenuti modulari e riutilizzabili che riflette la missione sociale del progetto: **garantire l'accesso alla salute orale per le gestanti vulnerabili**.
 
 ### Principi Guida
 

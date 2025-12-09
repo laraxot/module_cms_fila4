@@ -4,7 +4,7 @@
 1. [Introduzione](#introduzione)
 2. [Named Routes in Laravel Folio](#named-routes-in-laravel-folio)
 3. [Vantaggi dell'Uso di Named Routes](#vantaggi-delluso-di-named-routes)
-4. [Implementazione in il progetto](#implementazione-in-saluteora)
+4. [Implementazione in il progetto](#implementazione-in-<nome progetto>)
 5. [Esempi Pratici](#esempi-pratici)
 6. [Errori Comuni e Best Practices](#errori-comuni-e-best-practices)
 
