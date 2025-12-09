@@ -69,7 +69,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
     {
         $xot = $this->xot;
 
-        Assert::string($theme = $xot->{$theme_type}, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        Assert::string($theme = $xot->{$theme_type}, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
         $theme_path = 'Themes/'.$theme;
         $resource_path = $theme_path.'/resources';
         $lang_dir = app(FixPathAction::class)->execute(base_path($theme_path.'/lang'));
