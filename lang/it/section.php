@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 return [
@@ -278,6 +281,7 @@ return [
         'bulk_deleted' => 'Sezioni eliminate con successo',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'navigation' => 
@@ -641,3 +645,5 @@ return array (
   ),
 );
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
