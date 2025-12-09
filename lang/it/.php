@@ -1,267 +1,267 @@
 <?php
 
 return array (
-  'fields' => 
+  'fields' =>
   array (
-    'title' => 
+    'title' =>
     array (
       'label' => 'title',
     ),
-    'slug' => 
+    'slug' =>
     array (
       'label' => 'slug',
     ),
-    'items' => 
+    'items' =>
     array (
       'label' => 'items',
     ),
-    'label' => 
+    'label' =>
     array (
       'label' => 'label',
     ),
-    'url' => 
+    'url' =>
     array (
       'label' => 'url',
     ),
-    'style' => 
+    'style' =>
     array (
       'label' => 'style',
     ),
-    'icon' => 
+    'icon' =>
     array (
       'label' => 'icon',
     ),
-    'size' => 
+    'size' =>
     array (
       'label' => 'size',
     ),
-    'alignment' => 
+    'alignment' =>
     array (
       'label' => 'alignment',
     ),
-    'gap' => 
+    'gap' =>
     array (
       'label' => 'gap',
     ),
-    'view' => 
+    'view' =>
     array (
       'label' => 'view',
     ),
-    'description' => 
+    'description' =>
     array (
       'label' => 'description',
     ),
-    'email' => 
+    'email' =>
     array (
       'label' => 'email',
     ),
-    'phone' => 
+    'phone' =>
     array (
       'label' => 'phone',
     ),
-    'address' => 
+    'address' =>
     array (
       'label' => 'address',
     ),
-    'map_url' => 
+    'map_url' =>
     array (
       'label' => 'map_url',
     ),
-    'button_text' => 
+    'button_text' =>
     array (
       'label' => 'button_text',
     ),
-    'button_link' => 
+    'button_link' =>
     array (
       'label' => 'button_link',
     ),
-    'sections' => 
+    'sections' =>
     array (
       'label' => 'sections',
     ),
-    'subtitle' => 
+    'subtitle' =>
     array (
       'label' => 'subtitle',
     ),
-    'image' => 
+    'image' =>
     array (
       'label' => 'image',
     ),
-    'cta_text' => 
+    'cta_text' =>
     array (
       'label' => 'cta_text',
     ),
-    'cta_link' => 
+    'cta_link' =>
     array (
       'label' => 'cta_link',
     ),
-    'background_color' => 
+    'background_color' =>
     array (
       'label' => 'background_color',
     ),
-    'text_color' => 
+    'text_color' =>
     array (
       'label' => 'text_color',
     ),
-    'cta_color' => 
+    'cta_color' =>
     array (
       'label' => 'cta_color',
     ),
-    'logo' => 
+    'logo' =>
     array (
       'label' => 'logo',
     ),
-    'copyright' => 
+    'copyright' =>
     array (
       'label' => 'copyright',
     ),
-    'links' => 
+    'links' =>
     array (
       'label' => 'links',
     ),
-    'alt' => 
+    'alt' =>
     array (
       'label' => 'alt',
     ),
-    'text' => 
+    'text' =>
     array (
       'label' => 'text',
     ),
-    'type' => 
+    'type' =>
     array (
       'label' => 'type',
     ),
-    'width' => 
+    'width' =>
     array (
       'label' => 'width',
     ),
-    'height' => 
+    'height' =>
     array (
       'label' => 'height',
     ),
-    'children' => 
+    'children' =>
     array (
       'label' => 'children',
     ),
-    'orientation' => 
+    'orientation' =>
     array (
       'label' => 'orientation',
     ),
-    'placeholder' => 
+    'placeholder' =>
     array (
       'label' => 'placeholder',
     ),
-    'success_message' => 
+    'success_message' =>
     array (
       'label' => 'success_message',
     ),
-    'error_message' => 
+    'error_message' =>
     array (
       'label' => 'error_message',
     ),
-    'content' => 
+    'content' =>
     array (
       'label' => 'content',
     ),
-    'target' => 
+    'target' =>
     array (
       'label' => 'target',
     ),
-    'social_links' => 
+    'social_links' =>
     array (
       'label' => 'social_links',
     ),
-    'platform' => 
+    'platform' =>
     array (
       'label' => 'platform',
     ),
-    'stats' => 
+    'stats' =>
     array (
       'label' => 'stats',
     ),
-    'number' => 
+    'number' =>
     array (
       'label' => 'number',
     ),
-    'level' => 
+    'level' =>
     array (
       'label' => 'level',
     ),
-    'background' => 
+    'background' =>
     array (
       'label' => 'background',
     ),
-    'buttons' => 
+    'buttons' =>
     array (
       'label' => 'buttons',
     ),
-    'class' => 
+    'class' =>
     array (
       'label' => 'class',
     ),
-    'link' => 
+    'link' =>
     array (
       'label' => 'link',
     ),
-    'ratio' => 
+    'ratio' =>
     array (
       'label' => 'ratio',
     ),
-    'caption' => 
+    'caption' =>
     array (
       'label' => 'caption',
     ),
-    'img_uuid' => 
+    'img_uuid' =>
     array (
       'label' => 'img_uuid',
     ),
-    'gallery' => 
+    'gallery' =>
     array (
       'label' => 'gallery',
     ),
-    'version' => 
+    'version' =>
     array (
       'label' => 'version',
     ),
-    'method' => 
+    'method' =>
     array (
       'label' => 'method',
     ),
-    'video' => 
+    'video' =>
     array (
       'label' => 'video',
     ),
-    'content_blocks' => 
+    'content_blocks' =>
     array (
       'label' => 'content_blocks',
     ),
-    'sidebar_blocks' => 
+    'sidebar_blocks' =>
     array (
       'label' => 'sidebar_blocks',
     ),
-    'footer_blocks' => 
+    'footer_blocks' =>
     array (
       'label' => 'footer_blocks',
     ),
   ),
-  'actions' => 
+  'actions' =>
   array (
-    'activeLocale' => 
+    'activeLocale' =>
     array (
       'label' => 'activeLocale',
     ),
-    'save' => 
+    'save' =>
     array (
       'label' => 'save',
     ),
-    'cancel' => 
+    'cancel' =>
     array (
       'label' => 'cancel',
     ),
   ),
-  'sections' => 
+  'sections' =>
   array (
-    'empty' => 
+    'empty' =>
     array (
       'heading' => '',
       'label' => 'empty',

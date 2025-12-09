@@ -31,7 +31,7 @@ describe('Menu Business Logic', function () {
     });
 
     test('menu has expected fillable fields', function () {
-        $menu = new Menu();
+        $menu = new Menu;
         $expectedFillable = [
             'title',
             'items',
@@ -48,14 +48,14 @@ describe('Menu Business Logic', function () {
     });
 
     test('menu can get label', function () {
-        $menu = new Menu();
+        $menu = new Menu;
         $menu->title = 'Test Menu';
 
         expect($menu->getLabel())->toBe('Test Menu');
     });
 
     test('menu has correct casts for structured data', function () {
-        $menu = new Menu();
+        $menu = new Menu;
         $casts = $menu->getCasts();
 
         expect($casts['items'])->toBe('array');
@@ -63,7 +63,7 @@ describe('Menu Business Logic', function () {
     });
 
     test('menu has schema definition for structured data', function () {
-        $menu = new Menu();
+        $menu = new Menu;
 
         expect($menu)->toHaveProperty('schema');
         expect($menu->schema['title'])->toBe('string');
@@ -71,7 +71,7 @@ describe('Menu Business Logic', function () {
     });
 
     test('menu can get rows for sushi functionality', function () {
-        $menu = new Menu();
+        $menu = new Menu;
 
         expect(method_exists($menu, 'getRows'))->toBeTrue();
     });

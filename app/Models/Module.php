@@ -11,8 +11,8 @@ use Sushi\Sushi;
 /**
  * Modules\Cms\Models\Module.
  *
- * @property string                                      $id
- * @property string|null                                 $name
+ * @property string $id
+ * @property string|null $name
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
