@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Support\Collection;
 use Illuminate\Contracts\Console\Kernel;
 use Modules\Activity\Models\Activity;
 use Modules\Geo\Models\Address;
@@ -77,11 +78,9 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Create basic system records using factories
-        $this->createRecords('System Users', function () {
-            return User::factory(10)->create();
-        });
+        $this->createRecords('System Users', fn() => User::factory(10)->create());
 
-        $this->createRecords('System Roles', function () {
+        $this->createRecords('System Roles', function (): Collection {
             // Create basic roles
             $roles = ['admin', 'doctor', 'patient', 'staff'];
             $created = [];
@@ -92,7 +91,7 @@ class DatabasePopulator
             return collect($created);
         });
 
-        $this->createRecords('System Permissions', function () {
+        $this->createRecords('System Permissions', function (): Collection {
             // Create basic permissions
             $permissions = [
                 'view_patients', 'create_patients', 'edit_patients', 'delete_patients',
@@ -115,13 +114,9 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Create addresses using the working factory
-        $this->createRecords('Addresses', function () {
-            return Address::factory(200)->create();
-        });
+        $this->createRecords('Addresses', fn() => Address::factory(200)->create());
 
-        $this->createRecords('Locations', function () {
-            return Location::factory(100)->create();
-        });
+        $this->createRecords('Locations', fn() => Location::factory(100)->create());
     }
 
     private function populateUserData(): void
@@ -130,7 +125,7 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Create teams without problematic fields
-        $this->createRecords('Teams', function () {
+        $this->createRecords('Teams', function (): Collection {
             $teams = [];
             $teamData = [
                 ['name' => 'Sistema', 'description' => 'Team di sistema'],
@@ -156,36 +151,36 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Studios
-        $this->createRecords('Studios', function () {
+        $this->createRecords('Studios', function (): Collection {
             return collect(); // Studio::factory(25)->create();
         });
 
         // Patients with unique email handling
-        $this->createRecords('Patients', function () {
+        $this->createRecords('Patients', function (): Collection {
             DB::statement('DELETE FROM users WHERE type = "patient"');
 
             return collect(); // Patient::factory(500)->create();
         });
 
         // Doctors with unique email handling
-        $this->createRecords('Doctors', function () {
+        $this->createRecords('Doctors', function (): Collection {
             DB::statement('DELETE FROM users WHERE type = "doctor"');
 
             return collect(); // Doctor::factory(50)->create();
         });
 
         // Appointments
-        $this->createRecords('Appointments', function () {
+        $this->createRecords('Appointments', function (): Collection {
             return collect(); // Appointment::factory(1000)->create();
         });
 
         // Reports
-        $this->createRecords('Reports', function () {
+        $this->createRecords('Reports', function (): Collection {
             return collect(); // Report::factory(300)->create();
         });
 
         // Profiles
-        $this->createRecords('Profiles', function () {
+        $this->createRecords('Profiles', function (): Collection {
             return collect(); // Profile::factory(600)->create();
         });
     }
@@ -196,9 +191,7 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Activity logs
-        $this->createRecords('Activities', function () {
-            return Activity::factory(2000)->create();
-        });
+        $this->createRecords('Activities', fn() => Activity::factory(2000)->create());
 
         // Skip CMS for now due to schema issues
         echo "⚠️  Skipping CMS data due to schema incompatibilities\n";
