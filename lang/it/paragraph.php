@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 return [
@@ -12,3 +13,17 @@ return [
         ],
     ],
 ];
+=======
+return array (
+  'fields' => 
+  array (
+    'content' => 
+    array (
+      'label' => 'content',
+      'placeholder' => 'content',
+      'helper_text' => 'content',
+      'description' => 'content',
+    ),
+  ),
+);
+>>>>>>> 3401a6b (.)
