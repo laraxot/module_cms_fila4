@@ -48,7 +48,6 @@ class Section extends Component
         $this->class = $class;
         $this->id = $id;
         $this->tpl = $tpl;
-        /* @phpstan-ignore-next-line staticMethod.notFound, assign.propertyType */
         $this->blocks = SectionModel::getBlocksBySlug($this->slug);
     }
 
