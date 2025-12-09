@@ -1,12 +1,12 @@
 <?php
 
 declare(strict_types=1);
-use function Safe\class_uses;
-
 use Modules\Cms\Models\BaseModelLang;
 use Modules\Cms\Models\Section;
 use Modules\Cms\Models\Traits\HasBlocks;
 use Modules\Tenant\Models\Traits\SushiToJsons;
+
+use function Safe\class_uses;
 
 describe('Section Business Logic', function (): void {
     test('section extends base model lang for multilingual support', function (): void {
@@ -14,7 +14,7 @@ describe('Section Business Logic', function (): void {
     });
 
     test('section has translatable fields configured', function (): void {
-        $section = new Section;
+        $section = new Section();
 
         expect($section->translatable)->toEqual([
             'name',
@@ -23,7 +23,7 @@ describe('Section Business Logic', function (): void {
     });
 
     test('section has expected fillable fields', function (): void {
-        $section = new Section;
+        $section = new Section();
         $expectedFillable = [
             'name',
             'slug',
@@ -46,20 +46,20 @@ describe('Section Business Logic', function (): void {
     });
 
     test('section has correct casts for multilingual and structured data', function (): void {
-        $section = new Section;
+        $section = new Section();
         /** @phpstan-ignore-next-line method.nonObject */
         $casts = $section->getCasts();
 
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['name'])->toBe('array');
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['blocks'])->toBe('array');
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['id'])->toBe('string');
     });
 
     test('section has schema definition for structured data', function (): void {
-        $section = new Section;
+        $section = new Section();
 
         expect($section)->toHaveProperty('schema');
         expect($section->schema['name'])->toBe('json');
@@ -68,7 +68,7 @@ describe('Section Business Logic', function (): void {
     });
 
     test('section can get rows for sushi functionality', function (): void {
-        $section = new Section;
+        $section = new Section();
 
         expect(method_exists($section, 'getRows'))->toBeTrue();
         expect($section->getRows())->toBeArray();

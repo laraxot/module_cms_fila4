@@ -18,7 +18,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 /**
- * Comprehensive Database Population Script
+ * Comprehensive Database Population Script.
  *
  * This script populates the database with realistic business data
  * following the proper dependency order and handling schema issues.
@@ -65,7 +65,6 @@ class DatabasePopulator
             $executionTime = round($endTime - $startTime, 2);
 
             $this->displaySummary($executionTime);
-
         } catch (Exception $e) {
             echo '❌ Critical error: '.$e->getMessage()."\n";
             echo 'Stack trace: '.$e->getTraceAsString()."\n";
@@ -220,7 +219,6 @@ class DatabasePopulator
             $this->totalRecords += $count;
 
             echo "✅ Created {$count} records\n";
-
         } catch (Exception $e) {
             $this->results[$name] = [
                 'status' => 'error',
@@ -241,17 +239,17 @@ class DatabasePopulator
         foreach ($this->results as $name => $result) {
             $status = match ($result['status']) {
                 'success' => '✅',
-                default => '❌'
+                default => '❌',
             };
 
             echo "{$status} {$name}";
 
-            if ($result['status'] === 'success') {
+            if ('success' === $result['status']) {
                 echo " - {$result['count']} records";
-                $successful++;
+                ++$successful;
             } else {
                 echo ' - Error';
-                $failed++;
+                ++$failed;
             }
             echo "\n";
         }
@@ -270,5 +268,5 @@ class DatabasePopulator
 }
 
 // Execute the population
-$populator = new DatabasePopulator;
+$populator = new DatabasePopulator();
 $populator->run();

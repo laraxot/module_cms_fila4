@@ -12,11 +12,11 @@ use Tests\TestCase;
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function (): void {
-    $this->page = Page/** @phpstan-ignore-line */ ::factory()->create();
+    $this->page = Page/* @phpstan-ignore-line */ ::factory()->create();
 });
 
 test('page can be created', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page)->toBeInstanceOf(Page::class);
 });
 
@@ -41,28 +41,28 @@ test('page has casts defined', function (): void {
 });
 
 test('page has proper table name', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->getTable())->toBe('pages');
 });
 
 test('page has content relationship', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->content())->toBeInstanceOf(HasMany::class);
 });
 
 test('page can be published', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     $this->page->update(['status' => 'published', 'published_at' => now()]);
 
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->fresh()->isPublished())->toBeTrue();
 });
 
 test('page can be draft', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     $this->page->update(['status' => 'draft']);
 
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->fresh()->isDraft())->toBeTrue();
 });
 
@@ -70,15 +70,15 @@ test('page can be searched by title', function (): void {
     $searchResult = Page::search('test')->get();
 
     expect($searchResult)->toHaveCount(1);
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($searchResult->first()->id)->toBe($this->page->id);
 });
 
 test('page can be filtered by status', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $publishedPage = Page/** @phpstan-ignore-line */ ::factory()->create(['status' => 'published']);
+    $publishedPage = Page/* @phpstan-ignore-line */ ::factory()->create(['status' => 'published']);
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $draftPage = Page/** @phpstan-ignore-line */ ::factory()->create(['status' => 'draft']);
+    $draftPage = Page/* @phpstan-ignore-line */ ::factory()->create(['status' => 'draft']);
 
     $publishedPages = Page::published()->get();
     $draftPages = Page::draft()->get();
@@ -92,7 +92,7 @@ test('page can be filtered by status', function (): void {
 
 test('page can be filtered by template', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $templatePage = Page/** @phpstan-ignore-line */ ::factory()->create(['template' => 'default']);
+    $templatePage = Page/* @phpstan-ignore-line */ ::factory()->create(['template' => 'default']);
 
     $templatePages = Page::byTemplate('default')->get();
 
@@ -101,12 +101,12 @@ test('page can be filtered by template', function (): void {
 });
 
 test('page has proper relationships', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->content())->toBeInstanceOf(HasMany::class);
 });
 
 test('page can get url', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     $this->page->update(['slug' => 'test-page']);
 
     /** @phpstan-ignore-next-line property.notFound */
@@ -116,15 +116,15 @@ test('page can get url', function (): void {
 });
 
 test('page can check if is public', function (): void {
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     $this->page->update(['status' => 'published', 'published_at' => now()]);
 
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->fresh()->isPublic())->toBeTrue();
 
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     $this->page->update(['status' => 'draft']);
 
-    /** @phpstan-ignore-next-line property.notFound */
+    /* @phpstan-ignore-next-line property.notFound */
     expect($this->page->fresh()->isPublic())->toBeFalse();
 });

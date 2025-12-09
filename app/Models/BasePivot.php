@@ -11,7 +11,7 @@ use Modules\Xot\Models\XotBasePivot;
  *
  * Extends XotBasePivot which provides all standard properties and casts.
  *
- * @see \Modules\Xot\Models\XotBasePivot
+ * @see XotBasePivot
  */
 abstract class BasePivot extends XotBasePivot
 {

@@ -1,11 +1,11 @@
 <?php
 
 declare(strict_types=1);
-use function Safe\class_uses;
-
 use Modules\Cms\Models\BaseModelLang;
 use Modules\Cms\Models\Page;
 use Modules\Tenant\Models\Traits\SushiToJsons;
+
+use function Safe\class_uses;
 
 describe('Page Business Logic', function (): void {
     test('page extends base model lang for multilingual support', function (): void {
@@ -13,7 +13,7 @@ describe('Page Business Logic', function (): void {
     });
 
     test('page has translatable fields configured', function (): void {
-        $page = new Page;
+        $page = new Page();
 
         expect($page->translatable)->toEqual([
             'title',
@@ -24,7 +24,7 @@ describe('Page Business Logic', function (): void {
     });
 
     test('page has expected fillable fields', function (): void {
-        $page = new Page;
+        $page = new Page();
         $expectedFillable = [
             'content',
             'slug',
@@ -51,22 +51,22 @@ describe('Page Business Logic', function (): void {
     });
 
     test('page has correct casts for blocks and arrays', function (): void {
-        $page = new Page;
+        $page = new Page();
         /** @phpstan-ignore-next-line method.nonObject */
         $casts = $page->getCasts();
 
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['content_blocks'])->toBe('array');
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['sidebar_blocks'])->toBe('array');
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['footer_blocks'])->toBe('array');
-        /** @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
+        /* @phpstan-ignore-next-line offsetAccess.nonOffsetAccessible */
         expect($casts['middleware'])->toBe('array');
     });
 
     test('page has schema definition for structured data', function (): void {
-        $page = new Page;
+        $page = new Page();
 
         expect($page)->toHaveProperty('schema');
         expect($page->schema['content_blocks'])->toBe('json');
@@ -75,7 +75,7 @@ describe('Page Business Logic', function (): void {
     });
 
     test('page can get rows for sushi functionality', function (): void {
-        $page = new Page;
+        $page = new Page();
 
         expect(method_exists($page, 'getRows'))->toBeTrue();
     });

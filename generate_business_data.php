@@ -8,7 +8,7 @@ use function Safe\file_put_contents;
 
 /**
  * Business Data Generation Script
- * Creates 100 records for each core business model using Tinker commands
+ * Creates 100 records for each core business model using Tinker commands.
  */
 
 require_once __DIR__.'/laravel/vendor/autoload.php';
@@ -91,7 +91,6 @@ class BusinessDataGenerator
                     'count' => $count,
                     'command' => $command,
                 ];
-
             } catch (Exception $e) {
                 echo '❌ Error: '.substr($e->getMessage(), 0, 60)."...\n";
                 $this->results[$module][$modelName] = [
@@ -100,7 +99,6 @@ class BusinessDataGenerator
                     'command' => $command,
                 ];
             }
-
         } catch (Exception $e) {
             echo '❌ Fatal error: '.substr($e->getMessage(), 0, 60)."...\n";
             $this->results[$module][$modelName] = [
@@ -127,18 +125,18 @@ class BusinessDataGenerator
                     'success' => '✅',
                     'no_factory' => '⚠️',
                     'no_model' => '⚠️',
-                    default => '❌'
+                    default => '❌',
                 };
 
                 echo "  {$status} {$modelName}";
 
-                if ($result['status'] === 'success') {
+                if ('success' === $result['status']) {
                     echo " - {$result['count']} records";
-                    $totalSuccess++;
+                    ++$totalSuccess;
                     $totalRecords += $result['count'];
                 } else {
                     echo ' - '.ucfirst(str_replace('_', ' ', $result['status']));
-                    $totalFailed++;
+                    ++$totalFailed;
                 }
                 echo "\n";
             }
@@ -183,7 +181,7 @@ class BusinessDataGenerator
 
 // Execute the generator
 try {
-    $generator = new BusinessDataGenerator;
+    $generator = new BusinessDataGenerator();
     $generator->generateData();
 } catch (Exception $e) {
     echo '💥 Fatal Error: '.$e->getMessage()."\n";

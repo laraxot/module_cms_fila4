@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 // use Modules\<main module>\Models\Patient;
 // use Modules\<main module>\Models\Doctor;
 // use Modules\<main module>\Models\Studio;
@@ -8,7 +10,7 @@
 // use Modules\<main module>\Models\Profile;
 // use Modules\<main module>\Models\User;
 
-/**
+/*
  * Tinker commands to generate 100 records for each business model
  * Run with: php artisan tinker < tinker_commands.php
  */

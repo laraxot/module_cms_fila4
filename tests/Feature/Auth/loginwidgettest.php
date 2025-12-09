@@ -1,8 +1,6 @@
 <?php
 
 declare(strict_types=1);
-use function Safe\class_implements;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
@@ -13,6 +11,7 @@ use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
+use function Safe\class_implements;
 
 uses(TestCase::class);
 

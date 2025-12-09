@@ -10,7 +10,7 @@ use function Safe\scandir;
 
 /**
  * Business Logic Analysis Script
- * Analyzes all modules for models, factories, and seeders
+ * Analyzes all modules for models, factories, and seeders.
  */
 
 require_once __DIR__.'/laravel/vendor/autoload.php';
@@ -61,7 +61,7 @@ class BusinessLogicAnalyzer
 
         $directories = array_filter(
             scandir($modulesPath),
-            fn ($item) => $item !== '.' && $item !== '..' && is_dir($modulesPath.'/'.$item)
+            fn ($item) => '.' !== $item && '..' !== $item && is_dir($modulesPath.'/'.$item)
         );
 
         $this->modules = array_values($directories);
@@ -138,19 +138,19 @@ class BusinessLogicAnalyzer
             $filename = basename($file, '.php');
 
             // Skip base models, traits, policies, and .old files
-            if (strpos($filename, 'Base') === 0 ||
-                strpos($filename, 'Trait') !== false ||
-                $filename === 'BaseModel' ||
-                $filename === 'BasePivot' ||
-                strpos($filename, '.old') !== false ||
-                is_dir($file)) {
+            if (0 === strpos($filename, 'Base')
+                || false !== strpos($filename, 'Trait')
+                || 'BaseModel' === $filename
+                || 'BasePivot' === $filename
+                || false !== strpos($filename, '.old')
+                || is_dir($file)) {
                 continue;
             }
 
             // Check if it's actually a model by reading the file
             $content = file_get_contents($file);
-            if (strpos($content, 'extends') !== false &&
-                (strpos($content, 'Model') !== false || strpos($content, 'BaseModel') !== false)) {
+            if (false !== strpos($content, 'extends')
+                && (false !== strpos($content, 'Model') || false !== strpos($content, 'BaseModel'))) {
                 $models[] = $filename;
             }
         }
@@ -165,7 +165,7 @@ class BusinessLogicAnalyzer
 
         foreach ($files as $file) {
             $filename = basename($file, '.php');
-            if (strpos($filename, 'Factory') !== false) {
+            if (false !== strpos($filename, 'Factory')) {
                 $factories[] = $filename;
             }
         }
@@ -180,7 +180,7 @@ class BusinessLogicAnalyzer
 
         foreach ($files as $file) {
             $filename = basename($file, '.php');
-            if (strpos($filename, 'Seeder') !== false) {
+            if (false !== strpos($filename, 'Seeder')) {
                 $seeders[] = $filename;
             }
         }
