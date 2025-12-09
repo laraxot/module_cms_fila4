@@ -35,7 +35,6 @@ dataset('userTypes', [
     'patient' => ['patient'],
 ]);
 
-describe('Registration Page Accessibility', function (): void {
     test('guest can view :type registration page', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
         expect($response->status())->toBe(200);
@@ -50,7 +49,6 @@ describe('Registration Page Accessibility', function (): void {
     })->with('userTypes');
 });
 
-describe('Registration Page Content', function (): void {
     test(':type registration page contains expected elements', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
@@ -75,7 +73,6 @@ describe('Registration Page Content', function (): void {
     })->with('userTypes');
 });
 
-describe('Registration Page Localization', function (): void {
     test(':type registration page uses Italian localization', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
@@ -86,7 +83,6 @@ describe('Registration Page Localization', function (): void {
     })->with('userTypes');
 });
 
-describe('Registration Page Security', function (): void {
     // test('handles invalid user type gracefully', function (): void {
     //    $response = get('/it/auth/invalid-type/register');
     //     expect($response->status())->toBe(404);
@@ -97,7 +93,6 @@ describe('Registration Page Security', function (): void {
     // });
 });
 
-describe('Registration Page Performance', function (): void {
     test(':type registration page loads within acceptable time limits', function (string $type): void {
         $startTime = microtime(true);
 

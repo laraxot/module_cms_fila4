@@ -53,9 +53,7 @@ class LoginComponent extends Component
             return back(); // ->with('status', 'verification-link-sent');
         }
         $guard = 'web'; // auth()->guard('web')
-        /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
-        $query = User::where('email', $this->email);
-        $user = $query->first();
+        $user = User::where('email', $this->email)->first();
         Assert::isInstanceOf($user, Authenticatable::class);
         $remember = $this->remember;
         event(new Login($guard, $user, $remember));

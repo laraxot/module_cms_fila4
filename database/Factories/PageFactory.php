@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Modules\Cms\Models\Page;
+use Webmozart\Assert\Assert;
 
 use function Safe\preg_replace;
 
