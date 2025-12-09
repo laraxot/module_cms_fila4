@@ -15,7 +15,11 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseViewRecord;
 
 class ViewPageContent extends XotBaseViewRecord
 {
+<<<<<<< HEAD
     // use Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
+=======
+    use Translatable;
+>>>>>>> 3401a6b (.)
 
     protected static string $resource = PageContentResource::class;
 
