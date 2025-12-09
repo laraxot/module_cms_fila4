@@ -57,6 +57,7 @@ trait HasBlocks
             return [];
         }
 
+        /* @phpstan-ignore-next-line method.notFound, return.type */
         return $record->getBlocks();
     }
 }

@@ -50,6 +50,7 @@ class Page extends Component
         $blocks = $page->$field;
         if (! is_array($blocks)) {
             $primary_lang = XotData::make()->primary_lang;
+            /* @phpstan-ignore-next-line method.notFound */
             $blocks = $page->getTranslation($field, $primary_lang);
         }
         if (! is_array($blocks)) {
