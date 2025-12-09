@@ -4,7 +4,7 @@
 
 ### 1. Riutilizzabilità
 - I moduli devono essere completamente riutilizzabili
-- La documentazione NON DEVE contenere riferimenti specifici al progetto (es. "saluteora")
+- La documentazione NON DEVE contenere riferimenti specifici al progetto (es. "<nome progetto>")
 - Utilizzare placeholder o variabili per riferimenti specifici al progetto
 - Mantenere una documentazione generica e adattabile
 
@@ -37,7 +37,7 @@
 ### ❌ Non Corretto
 ```markdown
 Il file di configurazione si trova in:
-/laravel/config/saluteora/database/content/pages/1.json
+/laravel/config/<directory progetto>/database/content/pages/1.json
 ```
 
 ### ✅ Corretto
@@ -48,7 +48,7 @@ Il file di configurazione si trova in:
 
 ### ❌ Non Corretto
 ```php
-$config = Config::get('saluteora.homepage');
+$config = Config::get('<nome progetto>.homepage');
 ```
 
 ### ✅ Corretto
@@ -87,7 +87,7 @@ Modifica il file `header.blade.php` in questa posizione per personalizzare l'hea
 - [README](README.md) - Documentazione principale del modulo
 - [Architettura](architecture.md) - Architettura del modulo
 - [Struttura](structure.md) - Struttura del modulo
-- [Namespace](namespace-moduli-laravel-saluteora.md) - Convenzioni namespace
+- [Namespace](namespace-moduli-laravel-<nome progetto>.md) - Convenzioni namespace
 - [Case Sensitivity](case-sensitivity-percorsi-moduli.md) - Gestione case sensitivity
 - [Frontoffice](frontoffice.md) - Documentazione frontend
 - [Componenti](components.md) - Componenti disponibili

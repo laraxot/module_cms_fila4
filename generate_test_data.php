@@ -9,23 +9,23 @@ use Illuminate\Contracts\Console\Kernel;
  * Creates 100 records for each business model using their factories
  */
 
-require_once __DIR__ . '/laravel/vendor/autoload.php';
+require_once __DIR__.'/laravel/vendor/autoload.php';
 
-$app = require_once __DIR__ . '/laravel/bootstrap/app.php';
+$app = require_once __DIR__.'/laravel/bootstrap/app.php';
 $app->make(Kernel::class)->bootstrap();
 
 class TestDataGenerator
 {
     private array $businessModels = [
-        'SaluteOra' => [
-            'Patient' => 'Modules\SaluteOra\Database\Factories\PatientFactory',
-            'Doctor' => 'Modules\SaluteOra\Database\Factories\DoctorFactory',
-            'Admin' => 'Modules\SaluteOra\Database\Factories\AdminFactory',
-            'Studio' => 'Modules\SaluteOra\Database\Factories\StudioFactory',
-            'Appointment' => 'Modules\SaluteOra\Database\Factories\AppointmentFactory',
-            'Report' => 'Modules\SaluteOra\Database\Factories\ReportFactory',
-            'Profile' => 'Modules\SaluteOra\Database\Factories\ProfileFactory',
-            'User' => 'Modules\SaluteOra\Database\Factories\UserFactory',
+        '<main module>' => [
+            'Patient' => 'Modules\<main module>\Database\Factories\PatientFactory',
+            'Doctor' => 'Modules\<main module>\Database\Factories\DoctorFactory',
+            'Admin' => 'Modules\<main module>\Database\Factories\AdminFactory',
+            'Studio' => 'Modules\<main module>\Database\Factories\StudioFactory',
+            'Appointment' => 'Modules\<main module>\Database\Factories\AppointmentFactory',
+            'Report' => 'Modules\<main module>\Database\Factories\ReportFactory',
+            'Profile' => 'Modules\<main module>\Database\Factories\ProfileFactory',
+            'User' => 'Modules\<main module>\Database\Factories\UserFactory',
         ],
         'Cms' => [
             'Conf' => 'Modules\Cms\Database\Factories\ConfFactory',
@@ -78,14 +78,15 @@ class TestDataGenerator
             echo "  🔄 Generating {$modelName} records... ";
 
             // Check if factory class exists
-            if (!class_exists($factoryClass)) {
+            if (! class_exists($factoryClass)) {
                 echo "❌ Factory class not found: {$factoryClass}\n";
                 $this->results[$module][$modelName] = ['status' => 'failed', 'reason' => 'Factory not found'];
+
                 return;
             }
 
             // Create factory instance and generate records
-            $factory = new $factoryClass();
+            $factory = new $factoryClass;
 
             // Check if the factory has the count method (Laravel Factory pattern)
             if (method_exists($factory, 'count')) {
@@ -111,17 +112,17 @@ class TestDataGenerator
             echo "✅ Created {$count} records\n";
 
             $this->results[$module][$modelName] = [
-                'status' => 'success', 
+                'status' => 'success',
                 'count' => $count,
-                'factory' => $factoryClass
+                'factory' => $factoryClass,
             ];
 
         } catch (Exception $e) {
-            echo "❌ Error: " . $e->getMessage() . "\n";
+            echo '❌ Error: '.$e->getMessage()."\n";
             $this->results[$module][$modelName] = [
-                'status' => 'failed', 
+                'status' => 'failed',
                 'reason' => $e->getMessage(),
-                'factory' => $factoryClass
+                'factory' => $factoryClass,
             ];
         }
     }
@@ -129,7 +130,7 @@ class TestDataGenerator
     private function printSummary(): void
     {
         echo "📊 GENERATION SUMMARY\n";
-        echo str_repeat("=", 50) . "\n\n";
+        echo str_repeat('=', 50)."\n\n";
 
         $totalSuccess = 0;
         $totalFailed = 0;
@@ -164,7 +165,7 @@ class TestDataGenerator
     public function generateTinkerCommands(): void
     {
         echo "\n🔧 TINKER COMMANDS FOR MANUAL EXECUTION\n";
-        echo str_repeat("=", 50) . "\n\n";
+        echo str_repeat('=', 50)."\n\n";
 
         foreach ($this->businessModels as $module => $models) {
             echo "// Module: {$module}\n";
@@ -176,7 +177,7 @@ class TestDataGenerator
 
                 echo "// {$modelName}\n";
                 echo "(new {$factoryClass}())->count(100)->create();\n";
-                echo "// Alternative: " . (is_string($modelClass) ? $modelClass : 'Unknown') . "::factory()->count(100)->create(); // if HasFactory trait is added\n\n";
+                echo '// Alternative: '.(is_string($modelClass) ? $modelClass : 'Unknown')."::factory()->count(100)->create(); // if HasFactory trait is added\n\n";
             }
         }
     }
@@ -184,10 +185,10 @@ class TestDataGenerator
 
 // Execute the generator
 try {
-    $generator = new TestDataGenerator();
+    $generator = new TestDataGenerator;
     $generator->generateTestData();
     $generator->generateTinkerCommands();
 } catch (Exception $e) {
-    echo "💥 Fatal Error: " . $e->getMessage() . "\n";
-    echo "Stack trace:\n" . $e->getTraceAsString() . "\n";
+    echo '💥 Fatal Error: '.$e->getMessage()."\n";
+    echo "Stack trace:\n".$e->getTraceAsString()."\n";
 }

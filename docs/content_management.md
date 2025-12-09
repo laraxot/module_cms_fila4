@@ -18,7 +18,7 @@ Il sistema di gestione dei contenuti di il progetto è basato su un'architettura
 laravel/
 └── config/
     └── local/
-        └── saluteora/
+        └── <directory progetto>/
             └── database/
                 └── content/
                     └── page_contents/
@@ -108,7 +108,7 @@ Questa documentazione è parte del sistema di documentazione di il progetto. Per
 - [Modulo Xot](../Xot/project_docs/README.md) - Classi base e utilities
 - [Documentazione Filament](https://filamentphp.com/docs) - Documentazione ufficiale
 - [Best Practices Laravel](https://laravel.com/project_docs/11.x/best-practices) - Best practices 
-Questa documentazione è parte del sistema di documentazione di SaluteOra. Per dettagli specifici sui singoli componenti, consultare la documentazione dei rispettivi moduli. 
+Questa documentazione è parte del sistema di documentazione di <main module>. Per dettagli specifici sui singoli componenti, consultare la documentazione dei rispettivi moduli. 
 
 ## Collegamenti tra versioni di content-management.md
 * [content-management.md](laravel/Modules/Cms/project_docs/content-management.md)

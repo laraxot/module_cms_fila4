@@ -1,10 +1,10 @@
-# Implementazione Pagina Servizi - SaluteOra
+# Implementazione Pagina Servizi - <main module>
 
-*Documentazione completa dell'implementazione della pagina servizi seguendo la filosofia e architettura SaluteOra*
+*Documentazione completa dell'implementazione della pagina servizi seguendo la filosofia e architettura <main module>*
 
 ## 🎯 Obiettivo Raggiunto
 
-È stata completata l'implementazione della pagina servizi (`/it/pages/servizi`) per SaluteOra, seguendo rigorosamente il processo di analisi approfondita, aggiornamento documentazione e implementazione tecnica stabilito dalle regole del progetto.
+È stata completata l'implementazione della pagina servizi (`/it/pages/servizi`) per <main module>, seguendo rigorosamente il processo di analisi approfondita, aggiornamento documentazione e implementazione tecnica stabilito dalle regole del progetto.
 
 ## 📊 Vision e Filosofia Implementata
 
@@ -48,7 +48,7 @@ L'implementazione riflette una comprensione profonda delle implicazioni:
 ### 2. Popolamento JSON Strutturato
 
 #### File Principale
-**File**: `laravel/config/local/saluteora/database/content/pages/12.json`
+**File**: `laravel/config/local/<directory progetto>/database/content/pages/12.json`
 
 **Contenuti Implementati**:
 - **SEO Ottimizzato**: Meta tags, structured data, keywords strategiche
@@ -254,7 +254,7 @@ L'implementazione riflette una comprensione profonda delle implicazioni:
 
 **Data Implementazione**: 15 Gennaio 2025  
 **Versione Documentazione**: 1.0.0  
-**Maintainer**: Team SaluteOra  
+**Maintainer**: Team <main module>  
 **Review**: Approvazione stakeholder medici, tecnici, UX
 
-*Implementazione completata seguendo rigorosamente la filosofia SaluteOra: democratizzazione dell'accesso alla salute orale attraverso tecnologia umana, competente e inclusiva.* 
+*Implementazione completata seguendo rigorosamente la filosofia <main module>: democratizzazione dell'accesso alla salute orale attraverso tecnologia umana, competente e inclusiva.* 

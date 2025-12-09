@@ -16,7 +16,7 @@ La homepage di il progetto è gestita attraverso due componenti principali:
 
 1. **File di Configurazione JSON**:
    ```
-   /var/www/html/saluteora/laravel/config/local/saluteora/database/content/pages/1.json
+   /var/www/html/<directory progetto>/laravel/config/local/<directory progetto>/database/content/pages/1.json
    ```
    Questo file contiene la definizione completa dei contenuti della homepage.
 

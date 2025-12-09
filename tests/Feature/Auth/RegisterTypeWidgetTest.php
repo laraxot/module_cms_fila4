@@ -4,15 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
 use Exception;
 use Livewire\Livewire;
 use Modules\User\Filament\Widgets\RegistrationWidget;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\get;
+use Modules\Xot\Tests\TestCase;
 
 // Use Cms specific TestCase only for this file
 uses(TestCase::class);

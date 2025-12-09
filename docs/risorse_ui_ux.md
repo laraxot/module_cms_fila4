@@ -11,7 +11,7 @@ Questo documento raccoglie le migliori risorse per UI/UX design e frontend devel
 6. [Frontend Mentor](#frontend-mentor)
 7. [Best Practices per UI/UX](#best-practices-per-uiux)
 8. [Tailwind CSS Plus](#tailwind-css-plus)
-9. [Applicazione Pratica in il progetto](#applicazione-pratica-in-saluteora)
+9. [Applicazione Pratica in il progetto](#applicazione-pratica-in-<nome progetto>)
 
 ## Refactoring UI
 
