@@ -16,6 +16,7 @@ return new class extends XotBaseMigration
     public function up(): void
     {
         // -- CREATE --
+<<<<<<< HEAD
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
 
@@ -40,5 +41,32 @@ return new class extends XotBaseMigration
                 hasSoftDeletes: true,
             );
         });
+=======
+        $this->tableCreate(
+            static function (Blueprint $table): void {
+                $table->id();
+
+                $table->string('name');
+                $table->text('items')->nullable();
+            }
+        );
+        // -- UPDATE --
+        $this->tableUpdate(
+            function (Blueprint $table): void {
+                if (! $this->hasColumn('items')) {
+                    $table->text('items')->nullable();
+                }
+
+                if (! $this->hasColumn('parent_id')) {
+                    $table->unsignedBigInteger('parent_id')->nullable();
+                }
+                if ($this->hasColumn('name')) {
+                    $table->renameColumn('name', 'title');
+                }
+
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
+            }
+        );
+>>>>>>> 3401a6b (.)
     }
 };
