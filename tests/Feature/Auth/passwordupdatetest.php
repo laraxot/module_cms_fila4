@@ -1,15 +1,50 @@
 <?php
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 815ce17 (.)
 declare(strict_types=1);
 
 
 namespace Modules\Cms\Tests\Feature\Auth;
+<<<<<<< HEAD
 
+=======
+=======
+declare(strict_types=1);
+>>>>>>> b93ef594b4 (.)
+
+=======
+namespace Modules\Cms\Tests\Feature\Auth;
+
+<<<<<<< HEAD
+
+>>>>>>> a12f125f4a (.)
+=======
+namespace Modules\Cms\Tests\Feature\Auth;
+
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
 use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
 
 uses(TestCase::class);
+<<<<<<< HEAD
+=======
+=======
+namespace Modules\Cms\Tests\Feature\Auth;
+
+
+use Illuminate\Support\Facades\Hash;
+use Livewire\Volt\Volt;
+
+uses(\Modules\Xot\Tests\TestCase::class);
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
 
 test('password can be updated', function () {
     $user = User::factory()->create([
@@ -43,4 +78,20 @@ test('correct password must be provided to update password', function () {
         ->call('updatePassword');
 
     $response->assertHasErrors(['current_password']);
+<<<<<<< HEAD
 });
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+});
+=======
+});
+>>>>>>> a12f125f4a (.)
+=======
+});
+>>>>>>> b93ef594b4 (.)
+=======
+});
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
