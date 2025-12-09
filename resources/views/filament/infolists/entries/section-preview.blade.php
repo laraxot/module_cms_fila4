@@ -10,19 +10,19 @@ declare(strict_types=1);
 @endphp
 
 <div class="p-4 bg-white rounded-lg shadow">
-    @if($translation)
+    @if ($translation)
         <h2 class="text-2xl font-bold mb-4">{{ $translation->title }}</h2>
-        
-        @if($translation->description)
+
+        @if ($translation->description)
             <div class="prose max-w-none mb-6">
                 {!! $translation->description !!}
             </div>
         @endif
 
-        @if($section->blocks->isNotEmpty())
+        @if ($section->blocks->isNotEmpty())
             <div class="space-y-6">
-                @foreach($section->blocks->sortBy('order') as $block)
-                    @if($block->is_active)
+                @foreach ($section->blocks->sortBy('order') as $block)
+                    @if ($block->is_active)
                         <div class="border rounded-lg p-4">
                             <h3 class="text-xl font-semibold mb-2">{{ $block->name }}</h3>
                             <div class="prose max-w-none">
