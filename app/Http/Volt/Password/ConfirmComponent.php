@@ -21,6 +21,14 @@ class ConfirmComponent extends Component
     public function confirm(): RedirectResponse
     {
         /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
          * $this->validate([
          * 'password' => ['required', 'current_password'],
          * ]);
@@ -32,6 +40,30 @@ class ConfirmComponent extends Component
          * navigate: true
          * );
          */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+        $this->validate([
+            'password' => ['required', 'current_password'],
+        ]);
+
+        session()->put('auth.password_confirmed_at', time());
+
+        $this->redirect(
+            session('url.intended', '/'),
+            navigate: true
+        );
+        */
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
         $this->validate();
 
         session()->put('auth.password_confirmed_at', time());
