@@ -47,8 +47,26 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
     /** @var list<string> */
     protected $fillable = [
         'id',
+<<<<<<< HEAD
         'post_id',
         'post_type',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        'post_id',
+        'post_type',
+=======
+        'post_id', 'post_type',
+>>>>>>> a12f125f4a (.)
+=======
+        'post_id',
+        'post_type',
+>>>>>>> b93ef594b4 (.)
+=======
+        'post_id', 'post_type',
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
         'related_type',
         'user_id',
         'note',
@@ -59,9 +77,29 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
         return [
             'id' => 'string',
             'uuid' => 'string',
+<<<<<<< HEAD
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+=======
+            'created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime',
+>>>>>>> a12f125f4a (.)
+=======
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+>>>>>>> b93ef594b4 (.)
+=======
+            'created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime',
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
         ];
     }
 }
