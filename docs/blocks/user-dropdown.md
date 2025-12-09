@@ -201,8 +201,12 @@ Questa soluzione sfrutta il componente dropdown di Filament, mantiene la coerenz
 - [Best Practices UI/UX](./guida-implementazione-ux.md)
 - [Documentazione Accessibilità](./accessibility.md)
 <<<<<<< HEAD
+<<<<<<< HEAD
 - [Modulo UI - Filament Blade Components](../UI/docs/filament/resources.md)
 =======
 - [Modulo UI - Filament Blade Components](/var/www/html/base_saluteora/laravel/Modules/UI/docs/filament/resources.md)
 >>>>>>> 3401a6b (.)
+=======
+- [Modulo UI - Filament Blade Components](../UI/docs/filament/resources.md)
+>>>>>>> 1377a46 (.)
 - [Documentazione Blocchi Navigation](./navigation.md)

@@ -9,6 +9,7 @@ use Filament\Forms\Components\Builder;
 class LeftSidebarContent
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     public static function make(string $name, string $_context = 'form'): Builder
     {
         return Builder::make($name)->blocks([])->collapsible();
@@ -22,5 +23,10 @@ class LeftSidebarContent
             ])
             ->collapsible();
 >>>>>>> 3401a6b (.)
+=======
+    public static function make(string $name, string $_context = 'form'): Builder
+    {
+        return Builder::make($name)->blocks([])->collapsible();
+>>>>>>> 1377a46 (.)
     }
 }
