@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Unit\Models;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Cms\Models\BaseModel;
@@ -13,6 +14,11 @@ use Modules\Cms\Models\BaseModel;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Model;
 >>>>>>> 3401a6b (.)
+=======
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Cms\Models\BaseModel;
+>>>>>>> 1377a46 (.)
 use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);
