@@ -10,7 +10,6 @@ use Modules\Xot\Tests\TestCase;
 
 uses(TestCase::class);
 
-test('password can be updated', function (): void {
     $user = User::factory()->create([
         'password' => Hash::make('password'),
     ]);
@@ -28,7 +27,6 @@ test('password can be updated', function (): void {
     expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
 });
 
-test('correct password must be provided to update password', function (): void {
     $user = User::factory()->create([
         'password' => Hash::make('password'),
     ]);
