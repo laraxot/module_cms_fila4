@@ -1,8 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+>>>>>>> 3401a6b (.)
 namespace Modules\Cms\Database\Factories;
 
 use Modules\Cms\Models\Attachment;

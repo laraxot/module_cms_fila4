@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
+<<<<<<< HEAD
 use Modules\Cms\Tests\TestHelper;
+=======
+>>>>>>> 3401a6b (.)
 use Modules\Cms\Models\Module;
 use Modules\Xot\Actions\Filament\GetModulesNavigationItems;
 
@@ -10,7 +13,11 @@ describe('CMS Module', function () {
     it('user admin can view module dashboard', function (): void {
         // Test business logic: check that Module class exists and has required methods
         expect(class_exists(Module::class))->toBeTrue();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 3401a6b (.)
         $moduleInstance = new Module();
         expect(method_exists($moduleInstance, 'getRows'))->toBeTrue();
     });
@@ -18,26 +25,41 @@ describe('CMS Module', function () {
     it('user admin can view main dashboard', function (): void {
         // Test business logic: check that navigation action exists
         expect(class_exists(GetModulesNavigationItems::class))->toBeTrue();
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 3401a6b (.)
         $navigationAction = new GetModulesNavigationItems();
         expect(method_exists($navigationAction, 'execute'))->toBeTrue();
     });
 
     it('guest user can view main dashboard', function (): void {
         // Test that module structure is correct
+<<<<<<< HEAD
         expect(Module::class)->toBeString()->and(class_exists(Module::class))->toBeTrue();
+=======
+        expect(Module::class)->toBeString()
+            ->and(class_exists(Module::class))->toBeTrue();
+>>>>>>> 3401a6b (.)
     });
 
     it('the user views navigation modules entries based on their role', function (): void {
         // Test business logic: navigation items generation
+<<<<<<< HEAD
         expect(GetModulesNavigationItems::class)
             ->toBeString()
             ->and(class_exists(GetModulesNavigationItems::class))
             ->toBeTrue();
+=======
+        expect(GetModulesNavigationItems::class)->toBeString()
+            ->and(class_exists(GetModulesNavigationItems::class))->toBeTrue();
+>>>>>>> 3401a6b (.)
     });
 
     it('the user no views navigation modules entries based on their no role', function (): void {
         // Test that required classes exist for role-based navigation
+<<<<<<< HEAD
         expect(Module::class)->toBeString()->and(GetModulesNavigationItems::class)->toBeString();
     });
 });
@@ -86,3 +108,9 @@ it('user admin can view module dashboard', function (): void {
     // $this->actingAs($super_admin_user)->get('/admin')->assertRedirect('admin/main-dashboard');
     $this->actingAs($this->super_admin_user)->get('http://multiv.local/barbershop/admin/dashboard')->assertStatus(200); // ->assertSee($modules_name);
 })->todo();
+=======
+        expect(Module::class)->toBeString()
+            ->and(GetModulesNavigationItems::class)->toBeString();
+    });
+});
+>>>>>>> 3401a6b (.)

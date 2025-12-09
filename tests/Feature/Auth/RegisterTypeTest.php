@@ -1,29 +1,48 @@
 <?php
 
 declare(strict_types=1);
+<<<<<<< HEAD
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
+=======
+namespace Modules\Cms\Tests\Feature\Auth;
+
+
+
+>>>>>>> 3401a6b (.)
 use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+<<<<<<< HEAD
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
+=======
+use function Pest\Laravel\{get, actingAs};
+>>>>>>> 3401a6b (.)
 
 uses(TestCase::class);
 
 /**
  * Tests for dynamic registration pages rendered by Themes/One
  * Route pattern: /{locale}/auth/{type}/register
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> 3401a6b (.)
  * This test suite verifies that:
  * 1. Registration pages render correctly for each user type
  * 2. Authentication rules are enforced (guests can access, authenticated users are redirected)
  * 3. Dynamic content is correctly displayed based on user type
  * 4. Required components (Livewire widget) are present
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> 3401a6b (.)
  * The Cms module must remain independent from SaluteOra; all user operations
  * go through XotData to obtain the correct User class.
  */
@@ -55,6 +74,7 @@ describe('Registration Page Accessibility', function () {
 describe('Registration Page Content', function () {
     test(':type registration page contains expected elements', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
+<<<<<<< HEAD
 
         expect($response->status())->toBe(200);
 
@@ -62,11 +82,27 @@ describe('Registration Page Content', function () {
         expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')//->toContain('<x-ui.logo')
         //->toContain('RegistrationWidget')
         ;
+=======
+        
+        expect($response->status())->toBe(200);
+        
+        $content = $response->getContent();
+        expect($content)
+            ->toContain('Registrazione')
+            ->toContain('Crea il tuo account')
+            //->toContain('<x-ui.logo')
+            //->toContain('RegistrationWidget')
+            ;
+>>>>>>> 3401a6b (.)
     })->with('userTypes');
 
     test(':type registration page has proper HTML structure', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 3401a6b (.)
         $content = $response->getContent();
         expect($content)
             ->toContain('<!DOCTYPE html>')
@@ -80,19 +116,35 @@ describe('Registration Page Content', function () {
 describe('Registration Page Localization', function () {
     test(':type registration page uses Italian localization', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
+<<<<<<< HEAD
 
         expect($response->status())->toBe(200);
 
         $content = $response->getContent();
         expect($content)->toContain('Registrazione')->toContain('Crea il tuo account');
+=======
+        
+        expect($response->status())->toBe(200);
+        
+        $content = $response->getContent();
+        expect($content)
+            ->toContain('Registrazione')
+            ->toContain('Crea il tuo account');
+>>>>>>> 3401a6b (.)
     })->with('userTypes');
 });
 
 describe('Registration Page Security', function () {
     //test('handles invalid user type gracefully', function (): void {
     //    $response = get('/it/auth/invalid-type/register');
+<<<<<<< HEAD
     //     expect($response->status())->toBe(404);
     //});
+=======
+   //     expect($response->status())->toBe(404);
+    //});
+
+>>>>>>> 3401a6b (.)
     //test('handles missing type parameter appropriately', function (): void {
     //    $response = get('/it/auth/register');
     //    expect($response->status())->toBeGreaterThanOrEqual(300);

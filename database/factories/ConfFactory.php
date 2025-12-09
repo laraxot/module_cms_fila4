@@ -9,7 +9,11 @@ use Modules\Cms\Models\Conf;
 
 /**
  * Conf Factory
+<<<<<<< HEAD
  *
+=======
+ * 
+>>>>>>> 3401a6b (.)
  * @extends Factory<Conf>
  */
 class ConfFactory extends Factory
@@ -39,4 +43,8 @@ class ConfFactory extends Factory
             'value' => $this->faker->boolean(),
         ]);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3401a6b (.)

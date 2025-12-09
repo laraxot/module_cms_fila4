@@ -1,8 +1,11 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+>>>>>>> 3401a6b (.)
 return [
     'fields' => [
         'name' => [
@@ -26,6 +29,10 @@ return [
             'placeholder' => 'Aggiungi blocchi',
         ],
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3401a6b (.)
     'actions' => [
         'create' => 'Crea Sezione',
         'edit' => 'Modifica Sezione',
@@ -33,6 +40,10 @@ return [
         'save' => 'Salva Sezione',
         'cancel' => 'Annulla',
     ],
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3401a6b (.)
     'messages' => [
         'created' => 'Sezione creata con successo',
         'updated' => 'Sezione aggiornata con successo',
