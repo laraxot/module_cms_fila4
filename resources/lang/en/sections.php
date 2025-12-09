@@ -1,8 +1,23 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+declare(strict_types=1);
+
+
+=======
+>>>>>>> a12f125f4a (.)
+=======
+declare(strict_types=1);
+
+
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
 return [
     'fields' => [
         'name' => [
@@ -26,6 +41,16 @@ return [
             'placeholder' => 'Add blocks',
         ],
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
     'actions' => [
         'create' => 'Create Section',
         'edit' => 'Edit Section',
@@ -33,6 +58,16 @@ return [
         'save' => 'Save Section',
         'cancel' => 'Cancel',
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
     'messages' => [
         'created' => 'Section created successfully',
         'updated' => 'Section updated successfully',

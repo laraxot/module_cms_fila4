@@ -21,9 +21,29 @@ abstract class BaseModel extends XotBaseModel
         return [
             'id' => 'string',
             'uuid' => 'string',
+<<<<<<< HEAD
             'published_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+            'published_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+=======
+            'published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime',
+>>>>>>> a12f125f4a (.)
+=======
+            'published_at' => 'datetime',
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+>>>>>>> b93ef594b4 (.)
+=======
+            'published_at' => 'datetime', 'created_at' => 'datetime', 'updated_at' => 'datetime',
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
         ];
     }
 }

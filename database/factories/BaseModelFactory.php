@@ -8,14 +8,30 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Cms\Models\BaseModel;
 
 /**
+<<<<<<< HEAD
  * @extends Factory<BaseModel>
+=======
+<<<<<<< HEAD
+ * @extends Factory<BaseModel>
+=======
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Cms\Models\BaseModel>
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
  */
 class BaseModelFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
+<<<<<<< HEAD
      * @var class-string<BaseModel>
+=======
+<<<<<<< HEAD
+     * @var class-string<BaseModel>
+=======
+     * @var class-string<\Modules\Cms\Models\BaseModel>
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
      */
     protected $model = BaseModel::class;
 
@@ -40,7 +56,23 @@ class BaseModelFactory extends Factory
      */
     public function active(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes) => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
             'is_active' => true,
         ]);
     }
@@ -50,7 +82,23 @@ class BaseModelFactory extends Factory
      */
     public function visible(): static
     {
+<<<<<<< HEAD
         return $this->state(fn(array $_attributes) => [
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        return $this->state(fn(array $_attributes) => [
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> a12f125f4a (.)
+=======
+        return $this->state(fn(array $_attributes) => [
+>>>>>>> b93ef594b4 (.)
+=======
+        return $this->state(fn (array $attributes) => [
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
             'is_visible' => true,
         ]);
     }

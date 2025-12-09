@@ -1,8 +1,23 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+declare(strict_types=1);
+
+
+=======
+>>>>>>> a12f125f4a (.)
+=======
+declare(strict_types=1);
+
+
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
 return [
     'fields' => [
         'name' => [
@@ -26,6 +41,16 @@ return [
             'placeholder' => 'Aggiungi blocchi',
         ],
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
     'actions' => [
         'create' => 'Crea Sezione',
         'edit' => 'Modifica Sezione',
@@ -33,6 +58,16 @@ return [
         'save' => 'Salva Sezione',
         'cancel' => 'Annulla',
     ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
     'messages' => [
         'created' => 'Sezione creata con successo',
         'updated' => 'Sezione aggiornata con successo',
