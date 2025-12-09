@@ -12,10 +12,6 @@ class ListAttachments extends LangBaseListRecords
 {
     protected static string $resource = AttachmentResource::class;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
     public function getTableColumns(): array
     {
         return [
@@ -24,23 +20,4 @@ class ListAttachments extends LangBaseListRecords
             'attachment' => TextColumn::make('attachment')->searchable(),
         ];
     }
-<<<<<<< HEAD
-=======
-
-    public function getTableColumns(): array
-    {
-        return [
-            'title' => TextColumn::make('title')
-                ->searchable(),
-            'slug' => TextColumn::make('slug')
-                ->searchable(),
-            'attachment' => TextColumn::make('attachment')
-                ->searchable(),
-        ];
-    }
-
-   
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
 }

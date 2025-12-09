@@ -28,17 +28,8 @@ class Conf extends BaseModel
 
     /** @var list<string> */
     protected $fillable = [
-<<<<<<< HEAD
-<<<<<<< HEAD
         'id',
         'name',
-=======
-        'id', 'name',
->>>>>>> 3401a6b (.)
-=======
-        'id',
-        'name',
->>>>>>> 1377a46 (.)
     ];
 
     public function getRows(): array
@@ -49,23 +40,10 @@ class Conf extends BaseModel
     }
 
     /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
      * protected function sushiShouldCache() {
      * return false;
      * }
      */
-<<<<<<< HEAD
-=======
-    protected function sushiShouldCache() {
-        return false;
-    }
-    */
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
     /**
      * Undocumented function.
      */
