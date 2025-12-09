@@ -6,6 +6,9 @@ use Tests\TestCase;
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
  * |--------------------------------------------------------------------------
  * | Test Case
  * |--------------------------------------------------------------------------
@@ -14,6 +17,7 @@ use Tests\TestCase;
  * | Utilizza il TestCase globale di Laravel con setup specifico per frontend.
  * |
  */
+<<<<<<< HEAD
 =======
 |--------------------------------------------------------------------------
 | Test Case
@@ -24,11 +28,16 @@ use Tests\TestCase;
 |
 */
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 
 uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
  * |--------------------------------------------------------------------------
  * | Expectations
  * |--------------------------------------------------------------------------
@@ -38,6 +47,7 @@ uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
  * | in tutti i test del modulo.
  * |
  */
+<<<<<<< HEAD
 =======
 |--------------------------------------------------------------------------
 | Expectations
@@ -49,6 +59,8 @@ uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
 |
 */
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 
 // expect()->extend('toBeValidHtml', function () {
 //     return $this->toContain('<html');
@@ -56,6 +68,9 @@ uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
 
 /*
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
  * |--------------------------------------------------------------------------
  * | Functions
  * |--------------------------------------------------------------------------
@@ -68,6 +83,7 @@ uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
 // function createTestUser() {
 //     return User::factory()->create();
 // }
+<<<<<<< HEAD
 =======
 |--------------------------------------------------------------------------
 | Functions
@@ -82,3 +98,5 @@ uses(Modules\Cms\Tests\TestCase::class)->in('Feature', 'Unit');
 //     return User::factory()->create();
 // } 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
