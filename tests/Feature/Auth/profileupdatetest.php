@@ -12,20 +12,12 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
-test('profile page is displayed', function (): void {
-    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-    $userClass = XotData::make()->getUserClass();
-    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
     actingAs($user)->get('/'.$lang.'/settings/profile')->assertOk();
 });
 
-test('profile information can be updated', function (): void {
-    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-    $userClass = XotData::make()->getUserClass();
-    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -47,10 +39,6 @@ test('profile information can be updated', function (): void {
         ->toBeNull();
 });
 
-test('email verification status is unchanged when email address is unchanged', function (): void {
-    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-    $userClass = XotData::make()->getUserClass();
-    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -65,10 +53,6 @@ test('email verification status is unchanged when email address is unchanged', f
     expect($user->refresh()->email_verified_at)->not->toBeNull();
 });
 
-test('user can delete their account', function (): void {
-    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-    $userClass = XotData::make()->getUserClass();
-    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -80,10 +64,6 @@ test('user can delete their account', function (): void {
     expect($user->fresh())->toBeNull()->and(auth()->check())->toBeFalse();
 });
 
-test('correct password must be provided to delete account', function (): void {
-    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
-    $userClass = XotData::make()->getUserClass();
-    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);

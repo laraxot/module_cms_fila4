@@ -42,7 +42,7 @@ abstract class TestHelper extends BaseTestCase
     public function getMainAdminNavigationUrlItems()
     {
         return $item_navs = collect(app(GetModulesNavigationItems::class)->execute())
-            ->map(fn ($item): ?string => $item->getUrl());
+            ->map(fn ($item) => $item->getUrl());
     }
 
     // in Tenant o Cms

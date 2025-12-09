@@ -25,7 +25,6 @@ class DownloadAttachmentPlaceHolder extends Placeholder
         $data = [
             'title' => $attachment->title,
             'description' => $attachment->description,
-            /* @phpstan-ignore-next-line method.notFound */
             'asset' => $attachment->asset(),
         ];
 
