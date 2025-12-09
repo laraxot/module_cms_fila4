@@ -34,14 +34,6 @@ class RegisterComponent extends Component
     public function register(): RedirectResponse
     {
         /*
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
          * $validated = $this->validate([
          * 'name' => ['required', 'string', 'max:255'],
          * 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -58,35 +50,6 @@ class RegisterComponent extends Component
          *
          * return redirect()->intended(route('cms.dashboard'));
          */
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-=======
->>>>>>> origin/develop
-        $validated = $this->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        $user = \App\Models\User::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'password' => bcrypt($this->password),
-        ]);
-
-        auth()->login($user);
-
-        return redirect()->intended(route('cms.dashboard'));
-        */
-<<<<<<< HEAD
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         $this->validate();
 
         $user = User::create([

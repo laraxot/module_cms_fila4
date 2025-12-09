@@ -4,12 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Database\Factories;
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 815ce17 (.)
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -18,37 +12,8 @@ use Webmozart\Assert\Assert;
 
 use function Safe\preg_replace;
 
-<<<<<<< HEAD
 /**
  * @extends Factory<Page>
-=======
-=======
-=======
-use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Database\Eloquent\Model;
->>>>>>> b93ef594b4 (.)
-use Illuminate\Support\Str;
-use Modules\Cms\Models\Page;
-use Webmozart\Assert\Assert;
-
-use function Safe\preg_replace;
-
->>>>>>> a12f125f4a (.)
-/**
- * @extends Factory<Page>
-=======
-use Illuminate\Support\Str;
-use Modules\Cms\Models\Page;
-use Webmozart\Assert\Assert;
-use function Safe\preg_replace;
-
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\Factory;
-
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Cms\Models\Page>
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
  */
 class PageFactory extends Factory
 {

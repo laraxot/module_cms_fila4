@@ -1,23 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-declare(strict_types=1);
-
-
-=======
->>>>>>> a12f125f4a (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
 return [
     'logo' => [
         'label' => 'Logo',
@@ -40,16 +25,6 @@ return [
             ],
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
     'navigation' => [
         'label' => 'Navigazione',
         'fields' => [
@@ -63,16 +38,6 @@ return [
             ],
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
     'social' => [
         'label' => 'Social',
         'fields' => [
