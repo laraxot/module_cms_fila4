@@ -2,7 +2,7 @@
 
 ## PRINCIPIO FONDAMENTALE CRISTALLIZZATO
 
-**Il modulo User è un modulo BASE che NON può MAI dipendere da SaluteOra. È SaluteOra che può dipendere da User, non il contrario!**
+**Il modulo User è un modulo BASE che NON può MAI dipendere da <main module>. È <main module> che può dipendere da User, non il contrario!**
 
 Ho aggiornato COMPLETAMENTE il sistema di memoria e documentazione per cristallizzare questa regola architetturale critica.
 
@@ -15,7 +15,7 @@ Ho aggiornato COMPLETAMENTE il sistema di memoria e documentazione per cristalli
 - **UI** - Componenti UI base
 
 ### Livello 2: Moduli Specifici  
-- **SaluteOra** - Business logic sanitaria
+- **<main module>** - Business logic sanitaria
 - **Patient** - Gestione pazienti
 - **Studio** - Gestione studi medici
 - **Appointment** - Gestione appuntamenti
@@ -54,7 +54,7 @@ Livello 1 → Livello 2    ❌ MAI
 
 ### Problema Trovato
 - **File**: `Modules/User/app/Filament/Widgets/UserTypeRegistrationsChartWidget.php`
-- **Violazione**: `use Modules\SaluteOra\Models\Patient;`
+- **Violazione**: `use Modules\<main module>\Models\Patient;`
 - **Impatto**: Modulo BASE che dipende da modulo SPECIFICO
 
 ### Documentazione Violazione
@@ -90,7 +90,7 @@ Livello 1 → Livello 2    ❌ MAI
 ### Comandi di Verifica
 ```bash
 # Deve restituire NIENTE per architettura pulita
-grep -r "SaluteOra" Modules/User/ --include="*.php"
+grep -r "<main module>" Modules/User/ --include="*.php"
 grep -r "Patient" Modules/User/ --include="*.php"
 grep -r "Studio" Modules/User/ --include="*.php"
 ```
@@ -124,9 +124,9 @@ class User extends BaseModel
 }
 ```
 
-### ✅ Modulo Specifico (SaluteOra)
+### ✅ Modulo Specifico (<main module>)
 ```php
-namespace Modules\SaluteOra\Models;
+namespace Modules\<main module>\Models;
 use Modules\User\Models\User as BaseUser; // CORRETTO
 
 class User extends BaseUser
@@ -139,8 +139,8 @@ class User extends BaseUser
 ### ❌ Violazione Critica
 ```php
 // Nel modulo User - VIETATO!
-use Modules\SaluteOra\Models\Appointment; // ERRORE!
-use Modules\SaluteOra\Models\Patient;     // ERRORE!
+use Modules\<main module>\Models\Appointment; // ERRORE!
+use Modules\<main module>\Models\Patient;     // ERRORE!
 ```
 
 ## 📈 METRICHE DI QUALITÀ DEFINITE
@@ -160,7 +160,7 @@ use Modules\SaluteOra\Models\Patient;     // ERRORE!
 ## 🎯 AZIONI IMMEDIATE RICHIESTE
 
 ### Priorità 1 (24h): Correzione Violazione
-- [ ] Spostare `UserTypeRegistrationsChartWidget` da User a SaluteOra
+- [ ] Spostare `UserTypeRegistrationsChartWidget` da User a <main module>
 - [ ] Aggiornare namespace del widget
 - [ ] Rimuovere file originale dal modulo User
 - [ ] Verificare pulizia con script di controllo
@@ -205,7 +205,7 @@ use Modules\SaluteOra\Models\Patient;     // ERRORE!
 
 🏗️ **REGOLA ARCHITETTURALE COMPLETAMENTE IMPLEMENTATA**
 
-La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da SaluteOra" è ora:
+La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da <main module>" è ora:
 
 - ✅ Memorizzata nell'AI con dettagli completi
 - ✅ Documentata in 8 file di guidelines e documentazione
@@ -217,7 +217,7 @@ La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da Salute
 
 ## 🚨 PROSSIMO STEP CRITICO
 
-**CORREGGERE IMMEDIATAMENTE** la violazione identificata spostando il widget dal modulo User al modulo SaluteOra.
+**CORREGGERE IMMEDIATAMENTE** la violazione identificata spostando il widget dal modulo User al modulo <main module>.
 
 Questa correzione è **CRITICA** per l'integrità architettuale del sistema.
 
