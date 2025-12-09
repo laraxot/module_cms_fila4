@@ -9,19 +9,9 @@ use Livewire\Livewire;
 use Modules\User\Filament\Widgets\LoginWidget;
 use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
-=======
-use function Pest\Laravel\{assertGuest, assertAuthenticated};
->>>>>>> 3401a6b (.)
-=======
-
-use function Pest\Laravel\assertAuthenticated;
-use function Pest\Laravel\assertGuest;
->>>>>>> 1377a46 (.)
 
 uses(TestCase::class);
 
@@ -62,25 +52,10 @@ test('can set form data', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
     // Set form data
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
     $component->set('data.email', 'test@example.com')->set('data.password', 'password123');
 
     // Verifica che i dati siano stati impostati
     $component->assertSet('data.email', 'test@example.com')->assertSet('data.password', 'password123');
-<<<<<<< HEAD
-=======
-    $component->set('data.email', 'test@example.com')
-              ->set('data.password', 'password123');
-
-    // Verifica che i dati siano stati impostati
-    $component->assertSet('data.email', 'test@example.com')
-              ->assertSet('data.password', 'password123');
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
 });
 
 // =============================================================================
@@ -99,17 +74,7 @@ test('authenticates user with valid credentials', function (): void {
 
     $component = Livewire::test(LoginWidget::class);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
-=======
-    $component->set('data.email', $email)
-              ->set('data.password', 'password123')
-              ->call('save');
->>>>>>> 3401a6b (.)
-=======
-    $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
->>>>>>> 1377a46 (.)
 
     // Verifica che l'utente sia autenticato
     assertAuthenticated();
@@ -117,15 +82,7 @@ test('authenticates user with valid credentials', function (): void {
     // Verifica che sia l'utente corretto
     $authenticatedUser = Auth::user();
     expect($authenticatedUser)->not->toBeNull();
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($authenticatedUser?->email)->toBe($email);
-=======
-    expect($authenticatedUser->email)->toBe($email);
->>>>>>> 3401a6b (.)
-=======
-    expect($authenticatedUser?->email)->toBe($email);
->>>>>>> 1377a46 (.)
 });
 
 test('handles invalid credentials gracefully', function (): void {
@@ -141,17 +98,7 @@ test('handles invalid credentials gracefully', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
     // Tenta login con password sbagliata
-<<<<<<< HEAD
-<<<<<<< HEAD
     $component->set('data.email', $email)->set('data.password', 'wrong_password')->call('save');
-=======
-    $component->set('data.email', $email)
-              ->set('data.password', 'wrong_password')
-              ->call('save');
->>>>>>> 3401a6b (.)
-=======
-    $component->set('data.email', $email)->set('data.password', 'wrong_password')->call('save');
->>>>>>> 1377a46 (.)
 
     // L'utente dovrebbe rimanere guest
     assertGuest();
@@ -173,32 +120,14 @@ test('authentication works regardless of user type', function (): void {
 
     $component = Livewire::test(LoginWidget::class);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
-=======
-    $component->set('data.email', $email)
-              ->set('data.password', 'password123')
-              ->call('save');
->>>>>>> 3401a6b (.)
-=======
-    $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
->>>>>>> 1377a46 (.)
 
     assertAuthenticated();
 
     // Verifica che l'utente autenticato sia del tipo corretto
     $authenticatedUser = Auth::user();
     expect($authenticatedUser)->toBeInstanceOf(static::getUserClass());
-<<<<<<< HEAD
-<<<<<<< HEAD
     expect($authenticatedUser?->email)->toBe($email);
-=======
-    expect($authenticatedUser->email)->toBe($email);
->>>>>>> 3401a6b (.)
-=======
-    expect($authenticatedUser?->email)->toBe($email);
->>>>>>> 1377a46 (.)
 });
 
 test('getUserClass returns valid class', function (): void {

@@ -11,15 +11,7 @@ use Modules\Xot\Database\Migrations\XotBaseMigration;
  * Class CreateCmsPagesTable.
  */
 return new class extends XotBaseMigration {
-<<<<<<< HEAD
-<<<<<<< HEAD
     protected null|string $model_class = Page::class;
-=======
-    protected ?string $model_class = Page::class;
->>>>>>> 3401a6b (.)
-=======
-    protected null|string $model_class = Page::class;
->>>>>>> 1377a46 (.)
 
     /**
      * db up.
@@ -27,10 +19,6 @@ return new class extends XotBaseMigration {
     public function up(): void
     {
         // -- CREATE --
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
 
@@ -69,46 +57,5 @@ return new class extends XotBaseMigration {
                 hasSoftDeletes: true,
             );
         });
-<<<<<<< HEAD
-=======
-        $this->tableCreate(
-            static function (Blueprint $table): void {
-                $table->id();
-
-                $table->string('slug')->unique()->index();
-                $table->string('title');
-                $table->text('content')->nullable();
-            }
-        );
-        // -- UPDATE --
-        $this->tableUpdate(
-            function (Blueprint $table): void {
-                if ($this->hasColumn('content')) {
-                    $table->text('content')->nullable()->change();
-                }
-
-                if (! $this->hasColumn('content_blocks')) {
-                    $table->json('content_blocks')->nullable();
-                    // $table->json('content_blocks')->default(new Expression('(JSON_ARRAY())'));
-                }
-
-                if (! $this->hasColumn('sidebar_blocks')) {
-                    $table->json('sidebar_blocks')->nullable();
-                    // $table->json('sidebar_blocks')->default(new Expression('(JSON_ARRAY())'));
-                }
-                if (! $this->hasColumn('footer_blocks')) {
-                    $table->json('footer_blocks')->nullable();
-                    // $table->json('footer_blocks')->default(new Expression('(JSON_ARRAY())'));
-                }
-                if (! $this->hasColumn('slug')) {
-                    $table->string('slug')->index();
-                }
-
-                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
-            }
-        );
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
     }
 };

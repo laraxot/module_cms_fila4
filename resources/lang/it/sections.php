@@ -1,17 +1,8 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 declare(strict_types=1);
 
 
-=======
->>>>>>> 3401a6b (.)
-=======
-declare(strict_types=1);
-
-
->>>>>>> 1377a46 (.)
 return [
     'fields' => [
         'name' => [
@@ -35,13 +26,6 @@ return [
             'placeholder' => 'Aggiungi blocchi',
         ],
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
     'actions' => [
         'create' => 'Crea Sezione',
         'edit' => 'Modifica Sezione',
@@ -49,13 +33,6 @@ return [
         'save' => 'Salva Sezione',
         'cancel' => 'Annulla',
     ],
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
     'messages' => [
         'created' => 'Sezione creata con successo',
         'updated' => 'Sezione aggiornata con successo',
