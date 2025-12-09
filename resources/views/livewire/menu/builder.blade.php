@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> 3401a6b (.)
 <div>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -24,7 +27,11 @@ declare(strict_types=1);
 
                                 <div class="manage-menus">
                                     <form method="get" action="">
+<<<<<<< HEAD
                                         <label for="menu" class="selected-menu">Select the menu you want to
+=======
+                                        <x-filament-forms::field-wrapper.label for="menu" class="selected-menu">Select the menu you want to
+>>>>>>> 3401a6b (.)
                                             edit:</label>
                                         <select wire:model="selectedMenu" wire:change="chooseMenu">
                                             @foreach ($menulist as $itemKey => $itemVal)
@@ -56,7 +63,11 @@ declare(strict_types=1);
                                                                 <div class="inside">
                                                                     <div class="customlinkdiv" id="customlinkdiv">
                                                                         <p id="menu-item-url-wrap">
+<<<<<<< HEAD
                                                                             <label class="howto"
+=======
+                                                                            <x-filament-forms::field-wrapper.label class="howto"
+>>>>>>> 3401a6b (.)
                                                                                 for="custom-menu-item-url">
                                                                                 <span>URL</span>&nbsp;&nbsp;&nbsp;
                                                                                 <input id="custom-menu-item-url"
@@ -67,7 +78,11 @@ declare(strict_types=1);
                                                                         </p>
 
                                                                         <p id="menu-item-name-wrap">
+<<<<<<< HEAD
                                                                             <label class="howto"
+=======
+                                                                            <x-filament-forms::field-wrapper.label class="howto"
+>>>>>>> 3401a6b (.)
                                                                                 for="custom-menu-item-name">
                                                                                 <span>Label</span>&nbsp;
                                                                                 <input id="custom-menu-item-name"
@@ -79,7 +94,11 @@ declare(strict_types=1);
 
                                                                         @if (!empty($roles))
                                                                             <p id="menu-item-role_id-wrap">
+<<<<<<< HEAD
                                                                                 <label class="howto"
+=======
+                                                                                <x-filament-forms::field-wrapper.label class="howto"
+>>>>>>> 3401a6b (.)
                                                                                     for="custom-menu-item-name">
                                                                                     <span>Role</span>&nbsp;
                                                                                     <select id="custom-menu-item-role"
@@ -127,7 +146,11 @@ declare(strict_types=1);
                                                 <div class="menu-edit ">
                                                     <div id="nav-menu-header">
                                                         <div class="major-publishing-actions">
+<<<<<<< HEAD
                                                             <label class="menu-name-label howto open-label"
+=======
+                                                            <x-filament-forms::field-wrapper.label class="menu-name-label howto open-label"
+>>>>>>> 3401a6b (.)
                                                                 for="menu-name"> <span>Name</span>
                                                                 <input name="menu-name" wire:model="menuName"
                                                                     id="menu-name" type="text"
@@ -220,7 +243,11 @@ declare(strict_types=1);
                                                                                         value="{{ $m['id'] }}" />
                                                                                     <p
                                                                                         class="description description-thin">
+<<<<<<< HEAD
                                                                                         <label> Label
+=======
+                                                                                        <x-filament-forms::field-wrapper.label> Label
+>>>>>>> 3401a6b (.)
                                                                                             <br>
                                                                                             <input type="text"
                                                                                                 class="widefat edit-menu-item-title"
@@ -229,7 +256,11 @@ declare(strict_types=1);
                                                                                     </p>
                                                                                     <p
                                                                                         class="field-css-classes description description-thin">
+<<<<<<< HEAD
                                                                                         <label> Class CSS (optional)
+=======
+                                                                                        <x-filament-forms::field-wrapper.label> Class CSS (optional)
+>>>>>>> 3401a6b (.)
                                                                                             <br>
                                                                                             <input type="text"
                                                                                                 class="widefat code edit-menu-item-classes"
@@ -238,7 +269,11 @@ declare(strict_types=1);
                                                                                     </p>
                                                                                     <p
                                                                                         class="field-css-url description description-wide">
+<<<<<<< HEAD
                                                                                         <label> Url
+=======
+                                                                                        <x-filament-forms::field-wrapper.label> Url
+>>>>>>> 3401a6b (.)
                                                                                             <br>
                                                                                             <input type="text"
                                                                                                 class="widefat code edit-menu-item-url"
@@ -249,7 +284,11 @@ declare(strict_types=1);
                                                                                     @if (!empty($roles))
                                                                                         <p
                                                                                             class="field-css-role description description-wide">
+<<<<<<< HEAD
                                                                                             <label
+=======
+                                                                                            <x-filament-forms::field-wrapper.label
+>>>>>>> 3401a6b (.)
                                                                                                 for="edit-menu-item-role-{{ $m['id'] }}">
                                                                                                 Role
                                                                                                 <br>
@@ -273,7 +312,11 @@ declare(strict_types=1);
                                                                                     @if (count($menuItems) > 1)
                                                                                         <p
                                                                                             class="field-move hide-if-no-js description description-wide">
+<<<<<<< HEAD
                                                                                             <label> <span>Move</span>
+=======
+                                                                                            <x-filament-forms::field-wrapper.label> <span>Move</span>
+>>>>>>> 3401a6b (.)
                                                                                                 @if ($mk != 0)
                                                                                                     <a href="javascript:void(0)"
                                                                                                         class="menus-move-up"

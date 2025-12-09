@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> 3401a6b (.)
 @if (!empty($pageContent['error']))
     <div class="alert alert-danger">
         {{ $pageContent['error'] }}
