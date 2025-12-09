@@ -1,9 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 
@@ -17,19 +13,6 @@ use Modules\Xot\Datas\XotData;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
-<<<<<<< HEAD
-=======
-namespace Modules\Cms\Tests\Feature\Auth;
-
-use Modules\Cms\Tests\TestCase;
-use Modules\Xot\Datas\XotData;
-use Illuminate\Auth\Events\Verified;
-use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\URL;
-use function Pest\Laravel\{actingAs, get};
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
 
 uses(TestCase::class);
 
@@ -47,10 +30,6 @@ test('email verification screen can be rendered', function () {
 test('email can be verified', function () {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->unverified()->create();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
 
     Event::fake();
 
@@ -58,19 +37,6 @@ test('email can be verified', function () {
         'id' => $user->id,
         'hash' => sha1($user->email),
     ]);
-<<<<<<< HEAD
-=======
-    
-    Event::fake();
-
-    $verificationUrl = URL::temporarySignedRoute(
-        'verification.verify',
-        now()->addMinutes(60),
-        ['id' => $user->id, 'hash' => sha1($user->email)]
-    );
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
 
     $response = actingAs($user)->get($verificationUrl);
 
@@ -78,25 +44,13 @@ test('email can be verified', function () {
     expect($user->fresh()->hasVerifiedEmail())
         ->toBeTrue()
         ->and($response)
-<<<<<<< HEAD
-<<<<<<< HEAD
         ->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
-=======
-        ->assertRedirect(route('dashboard', absolute: false).'?verified=1');
->>>>>>> 3401a6b (.)
-=======
-        ->assertRedirect(route('dashboard', absolute: false) . '?verified=1');
->>>>>>> 1377a46 (.)
 });
 
 // Test: Email is not verified with invalid hash
 test('email is not verified with invalid hash', function () {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->unverified()->create();
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 1377a46 (.)
 
     $verificationUrl = URL::temporarySignedRoute('verification.verify', now()->addMinutes(60), [
         'id' => $user->id,
@@ -105,19 +59,5 @@ test('email is not verified with invalid hash', function () {
 
     actingAs($user)->get($verificationUrl);
 
-<<<<<<< HEAD
-=======
-    
-    $verificationUrl = URL::temporarySignedRoute(
-        'verification.verify',
-        now()->addMinutes(60),
-        ['id' => $user->id, 'hash' => sha1('wrong-email')]
-    );
-
-    actingAs($user)->get($verificationUrl);
-    
->>>>>>> 3401a6b (.)
-=======
->>>>>>> 1377a46 (.)
     expect($user->fresh()->hasVerifiedEmail())->toBeFalse();
 });
