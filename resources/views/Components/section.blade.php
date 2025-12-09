@@ -15,16 +15,16 @@ declare(strict_types=1);
     'class' => 'section '.($section?->slug ?? '').' '.$class,
     'id' => $id ?? ($section?->slug ?? '')
 ]) }}>
-    @if($name)
+    @if ($name)
         <h2 class="section-title">{{ $name }}</h2>
     @endif
 
-    @if($blocks)
+    @if ($blocks)
         <div class="section-blocks">
-            @foreach($blocks as $block)
-                @if(isset($block->view, $block->data))
+            @foreach ($blocks as $block)
+                @if (isset($block->view, $block->data))
                     @include($block->view, $block->data)
-                @elseif(isset($block['type'], $block['data']))
+                @elseif (isset($block['type'], $block['data']))
                     <x-dynamic-component
                         :component="'cms::blocks.'.$block['type']"
                         :data="$block['data']"
