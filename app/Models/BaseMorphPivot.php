@@ -48,11 +48,16 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
     protected $fillable = [
         'id',
 <<<<<<< HEAD
+<<<<<<< HEAD
         'post_id',
         'post_type',
 =======
         'post_id', 'post_type',
 >>>>>>> 3401a6b (.)
+=======
+        'post_id',
+        'post_type',
+>>>>>>> 1377a46 (.)
         'related_type',
         'user_id',
         'note',
@@ -64,12 +69,18 @@ abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
             'id' => 'string',
             'uuid' => 'string',
 <<<<<<< HEAD
+<<<<<<< HEAD
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
             'deleted_at' => 'datetime',
 =======
             'created_at' => 'datetime', 'updated_at' => 'datetime', 'deleted_at' => 'datetime',
 >>>>>>> 3401a6b (.)
+=======
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+>>>>>>> 1377a46 (.)
         ];
     }
 }
