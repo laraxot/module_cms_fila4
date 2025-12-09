@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> 3401a6b (.)
 <x-filament::page>
     @if(count($data))
     <div class="grid grid-cols-3 gap-3">
