@@ -12,6 +12,9 @@ class EditAttachment extends LangBaseEditRecord
 {
     protected static string $resource = AttachmentResource::class;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 
     /*
      * protected function mutateFormDataBeforeFill(array $data): array
@@ -36,6 +39,7 @@ class EditAttachment extends LangBaseEditRecord
      * return parent::mutateFormDataBeforeFill($data);
      * }
      */
+<<<<<<< HEAD
 =======
     /*
     protected function mutateFormDataBeforeFill(array $data): array
@@ -61,20 +65,27 @@ class EditAttachment extends LangBaseEditRecord
     }
     */
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     protected function mutateFormDataBeforeSave(array $data): array
     {
         // Handle translatable attachment field for FileUpload
         if (isset($data['attachment']) && is_string($data['attachment']) && ! empty($data['attachment'])) {
             $uuid = Str::uuid()->toString();
 <<<<<<< HEAD
+<<<<<<< HEAD
             $data['attachment'] = [$uuid => $data['attachment']];
 =======
             $data['attachment']=[$uuid => $data['attachment']];
 >>>>>>> 3401a6b (.)
+=======
+            $data['attachment'] = [$uuid => $data['attachment']];
+>>>>>>> 1377a46 (.)
         } elseif (isset($data['attachment']) && empty($data['attachment'])) {
             // If attachment is empty, preserve existing translations
             unset($data['attachment']);
         }
+<<<<<<< HEAD
 <<<<<<< HEAD
 
         return parent::mutateFormDataBeforeSave($data);
@@ -85,4 +96,9 @@ class EditAttachment extends LangBaseEditRecord
     }
 
 >>>>>>> 3401a6b (.)
+=======
+
+        return parent::mutateFormDataBeforeSave($data);
+    }
+>>>>>>> 1377a46 (.)
 }
