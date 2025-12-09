@@ -40,9 +40,12 @@ return [
             'helper_text' => 'Contenuto testuale semplice senza formattazione',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Media & Visual Elements
         'image' => [
             'label' => 'Immagine',
@@ -66,9 +69,12 @@ return [
             'helper_text' => 'Altezza dell\'elemento in pixel, percentuale o viewport',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Layout & Design
         'style' => [
             'label' => 'Stile',
@@ -120,9 +126,12 @@ return [
             'helper_text' => 'Colore dei pulsanti call-to-action',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Navigation & Links
         'items' => [
             'label' => 'Elementi',
@@ -153,9 +162,12 @@ return [
             'helper_text' => 'Icona da mostrare accanto al testo o come elemento standalone',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // UI Components
         'view' => [
             'label' => 'Template',
@@ -178,9 +190,12 @@ return [
             'helper_text' => 'Elementi contenuti o dipendenti da questo elemento',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Company & Contact Information
         'email' => [
             'label' => 'Email',
@@ -215,9 +230,12 @@ return [
             'helper_text' => 'Testo di copyright da visualizzare nel footer',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Call-to-Action Elements
         'button_text' => [
             'label' => 'Testo del pulsante',
@@ -243,9 +261,12 @@ return [
             'helper_text' => 'URL della pagina di destinazione per la CTA',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Social Media
         'social_links' => [
             'label' => 'Link Social',
@@ -263,9 +284,12 @@ return [
             'helper_text' => 'Collezione di collegamenti per menu o footer',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Statistics & Data
         'stats' => [
             'label' => 'Statistiche',
@@ -278,9 +302,12 @@ return [
             'helper_text' => 'Valore numerico per contatori o statistiche',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Page Structure
         'sections' => [
             'label' => 'Sezioni',
@@ -304,9 +331,12 @@ return [
             'helper_text' => 'Elementi da includere nel footer del sito',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Interactive Elements
         'placeholder' => [
             'label' => 'Placeholder',
@@ -324,9 +354,12 @@ return [
             'helper_text' => 'Messaggio mostrato in caso di errore',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Advanced Layout
         'background' => [
             'label' => 'Sfondo',
@@ -385,9 +418,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'actions' => [
         'save' => [
             'label' => 'Salva',
@@ -406,9 +442,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'sections' => [
         'content' => [
             'label' => 'Contenuto',
@@ -448,9 +487,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'messages' => [
         'content_saved' => 'Contenuto salvato con successo',
         'save_error' => 'Si è verificato un errore durante il salvataggio',
@@ -465,9 +507,12 @@ return [
         'video_upload_error' => 'Errore durante il caricamento del video',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'validation' => [
         'title_required' => 'Il titolo è obbligatorio',
         'slug_unique' => 'Questo slug è già in uso',
