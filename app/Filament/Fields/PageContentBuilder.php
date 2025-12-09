@@ -28,12 +28,11 @@ class PageContentBuilder
 
     /**
      * @param  DataCollection<int, ComponentFileData>  $blocks
-     *
      * @return list<Block>
      */
     private static function buildBlockList(DataCollection $blocks, string $context): array
     {
-/** @var list<Block> $blockList */ $blockList = [];
+        /** @var list<Block> $blockList */ $blockList = [];
 
         foreach ($blocks as $block) {
             Assert::isInstanceOf($block, ComponentFileData::class, '['.__LINE__.']['.__FILE__.']');
