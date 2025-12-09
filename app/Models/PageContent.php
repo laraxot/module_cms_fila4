@@ -41,7 +41,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|PageContent whereUpdatedBy($value)
  *
  * @mixin \Eloquent
-  * */
+ * */
 class PageContent extends BaseModel
 {
     use HasTranslations;

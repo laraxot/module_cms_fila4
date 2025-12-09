@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 Route::get(
     '/',
     fn () => // return view('welcome');
-        redirect('/'.app()->getLocale())
-    ,
+        redirect('/'.app()->getLocale()),
 );

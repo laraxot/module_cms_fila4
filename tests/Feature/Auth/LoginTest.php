@@ -19,21 +19,21 @@ use function Pest\Laravel\get;
 uses(TestCase::class);
 
 // NOTE: Helper functions moved to Modules\Xot\Tests\TestCase for DRY pattern
-/** @phpstan-ignore-next-line property.notFound, method.nonObject */
+/* @phpstan-ignore-next-line property.notFound, method.nonObject */
 // Use $this->$this->generateUniqueEmail(), $this->$this->getUserClass(), $this->$this->createTestUser()
 
 describe('Frontend Login Page Rendering', function (): void {
     test('login page can be rendered', function (): void {
         $locale = app()->getLocale();
         $response = get('/'.$locale.'/auth/login');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
     });
 
     test('login page contains login widget', function (): void {
         $locale = app()->getLocale();
         $response = get('/'.$locale.'/auth/login');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200); // ->assertSee('@livewire')
         // ->assertSee('LoginWidget')
     });
@@ -41,7 +41,7 @@ describe('Frontend Login Page Rendering', function (): void {
     test('login page has required form elements', function (): void {
         $locale = app()->getLocale();
         $response = get('/'.$locale.'/auth/login');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200); // ->assertSee('Hai dimenticato la password?')
         // ->assertSee('crea un nuovo account')
         // ->assertSee('logo-v2.png')
@@ -52,7 +52,7 @@ describe('Frontend Login Page Localization', function (): void {
     test('login page works in italian', function (): void {
         app()->setLocale('it');
         $response = get('/it/auth/login');
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
     });
 
@@ -60,7 +60,7 @@ describe('Frontend Login Page Localization', function (): void {
     //    app()->setLocale('en');
     //    LaravelLocalization::setLocale('en');
     //    $response = get('/en/auth/login');
-    /** @phpstan-ignore-next-line method.nonObject */
+    /* @phpstan-ignore-next-line method.nonObject */
     //    //$response->assertStatus(200);
     // });
 
@@ -91,7 +91,7 @@ describe('Frontend Login Page Authentication', function (): void {
             ->set('password', 'password123')
             ->call('authenticate');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors();
         assertAuthenticated();
 
@@ -100,7 +100,7 @@ describe('Frontend Login Page Authentication', function (): void {
         $locale = app()->getLocale();
         $response = get('/'.$locale.'/auth/login');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertRedirect('/');
     });
 });
@@ -116,7 +116,7 @@ describe('Frontend Login Page Integration', function (): void {
         $response = get('/'.$locale.'/auth/login');
 
         // May redirect to dashboard or intended page
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(302);
     });
 });
@@ -125,7 +125,7 @@ describe('Frontend Login Session Management', function (): void {
     test('remember me functionality works', function (): void {
         /** @phpstan-ignore-next-line property.notFound */
         $email = $this->generateUniqueEmail();
-        /** @phpstan-ignore-next-line property.notFound */
+        /* @phpstan-ignore-next-line property.notFound */
         $this->createTestUser([
             'email' => $email,
             'password' => Hash::make('password123'),
@@ -139,7 +139,7 @@ describe('Frontend Login Session Management', function (): void {
             ->set('remember', true)
             ->call('authenticate');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors();
         assertAuthenticated();
     });
@@ -147,7 +147,7 @@ describe('Frontend Login Session Management', function (): void {
     test('session regeneration on login', function (): void {
         /** @phpstan-ignore-next-line property.notFound */
         $email = $this->generateUniqueEmail();
-        /** @phpstan-ignore-next-line property.notFound */
+        /* @phpstan-ignore-next-line property.notFound */
         $this->createTestUser([
             'email' => $email,
             'password' => Hash::make('password123'),
@@ -172,14 +172,14 @@ describe('Frontend Login Security', function (): void {
     test('login attempts are rate limited', function (): void {
         /** @phpstan-ignore-next-line property.notFound */
         $email = $this->generateUniqueEmail();
-        /** @phpstan-ignore-next-line property.notFound */
+        /* @phpstan-ignore-next-line property.notFound */
         $this->createTestUser([
             'email' => $email,
             'password' => Hash::make('password123'),
         ]);
 
         // Multiple failed attempts
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; ++$i) {
             LivewireVolt::test('auth.login')
                 ->set('email', $email)
                 ->set('password', 'wrong_password')
@@ -216,7 +216,7 @@ describe('Frontend Login User Types', function (): void {
             ->set('password', 'password123')
             ->call('authenticate');
 
-        /** @phpstan-ignore-next-line method.nonObject */
+        /* @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors();
         assertAuthenticated();
 
