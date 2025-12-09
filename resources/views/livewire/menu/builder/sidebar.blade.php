@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 <div id="menu-settings-column" class="metabox-holder">
 
     <div class="clear"></div>
@@ -22,10 +28,14 @@ declare(strict_types=1);
                         <div class="customlinkdiv" id="customlinkdiv">
                             <p id="menu-item-url-wrap">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label class="howto" for="custom-menu-item-url"> <span>URL</span>&nbsp;&nbsp;&nbsp;
 =======
                                 <x-filament-forms::field-wrapper.label class="howto" for="custom-menu-item-url"> <span>URL</span>&nbsp;&nbsp;&nbsp;
 >>>>>>> 3401a6b (.)
+=======
+                                <label class="howto" for="custom-menu-item-url"> <span>URL</span>&nbsp;&nbsp;&nbsp;
+>>>>>>> 1377a46 (.)
                                     <input id="custom-menu-item-url" name="url" type="text"
                                         class="menu-item-textbox " placeholder="url" wire:model="item.link">
                                 </label>
@@ -33,10 +43,14 @@ declare(strict_types=1);
 
                             <p id="menu-item-name-wrap">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 <label class="howto" for="custom-menu-item-name"> <span>Label</span>&nbsp;
 =======
                                 <x-filament-forms::field-wrapper.label class="howto" for="custom-menu-item-name"> <span>Label</span>&nbsp;
 >>>>>>> 3401a6b (.)
+=======
+                                <label class="howto" for="custom-menu-item-name"> <span>Label</span>&nbsp;
+>>>>>>> 1377a46 (.)
                                     <input id="custom-menu-item-name" name="label" type="text"
                                         class="regular-text menu-item-textbox input-with-default-title"
                                         title="Label menu" wire:model="item.label">
@@ -46,10 +60,14 @@ declare(strict_types=1);
                             @if (!empty($roles))
                                 <p id="menu-item-role_id-wrap">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <label class="howto" for="custom-menu-item-name"> <span>Role</span>&nbsp;
 =======
                                     <x-filament-forms::field-wrapper.label class="howto" for="custom-menu-item-name"> <span>Role</span>&nbsp;
 >>>>>>> 3401a6b (.)
+=======
+                                    <label class="howto" for="custom-menu-item-name"> <span>Role</span>&nbsp;
+>>>>>>> 1377a46 (.)
                                         <select id="custom-menu-item-role" name="role">
                                             <option value="0">Select Role</option>
                                             @foreach ($roles as $role)
