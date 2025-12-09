@@ -17,6 +17,7 @@ uses(TestCase::class);
     $lang = app()->getLocale();
     $response = get('/'.$lang.'/forgot-password');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
@@ -34,6 +35,7 @@ uses(TestCase::class);
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($lang): true {
         $response = get('/'.$lang.'/reset-password/'.$notification->token);
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
 
         return true;
@@ -52,6 +54,7 @@ uses(TestCase::class);
             ->set('password_confirmation', 'password')
             ->call('resetPassword');
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors()->assertRedirect(route('login', absolute: false));
 
         return true;
