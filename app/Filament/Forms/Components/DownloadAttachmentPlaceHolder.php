@@ -1,10 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 815ce17 (.)
 declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Forms\Components;
@@ -20,47 +15,10 @@ class DownloadAttachmentPlaceHolder extends Placeholder
     {
         parent::setUp();
         $this->label('')->content($this->generateContent(...))->columnSpanFull();
-<<<<<<< HEAD
-=======
-=======
-=======
-declare(strict_types=1);
-
-
->>>>>>> b93ef594b4 (.)
-namespace Modules\Cms\Filament\Forms\Components;
-
-use Exception;
-use Filament\Forms\Components\Placeholder;
-use Illuminate\Support\HtmlString;
-use Modules\Cms\Models\Attachment;
-use Webmozart\Assert\Assert;
-
-class DownloadAttachmentPlaceHolder extends Placeholder
-{
-    protected function setUp(): void
-    {
-        parent::setUp();
-<<<<<<< HEAD
-        $this->label('')
-         ->content(fn() => $this->generateContent())
-         ->columnSpanFull();
->>>>>>> a12f125f4a (.)
-=======
-        $this->label('')->content($this->generateContent(...))->columnSpanFull();
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
     }
 
     protected function generateContent(): HtmlString
     {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
         $name = $this->getName();
         $attachment = Attachment::firstWhere('slug', $name);
         Assert::isInstanceOf($attachment, Attachment::class);
@@ -69,10 +27,6 @@ class DownloadAttachmentPlaceHolder extends Placeholder
             'description' => $attachment->description,
             /* @phpstan-ignore-next-line method.notFound */
             'asset' => $attachment->asset(),
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 815ce17 (.)
         ];
 
         /** @var view-string $view */
@@ -84,33 +38,4 @@ class DownloadAttachmentPlaceHolder extends Placeholder
 
         return new HtmlString($out->render());
     }
-<<<<<<< HEAD
-=======
-=======
-        $name=$this->getName();
-        $attachment = Attachment::firstWhere('slug', $name);   
-        $data=[
-            'title'=>$attachment->title,
-            'description'=>$attachment->description,
-            'asset'=>$attachment->asset(),
-=======
->>>>>>> b93ef594b4 (.)
-        ];
-
-        /** @var view-string $view */
-        $view = 'pub_theme::filament.forms.components.download-attachment-place-holder';
-        if (!view()->exists($view)) {
-            throw new Exception('View ' . $view . ' not found');
-        }
-        $out = view($view, $data);
-
-        return new HtmlString($out->render());
-    }
-<<<<<<< HEAD
-
-    
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
->>>>>>> 815ce17 (.)
 }
