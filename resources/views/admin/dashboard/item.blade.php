@@ -17,11 +17,11 @@ declare(strict_types=1);
     <x-card>
         <x-slot name="title">Cms</x-slot>
         <x-slot name="txt">
-            
+
             <livewire:graph url="/api/xxx/answers" id="graph1"></livewire:graph>
 
             <x-graph url="/api/xxx/answers" id="graph1"></x-graph>
-           
+
         </x-slot>
     </x-card>
 </div> --}}
