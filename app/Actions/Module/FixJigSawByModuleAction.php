@@ -18,7 +18,7 @@ final class FixJigSawByModuleAction
     use QueueableAction;
 
     /**
-     * @return array<string, mixed>
+     * @return list<string>
      */
     public function execute(Module $module): array
     {
