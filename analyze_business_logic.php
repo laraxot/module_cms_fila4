@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Contracts\Console\Kernel;
+use Webmozart\Assert\Assert;
 
 use function Safe\file_get_contents;
 use function Safe\glob;
@@ -16,7 +17,14 @@ use function Safe\scandir;
 require_once __DIR__.'/laravel/vendor/autoload.php';
 
 $app = require_once __DIR__.'/laravel/bootstrap/app.php';
-$app->make(Kernel::class)->bootstrap();
+Assert::object($app, 'Application must be an object');
+if (method_exists($app, 'make')) {
+    $kernel = $app->make(Kernel::class);
+    Assert::object($kernel, 'Kernel must be an object');
+    if (method_exists($kernel, 'bootstrap')) {
+        $kernel->bootstrap();
+    }
+}
 
 class BusinessLogicAnalyzer
 {
@@ -24,11 +32,8 @@ class BusinessLogicAnalyzer
 
     private array $analysis = [];
 
-    private string $basePath;
-
-    public function __construct(string $basePath)
+    public function __construct(private readonly string $basePath)
     {
-        $this->basePath = $basePath;
     }
 
     public function analyze(): array
@@ -36,6 +41,7 @@ class BusinessLogicAnalyzer
         $this->discoverModules();
 
         foreach ($this->modules as $module) {
+            Assert::string($module, 'Module name must be a string');
             $this->analyzeModule($module);
         }
 
@@ -61,7 +67,10 @@ class BusinessLogicAnalyzer
 
         $directories = array_filter(
             scandir($modulesPath),
-            fn ($item) => $item !== '.' && $item !== '..' && is_dir($modulesPath.'/'.$item)
+            function ($item) use ($modulesPath): bool {
+                Assert::string($item, 'Directory item must be a string');
+                return $item !== '.' && $item !== '..' && is_dir($modulesPath.'/'.$item);
+            }
         );
 
         $this->modules = array_values($directories);
@@ -114,6 +123,7 @@ class BusinessLogicAnalyzer
 
         // Check for missing factories and seeders
         foreach ($moduleData['models'] as $model) {
+            Assert::string($model, 'Model name must be a string');
             $factoryName = $model.'Factory';
             if (! in_array($factoryName, $moduleData['factories'])) {
                 $moduleData['missing_factories'][] = $factoryName;
@@ -135,23 +145,25 @@ class BusinessLogicAnalyzer
         $files = glob($path.'/*.php');
 
         foreach ($files as $file) {
-            $filename = basename($file, '.php');
+            if (is_string($file)) {
+                $filename = basename($file, '.php');
 
-            // Skip base models, traits, policies, and .old files
-            if (strpos($filename, 'Base') === 0 ||
-                strpos($filename, 'Trait') !== false ||
-                $filename === 'BaseModel' ||
-                $filename === 'BasePivot' ||
-                strpos($filename, '.old') !== false ||
-                is_dir($file)) {
-                continue;
-            }
+                // Skip base models, traits, policies, and .old files
+                if (str_starts_with($filename, 'Base') ||
+                    str_contains($filename, 'Trait') ||
+                    $filename === 'BaseModel' ||
+                    $filename === 'BasePivot' ||
+                    str_contains($filename, '.old') ||
+                    is_dir($file)) {
+                    continue;
+                }
 
-            // Check if it's actually a model by reading the file
-            $content = file_get_contents($file);
-            if (strpos($content, 'extends') !== false &&
-                (strpos($content, 'Model') !== false || strpos($content, 'BaseModel') !== false)) {
-                $models[] = $filename;
+                // Check if it's actually a model by reading the file
+                $content = file_get_contents($file);
+                if (str_contains($content, 'extends') &&
+                    (str_contains($content, 'Model') || str_contains($content, 'BaseModel'))) {
+                    $models[] = $filename;
+                }
             }
         }
 
@@ -164,9 +176,11 @@ class BusinessLogicAnalyzer
         $files = glob($path.'/*.php');
 
         foreach ($files as $file) {
-            $filename = basename($file, '.php');
-            if (strpos($filename, 'Factory') !== false) {
-                $factories[] = $filename;
+            if (is_string($file)) {
+                $filename = basename($file, '.php');
+                if (str_contains($filename, 'Factory')) {
+                    $factories[] = $filename;
+                }
             }
         }
 
@@ -179,9 +193,11 @@ class BusinessLogicAnalyzer
         $files = glob($path.'/*.php');
 
         foreach ($files as $file) {
-            $filename = basename($file, '.php');
-            if (strpos($filename, 'Seeder') !== false) {
-                $seeders[] = $filename;
+            if (is_string($file)) {
+                $filename = basename($file, '.php');
+                if (str_contains($filename, 'Seeder')) {
+                    $seeders[] = $filename;
+                }
             }
         }
 
@@ -190,15 +206,21 @@ class BusinessLogicAnalyzer
 
     private function printModuleAnalysis(array $moduleData): void
     {
+        Assert::isArray($moduleData['models'], 'Models must be an array');
+        Assert::isArray($moduleData['factories'], 'Factories must be an array');
+        Assert::isArray($moduleData['seeders'], 'Seeders must be an array');
+
         echo '  Models: '.count($moduleData['models']).' ('.implode(', ', $moduleData['models']).")\n";
         echo '  Factories: '.count($moduleData['factories']).' ('.implode(', ', $moduleData['factories']).")\n";
         echo '  Seeders: '.count($moduleData['seeders']).' ('.implode(', ', $moduleData['seeders']).")\n";
 
         if (! empty($moduleData['missing_factories'])) {
+            Assert::isArray($moduleData['missing_factories'], 'Missing factories must be an array');
             echo '  ❌ Missing Factories: '.implode(', ', $moduleData['missing_factories'])."\n";
         }
 
         if (! empty($moduleData['missing_seeders'])) {
+            Assert::isArray($moduleData['missing_seeders'], 'Missing seeders must be an array');
             echo '  ❌ Missing Seeders: '.implode(', ', $moduleData['missing_seeders'])."\n";
         }
 
@@ -216,11 +238,19 @@ class BusinessLogicAnalyzer
         $totalMissingSeeders = 0;
 
         foreach ($this->analysis as $moduleName => $data) {
-            $totalModels += count($data['models']);
-            $totalFactories += count($data['factories']);
-            $totalSeeders += count($data['seeders']);
-            $totalMissingFactories += count($data['missing_factories']);
-            $totalMissingSeeders += count($data['missing_seeders']);
+            Assert::isArray($data, 'Module data must be an array');
+
+            $models = isset($data['models']) && is_array($data['models']) ? $data['models'] : [];
+            $factories = isset($data['factories']) && is_array($data['factories']) ? $data['factories'] : [];
+            $seeders = isset($data['seeders']) && is_array($data['seeders']) ? $data['seeders'] : [];
+            $missingFactories = isset($data['missing_factories']) && is_array($data['missing_factories']) ? $data['missing_factories'] : [];
+            $missingSeeders = isset($data['missing_seeders']) && is_array($data['missing_seeders']) ? $data['missing_seeders'] : [];
+
+            $totalModels += count($models);
+            $totalFactories += count($factories);
+            $totalSeeders += count($seeders);
+            $totalMissingFactories += count($missingFactories);
+            $totalMissingSeeders += count($missingSeeders);
         }
 
         echo "SUMMARY:\n";
@@ -234,13 +264,18 @@ class BusinessLogicAnalyzer
         if ($totalMissingFactories > 0 || $totalMissingSeeders > 0) {
             echo "MISSING COMPONENTS:\n";
             foreach ($this->analysis as $moduleName => $data) {
-                if (! empty($data['missing_factories']) || ! empty($data['missing_seeders'])) {
+                Assert::isArray($data, 'Module data must be an array');
+
+                $missingFactories = isset($data['missing_factories']) && is_array($data['missing_factories']) ? $data['missing_factories'] : [];
+                $missingSeeders = isset($data['missing_seeders']) && is_array($data['missing_seeders']) ? $data['missing_seeders'] : [];
+
+                if (! empty($missingFactories) || ! empty($missingSeeders)) {
                     echo "Module {$moduleName}:\n";
-                    if (! empty($data['missing_factories'])) {
-                        echo '  Missing Factories: '.implode(', ', $data['missing_factories'])."\n";
+                    if (! empty($missingFactories)) {
+                        echo '  Missing Factories: '.implode(', ', $missingFactories)."\n";
                     }
-                    if (! empty($data['missing_seeders'])) {
-                        echo '  Missing Seeders: '.implode(', ', $data['missing_seeders'])."\n";
+                    if (! empty($missingSeeders)) {
+                        echo '  Missing Seeders: '.implode(', ', $missingSeeders)."\n";
                     }
                 }
             }
@@ -252,9 +287,16 @@ class BusinessLogicAnalyzer
         echo "\n=== TINKER COMMANDS TO CREATE 100 RECORDS ===\n\n";
 
         foreach ($this->analysis as $moduleName => $data) {
+            Assert::string($moduleName, 'Module name must be a string');
+            Assert::isArray($data, 'Module data must be an array');
+
             if (! empty($data['models'])) {
+                Assert::isArray($data['models'], 'Models must be an array');
+                Assert::isArray($data['factories'], 'Factories must be an array');
+
                 echo "// Module: {$moduleName}\n";
                 foreach ($data['models'] as $model) {
+                    Assert::string($model, 'Model name must be a string');
                     $factoryExists = in_array($model.'Factory', $data['factories']);
                     if ($factoryExists) {
                         echo "\\Modules\\{$moduleName}\\Models\\{$model}::factory()->count(100)->create();\n";

@@ -2,6 +2,22 @@
 
 declare(strict_types=1);
 
+use Modules\Cms\Database\Factories\ConfFactory;
+use Modules\Cms\Database\Factories\MenuFactory;
+use Modules\Cms\Database\Factories\ModuleFactory;
+use Modules\Cms\Database\Factories\PageFactory;
+use Modules\Cms\Database\Factories\PageContentFactory;
+use Modules\Cms\Database\Factories\SectionFactory;
+use Modules\Gdpr\Database\Factories\ConsentFactory;
+use Modules\Gdpr\Database\Factories\EventFactory;
+use Modules\Gdpr\Database\Factories\ProfileFactory;
+use Modules\Gdpr\Database\Factories\TreatmentFactory;
+use Modules\Lang\Database\Factories\PostFactory;
+use Modules\Lang\Database\Factories\TranslationFactory;
+use Modules\Lang\Database\Factories\TranslationFileFactory;
+use Modules\Media\Database\Factories\MediaFactory;
+use Modules\Media\Database\Factories\MediaConvertFactory;
+use Modules\Media\Database\Factories\TemporaryUploadFactory;
 use Illuminate\Contracts\Console\Kernel;
 
 /**
@@ -28,28 +44,28 @@ class TestDataGenerator
             'User' => 'Modules\<main module>\Database\Factories\UserFactory',
         ],
         'Cms' => [
-            'Conf' => 'Modules\Cms\Database\Factories\ConfFactory',
-            'Menu' => 'Modules\Cms\Database\Factories\MenuFactory',
-            'Module' => 'Modules\Cms\Database\Factories\ModuleFactory',
-            'Page' => 'Modules\Cms\Database\Factories\PageFactory',
-            'PageContent' => 'Modules\Cms\Database\Factories\PageContentFactory',
-            'Section' => 'Modules\Cms\Database\Factories\SectionFactory',
+            'Conf' => ConfFactory::class,
+            'Menu' => MenuFactory::class,
+            'Module' => ModuleFactory::class,
+            'Page' => PageFactory::class,
+            'PageContent' => PageContentFactory::class,
+            'Section' => SectionFactory::class,
         ],
         'Gdpr' => [
-            'Consent' => 'Modules\Gdpr\Database\Factories\ConsentFactory',
-            'Event' => 'Modules\Gdpr\Database\Factories\EventFactory',
-            'Profile' => 'Modules\Gdpr\Database\Factories\ProfileFactory',
-            'Treatment' => 'Modules\Gdpr\Database\Factories\TreatmentFactory',
+            'Consent' => ConsentFactory::class,
+            'Event' => EventFactory::class,
+            'Profile' => ProfileFactory::class,
+            'Treatment' => TreatmentFactory::class,
         ],
         'Lang' => [
-            'Post' => 'Modules\Lang\Database\Factories\PostFactory',
-            'Translation' => 'Modules\Lang\Database\Factories\TranslationFactory',
-            'TranslationFile' => 'Modules\Lang\Database\Factories\TranslationFileFactory',
+            'Post' => PostFactory::class,
+            'Translation' => TranslationFactory::class,
+            'TranslationFile' => TranslationFileFactory::class,
         ],
         'Media' => [
-            'Media' => 'Modules\Media\Database\Factories\MediaFactory',
-            'MediaConvert' => 'Modules\Media\Database\Factories\MediaConvertFactory',
-            'TemporaryUpload' => 'Modules\Media\Database\Factories\TemporaryUploadFactory',
+            'Media' => MediaFactory::class,
+            'MediaConvert' => MediaConvertFactory::class,
+            'TemporaryUpload' => TemporaryUploadFactory::class,
         ],
     ];
 

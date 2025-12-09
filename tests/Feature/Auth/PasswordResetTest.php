@@ -32,7 +32,7 @@ uses(TestCase::class);
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($lang) {
+    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($lang): true {
         $response = get('/'.$lang.'/reset-password/'.$notification->token);
         $response->assertStatus(200);
 
@@ -45,7 +45,7 @@ uses(TestCase::class);
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');
 
-    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user) {
+    Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($user): true {
         $response = LivewireVolt::test('auth.reset-password', ['token' => $notification->token])
             ->set('email', $user->email)
             ->set('password', 'password')
