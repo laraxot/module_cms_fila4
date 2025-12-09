@@ -28,6 +28,8 @@ class VerifyComponent extends Component
          * return back()->with('status', 'verification-link-sent');
          */
         Assert::notNull($user = auth()->user());
+        /** @var \Modules\Fixcity\Models\User $user */
+        $user = $user;
         if ($user->hasVerifiedEmail()) {
             redirect('/');
         }
