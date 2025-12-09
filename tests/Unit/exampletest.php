@@ -64,22 +64,31 @@ it('the user views navigation modules entries based on their role', function ():
     $item_navs_roles = $this->getUserNavigationItemUrlRoles($this->super_admin_user);
     foreach ($item_navs_roles as $item_nav_role) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')->assertSee($item_nav_role);
 
 =======
         $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')
             ->assertSee($item_nav_role);
 >>>>>>> 3401a6b (.)
+=======
+        $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')->assertSee($item_nav_role);
+
+>>>>>>> 1377a46 (.)
         // ->assertSeeText($item_nav_role)
     }
 });
 
 it('the user no views navigation modules entries based on their no role', function (): void {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
     $diff_navigation_items = $this->getMainAdminNavigationUrlItems()->diff($this->getUserNavigationItemUrlRoles($this->super_admin_user)->all());
     foreach ($diff_navigation_items as $item_nav_role) {
         $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')->assertDontSee($item_nav_role);
 
+<<<<<<< HEAD
 =======
     $diff_navigation_items = $this->getMainAdminNavigationUrlItems()
         ->diff($this->getUserNavigationItemUrlRoles($this->super_admin_user)->all());
@@ -88,6 +97,8 @@ it('the user no views navigation modules entries based on their no role', functi
             ->get('/admin/main-dashboard')
             ->assertDontSee($item_nav_role);
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // ->assertDontSeeText($item_nav_role)
     }
 });

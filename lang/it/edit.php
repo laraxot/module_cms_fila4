@@ -40,9 +40,12 @@ return [
             'help' => 'Livello gerarchico del contenuto',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Visual & Media
         'image' => [
             'label' => 'Immagine',
@@ -76,9 +79,12 @@ return [
             'helper_text' => 'Rapporto di proporzione per il ridimensionamento',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Styling & Layout
         'background' => [
             'label' => 'Sfondo',
@@ -105,9 +111,12 @@ return [
             'helper_text' => 'Percorso della risorsa multimediale',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Interaction Elements
         'buttons' => [
             'label' => 'Pulsanti',
@@ -139,9 +148,12 @@ return [
             'helper_text' => 'URL di destinazione del pulsante',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Navigation & Structure
         'label' => [
             'label' => 'Etichetta',
@@ -174,9 +186,12 @@ return [
             'helper_text' => 'Icona rappresentativa dell\'elemento',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Company & Contact
         'company_name' => [
             'label' => 'Nome Azienda',
@@ -204,9 +219,12 @@ return [
             'helper_text' => 'Indirizzo fisico completo',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Technical Fields
         'type' => [
             'label' => 'Tipo',
@@ -236,9 +254,12 @@ return [
             'helper_text' => 'Valore numerico per statistiche o contatori',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Block Management
         'content_blocks' => [
             'label' => 'Blocchi Contenuto',
@@ -261,9 +282,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'actions' => [
         'save' => 'Salva modifiche',
         'save_and_close' => 'Salva e chiudi',
@@ -273,9 +297,12 @@ return [
         'remove_block' => 'Rimuovi blocco',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'messages' => [
         'saved' => 'Modifiche salvate con successo',
         'error' => 'Si è verificato un errore durante il salvataggio',
@@ -283,9 +310,12 @@ return [
         'unsaved_changes' => 'Hai modifiche non salvate',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'validation' => [
         'required' => 'Questo campo è obbligatorio',
         'slug_exists' => 'Questo slug è già in uso',
@@ -294,9 +324,12 @@ return [
         'max' => 'Il valore non può superare :max',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'sections' => [
         'content' => 'Contenuto',
         'media' => 'Media',
