@@ -28,8 +28,26 @@ class Conf extends BaseModel
 
     /** @var list<string> */
     protected $fillable = [
+<<<<<<< HEAD
         'id',
         'name',
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+        'id',
+        'name',
+=======
+        'id', 'name',
+>>>>>>> a12f125f4a (.)
+=======
+        'id',
+        'name',
+>>>>>>> b93ef594b4 (.)
+=======
+        'id', 'name',
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
     ];
 
     /**
@@ -43,10 +61,35 @@ class Conf extends BaseModel
     }
 
     /*
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> b93ef594b4 (.)
+>>>>>>> 815ce17 (.)
      * protected function sushiShouldCache() {
      * return false;
      * }
      */
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/develop
+    protected function sushiShouldCache() {
+        return false;
+    }
+    */
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
     /**
      * Undocumented function.
      */
