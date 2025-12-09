@@ -13,36 +13,39 @@ use function Pest\Laravel\actingAs;
 uses(TestCase::class);
 
 test('confirm password screen can be rendered', function (): void {
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+    $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
     $response = actingAs($user)->get('/'.$lang.'/confirm-password');
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
 test('password can be confirmed', function (): void {
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+    $user = $userClass::factory()->create();
 
     actingAs($user);
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'password')->call('confirmPassword');
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
 test('password is not confirmed with invalid password', function (): void {
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+    $user = $userClass::factory()->create();
 
     actingAs($user);
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'wrong-password')->call('confirmPassword');
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasErrors(['password']);
 });
