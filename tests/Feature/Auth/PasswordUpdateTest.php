@@ -10,13 +10,10 @@ use Modules\Xot\Tests\TestCase;
 
 uses(TestCase::class);
 
-test('password can be updated', function (): void {
-    /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    $user = User::factory()->create([
         'password' => Hash::make('password'),
     ]);
 
-    /** @phpstan-ignore-next-line property.notFound */
     $this->actingAs($user);
 
     $response = Volt::test('settings.password')
@@ -25,19 +22,15 @@ test('password can be updated', function (): void {
         ->set('password_confirmation', 'new-password')
         ->call('updatePassword');
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors();
 
     expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
 });
 
-test('correct password must be provided to update password', function (): void {
-    /** @var User */
-        $user = User/** @phpstan-ignore-line */ ::factory()->create([
+    $user = User::factory()->create([
         'password' => Hash::make('password'),
     ]);
 
-    /** @phpstan-ignore-next-line property.notFound */
     $this->actingAs($user);
 
     $response = Volt::test('settings.password')
@@ -46,6 +39,5 @@ test('correct password must be provided to update password', function (): void {
         ->set('password_confirmation', 'new-password')
         ->call('updatePassword');
 
-    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasErrors(['current_password']);
 });

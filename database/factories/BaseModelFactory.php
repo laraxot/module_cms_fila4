@@ -40,7 +40,7 @@ class BaseModelFactory extends Factory
      */
     public function active(): static
     {
-        return $this->state(fn (array $_attributes) => [
+        return $this->state(fn (array $_attributes): array => [
             'is_active' => true,
         ]);
     }
@@ -50,7 +50,7 @@ class BaseModelFactory extends Factory
      */
     public function visible(): static
     {
-        return $this->state(fn (array $_attributes) => [
+        return $this->state(fn (array $_attributes): array => [
             'is_visible' => true,
         ]);
     }

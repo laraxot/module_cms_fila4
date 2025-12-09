@@ -19,38 +19,28 @@ beforeEach(function (): void {
     static::mockXotData();
 });
 
-// =============================================================================
 // REGISTRATION WIDGET TESTS - Filament Component
-// =============================================================================
 // ✅ Test del WIDGET Filament, non della pagina
 // ✅ Focus su: rendering, form interaction, basic validation
 // ✅ Architettura: Filament Widget + XotBaseWidget + dynamic resolution
-// =============================================================================
 
-// =============================================================================
 // WIDGET CORE TESTS
-// =============================================================================
 
-test('widget can be rendered for patient type', function (): void {
     Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
-test('widget can be rendered for doctor type', function (): void {
     Livewire::test(RegistrationWidget::class, ['type' => 'doctor'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
-test('widget requires type parameter', function (): void {
-    expect(function (): void {
         Livewire::test(RegistrationWidget::class);
     })
         ->toThrow(Exception::class);
 });
 
-test('widget can handle form data input', function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
     $email = static::generateUniqueEmail();
 
@@ -63,7 +53,6 @@ test('widget can handle form data input', function (): void {
     expect($widget->get('data.email'))->toBe($email);
 });
 
-test('widget maintains state after setting multiple fields', function (): void {
     $testData = [
         'name' => 'Test Patient',
         'email' => static::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
@@ -73,7 +62,6 @@ test('widget maintains state after setting multiple fields', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient']);
 
     foreach ($testData as $field => $value) {
-        /** @phpstan-ignore-next-line method.nonObject */
         $widget->set("data.{$field}", $value);
     }
 
@@ -82,7 +70,6 @@ test('widget maintains state after setting multiple fields', function (): void {
     }
 });
 
-test('widget calls register method without fatal errors', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
         ->set('data.name', 'Test User')
@@ -91,7 +78,6 @@ test('widget calls register method without fatal errors', function (): void {
     // Chiamata a register - potrebbe fallire per action class mancante
     // ma non dovrebbe generare errori fatali di sintassi
     try {
-        /** @phpstan-ignore-next-line method.nonObject */
         $widget->call('register');
         expect(true)->toBeTrue(); // Success path
     } catch (Exception $e) {
@@ -100,14 +86,12 @@ test('widget calls register method without fatal errors', function (): void {
     }
 });
 
-test('widget works with Livewire testing framework', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient']);
 
     // Verifica che il widget sia compatibile con Livewire testing
     expect($widget)->not()->toBeNull();
 });
 
-test('widget handles different user types', function (): void {
     foreach (['patient', 'doctor'] as $type) {
         $widget = Livewire::test(RegistrationWidget::class, ['type' => $type])
             ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
@@ -115,7 +99,6 @@ test('widget handles different user types', function (): void {
             ->set('data.password', 'TestPassword123!');
 
         try {
-            /** @phpstan-ignore-next-line method.nonObject */
             $widget->call('register');
             expect(true)->toBeTrue();
         } catch (Exception $e) {
@@ -125,7 +108,6 @@ test('widget handles different user types', function (): void {
     }
 });
 
-test('widget maintains state after form errors', function (): void {
     $email = 'invalid-email';
     $name = 'Test User';
 

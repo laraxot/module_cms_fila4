@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-use function Safe\class_implements;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

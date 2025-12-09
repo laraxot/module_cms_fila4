@@ -14,22 +14,13 @@ class ListPageContents extends LangBaseListRecords
 
     // protected static string $resource = PageContentResource::class;
 
-    /**
-     * @return array<int, \Filament\Tables\Columns\Column|\Filament\Tables\Columns\Layout\Stack>
-     */
     public function getGridTableColumns(): array
     {
-        /** @var array<int, \Filament\Tables\Columns\Column> $columns */
-        $columns = $this->getTableColumns();
-        
         return [
-            Stack::make($columns),
+            Stack::make($this->getTableColumns()),
         ];
     }
 
-    /**
-     * @return array<int, \Filament\Tables\Columns\TextColumn>
-     */
     public function getTableColumns(): array
     {
         return [

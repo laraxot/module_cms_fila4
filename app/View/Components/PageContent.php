@@ -28,7 +28,6 @@ class PageContent extends Component
         $blocks = $page->content_blocks;
         if (! is_array($blocks)) {
             $primary_lang = XotData::make()->primary_lang;
-            /* @phpstan-ignore-next-line method.notFound */
             $blocks = $page->getTranslation('content_blocks', $primary_lang);
         }
 
