@@ -12,7 +12,7 @@ use Tests\TestCase;
 uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function (): void {
-    $this->page = Page::factory()->create();
+    $this->page = Page/** @phpstan-ignore-line */ ::factory()->create();
 });
 
 test('page can be created', function (): void {
@@ -76,9 +76,9 @@ test('page can be searched by title', function (): void {
 
 test('page can be filtered by status', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $publishedPage = Page::factory()->create(['status' => 'published']);
+        $publishedPage = Page/** @phpstan-ignore-line */ ::factory()->create(['status' => 'published']);
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $draftPage = Page::factory()->create(['status' => 'draft']);
+        $draftPage = Page/** @phpstan-ignore-line */ ::factory()->create(['status' => 'draft']);
 
     $publishedPages = Page::published()->get();
     $draftPages = Page::draft()->get();
@@ -92,7 +92,7 @@ test('page can be filtered by status', function (): void {
 
 test('page can be filtered by template', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $templatePage = Page::factory()->create(['template' => 'default']);
+        $templatePage = Page/** @phpstan-ignore-line */ ::factory()->create(['template' => 'default']);
 
     $templatePages = Page::byTemplate('default')->get();
 

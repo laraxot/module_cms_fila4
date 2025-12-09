@@ -52,6 +52,7 @@ class Welcome extends Page
             $container_last = last($this->containers);
             Assert::string($container_last, '['.__LINE__.']['.__FILE__.']');
             $item_last = last($this->items);
+            Assert::string($item_last, '['.__LINE__.']['.__FILE__.']');
 
             $container_last_singular = Str::singular($container_last);
             Assert::string($container_last_singular, 'Container last singular must be a string');
@@ -65,6 +66,7 @@ class Welcome extends Page
             $container_last_key_name = $container_last_model->getFrontRouteKeyName();
             Assert::string($container_last_key_name, 'Front route key name must be a string');
 
+            /** @var string $container_last_key_name */
             $row = $container_last_model::firstWhere([$container_last_key_name => $item_last]);
 
             $data[$container_last_singular] = $row;

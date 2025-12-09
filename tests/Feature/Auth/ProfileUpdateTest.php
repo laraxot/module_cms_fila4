@@ -14,7 +14,7 @@ uses(TestCase::class);
 
 test('profile page is displayed', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     $lang = app()->getLocale();
     /** @phpstan-ignore-next-line method.nonObject */
@@ -23,7 +23,7 @@ test('profile page is displayed', function (): void {
 
 test('profile information can be updated', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 
@@ -48,7 +48,7 @@ test('profile information can be updated', function (): void {
 
 test('email verification status is unchanged when email address is unchanged', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 
@@ -65,7 +65,7 @@ test('email verification status is unchanged when email address is unchanged', f
 
 test('user can delete their account', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 
@@ -79,7 +79,7 @@ test('user can delete their account', function (): void {
 
 test('correct password must be provided to delete account', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 

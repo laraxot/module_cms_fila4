@@ -1,6 +1,7 @@
 <?php
 
 declare(strict_types=1);
+use function Safe\class_uses;
 
 use Modules\Cms\Models\BaseModel;
 use Modules\Cms\Models\Menu;

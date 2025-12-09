@@ -12,7 +12,7 @@ uses(TestCase::class);
 
 test('password can be updated', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
         'password' => Hash::make('password'),
     ]);
 
@@ -33,7 +33,7 @@ test('password can be updated', function (): void {
 
 test('correct password must be provided to update password', function (): void {
     /** @var \Illuminate\Database\Eloquent\Collection */
-        $user = User::factory()->create([
+        $user = User/** @phpstan-ignore-line */ ::factory()->create([
         'password' => Hash::make('password'),
     ]);
 

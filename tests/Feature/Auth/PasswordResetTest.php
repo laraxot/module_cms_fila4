@@ -26,7 +26,7 @@ test('reset password link can be requested', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');
 
@@ -37,7 +37,7 @@ test('reset password screen can be rendered', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
     $lang = app()->getLocale();
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');
@@ -55,7 +55,7 @@ test('password can be reset with valid token', function (): void {
     Notification::fake();
 
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
     $lang = app()->getLocale();
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');

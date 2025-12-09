@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use function Safe\preg_match;
+use function Safe\preg_split;
 
 use Illuminate\Support\Facades\Artisan;
 use Modules\Cms\Tests\TestCase;

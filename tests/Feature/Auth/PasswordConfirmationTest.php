@@ -14,7 +14,7 @@ uses(TestCase::class);
 
 test('confirm password screen can be rendered', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     $lang = app()->getLocale();
     $response = actingAs($user)->get('/'.$lang.'/confirm-password');
@@ -25,7 +25,7 @@ test('confirm password screen can be rendered', function (): void {
 
 test('password can be confirmed', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 
@@ -37,7 +37,7 @@ test('password can be confirmed', function (): void {
 
 test('password is not confirmed with invalid password', function (): void {
     $userClass = XotData::make()->getUserClass();
-    $user = $userClass::factory()->create();
+    $user = $userClass/** @phpstan-ignore-line */ ::factory()->create();
 
     actingAs($user);
 
