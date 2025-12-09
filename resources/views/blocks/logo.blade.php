@@ -16,7 +16,7 @@ $url = $block->data['url'] ?? '/';
 @endphp
 
 <a href="{{ $url }}" class="flex items-center">
-    @if($type !== 'text')
+    @if ($type !== 'text')
         <img
             src="{{ $image }}"
             alt="{{ $alt }}"
@@ -26,7 +26,7 @@ $url = $block->data['url'] ?? '/';
         />
     @endif
 
-    @if($type !== 'image')
+    @if ($type !== 'image')
         <span class="ml-2 text-xl font-bold text-gray-900">
             {{ $text }}
         </span>
