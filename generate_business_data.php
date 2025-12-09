@@ -2,11 +2,8 @@
 
 declare(strict_types=1);
 
-<<<<<<< HEAD
 use Illuminate\Contracts\Console\Kernel;
 
-=======
->>>>>>> origin/develop
 /**
  * Business Data Generation Script
  * Creates 100 records for each core business model using Tinker commands
@@ -15,11 +12,7 @@ use Illuminate\Contracts\Console\Kernel;
 require_once __DIR__ . '/laravel/vendor/autoload.php';
 
 $app = require_once __DIR__ . '/laravel/bootstrap/app.php';
-<<<<<<< HEAD
 $kernel = $app->make(Kernel::class);
-=======
-$kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
->>>>>>> origin/develop
 $kernel->bootstrap();
 
 class BusinessDataGenerator
@@ -44,19 +37,11 @@ class BusinessDataGenerator
 
         foreach ($this->coreBusinessModels as $module => $models) {
             echo "📦 Module: {$module}\n";
-<<<<<<< HEAD
 
             foreach ($models as $modelName) {
                 $this->generateModelRecords($module, $modelName);
             }
 
-=======
-            
-            foreach ($models as $modelName) {
-                $this->generateModelRecords($module, $modelName);
-            }
-            
->>>>>>> origin/develop
             echo "\n";
         }
 
@@ -70,11 +55,7 @@ class BusinessDataGenerator
             echo "  🔄 Generating {$modelName} records... ";
 
             $factoryClass = "\\Modules\\{$module}\\Database\\Factories\\{$modelName}Factory";
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> origin/develop
             if (!class_exists($factoryClass)) {
                 echo "❌ Factory not found\n";
                 $this->results[$module][$modelName] = ['status' => 'no_factory'];
@@ -83,19 +64,11 @@ class BusinessDataGenerator
 
             // Use Artisan Tinker approach for better compatibility
             $command = "\\Modules\\{$module}\\Models\\{$modelName}::factory()->count(100)->create();";
-<<<<<<< HEAD
 
             // Try to execute via eval in a safe way
             try {
                 $modelClass = "\\Modules\\{$module}\\Models\\{$modelName}";
 
-=======
-            
-            // Try to execute via eval in a safe way
-            try {
-                $modelClass = "\\Modules\\{$module}\\Models\\{$modelName}";
-                
->>>>>>> origin/develop
                 if (!class_exists($modelClass)) {
                     echo "❌ Model not found\n";
                     $this->results[$module][$modelName] = ['status' => 'no_model'];
@@ -105,28 +78,17 @@ class BusinessDataGenerator
                 // Create factory directly and generate records
                 $factory = $factoryClass::new();
                 $records = $factory->count(100)->create();
-<<<<<<< HEAD
 
                 $count = is_countable($records) ? count($records) : 100;
                 echo "✅ Created {$count} records\n";
 
-=======
-                
-                $count = is_countable($records) ? count($records) : 100;
-                echo "✅ Created {$count} records\n";
-                
->>>>>>> origin/develop
                 $this->results[$module][$modelName] = [
                     'status' => 'success',
                     'count' => $count,
                     'command' => $command
                 ];
 
-<<<<<<< HEAD
             } catch (Exception $e) {
-=======
-            } catch (\Exception $e) {
->>>>>>> origin/develop
                 echo "❌ Error: " . substr($e->getMessage(), 0, 60) . "...\n";
                 $this->results[$module][$modelName] = [
                     'status' => 'error',
@@ -135,11 +97,7 @@ class BusinessDataGenerator
                 ];
             }
 
-<<<<<<< HEAD
         } catch (Exception $e) {
-=======
-        } catch (\Exception $e) {
->>>>>>> origin/develop
             echo "❌ Fatal error: " . substr($e->getMessage(), 0, 60) . "...\n";
             $this->results[$module][$modelName] = [
                 'status' => 'fatal_error',
@@ -159,11 +117,7 @@ class BusinessDataGenerator
 
         foreach ($this->results as $module => $models) {
             echo "Module: {$module}\n";
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> origin/develop
             foreach ($models as $modelName => $result) {
                 $status = match($result['status']) {
                     'success' => '✅',
@@ -171,15 +125,9 @@ class BusinessDataGenerator
                     'no_model' => '⚠️',
                     default => '❌'
                 };
-<<<<<<< HEAD
 
                 echo "  {$status} {$modelName}";
 
-=======
-                
-                echo "  {$status} {$modelName}";
-                
->>>>>>> origin/develop
                 if ($result['status'] === 'success') {
                     echo " - {$result['count']} records";
                     $totalSuccess++;
@@ -202,11 +150,7 @@ class BusinessDataGenerator
     private function generateTinkerScript(): void
     {
         $scriptPath = __DIR__ . '/tinker_commands.php';
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> origin/develop
         $content = "<?php\n\n";
         $content .= "/**\n";
         $content .= " * Tinker commands to generate 100 records for each business model\n";
@@ -215,11 +159,7 @@ class BusinessDataGenerator
 
         foreach ($this->results as $module => $models) {
             $content .= "// Module: {$module}\n";
-<<<<<<< HEAD
 
-=======
-            
->>>>>>> origin/develop
             foreach ($models as $modelName => $result) {
                 if (isset($result['command'])) {
                     $content .= "echo \"Generating {$modelName}...\";\n";
