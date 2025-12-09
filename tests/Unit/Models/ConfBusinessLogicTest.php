@@ -18,7 +18,7 @@ describe('Conf Business Logic', function () {
     });
 
     test('conf has expected fillable fields', function () {
-        $conf = new Conf();
+        $conf = new Conf;
         $expectedFillable = [
             'id',
             'name',
@@ -28,13 +28,13 @@ describe('Conf Business Logic', function () {
     });
 
     test('conf uses name as route key', function () {
-        $conf = new Conf();
+        $conf = new Conf;
 
         expect($conf->getRouteKeyName())->toBe('name');
     });
 
     test('conf can get rows from tenant service', function () {
-        $conf = new Conf();
+        $conf = new Conf;
 
         expect(method_exists($conf, 'getRows'))->toBeTrue();
         expect($conf->getRows())->toBeArray();
