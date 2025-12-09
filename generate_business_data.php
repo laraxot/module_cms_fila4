@@ -4,36 +4,38 @@ declare(strict_types=1);
 
 use Illuminate\Contracts\Console\Kernel;
 
+use function Safe\file_put_contents;
+
 /**
  * Business Data Generation Script
  * Creates 100 records for each core business model using Tinker commands
  */
 
-require_once __DIR__ . '/laravel/vendor/autoload.php';
+require_once __DIR__.'/laravel/vendor/autoload.php';
 
-$app = require_once __DIR__ . '/laravel/bootstrap/app.php';
+$app = require_once __DIR__.'/laravel/bootstrap/app.php';
 $kernel = $app->make(Kernel::class);
 $kernel->bootstrap();
 
 class BusinessDataGenerator
 {
     private array $coreBusinessModels = [
-        'SaluteOra' => [
+        '<main module>' => [
             'Patient',
-            'Doctor', 
+            'Doctor',
             'Studio',
             'Appointment',
             'Report',
             'Profile',
             'User',
-        ]
+        ],
     ];
 
     private array $results = [];
 
     public function generateData(): void
     {
-        echo "🚀 Generating business data for SaluteOra core models...\n\n";
+        echo "🚀 Generating business data for <main module> core models...\n\n";
 
         foreach ($this->coreBusinessModels as $module => $models) {
             echo "📦 Module: {$module}\n";
@@ -56,9 +58,10 @@ class BusinessDataGenerator
 
             $factoryClass = "\\Modules\\{$module}\\Database\\Factories\\{$modelName}Factory";
 
-            if (!class_exists($factoryClass)) {
+            if (! class_exists($factoryClass)) {
                 echo "❌ Factory not found\n";
                 $this->results[$module][$modelName] = ['status' => 'no_factory'];
+
                 return;
             }
 
@@ -69,9 +72,10 @@ class BusinessDataGenerator
             try {
                 $modelClass = "\\Modules\\{$module}\\Models\\{$modelName}";
 
-                if (!class_exists($modelClass)) {
+                if (! class_exists($modelClass)) {
                     echo "❌ Model not found\n";
                     $this->results[$module][$modelName] = ['status' => 'no_model'];
+
                     return;
                 }
 
@@ -85,23 +89,23 @@ class BusinessDataGenerator
                 $this->results[$module][$modelName] = [
                     'status' => 'success',
                     'count' => $count,
-                    'command' => $command
+                    'command' => $command,
                 ];
 
             } catch (Exception $e) {
-                echo "❌ Error: " . substr($e->getMessage(), 0, 60) . "...\n";
+                echo '❌ Error: '.substr($e->getMessage(), 0, 60)."...\n";
                 $this->results[$module][$modelName] = [
                     'status' => 'error',
                     'error' => $e->getMessage(),
-                    'command' => $command
+                    'command' => $command,
                 ];
             }
 
         } catch (Exception $e) {
-            echo "❌ Fatal error: " . substr($e->getMessage(), 0, 60) . "...\n";
+            echo '❌ Fatal error: '.substr($e->getMessage(), 0, 60)."...\n";
             $this->results[$module][$modelName] = [
                 'status' => 'fatal_error',
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ];
         }
     }
@@ -109,7 +113,7 @@ class BusinessDataGenerator
     private function printSummary(): void
     {
         echo "📊 GENERATION SUMMARY\n";
-        echo str_repeat("=", 50) . "\n\n";
+        echo str_repeat('=', 50)."\n\n";
 
         $totalSuccess = 0;
         $totalFailed = 0;
@@ -119,7 +123,7 @@ class BusinessDataGenerator
             echo "Module: {$module}\n";
 
             foreach ($models as $modelName => $result) {
-                $status = match($result['status']) {
+                $status = match ($result['status']) {
                     'success' => '✅',
                     'no_factory' => '⚠️',
                     'no_model' => '⚠️',
@@ -133,7 +137,7 @@ class BusinessDataGenerator
                     $totalSuccess++;
                     $totalRecords += $result['count'];
                 } else {
-                    echo " - " . ucfirst(str_replace('_', ' ', $result['status']));
+                    echo ' - '.ucfirst(str_replace('_', ' ', $result['status']));
                     $totalFailed++;
                 }
                 echo "\n";
@@ -149,7 +153,7 @@ class BusinessDataGenerator
 
     private function generateTinkerScript(): void
     {
-        $scriptPath = __DIR__ . '/tinker_commands.php';
+        $scriptPath = __DIR__.'/tinker_commands.php';
 
         $content = "<?php\n\n";
         $content .= "/**\n";
@@ -163,10 +167,10 @@ class BusinessDataGenerator
             foreach ($models as $modelName => $result) {
                 if (isset($result['command'])) {
                     $content .= "echo \"Generating {$modelName}...\";\n";
-                    $content .= $result['command'] . "\n";
+                    $content .= $result['command']."\n";
                     $content .= "echo \"✅ {$modelName} completed\\n\";\n\n";
                 } else {
-                    $content .= "// ❌ {$modelName} - " . ($result['status'] ?? 'unknown error') . "\n\n";
+                    $content .= "// ❌ {$modelName} - ".($result['status'] ?? 'unknown error')."\n\n";
                 }
             }
         }
@@ -179,8 +183,8 @@ class BusinessDataGenerator
 
 // Execute the generator
 try {
-    $generator = new BusinessDataGenerator();
+    $generator = new BusinessDataGenerator;
     $generator->generateData();
 } catch (Exception $e) {
-    echo "💥 Fatal Error: " . $e->getMessage() . "\n";
+    echo '💥 Fatal Error: '.$e->getMessage()."\n";
 }
