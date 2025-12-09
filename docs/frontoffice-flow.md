@@ -1,4 +1,4 @@
-# Flusso Frontoffice SaluteOra
+# Flusso Frontoffice <main module>
 
 ## Indice
 1. [Introduzione](#introduzione)
@@ -10,7 +10,7 @@
 
 ## Introduzione
 
-Questo documento descrive il flusso completo del frontoffice di SaluteOra, dalla gestione delle route alla renderizzazione dei componenti.
+Questo documento descrive il flusso completo del frontoffice di <main module>, dalla gestione delle route alla renderizzazione dei componenti.
 
 ## Struttura delle Route
 
@@ -69,7 +69,7 @@ Questo documento descrive il flusso completo del frontoffice di SaluteOra, dalla
 ## Gestione dei Contenuti
 
 ### Sezioni e Blocchi
-- Le sezioni sono definite in `/laravel/config/local/saluteora/database/content/sections/`
+- Le sezioni sono definite in `/laravel/config/local/<directory progetto>/database/content/sections/`
 - Ogni sezione ha un file JSON che definisce:
   - ID e nome
   - Blocchi di contenuto
@@ -138,5 +138,5 @@ Questo documento descrive il flusso completo del frontoffice di SaluteOra, dalla
 
 ## Collegamenti
 - [Struttura Route e Viste](./struttura-route-e-viste.md)
-- [Layout e Componenti](./struttura-layout-componenti-blade-saluteora.md)
+- [Layout e Componenti](./struttura-layout-componenti-blade-<nome progetto>.md)
 - [Best Practices Filament](./best-practices/filament.md) 

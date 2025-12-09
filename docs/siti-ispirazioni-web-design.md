@@ -6,7 +6,7 @@ Questo documento raccoglie analisi e ispirazioni dai migliori esempi di web desi
 1. [Introduzione](#introduzione)
 2. [Siti Web Ispirazioni](#siti-web-ispirazioni)
 3. [Principi di Design da Implementare](#principi-di-design-da-implementare)
-4. [Applicazione a il progetto](#applicazione-a-saluteora)
+4. [Applicazione a il progetto](#applicazione-a-<nome progetto>)
 5. [Conclusioni](#conclusioni)
 
 ## Introduzione
