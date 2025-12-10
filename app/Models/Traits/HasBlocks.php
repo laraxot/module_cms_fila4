@@ -44,12 +44,12 @@ trait HasBlocks
     public function compile(array $blocks): array
     {
         $result = [];
-        
+
         foreach ($blocks as $key => $value) {
             if (! is_string($key)) {
                 $key = (string) $key;
             }
-            
+
             if (is_string($value) && Str::containsAll($value, ['{{', '}}'])) {
                 $result[$key] = Blade::render($value);
             } else {

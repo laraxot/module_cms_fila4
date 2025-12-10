@@ -40,7 +40,7 @@ class Conf extends BaseModel
         //  local/ptvx
         /** @var array<int, array{id: int, name: string}> $configNames */
         $configNames = TenantService::getConfigNames();
-        
+
         return $configNames;
     }
 
