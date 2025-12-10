@@ -12,7 +12,7 @@ use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
-/**
+/*
  * Tests for dynamic registration pages rendered by Themes/One
  * Route pattern: /{locale}/auth/{type}/register
  *

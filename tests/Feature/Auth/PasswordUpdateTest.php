@@ -14,7 +14,7 @@ uses(TestCase::class);
 test('password can be updated', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
-    
+
     $user = $userClass::factory()->create([
         'password' => Hash::make('password'),
     ]);
@@ -35,7 +35,7 @@ test('password can be updated', function (): void {
 test('current password must be correct', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
-    
+
     $user = $userClass::factory()->create([
         'password' => Hash::make('password'),
     ]);

@@ -15,7 +15,7 @@ uses(TestCase::class);
 test('confirm password page can be rendered', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
-    
+
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -27,7 +27,7 @@ test('confirm password page can be rendered', function (): void {
 test('password can be confirmed', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
-    
+
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -40,7 +40,7 @@ test('password can be confirmed', function (): void {
 test('password is not confirmed with invalid password', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
-    
+
     $user = $userClass::factory()->create();
 
     actingAs($user);
