@@ -17,6 +17,12 @@ return new class extends XotBaseMigration
     public function up(): void
     {
         // -- CREATE --
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 815ce17 (.)
         $this->tableCreate(static function (Blueprint $table): void {
             $table->id();
 
@@ -33,5 +39,55 @@ return new class extends XotBaseMigration
                 hasSoftDeletes: true,
             );
         });
+<<<<<<< HEAD
+=======
+=======
+        $this->tableCreate(
+            static function (Blueprint $table): void {
+                $table->id();
+=======
+        $this->tableCreate(static function (Blueprint $table): void {
+            $table->id();
+>>>>>>> b93ef594b4 (.)
+
+            $table->string('slug')->unique()->index();
+            $table->string('name');
+            $table->json('blocks')->nullable();
+
+            // $table->json('blocks')->default(new Expression('(JSON_ARRAY())'));
+        });
+        // -- UPDATE --
+<<<<<<< HEAD
+=======
+        $this->tableCreate(
+            static function (Blueprint $table): void {
+                $table->id();
+
+                $table->string('slug')->unique()->index();
+                $table->string('name');
+                $table->json('blocks')->nullable();
+                // $table->json('blocks')->default(new Expression('(JSON_ARRAY())'));
+            }
+        );
+        // -- UPDATE --
+>>>>>>> origin/develop
+        $this->tableUpdate(
+            function (Blueprint $table): void {
+                $this->updateTimestamps(table: $table, hasSoftDeletes: true);
+            }
+        );
+<<<<<<< HEAD
+>>>>>>> a12f125f4a (.)
+=======
+        $this->tableUpdate(function (Blueprint $table): void {
+            $this->updateTimestamps(
+                table: $table,
+                hasSoftDeletes: true,
+            );
+        });
+>>>>>>> b93ef594b4 (.)
+=======
+>>>>>>> origin/develop
+>>>>>>> 815ce17 (.)
     }
 };
