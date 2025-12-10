@@ -118,7 +118,7 @@ class TestDataGenerator
             }
 
             // Create factory instance and generate records
-            $factory = new $factoryClass();
+            $factory = new $factoryClass;
 
             // Check if the factory has the count method (Laravel Factory pattern)
             if (method_exists($factory, 'count')) {
@@ -216,7 +216,7 @@ class TestDataGenerator
 
 // Execute the generator
 try {
-    $generator = new TestDataGenerator();
+    $generator = new TestDataGenerator;
     $generator->generateTestData();
     $generator->generateTinkerCommands();
 } catch (Exception $e) {
