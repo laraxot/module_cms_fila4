@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Pages;
 
+use BackedEnum;
+use UnitEnum;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
 use Illuminate\Support\Facades\File;
@@ -22,11 +24,11 @@ class Themes extends Page
 {
     public array $data = [];
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
 
     protected string $view = 'cms::filament.pages.themes';
 
-    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
 
     public function changePubTheme(string $name): void
     {
@@ -55,7 +57,7 @@ class Themes extends Page
         $data = [];
         if ($themes) {
             foreach ($themes as $key => $item) {
-                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
                 $filename = $item.DIRECTORY_SEPARATOR.'theme.json';
                 if (! File::exists($filename)) {
                     $theme_data = ThemeData::from(['name' => basename((string) $item)]);

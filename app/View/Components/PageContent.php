@@ -13,15 +13,12 @@ use Webmozart\Assert\Assert;
 
 class PageContent extends Component
 {
-    public string $slug;
-
     public array $blocks = [];
 
-    public function __construct(string $slug)
+    public function __construct(public string $slug)
     {
-        $this->slug = $slug;
         Assert::isInstanceOf(
-            $page = PageModel::firstOrCreate(['slug' => $slug], ['title' => $slug, 'content_blocks' => []]),
+            $page = PageModel::firstOrCreate(['slug' => $this->slug], ['title' => $this->slug, 'content_blocks' => []]),
             PageModel::class,
             '['.__LINE__.']['.__FILE__.']',
         );

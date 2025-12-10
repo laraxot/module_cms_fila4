@@ -2,6 +2,22 @@
 
 declare(strict_types=1);
 
+use Modules\Cms\Database\Factories\ConfFactory;
+use Modules\Cms\Database\Factories\MenuFactory;
+use Modules\Cms\Database\Factories\ModuleFactory;
+use Modules\Cms\Database\Factories\PageFactory;
+use Modules\Cms\Database\Factories\PageContentFactory;
+use Modules\Cms\Database\Factories\SectionFactory;
+use Modules\Gdpr\Database\Factories\ConsentFactory;
+use Modules\Gdpr\Database\Factories\EventFactory;
+use Modules\Gdpr\Database\Factories\ProfileFactory;
+use Modules\Gdpr\Database\Factories\TreatmentFactory;
+use Modules\Lang\Database\Factories\PostFactory;
+use Modules\Lang\Database\Factories\TranslationFactory;
+use Modules\Lang\Database\Factories\TranslationFileFactory;
+use Modules\Media\Database\Factories\MediaFactory;
+use Modules\Media\Database\Factories\MediaConvertFactory;
+use Modules\Media\Database\Factories\TemporaryUploadFactory;
 use Illuminate\Contracts\Console\Kernel;
 use Modules\Cms\Database\Factories\ConfFactory;
 use Modules\Cms\Database\Factories\ConfFactory;
