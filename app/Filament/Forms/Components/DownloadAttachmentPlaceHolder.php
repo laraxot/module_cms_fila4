@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Forms\Components;
@@ -16,6 +19,7 @@ class DownloadAttachmentPlaceHolder extends Placeholder
     {
         parent::setUp();
         $this->label('')->content($this->generateContent(...))->columnSpanFull();
+<<<<<<< HEAD
 =======
 namespace Modules\Cms\Filament\Forms\Components;
 
@@ -33,11 +37,16 @@ class DownloadAttachmentPlaceHolder extends Placeholder
          ->content(fn() => $this->generateContent())
          ->columnSpanFull();
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     }
 
     protected function generateContent(): HtmlString
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
         $name = $this->getName();
         $attachment = Attachment::firstWhere('slug', $name);
         Assert::isInstanceOf($attachment, Attachment::class);
@@ -56,6 +65,7 @@ class DownloadAttachmentPlaceHolder extends Placeholder
 
         return new HtmlString($out->render());
     }
+<<<<<<< HEAD
 =======
         $name=$this->getName();
         $attachment = Attachment::firstWhere('slug', $name);   
@@ -72,4 +82,6 @@ class DownloadAttachmentPlaceHolder extends Placeholder
 
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 }
