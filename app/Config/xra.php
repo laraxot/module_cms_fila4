@@ -1,10 +1,13 @@
 <?php
 
+<<<<<<< HEAD
 declare(strict_types=1);
 
 use Modules\User\Models\Profile;
 use Modules\User\Models\User;
 
+=======
+>>>>>>> 3401a6b (.)
 return [
     'adm_theme' => 'AdminLTE',
     'enable_ads' => false,
@@ -14,4 +17,8 @@ return [
         'profile' => Profile::class,
         'user' => User::class,
     ],
+<<<<<<< HEAD
 ];
+=======
+]; 
+>>>>>>> 3401a6b (.)
