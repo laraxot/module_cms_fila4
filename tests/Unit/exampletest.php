@@ -63,17 +63,31 @@ it('guest user can view main dashboard', function (): void {
 it('the user views navigation modules entries based on their role', function (): void {
     $item_navs_roles = $this->getUserNavigationItemUrlRoles($this->super_admin_user);
     foreach ($item_navs_roles as $item_nav_role) {
+<<<<<<< HEAD
         $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')->assertSee($item_nav_role);
 
+=======
+        $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')
+            ->assertSee($item_nav_role);
+>>>>>>> 3401a6b (.)
         // ->assertSeeText($item_nav_role)
     }
 });
 
 it('the user no views navigation modules entries based on their no role', function (): void {
+<<<<<<< HEAD
     $diff_navigation_items = $this->getMainAdminNavigationUrlItems()->diff($this->getUserNavigationItemUrlRoles($this->super_admin_user)->all());
     foreach ($diff_navigation_items as $item_nav_role) {
         $this->actingAs($this->super_admin_user)->get('/admin/main-dashboard')->assertDontSee($item_nav_role);
 
+=======
+    $diff_navigation_items = $this->getMainAdminNavigationUrlItems()
+        ->diff($this->getUserNavigationItemUrlRoles($this->super_admin_user)->all());
+    foreach ($diff_navigation_items as $item_nav_role) {
+        $this->actingAs($this->super_admin_user)
+            ->get('/admin/main-dashboard')
+            ->assertDontSee($item_nav_role);
+>>>>>>> 3401a6b (.)
         // ->assertDontSeeText($item_nav_role)
     }
 });
