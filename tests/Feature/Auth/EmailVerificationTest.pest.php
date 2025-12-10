@@ -15,10 +15,7 @@ use function Pest\Laravel\actingAs;
 uses(TestCase::class);
 
 // Test: Email verification screen can be rendered
-<<<<<<< HEAD
-test('email verification screen can be rendered', function (): void {
-=======
->>>>>>> develop
+test('email verification screen can be rendered', function () {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->unverified()->create();
 
@@ -28,10 +25,7 @@ test('email verification screen can be rendered', function (): void {
 });
 
 // Test: Email can be verified
-<<<<<<< HEAD
-test('email can be verified', function (): void {
-=======
->>>>>>> develop
+test('email can be verified', function () {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->unverified()->create();
 
@@ -39,10 +33,7 @@ test('email can be verified', function (): void {
 
     $verificationUrl = URL::temporarySignedRoute('verification.verify', now()->addMinutes(60), [
         'id' => $user->id,
-<<<<<<< HEAD
-        'hash' => sha1((string) $user->email),
-=======
->>>>>>> develop
+        'hash' => sha1($user->email),
     ]);
 
     $response = actingAs($user)->get($verificationUrl);
@@ -55,10 +46,7 @@ test('email can be verified', function (): void {
 });
 
 // Test: Email is not verified with invalid hash
-<<<<<<< HEAD
-test('email is not verified with invalid hash', function (): void {
-=======
->>>>>>> develop
+test('email is not verified with invalid hash', function () {
     $userClass = XotData::make()->getUserClass();
     $user = $userClass::factory()->unverified()->create();
 
