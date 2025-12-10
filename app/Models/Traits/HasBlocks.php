@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 namespace Modules\Cms\Models\Traits;
@@ -44,6 +47,7 @@ trait HasBlocks
             }
             if (is_string($value) && Str::containsAll($value, ['{{', '}}'])) {
                 $blocks[$key] = Blade::render($value);
+<<<<<<< HEAD
 =======
 namespace Modules\Cms\Models\Traits;
 
@@ -88,6 +92,8 @@ trait HasBlocks
             if(is_string($value) && Str::containsAll($value,['{{','}}'])){
                 $blocks[$key]=Blade::render($value);
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
             }
         }
 
@@ -95,6 +101,9 @@ trait HasBlocks
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
     public static function getBlocksBySlug(string $slug): array
     {
         $model = static::class;
@@ -107,6 +116,7 @@ trait HasBlocks
         return $record->getBlocks();
     }
 }
+<<<<<<< HEAD
 =======
 
     public static function getBlocksBySlug(string $slug):array
@@ -121,3 +131,5 @@ trait HasBlocks
     }
 }
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
