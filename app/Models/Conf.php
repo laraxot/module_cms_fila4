@@ -33,13 +33,15 @@ class Conf extends BaseModel
     ];
 
     /**
-     * @return array<string, mixed>
+     * @return array<int, array{id: int, name: string}>
      */
     public function getRows(): array
     {
         //  local/ptvx
-        /* @var array<string, mixed> */
-        return TenantService::getConfigNames();
+        /** @var array<int, array{id: int, name: string}> $configNames */
+        $configNames = TenantService::getConfigNames();
+        
+        return $configNames;
     }
 
     /*

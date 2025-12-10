@@ -9,26 +9,21 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
 use Filament\Schemas\Components\Utilities\Set;
 use Illuminate\Support\Str;
-// use Modules\Cms\Filament\Resources\PageContentResource\RelationManagers;
-// use Filament\Forms;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\PageContent;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-
-// use Illuminate\Database\Eloquent\Builder;
-// use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PageContentResource extends LangBaseResource
 {
     protected static ?string $model = PageContent::class;
 
     /**
-     * @return array<string, \Filament\Support\Components\Component>
+     * @return array<int|string, \Filament\Schemas\Components\Component>
      */
     #[\Override]
     public static function getFormSchema(): array
     {
-        return array_values([
+        return [
             'name' => TextInput::make('name')
                 ->required()
                 ->lazy()
@@ -44,6 +39,6 @@ class PageContentResource extends LangBaseResource
             'content' => Section::make('Content')->schema([
                 PageContentBuilder::make('blocks')->columnSpanFull(),
             ]),
-        ]);
+        ];
     }
 }

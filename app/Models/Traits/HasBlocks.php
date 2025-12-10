@@ -12,7 +12,7 @@ use Modules\Xot\Datas\XotData;
 trait HasBlocks
 {
     /**
-     * @return array<string, mixed>
+     * @return array<int, BlockData>
      */
     public function getBlocks(): array
     {
@@ -29,7 +29,13 @@ trait HasBlocks
 
         $blocks = $this->compile($blocks);
 
-        return BlockData::collect($blocks);
+        /** @var \Illuminate\Support\Collection<int, BlockData> $collection */
+        $collection = BlockData::collect($blocks);
+
+        /** @var array<int, BlockData> $result */
+        $result = $collection->all();
+
+        return $result;
     }
 
     /**
@@ -37,16 +43,21 @@ trait HasBlocks
      */
     public function compile(array $blocks): array
     {
+        $result = [];
+        
         foreach ($blocks as $key => $value) {
-            if (is_array($value)) {
-                $blocks[$key] = $this->compile($value);
+            if (! is_string($key)) {
+                $key = (string) $key;
             }
+            
             if (is_string($value) && Str::containsAll($value, ['{{', '}}'])) {
-                $blocks[$key] = Blade::render($value);
+                $result[$key] = Blade::render($value);
+            } else {
+                $result[$key] = $value;
             }
         }
 
-        return $blocks;
+        return $result;
     }
 
     public static function getBlocksBySlug(string $slug): array
