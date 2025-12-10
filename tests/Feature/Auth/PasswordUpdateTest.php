@@ -6,11 +6,16 @@ namespace Modules\Cms\Tests\Feature\Auth;
 
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
+use Modules\Xot\Datas\XotData;
 use Modules\Xot\Tests\TestCase;
 
 uses(TestCase::class);
 
-    $user = User::factory()->create([
+test('password can be updated', function (): void {
+    $xotData = XotData::make();
+    $userClass = $xotData->getUserClass();
+    
+    $user = $userClass::factory()->create([
         'password' => Hash::make('password'),
     ]);
 
@@ -27,7 +32,11 @@ uses(TestCase::class);
     expect(Hash::check('new-password', $user->refresh()->password))->toBeTrue();
 });
 
-    $user = User::factory()->create([
+test('current password must be correct', function (): void {
+    $xotData = XotData::make();
+    $userClass = $xotData->getUserClass();
+    
+    $user = $userClass::factory()->create([
         'password' => Hash::make('password'),
     ]);
 

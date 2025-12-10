@@ -12,6 +12,10 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
+test('confirm password page can be rendered', function (): void {
+    $xotData = XotData::make();
+    $userClass = $xotData->getUserClass();
+    
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -20,6 +24,10 @@ uses(TestCase::class);
     $response->assertStatus(200);
 });
 
+test('password can be confirmed', function (): void {
+    $xotData = XotData::make();
+    $userClass = $xotData->getUserClass();
+    
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -29,6 +37,10 @@ uses(TestCase::class);
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
+test('password is not confirmed with invalid password', function (): void {
+    $xotData = XotData::make();
+    $userClass = $xotData->getUserClass();
+    
     $user = $userClass::factory()->create();
 
     actingAs($user);

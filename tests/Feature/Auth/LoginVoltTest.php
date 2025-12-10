@@ -19,15 +19,17 @@ uses(TestCase::class);
 // NOTE: Helper functions moved to Modules\Xot\Tests\TestCase for DRY pattern
 // Use $this->$this->generateUniqueEmail(), $this->getUserClass(), $this->$this->createTestUser()
 
-        $component = LivewireVolt::test('auth.login');
+test('login page can be rendered', function () {
+    $component = LivewireVolt::test('auth.login');
 
-        expect($component)->not->toBeNull();
-        $component->assertOk();
-    });
+    expect($component)->not->toBeNull();
+    $component->assertOk();
+});
 
-        $component = LivewireVolt::test('auth.login');
+test('login component has correct default values', function () {
+    $component = LivewireVolt::test('auth.login');
 
-        $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
+    $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
     });
 
         $component = LivewireVolt::test('auth.login');

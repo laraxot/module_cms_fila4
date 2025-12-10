@@ -26,21 +26,25 @@ beforeEach(function (): void {
 
 // WIDGET CORE TESTS
 
+test('registration widget renders correctly for patient type', function (): void {
     Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
+test('registration widget renders correctly for doctor type', function (): void {
     Livewire::test(RegistrationWidget::class, ['type' => 'doctor'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
+test('registration widget throws exception without type parameter', function (): void {
+    expect(function () {
         Livewire::test(RegistrationWidget::class);
-    })
-        ->toThrow(Exception::class);
+    })->toThrow(Exception::class);
 });
 
+test('registration widget can set and get form data', function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
     $email = static::generateUniqueEmail();
 
@@ -53,6 +57,7 @@ beforeEach(function (): void {
     expect($widget->get('data.email'))->toBe($email);
 });
 
+test('registration widget can handle multiple form fields', function (): void {
     $testData = [
         'name' => 'Test Patient',
         'email' => static::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
@@ -70,6 +75,7 @@ beforeEach(function (): void {
     }
 });
 
+test('registration widget register method can be called', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
         ->set('data.name', 'Test User')
@@ -86,12 +92,14 @@ beforeEach(function (): void {
     }
 });
 
+test('registration widget is compatible with Livewire testing', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient']);
 
     // Verifica che il widget sia compatibile con Livewire testing
     expect($widget)->not()->toBeNull();
 });
 
+test('registration widget works for different user types', function (): void {
     foreach (['patient', 'doctor'] as $type) {
         $widget = Livewire::test(RegistrationWidget::class, ['type' => $type])
             ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
@@ -108,6 +116,7 @@ beforeEach(function (): void {
     }
 });
 
+test('registration widget preserves form data after validation errors', function (): void {
     $email = 'invalid-email';
     $name = 'Test User';
 
