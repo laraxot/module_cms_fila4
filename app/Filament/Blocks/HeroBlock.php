@@ -8,7 +8,6 @@ use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\TextInput;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use Override;
 
 class HeroBlock extends XotBaseBlock
 {
