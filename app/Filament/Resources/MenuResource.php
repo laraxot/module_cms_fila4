@@ -10,9 +10,7 @@ use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Component;
 use Filament\Schemas\Components\Grid;
-use Illuminate\Support\HtmlString;
 use Modules\Cms\Models\Menu;
-use Modules\UI\Filament\Forms\Components\IconPicker;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class MenuResource extends XotBaseResource
