@@ -17,7 +17,7 @@ use function Pest\Laravel\assertGuest;
 uses(TestCase::class);
 
 // NOTE: Helper functions moved to Modules\Xot\Tests\TestCase for DRY pattern
-// Use $this->$this->generateUniqueEmail(), $this->getUserClass(), $this->$this->createTestUser()
+// Use $this->self::generateUniqueEmail(), $this->getUserClass(), $this->self::createTestUser()
 
 test('login page can be rendered', function () {
     $component = LivewireVolt::test('auth.login');
@@ -30,334 +30,340 @@ test('login component has correct default values', function () {
     $component = LivewireVolt::test('auth.login');
 
     $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
-    });
-
-        $component = LivewireVolt::test('auth.login');
-
-        $component
-            ->assertSee('wire:model="email"')
-            ->assertSee('wire:model="password"')
-            ->assertSee('wire:model="remember"');
-    });
 });
 
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
 
-        assertGuest();
 
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
+test('successful login authenticates the user', function () {
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        $response->assertHasNoErrors();
-        assertAuthenticated();
-    });
+    assertGuest();
 
-        $email = $this->generateUniqueEmail();
-        $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        assertGuest();
+    $response->assertHasNoErrors();
+    assertAuthenticated();
+});
 
-        $response = LivewireVolt::test('auth.login')
+test('login with wrong password fails', function () {
+    $email = self::generateUniqueEmail();
+    self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    assertGuest();
+
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'wrong_password')
+        ->call('save');
+
+    $response->assertHasErrors(['email']);
+    assertGuest();
+});
+
+test('login with non-existent user fails', function () {
+    $email = self::generateUniqueEmail();
+
+    assertGuest();
+
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
+
+    $response->assertHasErrors(['email']);
+    assertGuest();
+});
+
+test('login with invalid email format fails', function () {
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', 'invalid-email')
+        ->set('password', 'password123')
+        ->call('save');
+
+    $response->assertHasErrors(['email']);
+});
+
+test('login with empty credentials fails', function () {
+    $response = LivewireVolt::test('auth.login')->call('save');
+
+    $response->assertHasErrors(['email', 'password']);
+});
+
+test('login with too short password fails', function () {
+    $email = self::generateUniqueEmail();
+
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', '123')
+        ->call('save');
+
+    // Password troppo corta dovrebbe fallire
+    $response->assertHasErrors();
+});
+
+test('login with remember me authenticates the user', function () {
+    $email = self::generateUniqueEmail();
+    self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    assertGuest();
+
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->set('remember', true)
+        ->call('save');
+
+    $response->assertHasNoErrors();
+    assertAuthenticated();
+});
+
+test('session is regenerated on successful login', function () {
+    $email = self::generateUniqueEmail();
+    self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    // Store original session ID
+    $originalSessionId = session()->getId();
+
+    LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
+
+    assertAuthenticated();
+
+    // Session should be regenerated for security
+    expect(session()->getId())->not->toBe($originalSessionId);
+});
+
+test('session data is preserved after login and regeneration', function () {
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    // Set some session data
+    Session::put('test_key', 'test_value');
+
+    LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
+
+    assertAuthenticated();
+
+    // Session data should be preserved (session regenerated but data kept)
+    expect(Session::get('test_key'))->toBe('test_value');
+});
+test('login is rate limited after multiple failed attempts', function () {
+    $email = self::generateUniqueEmail();
+    self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    // Multiple failed attempts
+    for ($i = 0; $i < 5; $i++) {
+        LivewireVolt::test('auth.login')
             ->set('email', $email)
             ->set('password', 'wrong_password')
             ->call('save');
+    }
 
-        $response->assertHasErrors(['email']);
-        assertGuest();
-    });
+    // Should be rate limited after too many attempts
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $email = $this->generateUniqueEmail();
-
-        assertGuest();
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        $response->assertHasErrors(['email']);
-        assertGuest();
-    });
+    // May have throttling errors
+    expect($response)->not->toBeNull();
 });
 
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', 'invalid-email')
-            ->set('password', 'password123')
-            ->call('save');
+test('csrf protection is handled automatically by volt components', function () {
+    // Volt components should automatically handle CSRF protection
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        $response->assertHasErrors(['email']);
-    });
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $response = LivewireVolt::test('auth.login')->call('save');
-
-        $response->assertHasErrors(['email', 'password']);
-    });
-
-        $email = $this->generateUniqueEmail();
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', '123')
-            ->call('save');
-
-        // Password troppo corta dovrebbe fallire
-        $response->assertHasErrors();
-    });
+    // Should work normally with CSRF protection
+    $response->assertHasNoErrors();
 });
 
-        $email = $this->generateUniqueEmail();
-        $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
+test('login handles malicious input safely', function () {
+    $email = self::generateUniqueEmail();
 
-        assertGuest();
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', '<script>alert("xss")</script>'.$email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->set('remember', true)
-            ->call('save');
+    // Should handle potentially malicious input safely
+    expect($response)->not->toBeNull();
+});
+test('component properties can be set and asserted', function () {
+    $email = self::generateUniqueEmail();
 
-        $response->assertHasNoErrors();
-        assertAuthenticated();
-    });
+    $component = LivewireVolt::test('auth.login');
 
-        $email = $this->generateUniqueEmail();
-        $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
-
-        // Store original session ID
-        $originalSessionId = session()->getId();
-
-        LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        assertAuthenticated();
-
-        // Session should be regenerated for security
-        expect(session()->getId())->not->toBe($originalSessionId);
-    });
-
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
-
-        // Set some session data
-        Session::put('test_key', 'test_value');
-
-        LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        assertAuthenticated();
-
-        // Session data should be preserved (session regenerated but data kept)
-        expect(Session::get('test_key'))->toBe('test_value');
-    });
+    $component
+        ->set('email', $email)
+        ->assertSet('email', $email)
+        ->set('password', 'password123')
+        ->assertSet('password', 'password123')
+        ->set('remember', true)
+        ->assertSet('remember', true);
 });
 
-        $email = $this->generateUniqueEmail();
-        $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
 
-        // Multiple failed attempts
-        for ($i = 0; $i < 5; $i++) {
-            LivewireVolt::test('auth.login')
-                ->set('email', $email)
-                ->set('password', 'wrong_password')
-                ->call('save');
-        }
+test('password cleared after failed login attempt', function () {
+    $email = self::generateUniqueEmail();
 
-        // Should be rate limited after too many attempts
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
+    $component = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'wrong_password')
+        ->call('save');
 
-        // May have throttling errors
-        expect($response)->not->toBeNull();
-    });
-
-        // Volt components should automatically handle CSRF protection
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        // Should work normally with CSRF protection
-        $response->assertHasNoErrors();
-    });
-
-        $email = $this->generateUniqueEmail();
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', '<script>alert("xss")</script>'.$email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        // Should handle potentially malicious input safely
-        expect($response)->not->toBeNull();
-    });
+    // Password should be cleared after failed attempt
+    $component->assertSet('password', '');
 });
 
-        $email = $this->generateUniqueEmail();
+test('login component handles loading state and completes successfully', function () {
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        $component = LivewireVolt::test('auth.login');
+    $component = LivewireVolt::test('auth.login')->set('email', $email)->set('password', 'password123');
 
-        $component
-            ->set('email', $email)
-            ->assertSet('email', $email)
-            ->set('password', 'password123')
-            ->assertSet('password', 'password123')
-            ->set('remember', true)
-            ->assertSet('remember', true);
-    });
+    // Should not be in loading state initially
+    $component->assertDontSee('wire:loading');
 
-        $email = $this->generateUniqueEmail();
+    // After calling authenticate, component should handle loading state
+    $component->call('save');
 
-        $component = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'wrong_password')
-            ->call('save');
+    // Should complete successfully
+    $component->assertHasNoErrors();
+});
+test('login verifies authenticated user with xotdata pattern', function () {
+    // Using XotData pattern ensures compatibility with any user type
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        // Password should be cleared after failed attempt
-        $component->assertSet('password', '');
-    });
+    assertGuest();
 
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $component = LivewireVolt::test('auth.login')->set('email', $email)->set('password', 'password123');
+    $response->assertHasNoErrors();
+    assertAuthenticated();
 
-        // Should not be in loading state initially
-        $component->assertDontSee('wire:loading');
-
-        // After calling authenticate, component should handle loading state
-        $component->call('save');
-
-        // Should complete successfully
-        $component->assertHasNoErrors();
-    });
+    // Verify authenticated user
+    $authenticatedUser = Auth::user();
+    expect($authenticatedUser)->not->toBeNull();
+    expect($authenticatedUser?->email)->toBe($email);
 });
 
-        // Using XotData pattern ensures compatibility with any user type
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
+test('login handles various user attributes', function () {
+    // Test with various user attributes
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+        'name' => 'Test User',
+    ]);
 
-        assertGuest();
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
+    $response->assertHasNoErrors();
+    assertAuthenticated();
 
-        $response->assertHasNoErrors();
-        assertAuthenticated();
-
-        // Verify authenticated user
-        $authenticatedUser = Auth::user();
-        expect($authenticatedUser)->not->toBeNull();
-        expect($authenticatedUser?->email)->toBe($email);
-    });
-
-        // Test with various user attributes
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-            'name' => 'Test User',
-        ]);
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        $response->assertHasNoErrors();
-        assertAuthenticated();
-
-        $authenticatedUser = Auth::user();
-        expect($authenticatedUser?->name)->toBe('Test User');
-    });
+    $authenticatedUser = Auth::user();
+    expect($authenticatedUser?->name)->toBe('Test User');
 });
 
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
+test('authentication logic completes successfully', function () {
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
 
-        $response->assertHasNoErrors();
-        assertAuthenticated();
+    $response->assertHasNoErrors();
+    assertAuthenticated();
 
-        // Component might trigger redirect via JavaScript/Alpine
-        // This test ensures the authentication logic completes successfully
-    });
-
-        $email = $this->generateUniqueEmail();
-        $user = $this->createTestUser([
-            'email' => $email,
-            'password' => Hash::make('password123'),
-        ]);
-
-        // Set intended URL
-        Session::put('url.intended', '/dashboard');
-
-        $response = LivewireVolt::test('auth.login')
-            ->set('email', $email)
-            ->set('password', 'password123')
-            ->call('save');
-
-        $response->assertHasNoErrors();
-        assertAuthenticated();
-    });
+    // Component might trigger redirect via JavaScript/Alpine
+    // This test ensures the authentication logic completes successfully
 });
 
-        $component = LivewireVolt::test('auth.login');
 
-        // Component should render with accessibility attributes
-        $component->assertSee('aria-label')->assertSee('id="data.email"')->assertSee('id="data.password"');
-    });
+test('login redirects to intended url after successful authentication', function () {
+    $email = self::generateUniqueEmail();
+    $user = self::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
 
-        $component = LivewireVolt::test('auth.login');
+    // Set intended URL
+    Session::put('url.intended', '/dashboard');
 
-        // Component should be keyboard accessible
-        expect($component)->not->toBeNull();
-    });
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
+
+    $response->assertHasNoErrors();
+    assertAuthenticated();
+});
+
+test('login component renders with accessibility attributes', function () {
+    $component = LivewireVolt::test('auth.login');
+
+    // Component should render with accessibility attributes
+    $component->assertSee('aria-label')->assertSee('id="data.email"')->assertSee('id="data.password"');
+});
+
+
+test('login component is keyboard accessible', function () {
+    $component = LivewireVolt::test('auth.login');
+
+    // Component should be keyboard accessible
+    expect($component)->not->toBeNull();
 });

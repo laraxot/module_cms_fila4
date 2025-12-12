@@ -33,6 +33,38 @@ public function up()
 }
 ```
 
+#### Nota sulle migrazioni `kalnoy/laravel-nestedset`
+
+Il metodo `$table->nestedSet();` è fornito dal pacchetto `kalnoy/laravel-nestedset` e aggiunge automaticamente le colonne
+
+- `_lft`
+- `_rgt`
+- `parent_id`
+
+insieme agli indici necessari per rappresentare l'albero in **Nested Set**.
+
+L'equivalente esplicito, mostrato nella documentazione ufficiale del pacchetto, è:
+
+```php
+use Kalnoy\Nestedset\NestedSet;
+
+Schema::create('categories', function (Blueprint $table) {
+    $table->bigIncrements('id');
+
+    NestedSet::columns($table); // aggiunge _lft, _rgt, parent_id e relativi indici
+
+    $table->string('name');
+    $table->timestamps();
+});
+```
+
+Nel contesto Laraxot:
+
+- il modulo Cms può continuare a usare `NodeTrait`/Nested Set dove necessario (es. categorie prodotti);
+- la documentazione tree generale è centralizzata in `Modules/Xot/docs/models/base-tree-model.md`, che descrive la
+  **filosofia attuale** basata su `BaseTreeModel` (adjacency list tipizzata) e spiega come leggere/convertire
+  le migrazioni legacy basate su `_lft`, `_rgt`, `parent_id`.
+
 ### Schema Categorie
 
 ```php
