@@ -7,6 +7,7 @@ namespace Modules\Cms\View\Components;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Modules\Cms\Models\Section as SectionModel;
+use Webmozart\Assert\Assert;
 
 /**
  * Section Component.
@@ -63,11 +64,12 @@ class Section extends Component
         }
 
         // Verifica che la view esista, con gestione più robusta per i namespace
-        if (! view()->exists($view)) {
-            // Se la view non esiste, restituisci una view di fallback
-            return view('cms::components.section-fallback');
+        if (view()->exists($view)) {
+            return view((string) $view);
         }
 
-        return view($view);
+        // Fallback: this view exists in the Cms module
+        $fallbackView = 'cms::components.section';
+        return view((string) $fallbackView);
     }
 }
