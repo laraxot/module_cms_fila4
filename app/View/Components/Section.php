@@ -7,7 +7,6 @@ namespace Modules\Cms\View\Components;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Modules\Cms\Models\Section as SectionModel;
-use Webmozart\Assert\Assert;
 
 /**
  * Section Component.
@@ -70,6 +69,7 @@ class Section extends Component
 
         // Fallback: this view exists in the Cms module
         $fallbackView = 'cms::components.section';
+
         return view((string) $fallbackView);
     }
 }
