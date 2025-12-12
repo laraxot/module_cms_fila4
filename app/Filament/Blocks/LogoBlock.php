@@ -8,6 +8,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
+use function trans_string;
 
 class LogoBlock extends XotBaseBlock
 {
@@ -34,6 +35,6 @@ class LogoBlock extends XotBaseBlock
 
     public static function getBlockLabel(): string
     {
-        return __('cms::blocks.logo.label');
+        return trans_string('cms::blocks.logo.label') ?? 'Logo';
     }
 }

@@ -37,7 +37,7 @@ use Modules\Xot\Models\Traits\TypedHasRecursiveRelationships;
 
 class Menu extends BaseModel implements HasRecursiveRelationshipsContract
 {
-    use TypedHasRecursiveRelationships;
+    use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
     
     // Menu può avere parent e children, formando una struttura ad albero
     // Utilizza i metodi del contratto: parent(), children(), ancestors(), descendants()

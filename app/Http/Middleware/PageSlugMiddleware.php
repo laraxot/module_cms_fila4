@@ -121,13 +121,15 @@ class PageSlugMiddleware
         // $kernel = app(\Illuminate\Contracts\Http\Kernel::class);
 
         // Try to get from route middleware (custom middleware)
+        if (method_exists($this->kernel, 'getRouteMiddleware')) {
+            /** @var array<string, class-string> $routeMiddleware */
+            $routeMiddleware = $this->kernel->getRouteMiddleware();
+            if (isset($routeMiddleware[$middleware])) {
+                /** @var class-string */
+                $class = $routeMiddleware[$middleware];
 
-        $routeMiddleware = $this->kernel->getRouteMiddleware();
-        if (isset($routeMiddleware[$middleware])) {
-            /** @var class-string */
-            $class = $routeMiddleware[$middleware];
-
-            return $class;
+                return $class;
+            }
         }
 
         // If not an alias, return as-is (assuming it's a full class name)

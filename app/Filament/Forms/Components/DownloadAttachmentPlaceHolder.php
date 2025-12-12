@@ -29,7 +29,6 @@ class DownloadAttachmentPlaceHolder extends Placeholder
             'asset' => $attachment->asset(),
         ];
 
-        /** @var view-string $view */
         $view = 'pub_theme::filament.forms.components.download-attachment-place-holder';
         if (! view()->exists($view)) {
             throw new \Exception('View '.$view.' not found');

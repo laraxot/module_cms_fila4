@@ -66,8 +66,9 @@ class Welcome extends Page
             $container_last_key_name = $container_last_model->getFrontRouteKeyName();
             Assert::string($container_last_key_name, 'Front route key name must be a string');
 
-            /** @var string $container_last_key_name */
-            $row = $container_last_model::firstWhere([$container_last_key_name => $item_last]);
+            /** @var \Illuminate\Database\Eloquent\Model $modelInstance */
+            $modelInstance = $container_last_model;
+            $row = $modelInstance->newQuery()->firstWhere([$container_last_key_name => $item_last]);
 
             $data[$container_last_singular] = $row;
 

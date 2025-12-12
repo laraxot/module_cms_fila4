@@ -52,6 +52,11 @@ class RegisterComponent extends Component
          */
         $this->validate();
 
+        // Check if User model has create method
+        if (!method_exists(User::class, 'create')) {
+            throw new \RuntimeException('User model does not have create method');
+        }
+
         /** @var User $user */
         $user = User::create([
             'email' => $this->email,

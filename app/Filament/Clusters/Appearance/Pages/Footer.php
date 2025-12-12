@@ -63,15 +63,15 @@ class Footer extends Page implements HasForms
 
         return $schema
             ->components([
-                ColorPicker::make('background_color')->label(__('Background Color')),
-                FileUpload::make('background')->label(__('Background Image')),
-                ColorPicker::make('overlay_color')->label(__('Overlay Color')),
-                Select::make('view')->options($options)->label(__('View Template')),
+                ColorPicker::make('background_color')->label(trans_string('Background Color')),
+                FileUpload::make('background')->label(trans_string('Background Image')),
+                ColorPicker::make('overlay_color')->label(trans_string('Overlay Color')),
+                Select::make('view')->options($options)->label(trans_string('View Template')),
                 /*
                  * RadioImage::make('_tpl')
                  * ->options($options)
                  * ->columnSpanFull()
-                 * ->label(__('Template Selection')),
+                 * ->label(trans_string('Template Selection')),
                  */
             ])
             ->columns(2)
@@ -89,12 +89,12 @@ class Footer extends Page implements HasForms
             app(SaveFooterConfigAction::class)->execute($data);
 
             Notification::make()
-                ->title(__('Saved successfully'))
+                ->title(trans_string('Saved successfully'))
                 ->success()
                 ->send();
         } catch (Halt $exception) {
             Notification::make()
-                ->title(__('Error!'))
+                ->title(trans_string('Error!'))
                 ->danger()
                 ->body($exception->getMessage())
                 ->persistent()
@@ -127,7 +127,7 @@ class Footer extends Page implements HasForms
     protected function getUpdateFormActions(): array
     {
         return [
-            Action::make('updateAction')->label(__('Save Changes'))->submit('updateData'),
+            Action::make('updateAction')->label(trans_string('Save Changes'))->submit('updateData'),
         ];
     }
 }

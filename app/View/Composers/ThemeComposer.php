@@ -134,12 +134,18 @@ class ThemeComposer
     */
     public function getPages(): Collection
     {
-        return Page::all();
+        /** @var Collection<int, Page> $pages */
+        $pages = Page::all();
+        
+        return $pages;
     }
 
     public function getPageModel(string $slug): ?Page
     {
-        return Page::where('slug', $slug)->first();
+        /** @var Page|null $page */
+        $page = Page::where('slug', $slug)->first();
+        
+        return $page;
     }
 
     public function getUrlPage(string $slug): string

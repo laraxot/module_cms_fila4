@@ -201,7 +201,11 @@ class CmsMassSeeder extends Seeder
                 ' │');
 
             // Conta configurazioni
-            $totalConfigs = Conf::count();
+            try {
+                $totalConfigs = Conf::count();
+            } catch (\Exception $e) {
+                $totalConfigs = 0;
+            }
 
             $this->command->info('│ ⚙️ Configurazioni totali:     '.
             str_pad((string) $totalConfigs, 6, ' ', STR_PAD_LEFT).

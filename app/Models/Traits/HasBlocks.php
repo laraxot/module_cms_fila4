@@ -75,8 +75,19 @@ trait HasBlocks
     {
         // This trait requires the class to extend Model (@phpstan-require-extends Model)
         // So we can safely use static methods
-        $record = static::firstWhere('slug', $slug);
+        $query = static::where('slug', $slug);
+        
+        if (! method_exists($query, 'first')) {
+            return [];
+        }
+        
+        $record = $query->first();
         if (! $record instanceof Model) {
+            return [];
+        }
+
+        // Check if getBlocks method exists
+        if (! method_exists($record, 'getBlocks')) {
             return [];
         }
 
