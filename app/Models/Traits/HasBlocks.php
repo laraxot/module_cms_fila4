@@ -4,11 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Traits;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
 use Modules\Cms\Datas\BlockData;
 use Modules\Xot\Datas\XotData;
 
+/**
+ * Trait for Models that have blocks.
+ *
+ * @phpstan-require-extends Model
+ */
 trait HasBlocks
 {
     /**
@@ -60,15 +66,23 @@ trait HasBlocks
         return $result;
     }
 
+    /**
+     * Get blocks for a record by slug.
+     *
+     * @return array<int, BlockData>
+     */
     public static function getBlocksBySlug(string $slug): array
     {
-        $model = static::class;
-        $record = $model::firstWhere('slug', $slug);
-        if (! $record) {
+        // This trait requires the class to extend Model (@phpstan-require-extends Model)
+        // So we can safely use static methods
+        $record = static::firstWhere('slug', $slug);
+        if (! $record instanceof Model) {
             return [];
         }
 
-        /* @phpstan-ignore-next-line method.notFound, return.type */
-        return $record->getBlocks();
+        /** @var array<int, BlockData> $blocks */
+        $blocks = $record->getBlocks();
+
+        return $blocks;
     }
 }
