@@ -20,8 +20,6 @@ class ResetComponent extends Component
 
     /**
      * Summary of emailSentMessage.
-     *
-     * @var bool|string|array
      */
     public bool|string|array $emailSentMessage = false;
 

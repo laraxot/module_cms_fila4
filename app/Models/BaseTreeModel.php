@@ -11,8 +11,6 @@ use Modules\Cms\Database\Factories\MenuFactory;
 use Modules\Media\Models\Media;
 use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
 use Modules\Xot\Contracts\ProfileContract;
-use Modules\Xot\Models\Traits\HasRecursiveRelationshipsMethods;
-use Modules\Xot\Models\Traits\TypedHasRecursiveRelationships;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
 

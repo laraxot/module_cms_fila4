@@ -32,7 +32,7 @@ class BlockData extends Data implements Wireable
             // Se la view usa un namespace, prova a verificare il file fisico direttamente
             if (str_contains($view, '::')) {
                 [$namespace, $path] = explode('::', $view, 2);
-                
+
                 // Per PHPStan Level 10: usiamo un approccio più sicuro
                 // invece di accedere direttamente a metodi non documentati
                 try {
@@ -41,7 +41,7 @@ class BlockData extends Data implements Wireable
                     if (method_exists($viewFactory, 'addNamespace')) {
                         // Se il metodo esiste, possiamo procedere con logica alternativa
                         $this->view = $view; // Accetta la view temporaneamente
-                        
+
                         return;
                     }
                 } catch (\Exception $e) {

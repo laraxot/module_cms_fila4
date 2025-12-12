@@ -7,7 +7,6 @@ namespace Modules\Cms\Filament\Blocks;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\TextInput;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use function trans_string;
 
 final class LinksBlock extends XotBaseBlock
 {
@@ -29,6 +28,6 @@ final class LinksBlock extends XotBaseBlock
 
     public static function getBlockLabel(): string
     {
-        return trans_string('cms::filament.blocks.footer.links.label') ?? 'Links';
+        return \trans_string('cms::filament.blocks.footer.links.label') ?? 'Links';
     }
 }

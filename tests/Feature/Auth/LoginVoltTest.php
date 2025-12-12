@@ -33,8 +33,8 @@ test('login component has correct default values', function () {
 });
 
 test('successful login authenticates the user', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -51,8 +51,8 @@ test('successful login authenticates the user', function () {
 });
 
 test('login with wrong password fails', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -69,7 +69,7 @@ test('login with wrong password fails', function () {
 });
 
 test('login with non-existent user fails', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
 
     assertGuest();
 
@@ -98,7 +98,7 @@ test('login with empty credentials fails', function () {
 });
 
 test('login with too short password fails', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
 
     $response = LivewireVolt::test('auth.login')
         ->set('email', $email)
@@ -110,8 +110,8 @@ test('login with too short password fails', function () {
 });
 
 test('login with remember me authenticates the user', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -129,8 +129,8 @@ test('login with remember me authenticates the user', function () {
 });
 
 test('session is regenerated on successful login', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -150,8 +150,8 @@ test('session is regenerated on successful login', function () {
 });
 
 test('session data is preserved after login and regeneration', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -170,8 +170,8 @@ test('session data is preserved after login and regeneration', function () {
     expect(Session::get('test_key'))->toBe('test_value');
 });
 test('login is rate limited after multiple failed attempts', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -196,8 +196,8 @@ test('login is rate limited after multiple failed attempts', function () {
 
 test('csrf protection is handled automatically by volt components', function () {
     // Volt components should automatically handle CSRF protection
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -212,7 +212,7 @@ test('csrf protection is handled automatically by volt components', function () 
 });
 
 test('login handles malicious input safely', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
 
     $response = LivewireVolt::test('auth.login')
         ->set('email', '<script>alert("xss")</script>'.$email)
@@ -223,7 +223,7 @@ test('login handles malicious input safely', function () {
     expect($response)->not->toBeNull();
 });
 test('component properties can be set and asserted', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
 
     $component = LivewireVolt::test('auth.login');
 
@@ -237,7 +237,7 @@ test('component properties can be set and asserted', function () {
 });
 
 test('password cleared after failed login attempt', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
 
     $component = LivewireVolt::test('auth.login')
         ->set('email', $email)
@@ -249,8 +249,8 @@ test('password cleared after failed login attempt', function () {
 });
 
 test('login component handles loading state and completes successfully', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -268,8 +268,8 @@ test('login component handles loading state and completes successfully', functio
 });
 test('login verifies authenticated user with xotdata pattern', function () {
     // Using XotData pattern ensures compatibility with any user type
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -292,8 +292,8 @@ test('login verifies authenticated user with xotdata pattern', function () {
 
 test('login handles various user attributes', function () {
     // Test with various user attributes
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
         'name' => 'Test User',
@@ -312,8 +312,8 @@ test('login handles various user attributes', function () {
 });
 
 test('authentication logic completes successfully', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -331,8 +331,8 @@ test('authentication logic completes successfully', function () {
 });
 
 test('login redirects to intended url after successful authentication', function () {
-    $email = \Modules\Xot\Tests\TestCase::generateUniqueEmail();
-    $user = \Modules\Xot\Tests\TestCase::createTestUser([
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);

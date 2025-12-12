@@ -58,12 +58,12 @@ class Home extends Page
 
                 /** @var class-string<\Illuminate\Database\Eloquent\Model> $modelClass */
                 $modelClass = $container_last_model;
-                
+
                 // Ensure the model class has the where method
-                if (!method_exists($modelClass, 'where')) {
+                if (! method_exists($modelClass, 'where')) {
                     throw new \RuntimeException("Model class {$modelClass} does not have where method");
                 }
-                
+
                 /** @var \Illuminate\Database\Eloquent\Builder<\Illuminate\Database\Eloquent\Model> $query */
                 $query = $modelClass::where($container_last_key_name, $item_last);
                 $row = $query->first();

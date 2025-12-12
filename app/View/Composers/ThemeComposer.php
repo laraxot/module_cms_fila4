@@ -136,7 +136,7 @@ class ThemeComposer
     {
         /** @var Collection<int, Page> $pages */
         $pages = Page::all();
-        
+
         return $pages;
     }
 
@@ -144,7 +144,7 @@ class ThemeComposer
     {
         /** @var Page|null $page */
         $page = Page::where('slug', $slug)->first();
-        
+
         return $page;
     }
 

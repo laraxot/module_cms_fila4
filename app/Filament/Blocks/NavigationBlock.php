@@ -9,7 +9,6 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Utilities\Get;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use function trans_string;
 
 class NavigationBlock extends XotBaseBlock
 {
@@ -78,6 +77,6 @@ class NavigationBlock extends XotBaseBlock
 
     public static function getBlockLabel(): string
     {
-        return trans_string('cms::blocks.navigation.label') ?? 'Block';
+        return \trans_string('cms::blocks.navigation.label') ?? 'Block';
     }
 }

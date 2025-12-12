@@ -28,6 +28,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @property int|null                                                                                                                          $media_count
  * @property mixed                                                                                                                             $translations
  * @property \Modules\Xot\Contracts\ProfileContract|null                                                                                       $updater
+ *
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment query()
@@ -45,9 +46,12 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedBy($value)
- * @method static static|null firstWhere(string $column, mixed $operator = null, mixed $value = null)
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @method static static|null                                              firstWhere(string $column, mixed $operator = null, mixed $value = null)
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ *
  * @method static \Modules\Cms\Database\Factories\AttachmentFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Attachment extends BaseModelLang implements HasMedia
@@ -173,11 +177,12 @@ class Attachment extends BaseModelLang implements HasMedia
         }
 
         $storage = Storage::disk($this->disk);
-        if (!method_exists($storage, 'url')) {
+        if (! method_exists($storage, 'url')) {
             return '';
         }
-        
+
         $url = $storage->url($file);
+
         return is_string($url) ? $url : '';
     }
 

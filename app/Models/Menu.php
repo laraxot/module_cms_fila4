@@ -7,7 +7,6 @@ namespace Modules\Cms\Models;
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Xot\Actions\Tree\GetTreeOptionsByModelClassAction;
 use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
-use Modules\Xot\Models\Traits\TypedHasRecursiveRelationships;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
 
 /**
@@ -46,6 +45,7 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @property-read int|null $siblings_count
  * @property-read Collection<int, Menu> $siblingsAndSelf All the parent's children.
  * @property-read int|null $siblings_and_self_count
+ *
  * @method static Collection<int, static>                                         all($columns = ['*'])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu breadthFirst()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu depthFirst()
@@ -72,9 +72,9 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu whereDepth($operator, $value = null)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu withGlobalScopes(array $scopes)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu withRelationshipExpression($direction, callable $constraint, $initialDepth, $from = null, $maxDepth = null)
- * @method static static firstOrCreate(array $attributes, array $values = [])
- * @method static static create(array $attributes = [])
- * @method static static updateOrCreate(array $attributes, array $values = [])
+ * @method static static                                                          firstOrCreate(array $attributes, array $values = [])
+ * @method static static                                                          create(array $attributes = [])
+ * @method static static                                                          updateOrCreate(array $attributes, array $values = [])
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu delete()
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu where($column, $operator = null, $value = null, $boolean = 'and')
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu whereIn($column, $values, $boolean = 'and', $not = false)
@@ -96,12 +96,12 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu take($value)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu skip($value)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu offset($value)
- * @method static int count()
- * @method static int max($column)
- * @method static int min($column)
- * @method static int sum($column)
- * @method static float avg($column)
- * @method static mixed pluck($column, $key = null)
+ * @method static int                                                             count()
+ * @method static int                                                             max($column)
+ * @method static int                                                             min($column)
+ * @method static int                                                             sum($column)
+ * @method static float                                                           avg($column)
+ * @method static mixed                                                           pluck($column, $key = null)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu join($table, $first, $operator = null, $second = null)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu leftJoin($table, $first, $operator = null, $second = null)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu rightJoin($table, $first, $operator = null, $second = null)
@@ -124,20 +124,23 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu withMin($relation, $column)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu withMax($relation, $column)
  * @method static \Staudenmeir\LaravelAdjacencyList\Eloquent\Builder<static>|Menu findOrFail($id, $columns = ['*'])
- * @method static static findOrFail($id, $columns = ['*'])
- * @method static static firstOrFail($columns = ['*'])
- * @method static static update($attributes)
- * @method static int increment($column, $amount = 1, $extra = [])
- * @method static int decrement($column, $amount = 1, $extra = [])
- * @method static bool truncate()
- * @method static static destroy($ids)
- * @method static static restore()
- * @method static static forceDelete()
- * @method static static onlyTrashed()
- * @method static static withTrashed()
- * @method static static withoutTrashed()
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @method static static                                                          findOrFail($id, $columns = ['*'])
+ * @method static static                                                          firstOrFail($columns = ['*'])
+ * @method static static                                                          update($attributes)
+ * @method static int                                                             increment($column, $amount = 1, $extra = [])
+ * @method static int                                                             decrement($column, $amount = 1, $extra = [])
+ * @method static bool                                                            truncate()
+ * @method static static                                                          destroy($ids)
+ * @method static static                                                          restore()
+ * @method static static                                                          forceDelete()
+ * @method static static                                                          onlyTrashed()
+ * @method static static                                                          withTrashed()
+ * @method static static                                                          withoutTrashed()
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ *
  * @method static \Modules\Cms\Database\Factories\MenuFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Menu extends BaseModel implements HasRecursiveRelationshipsContract

@@ -23,6 +23,7 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property mixed                                       $translations
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
  * @method static Builder<static>|Section                               newModelQuery()
  * @method static Builder<static>|Section                               newQuery()
  * @method static Builder<static>|Section                               query()
@@ -38,10 +39,13 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @method static Builder<static>|Section                               whereSlug($value)
  * @method static Builder<static>|Section                               whereUpdatedAt($value)
  * @method static Builder<static>|Section                               whereUpdatedBy($value)
- * @method static int count()
- * @method static Builder<static>|Section where($column, $operator = null, $value = null, $boolean = 'and')
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
+ * @method static int                                                   count()
+ * @method static Builder<static>|Section                               where($column, $operator = null, $value = null, $boolean = 'and')
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ *
  * @method static \Modules\Cms\Database\Factories\SectionFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Section extends BaseModelLang

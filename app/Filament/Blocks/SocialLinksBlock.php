@@ -8,7 +8,6 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Modules\Xot\Filament\Blocks\XotBaseBlock;
-use function trans_string;
 
 class SocialLinksBlock extends XotBaseBlock
 {
@@ -38,6 +37,6 @@ class SocialLinksBlock extends XotBaseBlock
 
     public static function getBlockLabel(): string
     {
-        return trans_string('cms::filament.blocks.footer.social.label') ?? 'Block';
+        return \trans_string('cms::filament.blocks.footer.social.label') ?? 'Block';
     }
 }

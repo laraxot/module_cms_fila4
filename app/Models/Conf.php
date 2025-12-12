@@ -13,16 +13,20 @@ use Sushi\Sushi;
  *
  * @property int         $id
  * @property string|null $name
+ *
  * @method static Builder<static>|Conf newModelQuery()
  * @method static Builder<static>|Conf newQuery()
  * @method static Builder<static>|Conf query()
  * @method static Builder<static>|Conf whereId($value)
  * @method static Builder<static>|Conf whereName($value)
- * @method static int count()
- * @property-read \Modules\TechPlanner\Models\Profile|null $creator
- * @property-read \Modules\TechPlanner\Models\Profile|null $deleter
- * @property-read \Modules\TechPlanner\Models\Profile|null $updater
+ * @method static int                  count()
+ *
+ * @property \Modules\TechPlanner\Models\Profile|null $creator
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\TechPlanner\Models\Profile|null $updater
+ *
  * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
+ *
  * @mixin \Eloquent
  */
 class Conf extends BaseModel
