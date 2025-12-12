@@ -32,8 +32,6 @@ test('login component has correct default values', function () {
     $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
 });
 
-
-
 test('successful login authenticates the user', function () {
     $email = self::generateUniqueEmail();
     $user = self::createTestUser([
@@ -179,7 +177,7 @@ test('login is rate limited after multiple failed attempts', function () {
     ]);
 
     // Multiple failed attempts
-    for ($i = 0; $i < 5; $i++) {
+    for ($i = 0; $i < 5; ++$i) {
         LivewireVolt::test('auth.login')
             ->set('email', $email)
             ->set('password', 'wrong_password')
@@ -237,7 +235,6 @@ test('component properties can be set and asserted', function () {
         ->set('remember', true)
         ->assertSet('remember', true);
 });
-
 
 test('password cleared after failed login attempt', function () {
     $email = self::generateUniqueEmail();
@@ -333,7 +330,6 @@ test('authentication logic completes successfully', function () {
     // This test ensures the authentication logic completes successfully
 });
 
-
 test('login redirects to intended url after successful authentication', function () {
     $email = self::generateUniqueEmail();
     $user = self::createTestUser([
@@ -359,7 +355,6 @@ test('login component renders with accessibility attributes', function () {
     // Component should render with accessibility attributes
     $component->assertSee('aria-label')->assertSee('id="data.email"')->assertSee('id="data.password"');
 });
-
 
 test('login component is keyboard accessible', function () {
     $component = LivewireVolt::test('auth.login');

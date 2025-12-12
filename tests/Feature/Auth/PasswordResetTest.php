@@ -7,7 +7,6 @@ namespace Modules\Cms\Tests\Feature\Auth;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Support\Facades\Notification;
 use Livewire\Volt\Volt as LivewireVolt;
-use Modules\Xot\Datas\XotData;
 use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\get;
@@ -42,7 +41,6 @@ test('reset password link renders reset password page', function () {
         return true;
     });
 });
-
 
 test('password can be reset', function () {
     $user = $userClass::factory()->create();
