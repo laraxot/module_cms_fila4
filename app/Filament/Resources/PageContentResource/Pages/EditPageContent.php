@@ -12,7 +12,11 @@ use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
 class EditPageContent extends XotBaseEditRecord
 {
+<<<<<<< HEAD
     // use Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
+=======
+    use Translatable;
+>>>>>>> 3401a6b (.)
 
     protected static string $resource = PageContentResource::class;
 
