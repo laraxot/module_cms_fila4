@@ -9,15 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Modules\Cms\Models\Module;
 
 /**
-<<<<<<< HEAD
  * @extends Factory<Module>
-=======
-<<<<<<< HEAD
- * @extends Factory<Module>
-=======
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\Modules\Cms\Models\Module>
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
  */
 class ModuleFactory extends Factory
 {
