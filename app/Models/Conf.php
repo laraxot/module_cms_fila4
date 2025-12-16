@@ -48,8 +48,12 @@ class Conf extends BaseModel
 
     /** @var list<string> */
     protected $fillable = [
+<<<<<<< HEAD
         'id',
         'name',
+=======
+        'id', 'name',
+>>>>>>> 3401a6b (.)
     ];
 
     /**
@@ -64,10 +68,17 @@ class Conf extends BaseModel
     }
 
     /*
+<<<<<<< HEAD
      * protected function sushiShouldCache() {
      * return false;
      * }
      */
+=======
+    protected function sushiShouldCache() {
+        return false;
+    }
+    */
+>>>>>>> 3401a6b (.)
     /**
      * Undocumented function.
      */
