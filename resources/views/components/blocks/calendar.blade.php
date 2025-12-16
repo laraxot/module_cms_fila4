@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> 3401a6b (.)
 {{-- Generic Calendar Component for CMS --}}
 @props([
     'type' => 'patient', // patient|doctor|admin
