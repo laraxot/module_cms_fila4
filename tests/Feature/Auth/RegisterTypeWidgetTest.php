@@ -65,15 +65,7 @@ test('widget requires type parameter', function () {
 >>>>>>> c18bda2 (.)
     expect(function () {
         Livewire::test(RegistrationWidget::class);
-<<<<<<< HEAD
-<<<<<<< HEAD
     })->toThrow(\Exception::class);
-=======
-    })->toThrow(Exception::class);
->>>>>>> 1810cfd (.)
-=======
-    })->toThrow(\Exception::class);
->>>>>>> 46d657c (.)
 });
 
 <<<<<<< HEAD

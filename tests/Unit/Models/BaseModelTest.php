@@ -6,17 +6,10 @@ namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Modules\Cms\Models\BaseModel;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-use Tests\TestCase;
-
->>>>>>> 46d657c (.)
->>>>>>> 555d679 (.)
 
 beforeEach(function (): void {
-    $this->baseModel = new class extends BaseModel {
+    $this->baseModel = new class extends BaseModel
+    {
         protected $table = 'test_cms_table';
     };
 });

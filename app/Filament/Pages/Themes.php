@@ -13,20 +13,12 @@ use Illuminate\Support\Facades\File;
 use Modules\Cms\Datas\ThemeData;
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Filament\Pages\XotBasePage;
-<<<<<<< HEAD
-
-use function Safe\json_decode;
-
-use Webmozart\Assert\Assert;
-
-=======
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
 use function Safe\json_decode;
 
->>>>>>> 555d679 (.)
 class Themes extends XotBasePage
 {
     /** @var array<int, array<string, mixed>> */

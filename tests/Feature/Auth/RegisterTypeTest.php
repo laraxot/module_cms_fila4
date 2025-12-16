@@ -75,14 +75,8 @@ describe('Registration Page Content', function () {
 
 <<<<<<< HEAD
     $content = $response->getContent();
-<<<<<<< HEAD
-    expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')// ->toContain('<x-ui.logo')
-    // ->toContain('RegistrationWidget')
-    ;
-=======
     expect($content)->toContain('Registrazione')->toContain('Crea il tuo account'); // ->toContain('<x-ui.logo')
     // ->toContain('RegistrationWidget')
->>>>>>> 1810cfd (.)
 })->with('userTypes');
 =======
         $content = $response->getContent();

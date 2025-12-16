@@ -16,7 +16,7 @@ use Sushi\Sushi;
 /**
  * Modules\Cms\Models\Conf.
  *
- * @property int         $id
+ * @property int $id
  * @property string|null $name
 <<<<<<< HEAD
  *
@@ -25,24 +25,11 @@ use Sushi\Sushi;
  * @method static Builder<static>|Conf query()
  * @method static Builder<static>|Conf whereId($value)
  * @method static Builder<static>|Conf whereName($value)
- * @method static int                  count()
- *
- * <<<<<<< HEAD
+ * @method static int count()
  *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *                                                                =======
- *                                                                <<<<<<< HEAD
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
- *                                                                =======
- * @property \Modules\TechPlanner\Models\Profile|null    $creator
- * @property \Modules\TechPlanner\Models\Profile|null    $deleter
- * @property \Modules\TechPlanner\Models\Profile|null    $updater
- *                                                                >>>>>>> 46d657c (.)
- *                                                                >>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
  *
