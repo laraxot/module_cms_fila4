@@ -26,10 +26,13 @@ class XotComposer
             return;
         }
 
+<<<<<<< HEAD
         if (! ($user instanceof UserContract)) {
             return;
         }
 
+=======
+>>>>>>> 555d679 (.)
         /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
         $profileRelation = $user->profile();
         $profile = $profileRelation->first();

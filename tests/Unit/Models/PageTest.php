@@ -6,6 +6,14 @@ namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Cms\Models\Page;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use Tests\TestCase;
+
+>>>>>>> 46d657c (.)
+>>>>>>> 555d679 (.)
 
 beforeEach(function (): void {
     $this->page = Page/* @phpstan-ignore-line */ ::factory()->create();

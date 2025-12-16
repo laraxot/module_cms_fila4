@@ -48,7 +48,15 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedBy($value)
  * @method static static|null                                              firstWhere(string $column, mixed $operator = null, mixed $value = null)
  *
+<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+<<<<<<< HEAD
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+>>>>>>> 46d657c (.)
+>>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\AttachmentFactory factory($count = null, $state = [])
  *

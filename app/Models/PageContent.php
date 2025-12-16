@@ -41,7 +41,15 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|PageContent whereUpdatedBy($value)
  * @method static int                         count()
  *
+<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+<<<<<<< HEAD
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+>>>>>>> 46d657c (.)
+>>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\PageContentFactory factory($count = null, $state = [])
  *

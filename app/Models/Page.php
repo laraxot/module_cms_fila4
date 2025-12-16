@@ -177,7 +177,15 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @method static static|null                                        first($columns = ['*'])
  * @method static static|null                                        find($id, $columns = ['*'])
  *
+<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+<<<<<<< HEAD
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+>>>>>>> 46d657c (.)
+>>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\PageFactory factory($count = null, $state = [])
  *
