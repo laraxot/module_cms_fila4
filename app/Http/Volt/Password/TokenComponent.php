@@ -63,7 +63,7 @@ class TokenComponent extends Component
         );
         Assert::string($response, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         Assert::string($trans = trans($response));
-        if ($response === Password::PASSWORD_RESET) {
+        if (Password::PASSWORD_RESET === $response) {
             session()->flash($trans);
 
             return redirect('/');

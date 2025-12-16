@@ -9,10 +9,11 @@ use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Modules\Xot\Actions\File\FixPathAction;
 use Nwidart\Modules\Laravel\Module;
-use Spatie\QueueableAction\QueueableAction;
-use Symfony\Component\Finder\SplFileInfo;
 
 use function Safe\realpath;
+
+use Spatie\QueueableAction\QueueableAction;
+use Symfony\Component\Finder\SplFileInfo;
 
 final class FixJigSawByModuleAction
 {
@@ -32,7 +33,7 @@ final class FixJigSawByModuleAction
                 continue;
             }
 
-            if ($stub->getExtension() !== 'stub') {
+            if ('stub' !== $stub->getExtension()) {
                 continue;
             }
 
