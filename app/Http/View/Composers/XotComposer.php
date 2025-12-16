@@ -27,6 +27,7 @@ class XotComposer
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (! ($user instanceof UserContract)) {
             return;
         }
@@ -36,6 +37,9 @@ class XotComposer
         /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
         $profileRelation = $user->profile();
         $profile = $profileRelation->first();
+=======
+        $profile = $user->profile;
+>>>>>>> 026fd7e (.)
         $lang = app()->getLocale();
         $params = [];
         $route_current = Route::current();

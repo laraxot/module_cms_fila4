@@ -32,6 +32,7 @@ class VerifyComponent extends Component
          */
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 555d679 (.)
         Assert::notNull($user = auth()->guard('web')->user());
         /** @var User $user */
@@ -48,6 +49,9 @@ class VerifyComponent extends Component
         $user = $user;
 >>>>>>> 46d657c (.)
 >>>>>>> 555d679 (.)
+=======
+        Assert::notNull($user = auth()->user());
+>>>>>>> 026fd7e (.)
         if ($user->hasVerifiedEmail()) {
             redirect('/');
         }

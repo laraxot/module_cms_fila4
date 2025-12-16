@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Pages;
 
-use BackedEnum;
-use UnitEnum;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\File;
 use Modules\Cms\Datas\ThemeData;
@@ -25,6 +23,7 @@ use Webmozart\Assert\Assert;
 use Webmozart\Assert\Assert;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 use function Safe\json_decode;
 
 >>>>>>> 555d679 (.)
@@ -37,10 +36,13 @@ class Themes extends XotBasePage
 
 =======
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
+=======
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
+>>>>>>> 026fd7e (.)
 
     protected string $view = 'cms::filament.pages.themes';
 
-    protected static string|UnitEnum|null $navigationGroup = 'Settings';
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
 
 >>>>>>> 54dbeef (.)
     public function changePubTheme(string $name): void
@@ -63,7 +65,7 @@ class Themes extends XotBasePage
         $data = [];
         if ($themes) {
             foreach ($themes as $key => $item) {
-                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
+                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
                 $filename = $item.DIRECTORY_SEPARATOR.'theme.json';
                 if (! File::exists($filename)) {
                     $theme_data = ThemeData::from(['name' => basename((string) $item)]);

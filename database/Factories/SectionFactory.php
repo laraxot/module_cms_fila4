@@ -32,7 +32,7 @@ class SectionFactory extends Factory
             'it' => $this->faker->words(2, true),
             'en' => $this->faker->words(2, true),
         ];
-        Assert::string($name_en = $name['en'], __FILE__.':'.__LINE__.' - '.class_basename(self::class));
+        Assert::string($name_en = $name['en'], __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         $slug = Str::slug($name_en);
 
         return [
