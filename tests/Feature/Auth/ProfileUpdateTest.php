@@ -21,8 +21,12 @@ test('profile page is displayed', function (): void {
 test('profile page can be rendered', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -37,8 +41,12 @@ test('profile information can be updated', function (): void {
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -68,8 +76,12 @@ test('email verification status is unchanged when email address is unchanged', f
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -92,8 +104,12 @@ test('user can delete their account', function (): void {
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -113,8 +129,12 @@ test('correct password must be provided to delete account', function (): void {
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);

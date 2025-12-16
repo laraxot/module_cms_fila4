@@ -42,7 +42,11 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @method static int                                                   count()
  * @method static Builder<static>|Section                               where($column, $operator = null, $value = null, $boolean = 'and')
  *
+<<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+=======
+ * @property \Modules\TechPlanner\Models\Profile|null $deleter
+>>>>>>> 46d657c (.)
  *
  * @method static \Modules\Cms\Database\Factories\SectionFactory factory($count = null, $state = [])
  *

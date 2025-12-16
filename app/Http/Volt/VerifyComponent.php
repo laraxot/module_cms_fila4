@@ -28,12 +28,18 @@ class VerifyComponent extends Component
          * return back()->with('status', 'verification-link-sent');
          */
 <<<<<<< HEAD
+<<<<<<< HEAD
         Assert::notNull($user = auth()->guard('web')->user());
         /** @var \App\Models\User $user */
         $user = $user;
 =======
         Assert::notNull($user = auth()->user());
 >>>>>>> 76ce10d (.)
+=======
+        Assert::notNull($user = auth()->guard('web')->user());
+        /** @var \App\Models\User $user */
+        $user = $user;
+>>>>>>> 46d657c (.)
         if ($user->hasVerifiedEmail()) {
             redirect('/');
         }

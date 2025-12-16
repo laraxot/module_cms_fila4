@@ -55,7 +55,7 @@ class Themes extends Page
         $data = [];
         if ($themes) {
             foreach ($themes as $key => $item) {
-                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
                 $filename = $item.DIRECTORY_SEPARATOR.'theme.json';
                 if (! File::exists($filename)) {
                     $theme_data = ThemeData::from(['name' => basename((string) $item)]);

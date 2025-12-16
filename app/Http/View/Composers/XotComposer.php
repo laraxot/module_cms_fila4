@@ -25,7 +25,9 @@ class XotComposer
             return;
         }
 
-        $profile = $user->profile;
+        /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
+        $profileRelation = $user->profile();
+        $profile = $profileRelation->first();
         $lang = app()->getLocale();
         $params = [];
         $route_current = Route::current();

@@ -21,8 +21,12 @@ test('confirm password screen can be rendered', function (): void {
 test('confirm password page can be rendered', function (): void {
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -39,8 +43,12 @@ test('password can be confirmed', function (): void {
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -58,8 +66,12 @@ test('password is not confirmed with invalid password', function (): void {
 =======
     $xotData = XotData::make();
     $userClass = $xotData->getUserClass();
+<<<<<<< HEAD
     
 >>>>>>> 1810cfd (.)
+=======
+
+>>>>>>> 46d657c (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);

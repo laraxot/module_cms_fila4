@@ -4,10 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
+use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
+<<<<<<< HEAD
 use Modules\Cms\Actions\View\GetCmsViewAction;
 use Modules\Cms\Models\Section as SectionModel; // Import the new Action
+=======
+use Modules\Cms\Models\Section as SectionModel;
+use Webmozart\Assert\Assert;
+use Modules\Cms\Actions\View\GetCmsViewAction; // Import the new Action
+>>>>>>> 46d657c (.)
 
 /**
  * Section Component.
@@ -67,6 +74,7 @@ class Section extends Component
         try {
             // The action's execute method returns view-string, so PHPStan should be happy
             $view = $viewAction->execute($baseViewName);
+<<<<<<< HEAD
 
             return view($view);
         } catch (\Exception $e) {
@@ -74,6 +82,13 @@ class Section extends Component
             // The action's execute method returns view-string
             $fallbackView = $viewAction->execute('cms::components.section');
 
+=======
+            return view($view);
+        } catch (Exception $e) {
+            // Fallback: this view exists in the Cms module
+            // The action's execute method returns view-string
+            $fallbackView = $viewAction->execute('cms::components.section');
+>>>>>>> 46d657c (.)
             return view($fallbackView);
         }
     }

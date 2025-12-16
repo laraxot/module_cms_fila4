@@ -32,6 +32,7 @@ test('login component has correct default values', function () {
     $component = LivewireVolt::test('auth.login');
 
     $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
+<<<<<<< HEAD
     });
 
         $component = LivewireVolt::test('auth.login');
@@ -77,6 +78,37 @@ test('login with wrong password fails', function () {
 
     assertGuest();
 
+=======
+});
+
+test('successful login authenticates the user', function () {
+    $email = TestCase::generateUniqueEmail();
+    $user = TestCase::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    assertGuest();
+
+    $response = LivewireVolt::test('auth.login')
+        ->set('email', $email)
+        ->set('password', 'password123')
+        ->call('save');
+
+    $response->assertHasNoErrors();
+    assertAuthenticated();
+});
+
+test('login with wrong password fails', function () {
+    $email = TestCase::generateUniqueEmail();
+    TestCase::createTestUser([
+        'email' => $email,
+        'password' => Hash::make('password123'),
+    ]);
+
+    assertGuest();
+
+>>>>>>> 46d657c (.)
     $response = LivewireVolt::test('auth.login')
         ->set('email', $email)
         ->set('password', 'wrong_password')

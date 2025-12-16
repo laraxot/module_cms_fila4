@@ -15,7 +15,7 @@ uses(TestCase::class);
 // Ensure XotData is mocked for every test
 beforeEach(function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
-    static::mockXotData();
+    Modules\Xot\Tests\TestCase::mockXotData();
 });
 
 // REGISTRATION WIDGET TESTS - Filament Component
@@ -41,15 +41,19 @@ test('registration widget throws exception without type parameter', function ():
     expect(function () {
         Livewire::test(RegistrationWidget::class);
 <<<<<<< HEAD
+<<<<<<< HEAD
     })->toThrow(\Exception::class);
 =======
     })->toThrow(Exception::class);
 >>>>>>> 1810cfd (.)
+=======
+    })->toThrow(\Exception::class);
+>>>>>>> 46d657c (.)
 });
 
 test('registration widget can set and get form data', function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
-    $email = static::generateUniqueEmail();
+    $email = Modules\Xot\Tests\TestCase::generateUniqueEmail();
 
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->set('data.email', $email)
@@ -63,7 +67,7 @@ test('registration widget can set and get form data', function (): void {
 test('registration widget can handle multiple form fields', function (): void {
     $testData = [
         'name' => 'Test Patient',
-        'email' => static::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
+        'email' => Modules\Xot\Tests\TestCase::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
         'password' => 'TestPassword123!',
     ];
 
@@ -80,7 +84,7 @@ test('registration widget can handle multiple form fields', function (): void {
 
 test('registration widget register method can be called', function (): void {
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
-        ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
+        ->set('data.email', Modules\Xot\Tests\TestCase::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
         ->set('data.name', 'Test User')
         ->set('data.password', 'TestPassword123!');
 
@@ -105,7 +109,7 @@ test('registration widget is compatible with Livewire testing', function (): voi
 test('registration widget works for different user types', function (): void {
     foreach (['patient', 'doctor'] as $type) {
         $widget = Livewire::test(RegistrationWidget::class, ['type' => $type])
-            ->set('data.email', static::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
+            ->set('data.email', Modules\Xot\Tests\TestCase::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
             ->set('data.name', "Test {$type}")
             ->set('data.password', 'TestPassword123!');
 

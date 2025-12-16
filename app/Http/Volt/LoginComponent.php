@@ -54,13 +54,19 @@ class LoginComponent extends Component
         }
         $guard = 'web'; // auth()->guard('web')
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 46d657c (.)
 
         /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
         $query = User::where('email', $this->email);
         $user = $query->first();
+<<<<<<< HEAD
 =======
         $user = User::where('email', $this->email)->first();
 >>>>>>> 76ce10d (.)
+=======
+>>>>>>> 46d657c (.)
         Assert::isInstanceOf($user, Authenticatable::class);
         $remember = $this->remember;
         event(new Login($guard, $user, $remember));

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📄 Cms Module - Content Management System
 
 [![Laravel 12.x](https://img.shields.io/badge/Laravel-12.x-red.svg)](https://laravel.com/)
@@ -180,6 +181,89 @@ $page = Page::create([
 - [Development Rules](../../../docs/development_rules_updated.md) - Regole sviluppo
 
 ---
+=======
+# CMS Module
+
+Content Management System for handling pages, menus, and frontend presentation.
+
+## Table of Contents
+- [Overview](#overview)
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+  - [Pages](#pages)
+  - [Menus](#menus)
+  - [Themes](#themes)
+  - [Blocks](#blocks)
+- [API Reference](#api-reference)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Overview
+The CMS module provides a flexible content management system with support for multiple themes, page templates, and content blocks. It integrates with Filament for the admin interface and supports multi-language content.
+
+## Features
+- Page management with WYSIWYG editor
+- Menu management
+- Theme system
+- Content blocks
+- Multi-language support
+- SEO tools
+- Media library integration
+
+## Installation
+```bash
+composer require modules/cms
+```
+
+Publish assets and run migrations:
+```bash
+php artisan vendor:publish --tag=cms-assets
+php artisan migrate
+```
+
+## Configuration
+Add the service provider to `config/app.php`:
+
+```php
+'providers' => [
+    // ...
+    Modules\Cms\Providers\CmsServiceProvider::class,
+],
+```
+
+## Usage
+
+### Pages
+Create and manage content pages with the built-in editor. Pages support:
+- Custom templates
+- SEO metadata
+- Scheduled publishing
+- Versioning
+
+### Menus
+Easily create and manage navigation menus with drag-and-drop interface.
+
+### Themes
+Themes are stored in `Themes/` directory. Each theme can have its own:
+- Templates
+- Assets (CSS/JS)
+- Partials
+- Layouts
+
+### Blocks
+Reusable content blocks that can be placed on any page.
+
+## API Reference
+See [API Documentation](api.md) for detailed class and method references.
+
+## Contributing
+Please see [CONTRIBUTING.md](contributing.md) for details.
+
+## License
+This module is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+>>>>>>> 46d657c (.)
 
 ## 🧪 Testing
 
@@ -194,7 +278,16 @@ $page = Page::create([
 ./vendor/bin/pest Modules/Cms --coverage
 ```
 
+<<<<<<< HEAD
 ---
+=======
+## Collegamenti tra versioni di readme.md
+* [readme.md](laravel/Modules/Gdpr/docs/readme.md)
+* [readme.md](laravel/Modules/UI/docs/readme.md)
+* [readme.md](laravel/Modules/Lang/docs/readme.md)
+* [readme.md](laravel/Modules/Activity/docs/readme.md)
+* [readme.md](laravel/Modules/Cms/docs/readme.md)
+>>>>>>> 46d657c (.)
 
 ## 🎯 Best Practices
 
