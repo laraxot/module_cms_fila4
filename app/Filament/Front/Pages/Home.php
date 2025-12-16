@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
+use BackedEnum;
 use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
@@ -26,7 +27,7 @@ class Home extends Page
 
     public array $items = [];
 
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     // protected static string $view = 'cms::filament.front.pages.welcome';
     protected string $view = 'pub_theme::home';
