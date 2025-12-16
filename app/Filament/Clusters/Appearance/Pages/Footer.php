@@ -4,19 +4,21 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
+use Filament\Schemas\Schema;
 use Filament\Actions\Action;
+use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
-use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Arr;
 use Modules\Cms\Actions\SaveFooterConfigAction;
 use Modules\Cms\Datas\FooterData;
 use Modules\Cms\Filament\Clusters\Appearance;
 use Modules\Tenant\Services\TenantService;
+use Modules\UI\Filament\Forms\Components\RadioImage;
 use Modules\Xot\Actions\Filament\Block\GetViewBlocksOptionsByTypeAction;
 use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
@@ -31,8 +33,9 @@ class Footer extends XotBasePage
     /**
      * @var FooterData|null the form data
      */
-    public ?FooterData $footerData = null;
+    public null|FooterData $footerData = null;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public array $data = [];
 =======
@@ -44,12 +47,17 @@ class Footer extends XotBasePage
 =======
     protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 >>>>>>> 026fd7e (.)
+=======
+    public null|array $data = [];
+
+    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+>>>>>>> c18bda2 (.)
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 
-    protected static ?string $cluster = Appearance::class;
+    protected static null|string $cluster = Appearance::class;
 
-    protected static ?int $navigationSort = 2;
+    protected static null|int $navigationSort = 2;
 
     /**
      * Initialize the page and fill the form state.

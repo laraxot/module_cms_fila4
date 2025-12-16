@@ -5,7 +5,12 @@ declare(strict_types=1);
 namespace Modules\Cms\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Modules\Tenant\Actions\Config\GetTenantConfigNamesAction;
+=======
+use Illuminate\Database\Eloquent\Model;
+use Modules\Tenant\Services\TenantService;
+>>>>>>> c18bda2 (.)
 use Sushi\Sushi;
 
 /**
@@ -13,6 +18,7 @@ use Sushi\Sushi;
  *
  * @property int         $id
  * @property string|null $name
+<<<<<<< HEAD
  *
  * @method static Builder<static>|Conf newModelQuery()
  * @method static Builder<static>|Conf newQuery()
@@ -40,9 +46,17 @@ use Sushi\Sushi;
  *
  * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
  *
+=======
+ * @method static Builder|Conf newModelQuery()
+ * @method static Builder|Conf newQuery()
+ * @method static Builder|Conf query()
+ * @method static Builder|Conf whereId($value)
+ * @method static Builder|Conf whereName($value)
+ * @mixin IdeHelperConf
+>>>>>>> c18bda2 (.)
  * @mixin \Eloquent
  */
-class Conf extends BaseModel
+class Conf extends Model
 {
     use Sushi;
 

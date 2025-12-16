@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
+use Modules\Xot\Tests\TestCase;
 use Livewire\Volt\Volt as LivewireVolt;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 test('confirm password screen can be rendered', function (): void {
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -27,14 +29,19 @@ test('confirm password page can be rendered', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('confirm password screen can be rendered', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
-    $response = actingAs($user)->get('/'.$lang.'/confirm-password');
+    $response = actingAs($user)->get('/' . $lang . '/confirm-password');
 
     $response->assertStatus(200);
 });
 
+<<<<<<< HEAD
 test('password can be confirmed', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -49,6 +56,10 @@ test('password can be confirmed', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('password can be confirmed', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -58,6 +69,7 @@ test('password can be confirmed', function (): void {
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
+<<<<<<< HEAD
 test('password is not confirmed with invalid password', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -72,6 +84,10 @@ test('password is not confirmed with invalid password', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('password is not confirmed with invalid password', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);

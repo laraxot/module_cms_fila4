@@ -4,14 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
+use Modules\Xot\Tests\TestCase;
 use Livewire\Volt\Volt as LivewireVolt;
 use Modules\Xot\Datas\XotData;
-use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
+use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 test('profile page is displayed', function (): void {
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -27,12 +29,17 @@ test('profile page can be rendered', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('profile page is displayed', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
-    actingAs($user)->get('/'.$lang.'/settings/profile')->assertOk();
+    actingAs($user)->get('/' . $lang . '/settings/profile')->assertOk();
 });
 
+<<<<<<< HEAD
 test('profile information can be updated', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -47,6 +54,10 @@ test('profile information can be updated', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('profile information can be updated', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -68,6 +79,7 @@ test('profile information can be updated', function (): void {
         ->toBeNull();
 });
 
+<<<<<<< HEAD
 test('email verification status is unchanged when email address is unchanged', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -82,6 +94,10 @@ test('email verification status is unchanged when email address is unchanged', f
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('email verification status is unchanged when email address is unchanged', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -96,6 +112,7 @@ test('email verification status is unchanged when email address is unchanged', f
     expect($user->refresh()->email_verified_at)->not->toBeNull();
 });
 
+<<<<<<< HEAD
 test('user can delete their account', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -110,6 +127,10 @@ test('user can delete their account', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('user can delete their account', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -121,6 +142,7 @@ test('user can delete their account', function (): void {
     expect($user->fresh())->toBeNull()->and(auth()->check())->toBeFalse();
 });
 
+<<<<<<< HEAD
 test('correct password must be provided to delete account', function (): void {
 <<<<<<< HEAD
     /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
@@ -135,6 +157,10 @@ test('correct password must be provided to delete account', function (): void {
 =======
 
 >>>>>>> 46d657c (.)
+=======
+test('correct password must be provided to delete account', function () {
+    $userClass = XotData::make()->getUserClass();
+>>>>>>> c18bda2 (.)
     $user = $userClass::factory()->create();
 
     actingAs($user);

@@ -2,28 +2,22 @@
 # LARAXOT MODULE CMS - .GITIGNORE
 # ==============================================
 # Modulo CMS Laraxot - Template standardizzato
-# Ultimo aggiornamento: 2025-01-31
+# Ultimo aggiornamento: 2025-01-06
 # ==============================================
 
 # ==============================================
 # DEPENDENCIES & PACKAGES
 # ==============================================
-/vendor/
-/vendor
-/node_modules/
-/node_modules
-/docs/vendor/
+vendor/
+node_modules/
 package-lock.json
 yarn.lock
 composer.lock
-yarn-error.log
-npm-debug.log
 
 # ==============================================
 # BUILD & COMPILED FILES
 # ==============================================
 /build
-/build/
 build/
 dist/
 docs/cache/
@@ -81,7 +75,6 @@ Homestead.json
 # GIT SPECIFIC
 # ==============================================
 .git-rewrite/
-.git-rewrite
 .git-blame-ignore-revs
 
 # ==============================================
@@ -121,12 +114,6 @@ docs/phpstan/
 docs/cache/
 
 # ==============================================
-# LANGUAGE FILES
-# ==============================================
-lang/lang/
-resources/lang/
-
-# ==============================================
 # OLD DIRECTORIES (LEGACY CLEANUP)
 # ==============================================
 resources/views/Components_old/
@@ -158,6 +145,17 @@ cms_test_data.sql
 # ==============================================
 # END OF CMS .GITIGNORE
 # ==============================================
+#othes
+lang/it/.php
+lang/en/.php
+lang/de/.php
+
+# Old directories to ignore
+resources/views/Components_old
+database/Migrations_old
+database/Seeders_old
+database/Factories_old
+database_old
 
 # 🚫 File specifici del progetto
 *.fila2

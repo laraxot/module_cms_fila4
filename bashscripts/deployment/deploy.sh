@@ -7,11 +7,11 @@ echo "Inizio deploy..."
 
 # mi sposto nella working dir
 echo "Cambio directory..."
-cd /var/www/<nome progetto>le
+cd /var/www/saluteorale
 
 # evito l'errore "fatal: detected dubious ownership in repository"
 echo "Configurazione safe.directory..."
-sudo git config --global --add safe.directory /var/www/<nome progetto>le
+sudo git config --global --add safe.directory /var/www/saluteorale
 
 # eseguo pull
 echo "Esecuzione git pull..."
@@ -47,8 +47,8 @@ sudo php artisan route:clear --quiet
 
 # riaggiorno i permessi
 echo "Aggiornamento permessi..."
-sudo chown -R www-data:www-data /var/www/<nome progetto>le/
-sudo chmod -R g+w /var/www/<nome progetto>le/
+sudo chown -R www-data:www-data /var/www/saluteorale/
+sudo chmod -R g+w /var/www/saluteorale/
 
 echo "Deploy completato con successo!"
 

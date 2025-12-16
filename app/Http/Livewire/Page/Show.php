@@ -14,21 +14,29 @@ class Show extends Component
 {
     /**
      * Lo slug della pagina da visualizzare.
+     *
+     * @var string
      */
     public string $slug;
 
     /**
      * Se utilizzare la cache per i contenuti.
+     *
+     * @var bool
      */
     public bool $cache = true;
 
     /**
      * Il tema da utilizzare.
+     *
+     * @var string|null
      */
-    public ?string $theme = null;
+    public null|string $theme = null;
 
     /**
      * Se mostrare informazioni di debug.
+     *
+     * @var bool
      */
     public bool $debug = false;
 
@@ -37,27 +45,7 @@ class Show extends Component
      *
      * @var array<string, mixed>
      */
-    /** @var array<string, mixed> */
-    public array $pageContent = [];
-
-    /**
-     * Carica i contenuti della pagina.
-     */
-    public function mount(): void
-    {
-        $this->loadPageContent();
-    }
-
-    /**
-     * Renderizza la vista con i contenuti della pagina.
-     */
-    public function render(): View
-    {
-        return view('cms::livewire.page.show', [
-            'pageContent' => $this->pageContent,
-            'theme' => $this->theme ?? ThemeService::getTheme(),
-        ]);
-    }
+    protected array $pageContent = [];
 
     /**
      * Regole di validazione per i parametri.
@@ -75,18 +63,25 @@ class Show extends Component
     }
 
     /**
+     * Carica i contenuti della pagina.
+     */
+    public function mount(): void
+    {
+        $this->loadPageContent();
+    }
+
+    /**
      * Carica i contenuti della pagina, eventualmente dalla cache.
      */
     protected function loadPageContent(): void
     {
         // Chiave per la cache
-        $cacheKey = 'page_content_'.$this->slug.'_'.($this->theme ?? ThemeService::getTheme());
+        $cacheKey = 'page_content_' . $this->slug . '_' . ($this->theme ?? ThemeService::getTheme());
 
         // Se la cache è abilitata, tenta di recuperare dalla cache
         if ($this->cache) {
-            /** @var array<string, mixed> $cached */
             $cached = Cache::remember($cacheKey, now()->addHours(24), $this->fetchPageContent(...));
-            $this->pageContent = $cached;
+            $this->pageContent = is_array($cached) ? $cached : [];
         } else {
             $this->pageContent = $this->fetchPageContent();
         }
@@ -103,7 +98,7 @@ class Show extends Component
             // Recupera la pagina dal database
             $page = Page::where('slug', $this->slug)->where('lang', app()->getLocale())->first();
 
-            if (! $page) {
+            if (!$page) {
                 return ['error' => 'Page not found', 'slug' => $this->slug];
             }
 
@@ -143,5 +138,16 @@ class Show extends Component
 
             return ['error' => 'An error occurred while loading the page'];
         }
+    }
+
+    /**
+     * Renderizza la vista con i contenuti della pagina.
+     */
+    public function render(): View
+    {
+        return view('cms::livewire.page.show', [
+            'pageContent' => $this->pageContent,
+            'theme' => $this->theme ?? ThemeService::getTheme(),
+        ]);
     }
 }

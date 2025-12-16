@@ -32,7 +32,11 @@ Ho aggiornato TUTTO il sistema di memoria e documentazione per cristallizzare qu
 - ✅ `.cursor/rules/testing-business-behavior-supreme.mdc` - NUOVO
 
 ### 📖 Documentazione Moduli
+<<<<<<< HEAD
 - ✅ `Modules/<nome progetto>/docs/testing-guidelines.md` - Aggiornato con regola suprema
+=======
+- ✅ `Modules/SaluteOra/docs/testing-guidelines.md` - Aggiornato con regola suprema
+>>>>>>> c18bda2 (.)
 
 ## PRINCIPI IMPLEMENTATI
 
@@ -118,4 +122,8 @@ Ora posso procedere a:
 
 **Data implementazione**: Gennaio 2025  
 **Status**: COMPLETATO  
+<<<<<<< HEAD
 **Applicabilità**: UNIVERSALE - tutto il progetto <nome progetto>
+=======
+**Applicabilità**: UNIVERSALE - tutto il progetto SaluteOra
+>>>>>>> c18bda2 (.)

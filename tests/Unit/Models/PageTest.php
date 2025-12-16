@@ -5,11 +5,18 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
+<<<<<<< HEAD
 use Modules\Cms\Models\Page;
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
+=======
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Modules\Cms\Models\Page;
+use Modules\Cms\Models\PageContent;
+>>>>>>> c18bda2 (.)
 use Tests\TestCase;
 
 >>>>>>> 46d657c (.)

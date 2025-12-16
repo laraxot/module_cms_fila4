@@ -5,7 +5,10 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Feature;
 
 use Modules\Cms\Tests\TestCase;
+use Modules\SaluteOra\Enums\UserTypeEnum;
+use Modules\SaluteOra\Models\User;
 
+use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 uses(TestCase::class);
@@ -95,7 +98,7 @@ describe('Filament Blocks Integration', function () {
         // Test italiano
         $response = get('/');
         $response->assertStatus(200);
-        $response->assertSee('Benvenuta su <nome progetto>');
+        $response->assertSee('Benvenuta su SaluteOra');
 
         // Test inglese
         $response = get('/en');

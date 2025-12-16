@@ -1,8 +1,7 @@
 <?php
 
 declare(strict_types=1);
-
-return [
+ return [
     'fields' => [
         'sidebar_blocks' => [
             'label' => 'sidebar_blocks',

@@ -28,11 +28,6 @@
             "Modules\\Cms\\Tests\\": "tests/"
         }
     },
-    "autoload-dev": {
-        "psr-4": {
-            "Modules\\Cms\\Tests\\": "tests/"
-        }
-    },
     "require": {
 
     },

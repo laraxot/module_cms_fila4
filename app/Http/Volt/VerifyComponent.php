@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Volt;
 
-use Illuminate\Auth\Events\Verified;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Component;
 use Modules\User\Models\User;
 use Webmozart\Assert\Assert;

@@ -22,17 +22,15 @@ class LoginComponent extends Component
 {
     #[Validate('required|email')]
     public string $email = '';
-
     #[Validate('required')]
     public string $password = '';
-
     public bool $remember = false;
 
     public function authenticate(): RedirectResponse
     {
         $this->validate();
 
-        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             $this->addError('email', trans('auth.failed'));
 
             return back();

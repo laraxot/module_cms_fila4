@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
+
 namespace Modules\Cms\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Cms\Models\Attachment;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AttachmentFactory extends Factory
 {

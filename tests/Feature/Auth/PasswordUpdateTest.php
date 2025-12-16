@@ -2,10 +2,13 @@
 
 declare(strict_types=1);
 
+
 namespace Modules\Cms\Tests\Feature\Auth;
 
+use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
+<<<<<<< HEAD
 use Modules\Xot\Datas\XotData;
 use Modules\Xot\Tests\TestCase;
 
@@ -13,6 +16,12 @@ uses(TestCase::class);
 
 test('password can be updated', function (): void {
 <<<<<<< HEAD
+=======
+
+uses(TestCase::class);
+
+test('password can be updated', function () {
+>>>>>>> c18bda2 (.)
     $user = User::factory()->create([
 =======
     $xotData = XotData::make();
@@ -37,7 +46,11 @@ test('password can be updated', function (): void {
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 test('correct password must be provided to update password', function (): void {
+=======
+test('correct password must be provided to update password', function () {
+>>>>>>> c18bda2 (.)
     $user = User::factory()->create([
 =======
 test('current password must be correct', function (): void {

@@ -4,8 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers\Filament;
 
+<<<<<<< HEAD
 use Filament\Panel;
 // use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
+=======
+use Override;
+// use LaraZeus\SpatieTranslatable\SpatieTranslatablePlugin;
+use Filament\Panel;
+>>>>>>> c18bda2 (.)
 use Modules\Xot\Providers\Filament\XotBasePanelProvider;
 
 class AdminPanelProvider extends XotBasePanelProvider
