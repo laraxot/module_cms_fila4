@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 <?php
 
 declare(strict_types=1);
@@ -14,6 +17,7 @@ declare(strict_types=1);
         />
 
     </x-filament-schemas::form>
+<<<<<<< HEAD
 =======
 <x-filament-panels::page>
 
@@ -26,5 +30,7 @@ declare(strict_types=1);
 
     </x-filament-panels::form>
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 
 </x-filament-panels::page>
