@@ -15,6 +15,7 @@ use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Arr;
 use Modules\Cms\Filament\Clusters\Appearance;
 use Modules\Tenant\Services\TenantService;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
 
 /**
@@ -22,18 +23,14 @@ use Webmozart\Assert\Assert;
  *
  * @property Schema $form
  */
-class Breadcrumb extends Page implements HasForms
+class Breadcrumb extends XotBasePage
 {
-    use InteractsWithForms;
-
     /**
      * Data for the form state.
      *
-     * @var array<string, mixed>|null
+     * @var array<string, mixed>
      */
-    public ?array $data = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    public array $data = [];
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 

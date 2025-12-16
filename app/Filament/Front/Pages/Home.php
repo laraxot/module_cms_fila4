@@ -12,21 +12,20 @@ use Filament\Pages\Page;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
 
 // use InteractsWithTable;
 // implements HasTable
 // use InteractsWithForms;
 
-class Home extends Page
+class Home extends XotBasePage
 {
     public string $view_type;
 
     public array $containers = [];
 
     public array $items = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     // protected static string $view = 'cms::filament.front.pages.welcome';
     protected string $view = 'pub_theme::home';

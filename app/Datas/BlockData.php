@@ -9,6 +9,9 @@ use Livewire\Wireable;
 use Spatie\LaravelData\Concerns\WireableData;
 use Spatie\LaravelData\Data;
 use Webmozart\Assert\Assert;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Support\Collection;
+use Spatie\LaravelData\DataCollection;
 
 class BlockData extends Data implements Wireable
 {
@@ -53,5 +56,10 @@ class BlockData extends Data implements Wireable
         }
 
         $this->view = $view;
+    }
+
+    public static function collection(EloquentCollection|Collection|array $data): DataCollection
+    {
+        return self::collect($data, DataCollection::class);
     }
 }

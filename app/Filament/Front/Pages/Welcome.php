@@ -13,10 +13,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Modules\Tenant\Services\TenantService;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
 
 // implements HasTable
-class Welcome extends Page
+class Welcome extends XotBasePage
 {
     public string $view_type;
 
@@ -24,11 +25,9 @@ class Welcome extends Page
 
     public array $items = [];
 
-    public ?Model $model = null;
+    public ?Model $instanceModel = null;
     // use InteractsWithTable;
     // use InteractsWithForms;
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     // protected static string $view = 'cms::filament.front.pages.welcome';
     protected string $view = 'pub_theme::home';
@@ -132,7 +131,7 @@ class Welcome extends Page
     {
         // dddx($parameters);
         $parameters['lang'] = app()->getLocale();
-        $record = $parameters['record'] ?? $this->model;
+        $record = $parameters['record'] ?? $this->instanceModel;
         // dddx($record);
         if ($record && is_object($record) && 'show' === $name) {
             $container0 = class_basename($record);
@@ -159,7 +158,7 @@ class Welcome extends Page
 
     public function setModel(Model $model): self
     {
-        $this->model = $model;
+        $this->instanceModel = $model;
 
         return $this;
     }

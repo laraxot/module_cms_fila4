@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Volt;
 
-use Illuminate\Auth\Events\Verified;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Livewire\Volt\Component;
 use Webmozart\Assert\Assert;
+use Illuminate\Auth\Events\Verified;
+use Modules\Xot\Contracts\UserContract;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 
 /**
  * Summary of VerifyComponent.
@@ -30,7 +31,7 @@ class VerifyComponent extends Component
 <<<<<<< HEAD
 <<<<<<< HEAD
         Assert::notNull($user = auth()->guard('web')->user());
-        /** @var \App\Models\User $user */
+        /** @var UserContract $user */
         $user = $user;
 =======
         Assert::notNull($user = auth()->user());

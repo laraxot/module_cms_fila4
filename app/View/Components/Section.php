@@ -4,11 +4,18 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
+<<<<<<< HEAD
 use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 <<<<<<< HEAD
+=======
+use Illuminate\View\Component;
+use Spatie\LaravelData\DataCollection;
+>>>>>>> 18e1255 (.)
 use Modules\Cms\Actions\View\GetCmsViewAction;
+use Modules\Cms\Datas\BlockData;
+use Illuminate\Contracts\View\View as ViewContract;
 use Modules\Cms\Models\Section as SectionModel; // Import the new Action
 =======
 use Modules\Cms\Models\Section as SectionModel;
@@ -29,7 +36,8 @@ class Section extends Component
 {
     public string $slug;
 
-    public array $blocks = [];
+    /** @var DataCollection<BlockData> */
+    public DataCollection $blocks;
 
     public ?string $name = null;
 

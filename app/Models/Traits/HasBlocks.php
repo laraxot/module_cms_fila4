@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Traits;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Str;
-use Modules\Cms\Datas\BlockData;
 use Modules\Xot\Datas\XotData;
+use Modules\Cms\Datas\BlockData;
+use Illuminate\Support\Facades\Blade;
+use Spatie\LaravelData\DataCollection;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Trait for Models that have blocks.
@@ -18,9 +19,9 @@ use Modules\Xot\Datas\XotData;
 trait HasBlocks
 {
     /**
-     * @return array<int, BlockData>
+     * @return DataCollection<BlockData>
      */
-    public function getBlocks(): array
+    public function getBlocks(): DataCollection
     {
         $blocks = $this->blocks;
 
@@ -35,13 +36,12 @@ trait HasBlocks
 
         $blocks = $this->compile($blocks);
 
-        /** @var \Illuminate\Support\Collection<int, BlockData> $collection */
-        $collection = BlockData::collect($blocks);
+        /** @var DataCollection<BlockData> $collection */
+        $collection = BlockData::collection($blocks);
 
-        /** @var array<int, BlockData> $result */
-        $result = $collection->all();
+        
 
-        return $result;
+        return $collection;
     }
 
     /**
@@ -69,29 +69,29 @@ trait HasBlocks
     /**
      * Get blocks for a record by slug.
      *
-     * @return array<int, BlockData>
+     * @return DataCollection<BlockData>
      */
-    public static function getBlocksBySlug(string $slug): array
+    public static function getBlocksBySlug(string $slug): DataCollection
     {
         // This trait requires the class to extend Model (@phpstan-require-extends Model)
         // So we can safely use static methods
         $query = static::where('slug', $slug);
 
         if (! method_exists($query, 'first')) {
-            return [];
+            return BlockData::collection([]);
         }
 
         $record = $query->first();
         if (! $record instanceof Model) {
-            return [];
+            return BlockData::collection([]);
         }
 
         // Check if getBlocks method exists
         if (! method_exists($record, 'getBlocks')) {
-            return [];
+            return BlockData::collection([]);
         }
 
-        /** @var array<int, BlockData> $blocks */
+        /** @var DataCollection<BlockData> $blocks */
         $blocks = $record->getBlocks();
 
         return $blocks;

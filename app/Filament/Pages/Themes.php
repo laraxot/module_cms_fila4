@@ -20,7 +20,10 @@ use Webmozart\Assert\Assert;
 
 class Themes extends XotBasePage
 {
+<<<<<<< HEAD
     /** @var array<int, array<string, mixed>> */
+=======
+>>>>>>> 18e1255 (.)
     public array $themes = [];
 
     protected string $view = 'cms::filament.pages.themes';

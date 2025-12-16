@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Illuminate\View\View;
+use Modules\Xot\Contracts\UserContract;
 
 /**
  * Class XotComposer.
@@ -22,6 +23,10 @@ class XotComposer
     {
         $user = Auth::user();
         if (! ($user instanceof Authenticatable)) {
+            return;
+        }
+
+        if (! ($user instanceof UserContract)) {
             return;
         }
 

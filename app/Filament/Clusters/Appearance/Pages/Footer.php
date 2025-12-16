@@ -20,6 +20,7 @@ use Modules\Cms\Datas\FooterData;
 use Modules\Cms\Filament\Clusters\Appearance;
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Actions\Filament\Block\GetViewBlocksOptionsByTypeAction;
+use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
 
 /**
@@ -27,18 +28,14 @@ use Webmozart\Assert\Assert;
  *
  * @property Schema $form
  */
-class Footer extends Page implements HasForms
+class Footer extends XotBasePage
 {
-    use InteractsWithForms;
-
     /**
      * @var FooterData|null the form data
      */
     public ?FooterData $footerData = null;
 
-    public ?array $data = [];
-
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+    public array $data = [];
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 
