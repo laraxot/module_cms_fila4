@@ -30,6 +30,7 @@ test('profile page can be rendered', function (): void {
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
+    /** @phpstan-ignore-next-line method.nonObject */
     actingAs($user)->get('/'.$lang.'/settings/profile')->assertOk();
 });
 
@@ -56,8 +57,10 @@ test('profile information can be updated', function (): void {
         ->set('email', 'test@example.com')
         ->call('updateProfileInformation');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors();
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $user->refresh();
 
     expect($user->name)
@@ -91,6 +94,7 @@ test('email verification status is unchanged when email address is unchanged', f
         ->set('email', $user->email)
         ->call('updateProfileInformation');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors();
 
     expect($user->refresh()->email_verified_at)->not->toBeNull();
@@ -116,6 +120,7 @@ test('user can delete their account', function (): void {
 
     $response = LivewireVolt::test('settings.delete-user-form')->set('password', 'password')->call('deleteUser');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors()->assertRedirect('/');
 
     expect($user->fresh())->toBeNull()->and(auth()->check())->toBeFalse();
@@ -141,6 +146,7 @@ test('correct password must be provided to delete account', function (): void {
 
     $response = LivewireVolt::test('settings.delete-user-form')->set('password', 'wrong-password')->call('deleteUser');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasErrors(['password']);
 
     expect($user->fresh())->not->toBeNull();

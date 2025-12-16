@@ -25,6 +25,7 @@ test('forgot password page can be rendered', function () {
     $lang = app()->getLocale();
     $response = get('/'.$lang.'/forgot-password');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
@@ -74,6 +75,7 @@ test('reset password link renders reset password page', function () {
 
     Notification::assertSentTo($user, ResetPassword::class, function ($notification) use ($lang) {
         $response = get('/'.$lang.'/reset-password/'.$notification->token);
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertStatus(200);
 
         return true;
@@ -108,6 +110,7 @@ test('password can be reset', function () {
             ->set('password_confirmation', 'password')
             ->call('resetPassword');
 
+        /** @phpstan-ignore-next-line method.nonObject */
         $response->assertHasNoErrors()->assertRedirect(route('login', absolute: false));
 
         return true;
