@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources\PageContentResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\CreateRecord\Concerns\Translatable;
 use Filament\Resources\Pages\CreateRecord;
+use LaraZeus\SpatieTranslatable\Resources\Pages\CreateRecord\Concerns\Translatable;
 use Modules\Cms\Filament\Resources\PageContentResource;
 
 class CreatePageContent extends CreateRecord

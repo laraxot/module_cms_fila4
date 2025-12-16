@@ -2,11 +2,10 @@
 
 declare(strict_types=1);
 
-
 namespace Modules\Cms\Http\Middleware;
 
-use Illuminate\Contracts\Http\Kernel;
 use Closure;
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
 use Modules\Cms\Models\Page;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,12 +14,12 @@ class PageSlugMiddleware
 {
     protected Kernel $kernel;
 
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, \Closure $next): Response
     {
         $slug = $request->route('slug');
 
         // Handle case where slug might be null
-        if (!$slug) {
+        if (! $slug) {
             return $next($request);
         }
 
@@ -31,6 +30,7 @@ class PageSlugMiddleware
             return $next($request);
         }
         $this->kernel = app(Kernel::class);
+
         // Execute middlewares manually in a chain
         return $this->executeMiddlewareChain($request, $middlewares, $next);
     }
@@ -38,7 +38,8 @@ class PageSlugMiddleware
     /**
      * Parse a middleware string to get the name and parameters.
      *
-     * @param  string  $middleware
+     * @param string $middleware
+     *
      * @return array
      */
     protected function parseMiddleware($middleware)
@@ -55,7 +56,7 @@ class PageSlugMiddleware
     /**
      * Execute middleware chain manually.
      */
-    protected function executeMiddlewareChain(Request $request, array $middlewares, Closure $finalNext): Response
+    protected function executeMiddlewareChain(Request $request, array $middlewares, \Closure $finalNext): Response
     {
         if (empty($middlewares)) {
             return $finalNext($request);

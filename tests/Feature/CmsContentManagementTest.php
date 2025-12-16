@@ -115,7 +115,7 @@ test('cms module handles complex block structures', function () {
                 'mobile' => 1,
             ],
             'items' => array_map(
-                fn($i) => [
+                fn ($i) => [
                     'id' => $i,
                     'type' => 'content_card',
                     'title' => "Card {$i}",
@@ -132,8 +132,8 @@ test('cms module handles complex block structures', function () {
                     'metadata' => [
                         'author' => "Author {$i}",
                         'published_at' => now()->subDays($i)->toISOString(),
-                        'categories' => ['Category ' . (($i % 3) + 1), 'Category ' . ((($i + 1) % 3) + 1)],
-                        'tags' => array_map(fn($t) => "tag{$t}", range(1, 5)),
+                        'categories' => ['Category '.(($i % 3) + 1), 'Category '.((($i + 1) % 3) + 1)],
+                        'tags' => array_map(fn ($t) => "tag{$t}", range(1, 5)),
                         'reading_time' => rand(2, 10),
                     ],
                     'actions' => [
@@ -180,21 +180,21 @@ test('cms module handles complex block structures', function () {
                 'datasets' => [
                     [
                         'label' => 'Revenue',
-                        'data' => array_map(fn() => rand(10000, 50000), range(1, 12)),
+                        'data' => array_map(fn () => rand(10000, 50000), range(1, 12)),
                         'borderColor' => 'rgb(75, 192, 192)',
                         'backgroundColor' => 'rgba(75, 192, 192, 0.2)',
                         'tension' => 0.1,
                     ],
                     [
                         'label' => 'Users',
-                        'data' => array_map(fn() => rand(1000, 10000), range(1, 12)),
+                        'data' => array_map(fn () => rand(1000, 10000), range(1, 12)),
                         'borderColor' => 'rgb(255, 99, 132)',
                         'backgroundColor' => 'rgba(255, 99, 132, 0.2)',
                         'tension' => 0.1,
                     ],
                     [
                         'label' => 'Conversions',
-                        'data' => array_map(fn() => rand(100, 1000), range(1, 12)),
+                        'data' => array_map(fn () => rand(100, 1000), range(1, 12)),
                         'borderColor' => 'rgb(54, 162, 235)',
                         'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
                         'tension' => 0.1,
@@ -317,9 +317,9 @@ test('cms module handles complex block structures', function () {
         ->toBeArray()
         ->toHaveCount(3)
         ->sequence(
-            fn($block) => $block->type->toBe('advanced_grid')->items->toHaveCount(12),
-            fn($block) => $block->type->toBe('interactive_chart')->data->datasets->toHaveCount(3),
-            fn($block) => $block->type->toBe('real_time_updates')->source->type->toBe('websocket'),
+            fn ($block) => $block->type->toBe('advanced_grid')->items->toHaveCount(12),
+            fn ($block) => $block->type->toBe('interactive_chart')->data->datasets->toHaveCount(3),
+            fn ($block) => $block->type->toBe('real_time_updates')->source->type->toBe('websocket'),
         );
 
     expect($pageContent->fresh()->blocks)->toBeArray()->toHaveCount(3);
@@ -406,7 +406,7 @@ test('cms module supports complex query patterns', function () {
 
     expect($results)->toHaveCount(10);
 
-    $heroPages = $results->filter(fn($page) => collect($page->content_blocks)->contains('type', 'hero'));
+    $heroPages = $results->filter(fn ($page) => collect($page->content_blocks)->contains('type', 'hero'));
 
     expect($heroPages)->toHaveCount(10);
 });

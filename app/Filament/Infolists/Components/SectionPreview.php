@@ -10,7 +10,7 @@ class SectionPreview extends Entry
 {
     protected string $view = 'cms::filament.infolists.components.section-preview';
 
-    public static function make(string|null $name = null): static
+    public static function make(?string $name = null): static
     {
         return parent::make($name);
     }

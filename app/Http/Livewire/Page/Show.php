@@ -14,29 +14,21 @@ class Show extends Component
 {
     /**
      * Lo slug della pagina da visualizzare.
-     *
-     * @var string
      */
     public string $slug;
 
     /**
      * Se utilizzare la cache per i contenuti.
-     *
-     * @var bool
      */
     public bool $cache = true;
 
     /**
      * Il tema da utilizzare.
-     *
-     * @var string|null
      */
-    public null|string $theme = null;
+    public ?string $theme = null;
 
     /**
      * Se mostrare informazioni di debug.
-     *
-     * @var bool
      */
     public bool $debug = false;
 
@@ -76,7 +68,7 @@ class Show extends Component
     protected function loadPageContent(): void
     {
         // Chiave per la cache
-        $cacheKey = 'page_content_' . $this->slug . '_' . ($this->theme ?? ThemeService::getTheme());
+        $cacheKey = 'page_content_'.$this->slug.'_'.($this->theme ?? ThemeService::getTheme());
 
         // Se la cache è abilitata, tenta di recuperare dalla cache
         if ($this->cache) {
@@ -98,7 +90,7 @@ class Show extends Component
             // Recupera la pagina dal database
             $page = Page::where('slug', $this->slug)->where('lang', app()->getLocale())->first();
 
-            if (!$page) {
+            if (! $page) {
                 return ['error' => 'Page not found', 'slug' => $this->slug];
             }
 

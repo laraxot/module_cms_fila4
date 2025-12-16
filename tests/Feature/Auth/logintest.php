@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt as LivewireVolt;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
 use function Pest\Laravel\get;
-use function Pest\Laravel\post;
 
 uses(TestCase::class);
 
@@ -26,24 +24,24 @@ uses(TestCase::class);
 describe('Frontend Login Page Rendering', function () {
     test('login page can be rendered', function () {
         $locale = app()->getLocale();
-        $response = get('/' . $locale . '/auth/login');
+        $response = get('/'.$locale.'/auth/login');
         $response->assertStatus(200);
     });
 
     test('login page contains login widget', function () {
         $locale = app()->getLocale();
-        $response = get('/' . $locale . '/auth/login');
-        $response->assertStatus(200)//->assertSee('@livewire')
-        //->assertSee('LoginWidget')
+        $response = get('/'.$locale.'/auth/login');
+        $response->assertStatus(200)// ->assertSee('@livewire')
+        // ->assertSee('LoginWidget')
         ;
     });
 
     test('login page has required form elements', function () {
         $locale = app()->getLocale();
-        $response = get('/' . $locale . '/auth/login');
-        $response->assertStatus(200)//->assertSee('Hai dimenticato la password?')
-        //->assertSee('crea un nuovo account')
-        //->assertSee('logo-v2.png')
+        $response = get('/'.$locale.'/auth/login');
+        $response->assertStatus(200)// ->assertSee('Hai dimenticato la password?')
+        // ->assertSee('crea un nuovo account')
+        // ->assertSee('logo-v2.png')
         ;
     });
 });
@@ -55,12 +53,12 @@ describe('Frontend Login Page Localization', function () {
         $response->assertStatus(200);
     });
 
-    //test('login page works in english', function () {
+    // test('login page works in english', function () {
     //    app()->setLocale('en');
     //    LaravelLocalization::setLocale('en');
     //    $response = get('/en/auth/login');
     //    //$response->assertStatus(200);
-    //});
+    // });
 
     test('login page contains localized content', function () {
         $response = get('/it/auth/login');
@@ -93,7 +91,7 @@ describe('Frontend Login Page Authentication', function () {
         actingAs($user);
 
         $locale = app()->getLocale();
-        $response = get('/' . $locale . '/auth/login');
+        $response = get('/'.$locale.'/auth/login');
 
         $response->assertRedirect('/');
     });
@@ -106,7 +104,7 @@ describe('Frontend Login Page Integration', function () {
         actingAs($user);
 
         $locale = app()->getLocale();
-        $response = get('/' . $locale . '/auth/login');
+        $response = get('/'.$locale.'/auth/login');
 
         // May redirect to dashboard or intended page
         $response->assertStatus(302);

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\Console\Kernel;
+use Illuminate\Support\Collection;
 use Modules\Activity\Models\Activity;
 use Modules\Geo\Models\Address;
 use Modules\Geo\Models\Location;
@@ -78,7 +78,7 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Create basic system records using factories
-        $this->createRecords('System Users', fn() => User::factory(10)->create());
+        $this->createRecords('System Users', fn () => User::factory(10)->create());
 
         $this->createRecords('System Roles', function (): Collection {
             // Create basic roles
@@ -114,9 +114,9 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Create addresses using the working factory
-        $this->createRecords('Addresses', fn() => Address::factory(200)->create());
+        $this->createRecords('Addresses', fn () => Address::factory(200)->create());
 
-        $this->createRecords('Locations', fn() => Location::factory(100)->create());
+        $this->createRecords('Locations', fn () => Location::factory(100)->create());
     }
 
     private function populateUserData(): void
@@ -191,7 +191,7 @@ class DatabasePopulator
         echo '='.str_repeat('=', 50)."\n";
 
         // Activity logs
-        $this->createRecords('Activities', fn() => Activity::factory(2000)->create());
+        $this->createRecords('Activities', fn () => Activity::factory(2000)->create());
 
         // Skip CMS for now due to schema issues
         echo "⚠️  Skipping CMS data due to schema incompatibilities\n";

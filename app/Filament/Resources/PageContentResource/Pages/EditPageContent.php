@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources\PageContentResource\Pages;
 
-use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
-use Filament\Actions\ViewAction;
 use Filament\Actions\DeleteAction;
-use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
-use Filament\Actions;
+use Filament\Actions\ViewAction;
 use Filament\Resources\Pages\EditRecord;
+use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
+use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
 use Modules\Cms\Filament\Resources\PageContentResource;
 
 class EditPageContent extends EditRecord
