@@ -1,19 +1,27 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> 3401a6b (.)
+=======
+
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 return [
     'alert' => [
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
         'title' => 'Avviso',
         'types' => [
             'info' => 'Informazione',
             'success' => 'Successo',
             'warning' => 'Attenzione',
             'error' => 'Errore',
+<<<<<<< HEAD
 =======
         'title'   => 'Avviso',
         'types'   => [
@@ -22,12 +30,17 @@ return [
             'warning' => 'Attenzione',
             'error'   => 'Errore',
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         ],
         'actions' => [
             'dismiss' => 'Chiudi',
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
     'button' => [
         'types' => [
             'primary' => 'Primario',
@@ -36,6 +49,7 @@ return [
             'warning' => 'Attenzione',
             'info' => 'Info',
             'success' => 'Successo',
+<<<<<<< HEAD
 =======
 
     'button' => [
@@ -47,6 +61,8 @@ return [
             'info'      => 'Info',
             'success'   => 'Successo',
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         ],
         'sizes' => [
             'xs' => 'Extra piccolo',
@@ -57,6 +73,9 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
     'card' => [
         'actions' => [
             'expand' => 'Espandi',
@@ -73,6 +92,7 @@ return [
     ],
     'form' => [
         'fields' => [
+<<<<<<< HEAD
 =======
 
     'card' => [
@@ -94,12 +114,17 @@ return [
     'form' => [
         'fields'     => [
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
             'required' => 'Campo obbligatorio',
             'optional' => 'Opzionale',
         ],
         'validation' => [
             'required' => 'Questo campo è obbligatorio',
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
             'email' => 'Inserisci un indirizzo email valido',
             'min' => 'Inserisci almeno :min caratteri',
             'max' => 'Inserisci al massimo :max caratteri',
@@ -141,6 +166,7 @@ return [
         'actions' => [
             'retry' => 'Riprova',
             'back' => 'Indietro',
+<<<<<<< HEAD
 =======
             'email'    => 'Inserisci un indirizzo email valido',
             'min'      => 'Inserisci almeno :min caratteri',
@@ -188,6 +214,8 @@ return [
             'retry' => 'Riprova',
             'back'  => 'Indietro',
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         ],
     ],
 ];
