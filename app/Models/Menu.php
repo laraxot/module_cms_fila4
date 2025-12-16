@@ -137,7 +137,7 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @method static static                                                          withTrashed()
  * @method static static                                                          withoutTrashed()
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @method static \Modules\Cms\Database\Factories\MenuFactory factory($count = null, $state = [])
  *

@@ -21,9 +21,9 @@ use Sushi\Sushi;
  * @method static Builder<static>|Conf whereName($value)
  * @method static int                  count()
  *
- * @property \Modules\TechPlanner\Models\Profile|null $creator
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- * @property \Modules\TechPlanner\Models\Profile|null $updater
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
  *
  * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
  *

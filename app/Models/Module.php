@@ -23,7 +23,7 @@ use Sushi\Sushi;
  * @method static Builder<static>|Module whereName($value)
  * @method static int                    count()
  *
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  *
  * @method static \Modules\Cms\Database\Factories\ModuleFactory factory($count = null, $state = [])
  *
