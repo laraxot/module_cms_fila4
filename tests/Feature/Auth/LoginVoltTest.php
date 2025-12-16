@@ -24,6 +24,24 @@ test('login page can be rendered', function () {
 
     expect($component)->not->toBeNull();
     $component->assertOk();
+<<<<<<< HEAD
+=======
+});
+
+test('login component has correct default values', function () {
+    $component = LivewireVolt::test('auth.login');
+
+    $component->assertSet('email', '')->assertSet('password', '')->assertSet('remember', false);
+    });
+
+        $component = LivewireVolt::test('auth.login');
+
+        $component
+            ->assertSee('wire:model="email"')
+            ->assertSee('wire:model="password"')
+            ->assertSee('wire:model="remember"');
+    });
+>>>>>>> 1810cfd (.)
 });
 
 test('login component has correct default values', function () {

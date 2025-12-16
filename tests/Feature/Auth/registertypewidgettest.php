@@ -40,11 +40,7 @@ test('registration widget renders correctly for doctor type', function (): void 
 test('registration widget throws exception without type parameter', function (): void {
     expect(function () {
         Livewire::test(RegistrationWidget::class);
-<<<<<<< HEAD
     })->toThrow(\Exception::class);
-=======
-    })->toThrow(Exception::class);
->>>>>>> 1810cfd (.)
 });
 
 test('registration widget can set and get form data', function (): void {
