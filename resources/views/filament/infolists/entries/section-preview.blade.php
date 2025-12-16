@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <?php
 
 declare(strict_types=1);
 
 ?>
+=======
+>>>>>>> 3401a6b (.)
 @php
     $section = $getRecord();
     $currentLocale = app()->getLocale();
@@ -42,4 +45,8 @@ declare(strict_types=1);
             Nessuna traduzione disponibile per la lingua corrente
         </div>
     @endif
+<<<<<<< HEAD
 </div>
+=======
+</div> 
+>>>>>>> 3401a6b (.)
