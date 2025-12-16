@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Strategia Contenuti Pagine - <main module>
 
 ## Filosofia dei Contenuti
@@ -103,3 +104,5 @@ La pagina servizi deve comunicare:
 - [User Experience](../../../docs/frontend/ux-guidelines.md)
 
 *Ultimo aggiornamento: 2025-01-15* 
+=======
+>>>>>>> 521cd7e (.)

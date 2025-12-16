@@ -16,7 +16,7 @@ I file metatag in `config/local/<directory progetto>/lang/{locale}/metatag.php` 
 ### Contenuti Chiave Estratti
 
 #### Titolo Principale (title)
-- **IT**: "<main module> - Salute Orale per Gestanti"
+- **IT**: "<main module> - <slogan> per Gestanti"
 - **EN**: "<main module> - Oral Health for Pregnant Women"
 - **DE**: "<main module> - Mundgesundheit für Schwangere"
 
@@ -31,12 +31,7 @@ Basato su: `navigation.hero.welcome_subtitle.label`
 
 ## Strategia SEO Keywords
 
-### Keywords Italiane
-```
-salute orale, gravidanza, gestanti, dentista, prevenzione, odontoiatria, 
-visite gratuite, ISEE, salute madre bambino, carie, igiene dentale, 
-controllo dentistico, primo trimestre
-```
+
 
 ### Keywords Inglesi
 ```
@@ -76,10 +71,6 @@ zahnhygiene, zahnkontrolle, erstes trimester
 
 Basato sui partner del progetto identificati nelle traduzioni.
 
-### Partner Identificati
-- **ANDI**: Fondazione ANDI (Associazione Nazionale Dentisti Italiani)
-- **INMP**: Istituto Nazionale per la promozione della salute delle popolazioni Migranti e per il contrasto delle malattie della Povertà
-- **COI**: Cooperazione Odontoiatrica Internazionale
 
 ## Configurazioni Tecniche
 
