@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Pages;
 
+use BackedEnum;
+use UnitEnum;
 use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\File;
 use Modules\Cms\Datas\ThemeData;
@@ -22,6 +24,7 @@ use Webmozart\Assert\Assert;
 =======
 use Webmozart\Assert\Assert;
 
+<<<<<<< HEAD
 use function Safe\json_decode;
 
 >>>>>>> 555d679 (.)
@@ -32,6 +35,14 @@ class Themes extends XotBasePage
 
     protected string $view = 'cms::filament.pages.themes';
 
+=======
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
+
+    protected string $view = 'cms::filament.pages.themes';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Settings';
+
+>>>>>>> 54dbeef (.)
     public function changePubTheme(string $name): void
     {
         $data = [];

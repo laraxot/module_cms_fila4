@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
+use BackedEnum;
 use Filament\Actions\Action;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
@@ -33,7 +34,13 @@ class Footer extends XotBasePage
      */
     public ?FooterData $footerData = null;
 
+<<<<<<< HEAD
     public array $data = [];
+=======
+    public ?array $data = [];
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+>>>>>>> 54dbeef (.)
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 

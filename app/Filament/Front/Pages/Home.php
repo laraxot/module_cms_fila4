@@ -8,6 +8,11 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
+<<<<<<< HEAD
+=======
+use BackedEnum;
+use Filament\Pages\Page;
+>>>>>>> 54dbeef (.)
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -26,6 +31,11 @@ class Home extends XotBasePage
 
     public array $items = [];
 
+<<<<<<< HEAD
+=======
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
+
+>>>>>>> 54dbeef (.)
     // protected static string $view = 'cms::filament.front.pages.welcome';
     protected string $view = 'pub_theme::home';
 
