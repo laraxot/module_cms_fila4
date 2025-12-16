@@ -25,11 +25,13 @@ class TokenComponent extends Component
 {
     #[Validate('required')]
     public string $token = '';
+
     #[Validate('required|email')]
     public string $email = '';
 
     #[Validate('required|min:8|same:passwordConfirmation')]
     public string $password;
+
     public string $passwordConfirmation;
 
     public function mount(string $token): void
@@ -49,11 +51,13 @@ class TokenComponent extends Component
                 'email' => $this->email,
                 'password' => $this->password,
             ],
-            function (UserContract $user, string $password) {
+            static function (UserContract $user, string $password): void {
+                if (! isset($user->password)) {
+                    throw new \RuntimeException('User contract missing password property');
+                }
+
                 $user->password = Hash::make($password);
-
                 $user->setRememberToken(Str::random(60));
-
                 $user->save();
 
                 event(new PasswordReset($user));
@@ -61,7 +65,7 @@ class TokenComponent extends Component
                 Auth::login($user);
             },
         );
-        Assert::string($response, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+        Assert::string($response, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
         Assert::string($trans = trans($response));
         if (Password::PASSWORD_RESET === $response) {
             session()->flash($trans);

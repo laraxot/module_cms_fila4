@@ -15,8 +15,6 @@ use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Filament\Pages\XotBasePage;
 use Webmozart\Assert\Assert;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 use function Safe\json_decode;
 
 class Themes extends XotBasePage
@@ -26,17 +24,6 @@ class Themes extends XotBasePage
 
     protected string $view = 'cms::filament.pages.themes';
 
-=======
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
-=======
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
->>>>>>> 026fd7e (.)
-
-    protected string $view = 'cms::filament.pages.themes';
-
-    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
-
->>>>>>> 54dbeef (.)
     public function changePubTheme(string $name): void
     {
         $data = [];
@@ -57,7 +44,7 @@ class Themes extends XotBasePage
         $data = [];
         if ($themes) {
             foreach ($themes as $key => $item) {
-                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(self::class));
                 $filename = $item.DIRECTORY_SEPARATOR.'theme.json';
                 if (! File::exists($filename)) {
                     $theme_data = ThemeData::from(['name' => basename((string) $item)]);

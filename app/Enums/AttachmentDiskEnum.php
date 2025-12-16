@@ -9,7 +9,7 @@ use Filament\Support\Contracts\HasIcon;
 use Filament\Support\Contracts\HasLabel;
 use Modules\Xot\Filament\Traits\TransTrait;
 
-enum AttachmentDiskEnum: string implements HasLabel, HasIcon, HasColor
+enum AttachmentDiskEnum: string implements HasColor, HasIcon, HasLabel
 {
     use TransTrait;
 

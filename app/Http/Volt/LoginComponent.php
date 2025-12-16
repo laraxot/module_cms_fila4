@@ -22,47 +22,28 @@ class LoginComponent extends Component
 {
     #[Validate('required|email')]
     public string $email = '';
+
     #[Validate('required')]
     public string $password = '';
+
     public bool $remember = false;
 
     public function authenticate(): RedirectResponse
     {
         $this->validate();
 
-        if (!Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
+        if (! Auth::attempt(['email' => $this->email, 'password' => $this->password], $this->remember)) {
             $this->addError('email', trans('auth.failed'));
 
             return back();
         }
-<<<<<<< HEAD
 
         $guard = 'web';
-=======
-        $guard = 'web'; // auth()->guard('web')
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 46d657c (.)
->>>>>>> 555d679 (.)
 
         /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
         $query = User::where('email', $this->email);
         $user = $query->first();
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
-=======
-        $user = User::where('email', $this->email)->first();
->>>>>>> 76ce10d (.)
-=======
->>>>>>> 46d657c (.)
->>>>>>> 555d679 (.)
-=======
-        $user = User::where('email', $this->email)->first();
->>>>>>> 026fd7e (.)
         Assert::isInstanceOf($user, Authenticatable::class);
         $remember = $this->remember;
         event(new Login($guard, $user, $remember));

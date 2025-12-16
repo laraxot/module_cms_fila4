@@ -22,24 +22,17 @@ class XotComposer
     public function compose(View $view): void
     {
         $user = Auth::user();
-        if (!($user instanceof Authenticatable)) {
+        if (! ($user instanceof Authenticatable)) {
             return;
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (! ($user instanceof UserContract)) {
             return;
         }
 
-=======
->>>>>>> 555d679 (.)
         /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
         $profileRelation = $user->profile();
         $profile = $profileRelation->first();
-=======
-        $profile = $user->profile;
->>>>>>> 026fd7e (.)
         $lang = app()->getLocale();
         $params = [];
         $route_current = Route::current();

@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Blocks;
 
-use Override;
-use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -17,12 +15,8 @@ final class SocialBlock extends XotBaseBlock
     public static function getBlockSchema(): array
     {
         return [
-<<<<<<< HEAD
             TextInput::make('title')->required()
                 ->label(\trans_string('cms::blocks.social.fields.title')),
-=======
-            TextInput::make('title')->required()->label(__('cms::blocks.social.fields.title')),
->>>>>>> c18bda2 (.)
             Repeater::make('social_links')
                 ->label(\trans_string('cms::blocks.social.fields.social_links'))
                 ->schema([
@@ -42,7 +36,7 @@ final class SocialBlock extends XotBaseBlock
                         ->label(\trans_string('cms::blocks.social.fields.url')),
                 ])
                 ->collapsible()
-                ->itemLabel(fn(array $state): null|string => $state['platform'] ?? null)
+                ->itemLabel(fn (array $state): ?string => isset($state['platform']) && is_string($state['platform']) ? $state['platform'] : null)
                 ->defaultItems(1),
         ];
     }

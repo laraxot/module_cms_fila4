@@ -37,7 +37,27 @@ class Show extends Component
      *
      * @var array<string, mixed>
      */
-    protected array $pageContent = [];
+    /** @var array<string, mixed> */
+    public array $pageContent = [];
+
+    /**
+     * Carica i contenuti della pagina.
+     */
+    public function mount(): void
+    {
+        $this->loadPageContent();
+    }
+
+    /**
+     * Renderizza la vista con i contenuti della pagina.
+     */
+    public function render(): View
+    {
+        return view('cms::livewire.page.show', [
+            'pageContent' => $this->pageContent,
+            'theme' => $this->theme ?? ThemeService::getTheme(),
+        ]);
+    }
 
     /**
      * Regole di validazione per i parametri.
@@ -55,14 +75,6 @@ class Show extends Component
     }
 
     /**
-     * Carica i contenuti della pagina.
-     */
-    public function mount(): void
-    {
-        $this->loadPageContent();
-    }
-
-    /**
      * Carica i contenuti della pagina, eventualmente dalla cache.
      */
     protected function loadPageContent(): void
@@ -72,8 +84,9 @@ class Show extends Component
 
         // Se la cache è abilitata, tenta di recuperare dalla cache
         if ($this->cache) {
+            /** @var array<string, mixed> $cached */
             $cached = Cache::remember($cacheKey, now()->addHours(24), $this->fetchPageContent(...));
-            $this->pageContent = is_array($cached) ? $cached : [];
+            $this->pageContent = $cached;
         } else {
             $this->pageContent = $this->fetchPageContent();
         }
@@ -130,16 +143,5 @@ class Show extends Component
 
             return ['error' => 'An error occurred while loading the page'];
         }
-    }
-
-    /**
-     * Renderizza la vista con i contenuti della pagina.
-     */
-    public function render(): View
-    {
-        return view('cms::livewire.page.show', [
-            'pageContent' => $this->pageContent,
-            'theme' => $this->theme ?? ThemeService::getTheme(),
-        ]);
     }
 }

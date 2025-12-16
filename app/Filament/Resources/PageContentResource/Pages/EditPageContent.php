@@ -6,12 +6,11 @@ namespace Modules\Cms\Filament\Resources\PageContentResource\Pages;
 
 use Filament\Actions\DeleteAction;
 use Filament\Actions\ViewAction;
-use Filament\Resources\Pages\EditRecord;
 use LaraZeus\SpatieTranslatable\Actions\LocaleSwitcher;
-use LaraZeus\SpatieTranslatable\Resources\Pages\EditRecord\Concerns\Translatable;
 use Modules\Cms\Filament\Resources\PageContentResource;
+use Modules\Xot\Filament\Resources\Pages\XotBaseEditRecord;
 
-class EditPageContent extends EditRecord
+class EditPageContent extends XotBaseEditRecord
 {
     // use Translatable; // Temporaneamente commentato per compatibilità Filament 4.x
 

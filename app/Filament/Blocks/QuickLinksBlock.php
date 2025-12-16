@@ -27,7 +27,7 @@ final class QuickLinksBlock extends XotBaseBlock
                 ])
                 ->collapsible()
                 ->defaultItems(0)
-                ->itemLabel(fn (array $state): ?string => $state['label'] ?? null),
+                ->itemLabel(fn (array $state): ?string => isset($state['label']) && is_string($state['label']) ? $state['label'] : null),
         ];
     }
 

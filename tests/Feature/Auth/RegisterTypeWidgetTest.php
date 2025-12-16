@@ -4,18 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-<<<<<<< HEAD
-=======
-use Modules\Xot\Tests\TestCase;
-use Exception;
->>>>>>> c18bda2 (.)
 use Livewire\Livewire;
 use Modules\User\Filament\Widgets\RegistrationWidget;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
-
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\get;
+use Modules\Xot\Tests\TestCase;
 
 // Use Cms specific TestCase only for this file
 uses(TestCase::class);
@@ -26,53 +18,32 @@ beforeEach(function (): void {
     Modules\Xot\Tests\TestCase::mockXotData();
 });
 
-// =============================================================================
 // REGISTRATION WIDGET TESTS - Filament Component
-// =============================================================================
 // ✅ Test del WIDGET Filament, non della pagina
 // ✅ Focus su: rendering, form interaction, basic validation
 // ✅ Architettura: Filament Widget + XotBaseWidget + dynamic resolution
-// =============================================================================
 
-// =============================================================================
 // WIDGET CORE TESTS
-// =============================================================================
 
-<<<<<<< HEAD
 test('registration widget renders correctly for patient type', function (): void {
-=======
-test('widget can be rendered for patient type', function () {
->>>>>>> c18bda2 (.)
     Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
-<<<<<<< HEAD
 test('registration widget renders correctly for doctor type', function (): void {
-=======
-test('widget can be rendered for doctor type', function () {
->>>>>>> c18bda2 (.)
     Livewire::test(RegistrationWidget::class, ['type' => 'doctor'])
         ->assertStatus(200)
         ->assertViewIs('pub_theme::filament.widgets.registration');
 });
 
-<<<<<<< HEAD
 test('registration widget throws exception without type parameter', function (): void {
-=======
-test('widget requires type parameter', function () {
->>>>>>> c18bda2 (.)
     expect(function () {
         Livewire::test(RegistrationWidget::class);
     })->toThrow(\Exception::class);
 });
 
-<<<<<<< HEAD
 test('registration widget can set and get form data', function (): void {
-=======
-test('widget can handle form data input', function () {
->>>>>>> c18bda2 (.)
     // ✅ Utilizzo funzione centralizzata dal TestCase
     $email = Modules\Xot\Tests\TestCase::generateUniqueEmail();
 
@@ -85,11 +56,7 @@ test('widget can handle form data input', function () {
     expect($widget->get('data.email'))->toBe($email);
 });
 
-<<<<<<< HEAD
 test('registration widget can handle multiple form fields', function (): void {
-=======
-test('widget maintains state after setting multiple fields', function () {
->>>>>>> c18bda2 (.)
     $testData = [
         'name' => 'Test Patient',
         'email' => Modules\Xot\Tests\TestCase::generateUniqueEmail(), // ✅ Utilizzo funzione centralizzata
@@ -107,11 +74,7 @@ test('widget maintains state after setting multiple fields', function () {
     }
 });
 
-<<<<<<< HEAD
 test('registration widget register method can be called', function (): void {
-=======
-test('widget calls register method without fatal errors', function () {
->>>>>>> c18bda2 (.)
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient'])
         ->set('data.email', Modules\Xot\Tests\TestCase::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
         ->set('data.name', 'Test User')
@@ -128,22 +91,14 @@ test('widget calls register method without fatal errors', function () {
     }
 });
 
-<<<<<<< HEAD
 test('registration widget is compatible with Livewire testing', function (): void {
-=======
-test('widget works with Livewire testing framework', function () {
->>>>>>> c18bda2 (.)
     $widget = Livewire::test(RegistrationWidget::class, ['type' => 'patient']);
 
     // Verifica che il widget sia compatibile con Livewire testing
     expect($widget)->not()->toBeNull();
 });
 
-<<<<<<< HEAD
 test('registration widget works for different user types', function (): void {
-=======
-test('widget handles different user types', function () {
->>>>>>> c18bda2 (.)
     foreach (['patient', 'doctor'] as $type) {
         $widget = Livewire::test(RegistrationWidget::class, ['type' => $type])
             ->set('data.email', Modules\Xot\Tests\TestCase::generateUniqueEmail()) // ✅ Utilizzo funzione centralizzata
@@ -160,11 +115,7 @@ test('widget handles different user types', function () {
     }
 });
 
-<<<<<<< HEAD
 test('registration widget preserves form data after validation errors', function (): void {
-=======
-test('widget maintains state after form errors', function () {
->>>>>>> c18bda2 (.)
     $email = 'invalid-email';
     $name = 'Test User';
 

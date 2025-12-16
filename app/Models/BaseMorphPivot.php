@@ -9,7 +9,7 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-abstract class BaseMorphPivot extends MorphPivot
+abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
 {
     use Updater;
 
@@ -39,6 +39,7 @@ abstract class BaseMorphPivot extends MorphPivot
 
     /** @var string */
     protected $primaryKey = 'id';
+
     /** @var string */
     protected $keyType = 'string';
 

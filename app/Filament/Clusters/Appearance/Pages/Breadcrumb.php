@@ -4,21 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
-use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Arr;
 use Modules\Cms\Filament\Clusters\Appearance;
 use Modules\Tenant\Services\TenantService;
-<<<<<<< HEAD
 use Modules\Xot\Filament\Pages\XotBasePage;
-=======
-use Spatie\Data\Data;
->>>>>>> c18bda2 (.)
 use Webmozart\Assert\Assert;
 
 /**
@@ -33,29 +28,13 @@ class Breadcrumb extends XotBasePage
      *
      * @var array<string, mixed>
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
     public array $data = [];
-=======
-    public ?array $data = [];
-
-<<<<<<< HEAD
-    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
->>>>>>> 54dbeef (.)
-=======
-    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
->>>>>>> 026fd7e (.)
-=======
-    public null|array $data = [];
-
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
->>>>>>> c18bda2 (.)
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 
-    protected static null|string $cluster = Appearance::class;
+    protected static ?string $cluster = Appearance::class;
 
-    protected static null|int $navigationSort = 2;
+    protected static ?int $navigationSort = 2;
 
     /**
      * Mount the page and initialize the form state.

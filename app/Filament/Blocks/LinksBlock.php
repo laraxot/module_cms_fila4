@@ -22,7 +22,7 @@ final class LinksBlock extends XotBaseBlock
                     TextInput::make('icon'),
                 ])
                 ->collapsible()
-                ->itemLabel(fn (array $state): ?string => $state['label'] ?? null),
+                ->itemLabel(fn (array $state): ?string => isset($state['label']) && is_string($state['label']) ? $state['label'] : null),
         ];
     }
 

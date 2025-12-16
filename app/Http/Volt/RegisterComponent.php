@@ -21,10 +21,13 @@ class RegisterComponent extends Component
 {
     #[Validate('required')]
     public string $name = '';
+
     #[Validate('required|email|unique:users')]
     public string $email = '';
+
     #[Validate('required|min:8|same:password_confirmation')]
     public string $password = '';
+
     #[Validate('required|min:8|same:password')]
     public string $password_confirmation = '';
 
@@ -32,6 +35,7 @@ class RegisterComponent extends Component
     {
         $this->validate();
 
+        /** @var User $user */
         $user = User::create([
             'email' => $this->email,
             'name' => $this->name,

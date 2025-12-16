@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Actions\Module;
 
-use Exception;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
 use Modules\Xot\Actions\File\FixPathAction;
 use Nwidart\Modules\Laravel\Module;
@@ -19,6 +17,9 @@ final class FixJigSawByModuleAction
 {
     use QueueableAction;
 
+    /**
+     * @return list<string>
+     */
     public function execute(Module $module): array
     {
         $res = [];

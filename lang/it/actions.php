@@ -3,9 +3,7 @@
 declare(strict_types=1);
 
 return [
-    // ==============================================
     // NAVIGATION & STRUCTURE
-    // ==============================================
     'navigation' => [
         'label' => 'Azioni CMS',
         'plural_label' => 'Azioni CMS',
@@ -14,17 +12,13 @@ return [
         'sort' => 120,
         'badge' => 'Gestione azioni CMS',
     ],
-    // ==============================================
     // MODEL INFORMATION
-    // ==============================================
     'model' => [
         'label' => 'Azione CMS',
         'plural' => 'Azioni CMS',
         'description' => 'Sistema di azioni e controlli per il Content Management System',
     ],
-    // ==============================================
     // FIELDS - STRUTTURA ESPANSA OBBLIGATORIA
-    // ==============================================
     'fields' => [
         'items' => [
             'label' => 'Elementi',
@@ -83,9 +77,7 @@ return [
             'help' => 'Imposta la spaziatura adeguata per una buona leggibilità',
         ],
     ],
-    // ==============================================
     // ACTIONS - STRUTTURA ESPANSA OBBLIGATORIA
-    // ==============================================
     'actions' => [
         'create' => [
             'label' => 'Crea Azione',
@@ -142,9 +134,7 @@ return [
             'tooltip' => 'Visualizza anteprima dell\'azione',
         ],
     ],
-    // ==============================================
     // SECTIONS - ORGANIZZAZIONE FORM
-    // ==============================================
     'sections' => [
         'basic_info' => [
             'label' => 'Informazioni Base',
@@ -162,9 +152,7 @@ return [
             'icon' => 'heroicon-o-cog',
         ],
     ],
-    // ==============================================
     // FILTERS - RICERCA E FILTRI
-    // ==============================================
     'filters' => [
         'style' => [
             'label' => 'Stile',
@@ -179,9 +167,7 @@ return [
             'placeholder' => 'Filtra per allineamento',
         ],
     ],
-    // ==============================================
     // MESSAGES - FEEDBACK UTENTE
-    // ==============================================
     'messages' => [
         'empty_state' => 'Nessuna azione configurata',
         'search_placeholder' => 'Cerca azioni...',
@@ -195,18 +181,14 @@ return [
         'error_permission' => 'Non hai i permessi per eseguire questa azione.',
         'success_operation' => 'Operazione completata con successo',
     ],
-    // ==============================================
     // VALIDATION - MESSAGGI DI VALIDAZIONE
-    // ==============================================
     'validation' => [
         'label_required' => 'L\'etichetta è obbligatoria',
         'url_format' => 'L\'URL deve essere in formato valido',
         'style_required' => 'Lo stile è obbligatorio',
         'icon_required' => 'L\'icona è obbligatoria',
     ],
-    // ==============================================
     // OPTIONS - OPZIONI E VALORI PREDEFINITI
-    // ==============================================
     'options' => [
         'styles' => [
             'primary' => 'Primario',

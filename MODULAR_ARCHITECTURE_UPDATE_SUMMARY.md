@@ -2,11 +2,7 @@
 
 ## PRINCIPIO FONDAMENTALE CRISTALLIZZATO
 
-<<<<<<< HEAD
 **Il modulo User è un modulo BASE che NON può MAI dipendere da <nome progetto>. È <nome progetto> che può dipendere da User, non il contrario!**
-=======
-**Il modulo User è un modulo BASE che NON può MAI dipendere da SaluteOra. È SaluteOra che può dipendere da User, non il contrario!**
->>>>>>> c18bda2 (.)
 
 Ho aggiornato COMPLETAMENTE il sistema di memoria e documentazione per cristallizzare questa regola architetturale critica.
 
@@ -19,11 +15,7 @@ Ho aggiornato COMPLETAMENTE il sistema di memoria e documentazione per cristalli
 - **UI** - Componenti UI base
 
 ### Livello 2: Moduli Specifici  
-<<<<<<< HEAD
 - **<nome progetto>** - Business logic sanitaria
-=======
-- **SaluteOra** - Business logic sanitaria
->>>>>>> c18bda2 (.)
 - **Patient** - Gestione pazienti
 - **Studio** - Gestione studi medici
 - **Appointment** - Gestione appuntamenti
@@ -62,11 +54,7 @@ Livello 1 → Livello 2    ❌ MAI
 
 ### Problema Trovato
 - **File**: `Modules/User/app/Filament/Widgets/UserTypeRegistrationsChartWidget.php`
-<<<<<<< HEAD
 - **Violazione**: `use Modules\<nome progetto>\Models\Patient;`
-=======
-- **Violazione**: `use Modules\SaluteOra\Models\Patient;`
->>>>>>> c18bda2 (.)
 - **Impatto**: Modulo BASE che dipende da modulo SPECIFICO
 
 ### Documentazione Violazione
@@ -102,11 +90,7 @@ Livello 1 → Livello 2    ❌ MAI
 ### Comandi di Verifica
 ```bash
 # Deve restituire NIENTE per architettura pulita
-<<<<<<< HEAD
 grep -r "<nome progetto>" Modules/User/ --include="*.php"
-=======
-grep -r "SaluteOra" Modules/User/ --include="*.php"
->>>>>>> c18bda2 (.)
 grep -r "Patient" Modules/User/ --include="*.php"
 grep -r "Studio" Modules/User/ --include="*.php"
 ```
@@ -140,15 +124,9 @@ class User extends BaseModel
 }
 ```
 
-<<<<<<< HEAD
 ### ✅ Modulo Specifico (<nome progetto>)
 ```php
 namespace Modules\<nome progetto>\Models;
-=======
-### ✅ Modulo Specifico (SaluteOra)
-```php
-namespace Modules\SaluteOra\Models;
->>>>>>> c18bda2 (.)
 use Modules\User\Models\User as BaseUser; // CORRETTO
 
 class User extends BaseUser
@@ -161,13 +139,8 @@ class User extends BaseUser
 ### ❌ Violazione Critica
 ```php
 // Nel modulo User - VIETATO!
-<<<<<<< HEAD
 use Modules\<nome progetto>\Models\Appointment; // ERRORE!
 use Modules\<nome progetto>\Models\Patient;     // ERRORE!
-=======
-use Modules\SaluteOra\Models\Appointment; // ERRORE!
-use Modules\SaluteOra\Models\Patient;     // ERRORE!
->>>>>>> c18bda2 (.)
 ```
 
 ## 📈 METRICHE DI QUALITÀ DEFINITE
@@ -187,11 +160,7 @@ use Modules\SaluteOra\Models\Patient;     // ERRORE!
 ## 🎯 AZIONI IMMEDIATE RICHIESTE
 
 ### Priorità 1 (24h): Correzione Violazione
-<<<<<<< HEAD
 - [ ] Spostare `UserTypeRegistrationsChartWidget` da User a <nome progetto>
-=======
-- [ ] Spostare `UserTypeRegistrationsChartWidget` da User a SaluteOra
->>>>>>> c18bda2 (.)
 - [ ] Aggiornare namespace del widget
 - [ ] Rimuovere file originale dal modulo User
 - [ ] Verificare pulizia con script di controllo
@@ -236,11 +205,7 @@ use Modules\SaluteOra\Models\Patient;     // ERRORE!
 
 🏗️ **REGOLA ARCHITETTURALE COMPLETAMENTE IMPLEMENTATA**
 
-<<<<<<< HEAD
 La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da <nome progetto>" è ora:
-=======
-La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da SaluteOra" è ora:
->>>>>>> c18bda2 (.)
 
 - ✅ Memorizzata nell'AI con dettagli completi
 - ✅ Documentata in 8 file di guidelines e documentazione
@@ -252,11 +217,7 @@ La regola "Il modulo User è un modulo BASE che NON può MAI dipendere da Salute
 
 ## 🚨 PROSSIMO STEP CRITICO
 
-<<<<<<< HEAD
 **CORREGGERE IMMEDIATAMENTE** la violazione identificata spostando il widget dal modulo User al modulo <nome progetto>.
-=======
-**CORREGGERE IMMEDIATAMENTE** la violazione identificata spostando il widget dal modulo User al modulo SaluteOra.
->>>>>>> c18bda2 (.)
 
 Questa correzione è **CRITICA** per l'integrità architettuale del sistema.
 
