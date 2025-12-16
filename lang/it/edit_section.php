@@ -40,20 +40,6 @@ return [
             'placeholder' => 'Aggiungi blocchi alla sezione',
             'helper_text' => 'Blocchi di contenuto che compongono la sezione',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Company Information
         'company_name' => [
             'label' => 'Ragione Sociale',
@@ -91,20 +77,6 @@ return [
             'help' => 'Testo del copyright',
             'helper_text' => 'Testo di copyright da visualizzare',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Navigation & Links
         'links' => [
             'label' => 'Collegamenti',
@@ -133,20 +105,6 @@ return [
             'placeholder' => 'Seleziona icona',
             'helper_text' => 'Icona da associare al link',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Social Media
         'social_links' => [
             'label' => 'Social Media',
@@ -160,20 +118,6 @@ return [
             'placeholder' => 'Facebook, Instagram, LinkedIn',
             'helper_text' => 'Nome della piattaforma social',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Visual Elements
         'width' => [
             'label' => 'Larghezza',
@@ -198,20 +142,6 @@ return [
             'placeholder' => '#333333 o nome colore',
             'helper_text' => 'Colore del testo nella sezione',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Media Elements
         'caption' => [
             'label' => 'Didascalia',
@@ -228,20 +158,6 @@ return [
             'placeholder' => 'UUID dell\'immagine',
             'helper_text' => 'Identificatore univoco dell\'immagine',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Content Elements
         'level' => [
             'label' => 'Livello',
@@ -253,20 +169,6 @@ return [
             'placeholder' => 'Contenuto testuale',
             'helper_text' => 'Testo semplice della sezione',
         ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-        
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
         // Form Messages
         'error_message' => [
             'label' => 'Messaggio Errore',
@@ -279,20 +181,6 @@ return [
             'helper_text' => 'Messaggio mostrato quando l\'operazione è riuscita',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
     'actions' => [
         'save' => [
             'label' => 'Salva modifiche',
@@ -311,20 +199,6 @@ return [
         'add_block' => 'Aggiungi blocco',
         'remove_block' => 'Rimuovi blocco',
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
     'sections' => [
         'basic_info' => [
             'label' => 'Informazioni Base',
@@ -359,20 +233,6 @@ return [
             'description' => 'Ottimizzazione per motori di ricerca',
         ],
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
     'messages' => [
         'section_updated' => 'Sezione aggiornata con successo',
         'section_update_error' => 'Errore durante l\'aggiornamento della sezione',
@@ -383,20 +243,6 @@ return [
         'error' => 'Si è verificato un errore durante il salvataggio',
         'confirm_delete' => 'Sei sicuro di voler eliminare questa sezione?',
     ],
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    
->>>>>>> a12f125f4a (.)
-=======
->>>>>>> b93ef594b4 (.)
-=======
-    
->>>>>>> origin/develop
->>>>>>> 815ce17 (.)
     'validation' => [
         'required' => 'Questo campo è obbligatorio',
         'slug_exists' => 'Questo slug è già in uso',
