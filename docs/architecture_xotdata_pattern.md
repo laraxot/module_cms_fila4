@@ -7,7 +7,7 @@ Durante lo sviluppo del LoginTest è stato commesso un **errore architetturale g
 
 ```php
 // ❌ ERRORE CRITICO - ACCOPPIAMENTO DIRETTO VIETATO!
-use Modules\SaluteOra\Models\User;
+use Modules\<main module>\Models\User;
 
 /** @var User $user */
 $user = User::factory()->create([...]);
@@ -19,7 +19,7 @@ Successivamente è stato commesso un **errore di analisi superficiale**:
 - **Ignorato** la struttura esistente di test già corretti
 - **Non approfondito** la comprensione del sistema prima di agire
 
-## 🧠 **Struttura Corretta del Sistema SaluteOra**
+## 🧠 **Struttura Corretta del Sistema <main module>**
 
 ### **Architettura di Autenticazione**
 ```
@@ -97,7 +97,7 @@ function createTestUser(array $attributes = []): UserContract
 ```
 
 ### **Vantaggi del Pattern XotData**
-1. **Disaccoppiamento**: Cms non conosce SaluteOra
+1. **Disaccoppiamento**: Cms non conosce <main module>
 2. **Configurabilità**: User class dinamica da config
 3. **Multi-tenancy**: Supporto tenant differenti
 4. **Testabilità**: Test indipendenti dai moduli specifici
@@ -127,7 +127,7 @@ function createTestUser(array $attributes = []): UserContract
 ## 🔄 **Processo di Correzione**
 
 ### **Fase 1: Riconoscimento Errore**
-- Identificato accoppiamento diretto Cms → SaluteOra
+- Identificato accoppiamento diretto Cms → <main module>
 - Riconosciuto pattern XotData violato
 
 ### **Fase 2: Analisi Superficiale (Errore)**
