@@ -21,6 +21,7 @@ test('confirm password screen can be rendered', function (): void {
     $lang = app()->getLocale();
     $response = actingAs($user)->get('/'.$lang.'/confirm-password');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertStatus(200);
 });
 
@@ -34,6 +35,7 @@ test('password can be confirmed', function (): void {
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'password')->call('confirmPassword');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
@@ -47,5 +49,6 @@ test('password is not confirmed with invalid password', function (): void {
 
     $response = LivewireVolt::test('auth.confirm-password')->set('password', 'wrong-password')->call('confirmPassword');
 
+    /** @phpstan-ignore-next-line method.nonObject */
     $response->assertHasErrors(['password']);
 });
