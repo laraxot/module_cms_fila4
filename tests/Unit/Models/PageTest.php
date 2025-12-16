@@ -6,8 +6,6 @@ namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Modules\Cms\Models\Page;
-use Tests\TestCase;
-
 
 beforeEach(function (): void {
     $this->page = Page/* @phpstan-ignore-line */ ::factory()->create();
