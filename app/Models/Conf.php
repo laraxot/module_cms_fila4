@@ -21,21 +21,22 @@ use Sushi\Sushi;
  * @method static Builder<static>|Conf whereName($value)
  * @method static int                  count()
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
-<<<<<<< HEAD
+ *                                                                =======
+ *                                                                <<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $creator
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
  * @property \Modules\Xot\Contracts\ProfileContract|null $updater
-=======
- * @property \Modules\TechPlanner\Models\Profile|null $creator
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
- * @property \Modules\TechPlanner\Models\Profile|null $updater
->>>>>>> 46d657c (.)
->>>>>>> 555d679 (.)
+ *                                                                =======
+ * @property \Modules\TechPlanner\Models\Profile|null    $creator
+ * @property \Modules\TechPlanner\Models\Profile|null    $deleter
+ * @property \Modules\TechPlanner\Models\Profile|null    $updater
+ *                                                                >>>>>>> 46d657c (.)
+ *                                                                >>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
  *

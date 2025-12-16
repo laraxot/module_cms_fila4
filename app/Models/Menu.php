@@ -137,15 +137,16 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
  * @method static static                                                          withTrashed()
  * @method static static                                                          withoutTrashed()
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
-=======
-<<<<<<< HEAD
+ *                                                                =======
+ *                                                                <<<<<<< HEAD
  * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
-=======
- * @property \Modules\TechPlanner\Models\Profile|null $deleter
->>>>>>> 46d657c (.)
->>>>>>> 555d679 (.)
+ *                                                                =======
+ * @property \Modules\TechPlanner\Models\Profile|null    $deleter
+ *                                                                >>>>>>> 46d657c (.)
+ *                                                                >>>>>>> 555d679 (.)
  *
  * @method static \Modules\Cms\Database\Factories\MenuFactory factory($count = null, $state = [])
  *
