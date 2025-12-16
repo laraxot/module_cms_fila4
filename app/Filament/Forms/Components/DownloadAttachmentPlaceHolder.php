@@ -22,6 +22,14 @@ class DownloadAttachmentPlaceHolder extends XotBasePlaceholder // Extend the new
         $name = $this->getName();
         $attachment = Attachment::firstWhere('slug', $name);
         Assert::isInstanceOf($attachment, Attachment::class);
+<<<<<<< HEAD
+=======
+        $data = [
+            'title' => $attachment->title,
+            'description' => $attachment->description,
+            'asset' => $attachment->asset(),
+        ];
+>>>>>>> 76ce10d (.)
 
         $title = SafeStringCastAction::cast($attachment->title);
         $description = SafeStringCastAction::cast($attachment->description);

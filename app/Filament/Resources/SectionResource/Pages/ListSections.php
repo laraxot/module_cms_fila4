@@ -12,9 +12,6 @@ class ListSections extends LangBaseListRecords
 {
     protected static string $resource = SectionResource::class;
 
-    /**
-     * @return array<string, mixed>
-     */
     public function getTableColumns(): array
     {
         return [
