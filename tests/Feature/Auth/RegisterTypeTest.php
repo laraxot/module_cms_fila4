@@ -22,7 +22,7 @@ uses(TestCase::class);
  * 3. Dynamic content is correctly displayed based on user type
  * 4. Required components (Livewire widget) are present
  *
- * The Cms module must remain independent from <main module>; all user operations
+ * The Cms module must remain independent from <nome progetto>; all user operations
  * go through XotData to obtain the correct User class.
  */
 
@@ -54,8 +54,9 @@ test(':type registration page contains expected elements', function (string $typ
     expect($response->status())->toBe(200);
 
     $content = $response->getContent();
-    expect($content)->toContain('Registrazione')->toContain('Crea il tuo account'); // ->toContain('<x-ui.logo')
+    expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')// ->toContain('<x-ui.logo')
     // ->toContain('RegistrationWidget')
+    ;
 })->with('userTypes');
 
 test(':type registration page has proper HTML structure', function (string $type): void {

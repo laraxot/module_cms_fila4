@@ -12,10 +12,10 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
-test('confirm password page can be rendered', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+test('confirm password screen can be rendered', function (): void {
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -25,9 +25,9 @@ test('confirm password page can be rendered', function (): void {
 });
 
 test('password can be confirmed', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -38,9 +38,9 @@ test('password can be confirmed', function (): void {
 });
 
 test('password is not confirmed with invalid password', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);

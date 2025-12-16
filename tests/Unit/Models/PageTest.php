@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Cms\Models\Page;
 use Tests\TestCase;
 
-uses(TestCase::class, RefreshDatabase::class);
 
 beforeEach(function (): void {
     $this->page = Page/* @phpstan-ignore-line */ ::factory()->create();

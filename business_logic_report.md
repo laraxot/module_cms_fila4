@@ -1,14 +1,14 @@
-# Business Logic Analysis Report - SaluteOra Project
+# Business Logic Analysis Report - <nome progetto> Project
 
 ## Executive Summary
 
-The SaluteOra project follows a modular Laraxot architecture with 14 modules containing comprehensive business logic for a dental healthcare management system. The analysis reveals a well-structured codebase with proper separation of concerns and extensive factory support for testing.
+The <nome progetto> project follows a modular Laraxot architecture with 14 modules containing comprehensive business logic for a dental healthcare management system. The analysis reveals a well-structured codebase with proper separation of concerns and extensive factory support for testing.
 
 ## Module Analysis
 
 ### Core Business Modules
 
-#### SaluteOra Module (Primary Business Logic)
+#### <nome progetto> Module (Primary Business Logic)
 - **Models**: Patient, Doctor, Admin, Studio, Appointment, Report, Profile, User
 - **Factories**: 16 factories (100% coverage)
 - **Seeders**: 15 seeders
@@ -147,10 +147,10 @@ Create missing seeders for:
 
 ```php
 // Core business models (run in order)
-\Modules\SaluteOra\Models\User::factory()->count(50)->create();
-\Modules\SaluteOra\Models\Doctor::factory()->count(25)->create();
-\Modules\SaluteOra\Models\Appointment::factory()->count(100)->create();
-\Modules\SaluteOra\Models\Report::factory()->count(50)->create();
+\Modules\<nome progetto>\Models\User::factory()->count(50)->create();
+\Modules\<nome progetto>\Models\Doctor::factory()->count(25)->create();
+\Modules\<nome progetto>\Models\Appointment::factory()->count(100)->create();
+\Modules\<nome progetto>\Models\Report::factory()->count(50)->create();
 
 // Supporting models
 \Modules\Gdpr\Models\Consent::factory()->count(100)->create();
@@ -160,6 +160,6 @@ Create missing seeders for:
 
 ## Conclusion
 
-The SaluteOra project demonstrates a well-architected business logic layer with comprehensive factory support and proper modular separation. The successful generation of 300 test records validates the core business model functionality, while the constraint violations highlight areas for factory refinement and dependency management improvements.
+The <nome progetto> project demonstrates a well-architected business logic layer with comprehensive factory support and proper modular separation. The successful generation of 300 test records validates the core business model functionality, while the constraint violations highlight areas for factory refinement and dependency management improvements.
 
-The modular architecture supports scalability and maintainability, with clear separation between business logic (SaluteOra), configuration (Cms), compliance (Gdpr), and infrastructure (User, Xot) concerns.
+The modular architecture supports scalability and maintainability, with clear separation between business logic (<nome progetto>), configuration (Cms), compliance (Gdpr), and infrastructure (User, Xot) concerns.

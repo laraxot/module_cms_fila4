@@ -25,11 +25,6 @@ class XotComposer
             return;
         }
 
-        // Check if profile method exists on user
-        if (! method_exists($user, 'profile')) {
-            return;
-        }
-
         /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
         $profileRelation = $user->profile();
         $profile = $profileRelation->first();

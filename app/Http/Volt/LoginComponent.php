@@ -54,11 +54,6 @@ class LoginComponent extends Component
         }
         $guard = 'web'; // auth()->guard('web')
 
-        // Check if User model has where method
-        if (! method_exists(User::class, 'where')) {
-            throw new \RuntimeException('User model does not have where method');
-        }
-
         /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
         $query = User::where('email', $this->email);
         $user = $query->first();

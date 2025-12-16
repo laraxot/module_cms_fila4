@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
+use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Modules\Cms\Models\Section as SectionModel;
+use Webmozart\Assert\Assert;
+use Modules\Cms\Actions\View\GetCmsViewAction; // Import the new Action
 
 /**
  * Section Component.
@@ -48,7 +51,6 @@ class Section extends Component
         $this->class = $class;
         $this->id = $id;
         $this->tpl = $tpl;
-        /* @phpstan-ignore-next-line staticMethod.notFound, assign.propertyType */
         $this->blocks = SectionModel::getBlocksBySlug($this->slug);
     }
 
@@ -57,19 +59,22 @@ class Section extends Component
      */
     public function render(): ViewContract
     {
-        $view = 'pub_theme::components.sections.'.$this->slug;
+        $baseViewName = 'pub_theme::components.sections.'.$this->slug;
         if ($this->tpl) {
-            $view .= '.'.$this->tpl;
+            $baseViewName .= '.'.$this->tpl;
         }
 
-        // Verifica che la view esista, con gestione più robusta per i namespace
-        if (view()->exists($view)) {
-            return view((string) $view);
+        $viewAction = app(GetCmsViewAction::class);
+
+        try {
+            // The action's execute method returns view-string, so PHPStan should be happy
+            $view = $viewAction->execute($baseViewName);
+            return view($view);
+        } catch (Exception $e) {
+            // Fallback: this view exists in the Cms module
+            // The action's execute method returns view-string
+            $fallbackView = $viewAction->execute('cms::components.section');
+            return view($fallbackView);
         }
-
-        // Fallback: this view exists in the Cms module
-        $fallbackView = 'cms::components.section';
-
-        return view((string) $fallbackView);
     }
 }

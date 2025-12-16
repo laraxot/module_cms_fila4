@@ -25,6 +25,7 @@ uses(TestCase::class);
 test('widget can be rendered', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->assertStatus(200);
 });
 
@@ -36,6 +37,7 @@ test('widget initializes correctly', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
     // Widget dovrebbe inizializzare la proprietà data
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->assertSet('data', []);
 });
 
@@ -45,9 +47,11 @@ test('can set form data', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
     // Set form data
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->set('data.email', 'test@example.com')->set('data.password', 'password123');
 
     // Verifica che i dati siano stati impostati
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->assertSet('data.email', 'test@example.com')->assertSet('data.password', 'password123');
 });
 
@@ -55,7 +59,7 @@ test('can set form data', function (): void {
 
 test('authenticates user with valid credentials', function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
-    $email = static::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
     $user = static::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
@@ -65,6 +69,7 @@ test('authenticates user with valid credentials', function (): void {
 
     $component = Livewire::test(LoginWidget::class);
 
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
 
     // Verifica che l'utente sia autenticato
@@ -78,7 +83,7 @@ test('authenticates user with valid credentials', function (): void {
 
 test('handles invalid credentials gracefully', function (): void {
     // ✅ Utilizzo funzioni centralizzate dal TestCase
-    $email = static::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
     static::createTestUser([
         'email' => $email,
         'password' => Hash::make('correct_password'),
@@ -89,6 +94,7 @@ test('handles invalid credentials gracefully', function (): void {
     $component = Livewire::test(LoginWidget::class);
 
     // Tenta login con password sbagliata
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->set('data.email', $email)->set('data.password', 'wrong_password')->call('save');
 
     // L'utente dovrebbe rimanere guest
@@ -99,7 +105,7 @@ test('handles invalid credentials gracefully', function (): void {
 
 test('authentication works regardless of user type', function (): void {
     // ✅ Utilizzo funzioni centralizzate dal TestCase
-    $email = static::generateUniqueEmail();
+    $email = TestCase::generateUniqueEmail();
     $user = static::createTestUser([
         'email' => $email,
         'password' => Hash::make('password123'),
@@ -109,6 +115,7 @@ test('authentication works regardless of user type', function (): void {
 
     $component = Livewire::test(LoginWidget::class);
 
+    /* @phpstan-ignore-next-line method.nonObject */
     $component->set('data.email', $email)->set('data.password', 'password123')->call('save');
 
     assertAuthenticated();

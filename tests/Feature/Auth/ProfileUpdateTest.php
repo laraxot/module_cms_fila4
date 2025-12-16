@@ -12,10 +12,10 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
-test('profile page can be rendered', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+test('profile page is displayed', function (): void {
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -23,9 +23,9 @@ test('profile page can be rendered', function (): void {
 });
 
 test('profile information can be updated', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -48,9 +48,9 @@ test('profile information can be updated', function (): void {
 });
 
 test('email verification status is unchanged when email address is unchanged', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -66,9 +66,9 @@ test('email verification status is unchanged when email address is unchanged', f
 });
 
 test('user can delete their account', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -81,9 +81,9 @@ test('user can delete their account', function (): void {
 });
 
 test('correct password must be provided to delete account', function (): void {
-    $xotData = XotData::make();
-    $userClass = $xotData->getUserClass();
-
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
     $user = $userClass::factory()->create();
 
     actingAs($user);
