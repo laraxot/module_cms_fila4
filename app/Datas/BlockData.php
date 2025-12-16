@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Datas;
 
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Livewire\Wireable;
 use Spatie\LaravelData\Concerns\WireableData;
 use Spatie\LaravelData\Data;
-use Webmozart\Assert\Assert;
-use Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Illuminate\Support\Collection;
 use Spatie\LaravelData\DataCollection;
+use Webmozart\Assert\Assert;
 
 class BlockData extends Data implements Wireable
 {

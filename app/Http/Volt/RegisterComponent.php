@@ -33,7 +33,6 @@ class RegisterComponent extends Component
 
     public function register(): RedirectResponse
     {
-       
         $this->validate();
 
         /** @var User $user */

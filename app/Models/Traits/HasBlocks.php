@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models\Traits;
 
-use Illuminate\Support\Str;
-use Modules\Xot\Datas\XotData;
-use Modules\Cms\Datas\BlockData;
-use Illuminate\Support\Facades\Blade;
-use Spatie\LaravelData\DataCollection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Str;
+use Modules\Cms\Datas\BlockData;
+use Modules\Xot\Datas\XotData;
+use Spatie\LaravelData\DataCollection;
 
 /**
  * Trait for Models that have blocks.
@@ -38,8 +38,6 @@ trait HasBlocks
 
         /** @var DataCollection<BlockData> $collection */
         $collection = BlockData::collection($blocks);
-
-        
 
         return $collection;
     }
