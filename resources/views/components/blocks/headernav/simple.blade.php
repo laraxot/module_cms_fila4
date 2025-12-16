@@ -1,11 +1,17 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 <?php
 
 declare(strict_types=1);
 
 ?>
+<<<<<<< HEAD
 =======
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
 <header class="w-full">
     <div class="relative z-20 flex items-center justify-between w-full h-12  px-6 mx-auto">
         <div x-data="{ mobileMenuOpen: false }" class="relative flex items-center md:space-x-2 text-neutral-800">
@@ -112,6 +118,9 @@ declare(strict_types=1);
     </div>
 </header>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
