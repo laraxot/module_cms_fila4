@@ -9,7 +9,7 @@ Questa guida illustra le tecniche avanzate per personalizzare Filament all'inter
 4. [Ottimizzazione del Codice](#ottimizzazione-del-codice)
 5. [Breadcrumbs](#breadcrumbs)
 6. [Menu Utente](#menu-utente)
-7. [Best Practices in il progetto](#best-practices-in-saluteora)
+7. [Best Practices in il progetto](#best-practices-in-<nome progetto>)
 
 ## Personalizzazione della Navigazione
 
