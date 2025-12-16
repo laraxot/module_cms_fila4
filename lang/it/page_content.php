@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 return [
@@ -98,6 +101,7 @@ return [
         'label' => 'page content.model',
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'navigation' => 
@@ -220,3 +224,5 @@ return array (
   ),
 );
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)

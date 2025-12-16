@@ -1,6 +1,9 @@
 <?php
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1377a46 (.)
 declare(strict_types=1);
 
 return [
@@ -55,6 +58,7 @@ return [
         ],
     ],
 ];
+<<<<<<< HEAD
 =======
 return array (
   'fields' => 
@@ -118,3 +122,5 @@ return array (
   ),
 );
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)

@@ -41,9 +41,12 @@ return [
             'helper_text' => 'Blocchi di contenuto che compongono la sezione',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Company Information
         'company_name' => [
             'label' => 'Ragione Sociale',
@@ -82,9 +85,12 @@ return [
             'helper_text' => 'Testo di copyright da visualizzare',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Navigation & Links
         'links' => [
             'label' => 'Collegamenti',
@@ -114,9 +120,12 @@ return [
             'helper_text' => 'Icona da associare al link',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Social Media
         'social_links' => [
             'label' => 'Social Media',
@@ -131,9 +140,12 @@ return [
             'helper_text' => 'Nome della piattaforma social',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Visual Elements
         'width' => [
             'label' => 'Larghezza',
@@ -159,9 +171,12 @@ return [
             'helper_text' => 'Colore del testo nella sezione',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Media Elements
         'caption' => [
             'label' => 'Didascalia',
@@ -179,9 +194,12 @@ return [
             'helper_text' => 'Identificatore univoco dell\'immagine',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Content Elements
         'level' => [
             'label' => 'Livello',
@@ -194,9 +212,12 @@ return [
             'helper_text' => 'Testo semplice della sezione',
         ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
         // Form Messages
         'error_message' => [
             'label' => 'Messaggio Errore',
@@ -210,9 +231,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'actions' => [
         'save' => [
             'label' => 'Salva modifiche',
@@ -232,9 +256,12 @@ return [
         'remove_block' => 'Rimuovi blocco',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'sections' => [
         'basic_info' => [
             'label' => 'Informazioni Base',
@@ -270,9 +297,12 @@ return [
         ],
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'messages' => [
         'section_updated' => 'Sezione aggiornata con successo',
         'section_update_error' => 'Errore durante l\'aggiornamento della sezione',
@@ -284,9 +314,12 @@ return [
         'confirm_delete' => 'Sei sicuro di voler eliminare questa sezione?',
     ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
 >>>>>>> 3401a6b (.)
+=======
+>>>>>>> 1377a46 (.)
     'validation' => [
         'required' => 'Questo campo è obbligatorio',
         'slug_exists' => 'Questo slug è già in uso',
