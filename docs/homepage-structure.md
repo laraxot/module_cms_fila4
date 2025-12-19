@@ -119,15 +119,7 @@ Esempio di un blocco di tipo hero:
     "type": "hero",
     "data": {
         "view": "ui::components.blocks.hero.v1",
-<<<<<<< HEAD
-<<<<<<< HEAD
         "title": "Promozione della <slogan progetto> per le gestanti",
-=======
-        "title": "Promozione della <slogan> per le gestanti",
->>>>>>> 5109dfb (.)
-=======
-        "title": "Promozione della <slogan progetto> per le gestanti",
->>>>>>> 46d657c (.)
         "subtitle": "Servizi odontoiatrici gratuiti per donne in gravidanza",
         "image": "/images/hero/dental-care.jpg",
         "cta_text": "Scopri di più",

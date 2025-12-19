@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Strategia Contenuti Pagine - <main module>
 
 ## Filosofia dei Contenuti
@@ -103,6 +102,4 @@ La pagina servizi deve comunicare:
 - [Theme Blocks](../../Themes/One/docs/blocks.md)
 - [User Experience](../../../docs/frontend/ux-guidelines.md)
 
-*Ultimo aggiornamento: 2025-01-15* 
-=======
->>>>>>> 521cd7e (.)
+*Ultimo aggiornamento: 2025-01-15*

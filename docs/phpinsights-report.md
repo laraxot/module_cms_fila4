@@ -14,7 +14,7 @@
 - **RouteServiceProvider** e provider vari con ordine proprietà non aderente (`$name` deve essere dichiarato subito dopo la classe secondo Laraxot).
 
 ## azioni consigliate
-1. **Sanare conflitti residui** nel modulo UI (vedi `grep -R "<<<<<<<" Modules/UI`) prima di qualsiasi refactor: blocca PHPStan globale.
+1. **Sanare conflitti residui** nel modulo UI (vedi `grep -R "conflict markers" Modules/UI`) prima di qualsiasi refactor: blocca PHPStan globale.
 2. **Rinominare proprietà e variabili** critical: ad es. `$view_type` → `$viewType`; documentare eccezioni nella docs `naming-conventions.md`.
 3. **Eliminare setter indiscriminati**: sostituire `setModel()` in `Welcome` con injection nel costruttore o dedicated factory.
 4. **Normalizzare componenti**: rendere `PageContent`, `Section`, `ThemeComposer` `final` e spostare logica condivisa in trait.
