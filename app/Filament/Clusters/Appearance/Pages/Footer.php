@@ -52,7 +52,7 @@ class Footer extends XotBasePage
     /**
      * Define the form schema.
      */
-    public function schema(Schema $schema): Schema
+    public function form(Schema $schema): Schema
     {
         $options = app(GetViewBlocksOptionsByTypeAction::class)->execute('footer', false);
 
