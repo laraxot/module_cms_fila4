@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Datas;
 
-use Exception;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
@@ -48,12 +47,12 @@ class BlockData extends Data implements Wireable
 
                         return;
                     }
-                } catch (Exception $e) {
+                } catch (\Exception $e) {
                     // In caso di errore, continua con la view originale
                 }
             }
             // Se arriviamo qui, la view non esiste
-            throw new Exception('view not found: '.$view);
+            throw new \Exception('view not found: '.$view);
         }
 
         $this->view = $view;

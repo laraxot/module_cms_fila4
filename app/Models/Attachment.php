@@ -4,36 +4,35 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
-use Modules\Xot\Contracts\ProfileContract;
-use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Illuminate\Database\Eloquent\Builder;
-use Modules\Cms\Database\Factories\AttachmentFactory;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use Modules\Cms\Database\Factories\AttachmentFactory;
 use Modules\Tenant\Models\Traits\SushiToJsons;
+use Modules\Xot\Contracts\ProfileContract;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * ---.
  *
- * @property string                                                                                                                            $id
- * @property array<array-key, mixed>|null                                                                                                      $title
- * @property array<array-key, mixed>|null                                                                                                      $description
- * @property string|null                                                                                                                       $slug
- * @property string|null                                                                                                                       $disk
- * @property array<array-key, mixed>|null                                                                                                      $attachment
- * @property Carbon|null                                                                                                                       $created_at
- * @property Carbon|null                                                                                                                       $updated_at
- * @property string|null                                                                                                                       $created_by
- * @property string|null                                                                                                                       $updated_by
- * @property ProfileContract|null $creator
- * @property MediaCollection<int, Media> $media
- * @property int|null                                                                                                                          $media_count
- * @property mixed                                                                                                                             $translations
- * @property ProfileContract|null $updater
+ * @property string                       $id
+ * @property array<array-key, mixed>|null $title
+ * @property array<array-key, mixed>|null $description
+ * @property string|null                  $slug
+ * @property string|null                  $disk
+ * @property array<array-key, mixed>|null $attachment
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property string|null                  $created_by
+ * @property string|null                  $updated_by
+ * @property ProfileContract|null         $creator
+ * @property MediaCollection<int, Media>  $media
+ * @property int|null                     $media_count
+ * @property mixed                        $translations
+ * @property ProfileContract|null         $updater
  *
  * @method static Builder<static>|Attachment newModelQuery()
  * @method static Builder<static>|Attachment newQuery()
@@ -52,7 +51,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
  * @method static Builder<static>|Attachment whereTitle($value)
  * @method static Builder<static>|Attachment whereUpdatedAt($value)
  * @method static Builder<static>|Attachment whereUpdatedBy($value)
- * @method static static|null                                              firstWhere(string $column, mixed $operator = null, mixed $value = null)
+ * @method static static|null                firstWhere(string $column, mixed $operator = null, mixed $value = null)
  *
  * @property ProfileContract|null $deleter
  *
@@ -196,7 +195,7 @@ class Attachment extends BaseModelLang implements HasMedia
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

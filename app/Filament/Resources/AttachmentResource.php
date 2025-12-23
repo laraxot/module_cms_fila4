@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
-use Override;
-use Filament\Support\Components\Component;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Utilities\Get;
+use Filament\Support\Components\Component;
 use Modules\Cms\Enums\AttachmentDiskEnum;
 use Modules\Cms\Filament\Resources\AttachmentResource\Pages\CreateAttachment;
 use Modules\Cms\Filament\Resources\AttachmentResource\Pages\EditAttachment;
@@ -25,7 +24,7 @@ class AttachmentResource extends LangBaseResource
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -53,7 +52,7 @@ class AttachmentResource extends LangBaseResource
         ];
     }
 
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

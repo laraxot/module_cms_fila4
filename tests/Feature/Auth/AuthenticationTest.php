@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Volt\Volt as LivewireVolt;
 use Modules\Xot\Datas\XotData;

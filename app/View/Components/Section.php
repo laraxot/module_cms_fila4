@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Modules\Cms\Actions\View\GetCmsViewAction;
@@ -73,7 +72,7 @@ class Section extends Component
             $view = $viewAction->execute($baseViewName);
 
             return view($view);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Fallback: this view exists in the Cms module
             // The action's execute method returns view-string
             $fallbackView = $viewAction->execute('cms::components.section');

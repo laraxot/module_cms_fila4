@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\View\Components;
 
 use Illuminate\Contracts\View\View;
-use Exception;
 use Illuminate\View\Component;
 
 class AppLayout extends Component
@@ -27,7 +26,7 @@ class AppLayout extends Component
         $view_params = [];
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('view not found: '.$view);
+            throw new \Exception('view not found: '.$view);
         }
 
         return view($view, $view_params);

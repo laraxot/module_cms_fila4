@@ -4,28 +4,27 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Cms\Database\Factories\PageContentFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Modules\Cms\Database\Factories\PageContentFactory;
 use Modules\Tenant\Models\Traits\SushiToJsons;
+use Modules\Xot\Contracts\ProfileContract;
 use Spatie\Translatable\HasTranslations;
 
 /**
  * Modules\Cms\Models\PageContent.
  *
- * @property string                                      $id
- * @property array<array-key, mixed>|null                $name
- * @property string|null                                 $slug
- * @property array<array-key, mixed>|null                $blocks
- * @property Carbon|null                                 $created_at
- * @property Carbon|null                                 $updated_at
- * @property string|null                                 $created_by
- * @property string|null                                 $updated_by
- * @property ProfileContract|null $creator
- * @property mixed                                       $translations
- * @property ProfileContract|null $updater
+ * @property string                       $id
+ * @property array<array-key, mixed>|null $name
+ * @property string|null                  $slug
+ * @property array<array-key, mixed>|null $blocks
+ * @property Carbon|null                  $created_at
+ * @property Carbon|null                  $updated_at
+ * @property string|null                  $created_by
+ * @property string|null                  $updated_by
+ * @property ProfileContract|null         $creator
+ * @property mixed                        $translations
+ * @property ProfileContract|null         $updater
  *
  * @method static Builder<static>|PageContent newModelQuery()
  * @method static Builder<static>|PageContent newQuery()
@@ -106,7 +105,7 @@ class PageContent extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

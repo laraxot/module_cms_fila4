@@ -4,9 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
-use Override;
-use Filament\Support\Components\Component;
 use Filament\Forms\Components\TextInput;
+use Filament\Support\Components\Component;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\Section;
 use Modules\Lang\Filament\Resources\LangBaseResource;
@@ -18,7 +17,7 @@ class SectionResource extends LangBaseResource
     /**
      * @return array<string, Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

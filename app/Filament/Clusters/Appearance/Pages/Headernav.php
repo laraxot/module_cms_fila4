@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
-use Exception;
 use Filament\Actions\Action;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
@@ -39,7 +38,7 @@ class Headernav extends XotBasePage implements HasForms
 
     public array $data = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 
@@ -94,7 +93,7 @@ class Headernav extends XotBasePage implements HasForms
                 ->title(trans_string('Saved successfully'))
                 ->success()
                 ->send();
-        } catch (Exception $exception) {
+        } catch (\Exception $exception) {
             Notification::make()
                 ->title(trans_string('Error!'))
                 ->danger()

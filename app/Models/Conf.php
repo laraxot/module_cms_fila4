@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Cms\Database\Factories\ConfFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Cms\Database\Factories\ConfFactory;
 use Modules\Tenant\Actions\Config\GetTenantConfigNamesAction;
+use Modules\Xot\Contracts\ProfileContract;
 use Sushi\Sushi;
 
 /**
