@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
+use Override;
+use RuntimeException;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Str;
 use Modules\Xot\Providers\XotBaseRouteServiceProvider;
@@ -29,7 +31,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
      */
     protected string $module_ns = __NAMESPACE__;
 
-    #[\Override]
+    #[Override]
     public function boot(): void
     {
         parent::boot();
@@ -39,7 +41,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
 
         // Ensure router is of correct type
         if (! $router instanceof Router) {
-            throw new \RuntimeException('Router is not an instance of Router');
+            throw new RuntimeException('Router is not an instance of Router');
         }
 
         // dddx([$router, $router1]);

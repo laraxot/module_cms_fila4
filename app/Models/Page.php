@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Override;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Cms\Database\Factories\PageFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
@@ -25,9 +28,9 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @property Carbon|null                                 $updated_at
  * @property string|null                                 $created_by
  * @property string|null                                 $updated_by
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property ProfileContract|null $creator
  * @property mixed                                       $translations
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $updater
  *
  * @method static Builder<static>|Page                               newModelQuery()
  * @method static Builder<static>|Page                               newQuery()
@@ -39,10 +42,10 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @method static Builder<static>|Page                               whereDescription($value)
  * @method static Builder<static>|Page                               whereFooterBlocks($value)
  * @method static Builder<static>|Page                               whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Page whereJsonContainsLocale(string $column, string $locale, ?mixed $value, string $operand = '=')
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Page whereJsonContainsLocales(string $column, array $locales, ?mixed $value, string $operand = '=')
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Page whereLocale(string $column, string $locale)
- * @method static \Illuminate\Database\Eloquent\Builder<static>|Page whereLocales(string $column, array $locales)
+ * @method static Builder<static>|Page whereJsonContainsLocale(string $column, string $locale, ?mixed $value, string $operand = '=')
+ * @method static Builder<static>|Page whereJsonContainsLocales(string $column, array $locales, ?mixed $value, string $operand = '=')
+ * @method static Builder<static>|Page whereLocale(string $column, string $locale)
+ * @method static Builder<static>|Page whereLocales(string $column, array $locales)
  * @method static Builder<static>|Page                               whereMiddleware($value)
  * @method static Builder<static>|Page                               whereSidebarBlocks($value)
  * @method static Builder<static>|Page                               whereSlug($value)
@@ -177,9 +180,9 @@ use Modules\Tenant\Models\Traits\SushiToJsons;
  * @method static static|null                                        first($columns = ['*'])
  * @method static static|null                                        find($id, $columns = ['*'])
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
- * @method static \Modules\Cms\Database\Factories\PageFactory factory($count = null, $state = [])
+ * @method static PageFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
@@ -245,7 +248,7 @@ class Page extends BaseModelLang
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

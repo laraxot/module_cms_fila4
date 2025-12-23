@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
+use Override;
+use Filament\Schemas\Components\Component;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Components\Utilities\Get;
@@ -21,9 +23,9 @@ class PageResource extends LangBaseResource
     protected static ?string $model = Page::class;
 
     /**
-     * @return array<int|string, \Filament\Schemas\Components\Component>
+     * @return array<int|string, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

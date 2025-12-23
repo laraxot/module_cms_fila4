@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Volt;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\RedirectResponse;
@@ -40,7 +41,7 @@ class LoginComponent extends Component
 
         $guard = 'web';
 
-        /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
+        /** @var Builder<User> $query */
         $query = User::where('email', $this->email);
         $user = $query->first();
 

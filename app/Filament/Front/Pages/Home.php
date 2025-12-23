@@ -8,6 +8,9 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
+use RuntimeException;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -54,15 +57,15 @@ class Home extends XotBasePage
                 $container_last_key_name = $modelInstance->getRouteKeyName();
                 Assert::string($container_last_key_name, 'Route key name must be a string');
 
-                /** @var class-string<\Illuminate\Database\Eloquent\Model> $modelClass */
+                /** @var class-string<Model> $modelClass */
                 $modelClass = $container_last_model;
 
                 // Ensure the model class has the where method
                 if (! method_exists($modelClass, 'where')) {
-                    throw new \RuntimeException("Model class {$modelClass} does not have where method");
+                    throw new RuntimeException("Model class {$modelClass} does not have where method");
                 }
 
-                /** @var \Illuminate\Database\Eloquent\Builder<\Illuminate\Database\Eloquent\Model> $query */
+                /** @var Builder<Model> $query */
                 $query = $modelClass::where($container_last_key_name, $item_last);
                 $row = $query->first();
                 $data[$container_last_singular] = $row;

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Cms\Database\Factories\ModuleFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Nwidart\Modules\Facades\Module as NwModule;
 use Sushi\Sushi;
@@ -13,8 +15,8 @@ use Sushi\Sushi;
  *
  * @property string                                      $id
  * @property string|null                                 $name
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
  *
  * @method static Builder<static>|Module newModelQuery()
  * @method static Builder<static>|Module newQuery()
@@ -23,9 +25,9 @@ use Sushi\Sushi;
  * @method static Builder<static>|Module whereName($value)
  * @method static int                    count()
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
- * @method static \Modules\Cms\Database\Factories\ModuleFactory factory($count = null, $state = [])
+ * @method static ModuleFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */

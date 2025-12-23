@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Override;
+use Modules\Xot\Contracts\ProfileContract;
+use Modules\Cms\Database\Factories\PageContentFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Tenant\Models\Traits\SushiToJsons;
@@ -20,9 +23,9 @@ use Spatie\Translatable\HasTranslations;
  * @property Carbon|null                                 $updated_at
  * @property string|null                                 $created_by
  * @property string|null                                 $updated_by
- * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property ProfileContract|null $creator
  * @property mixed                                       $translations
- * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ * @property ProfileContract|null $updater
  *
  * @method static Builder<static>|PageContent newModelQuery()
  * @method static Builder<static>|PageContent newQuery()
@@ -41,9 +44,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|PageContent whereUpdatedBy($value)
  * @method static int                         count()
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
- * @method static \Modules\Cms\Database\Factories\PageContentFactory factory($count = null, $state = [])
+ * @method static PageContentFactory factory($count = null, $state = [])
  *
  * @mixin \Eloquent
  */
@@ -103,7 +106,7 @@ class PageContent extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
+use Exception;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -58,7 +59,7 @@ class Welcome extends XotBasePage
             $container_last_model = TenantService::model($container_last_singular);
 
             if (! method_exists($container_last_model, 'getFrontRouteKeyName')) {
-                throw new \Exception('[WIP]['.__LINE__.']['.__FILE__.']');
+                throw new Exception('[WIP]['.__LINE__.']['.__FILE__.']');
             }
 
             $container_last_key_name = $container_last_model->getFrontRouteKeyName();
@@ -103,7 +104,7 @@ class Welcome extends XotBasePage
 
             $firstContainer = $containers[0] ?? null;
             if (! is_string($firstContainer)) {
-                throw new \Exception('First container must be a string');
+                throw new Exception('First container must be a string');
             }
 
             $model_class = TenantService::modelClass($firstContainer);

@@ -14,7 +14,7 @@ class PageSlugMiddleware
 {
     protected Kernel $kernel;
 
-    public function handle(Request $request, \Closure $next): Response
+    public function handle(Request $request, Closure $next): Response
     {
         $slug = $request->route('slug');
 
@@ -65,7 +65,7 @@ class PageSlugMiddleware
     /**
      * Execute middleware chain manually.
      */
-    protected function executeMiddlewareChain(Request $request, array $middlewares, \Closure $finalNext): Response
+    protected function executeMiddlewareChain(Request $request, array $middlewares, Closure $finalNext): Response
     {
         if (empty($middlewares)) {
             /** @var Response */
