@@ -4,7 +4,7 @@ Questo documento descrive l'utilizzo di [DaisyUI](https://daisyui.com/) nel prog
 
 ## Indice
 1. [Introduzione a DaisyUI](#introduzione-a-daisyui)
-2. [Vantaggi per il progetto](#vantaggi-per-<nome progetto>)
+2. [Vantaggi per il progetto](#vantaggi-per-saluteora)
 3. [Installazione e Configurazione](#installazione-e-configurazione)
 4. [Sistema di Temi](#sistema-di-temi)
 5. [Componenti Principali](#componenti-principali)
@@ -68,7 +68,7 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        <nome progetto>: {
+        saluteora: {
           "primary": "#1e40af",
           "secondary": "#6b21a8",
           "accent": "#0ea5e9",
@@ -93,7 +93,7 @@ DaisyUI offre un potente sistema di temi che consente di personalizzare l'aspett
 ### Tema il progetto
 
 ```js
-<nome progetto>: {
+saluteora: {
   "primary": "#1e40af",     // Blu principale
   "secondary": "#6b21a8",   // Viola secondario
   "accent": "#0ea5e9",      // Azzurro per accenti
@@ -111,7 +111,7 @@ DaisyUI offre un potente sistema di temi che consente di personalizzare l'aspett
 Per supportare modalità chiara/scura o temi alternativi, utilizzare l'attributo `data-theme`:
 
 ```html
-<div data-theme="<nome progetto>">
+<div data-theme="saluteora">
   <!-- Contenuto con tema il progetto -->
 </div>
 
@@ -408,10 +408,10 @@ module.exports = {
     // Plugin personalizzato per componenti specifici di il progetto
     function({ addComponents }) {
       const components = {
-        '.<nome progetto>-card': {
+        '.saluteora-card': {
           '@apply card bg-base-100 shadow-md hover:shadow-lg border border-base-300': {},
         },
-        '.<nome progetto>-form-field': {
+        '.saluteora-form-field': {
           '@apply form-control w-full mb-4': {},
         },
       }
@@ -424,11 +424,11 @@ module.exports = {
 Utilizzo:
 
 ```html
-<div class="<nome progetto>-card">
+<div class="saluteora-card">
   <!-- Contenuto card -->
 </div>
 
-<div class="<nome progetto>-form-field">
+<div class="saluteora-form-field">
   <!-- Campo form -->
 </div>
 ```

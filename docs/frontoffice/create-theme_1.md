@@ -47,7 +47,7 @@ theme-name/
 1. **composer.json**
 ```json
 {
-    "name": "<nome progetto>/theme-name",
+    "name": "saluteora/theme-name",
     "description": "Tema per il progetto",
     "type": "theme",
     "license": "proprietary",
@@ -73,7 +73,7 @@ theme-name/
 2. **package.json**
 ```json
 {
-    "name": "<nome progetto>/theme-name",
+    "name": "saluteora/theme-name",
     "private": true,
     "scripts": {
         "dev": "vite",

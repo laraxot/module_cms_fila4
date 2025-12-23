@@ -52,7 +52,7 @@ Questa struttura ha diversi vantaggi:
 
 I contenuti della homepage sono definiti in un file JSON:
 ```
-/config/local/<nome progetto>/database/content/pages/1.json
+/config/local/saluteora/database/content/pages/1.json
 ```
 
 Questo file contiene una struttura che definisce i blocchi di contenuto della homepage:
@@ -168,7 +168,7 @@ Per personalizzare la homepage, ci sono due approcci principali:
 
 Per modificare i contenuti della homepage, è sufficiente modificare il file JSON:
 ```
-/config/local/<nome progetto>/database/content/pages/1.json
+/config/local/saluteora/database/content/pages/1.json
 ```
 
 È possibile:

@@ -67,15 +67,11 @@ class CmsMassSeeder extends Seeder
     {
         $this->command->info('🔧 Creazione moduli CMS...');
 
-        // Crea 20 moduli CMS
-        /** @var \Illuminate\Database\Eloquent\Collection<int, Module> $modules */
-        /** @phpstan-ignore-next-line */
-        $modules = Module::factory(20)->create([
-            'is_active' => true,
-            'created_at' => Carbon::now()->subDays(rand(1, 365)),
-        ]);
+        // Module is a Sushi model and doesn't support factories
+        // Data is loaded dynamically from NwModule::getByStatus(1)
+        $modules = Module::all();
 
-        $this->command->info('✅ Creati '.$modules->count().' moduli CMS');
+        $this->command->info('✅ Loaded '.$modules->count().' CMS modules');
     }
 
     /**
@@ -86,14 +82,13 @@ class CmsMassSeeder extends Seeder
         $this->command->info('📑 Creazione sezioni...');
 
         // Crea 100 sezioni
-        /** @var \Illuminate\Database\Eloquent\Collection<int, Section> $sections */
         /** @phpstan-ignore-next-line */
         $sections = Section::factory(100)->create([
-            'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
-
-        $this->command->info('✅ Create '.$sections->count().' sezioni');
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Section> $sections */
+        $sectionCount = is_object($sections) && method_exists($sections, 'count') ? $sections->count() : 0;
+        $this->command->info('✅ Create '.$sectionCount.' sezioni');
     }
 
     /**
@@ -104,14 +99,13 @@ class CmsMassSeeder extends Seeder
         $this->command->info('📄 Creazione pagine...');
 
         // Crea 500 pagine
-        /** @var \Illuminate\Database\Eloquent\Collection<int, Page> $pages */
         /** @phpstan-ignore-next-line */
         $pages = Page::factory(500)->create([
-            'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
-
-        $this->command->info('✅ Create '.$pages->count().' pagine');
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Page> $pages */
+        $pageCount = is_object($pages) && method_exists($pages, 'count') ? $pages->count() : 0;
+        $this->command->info('✅ Create '.$pageCount.' pagine');
     }
 
     /**
@@ -122,13 +116,13 @@ class CmsMassSeeder extends Seeder
         $this->command->info('📝 Creazione contenuti delle pagine...');
 
         // Crea 1000 contenuti di pagina
-        /** @var \Illuminate\Database\Eloquent\Collection<int, PageContent> $contents */
         /** @phpstan-ignore-next-line */
         $contents = PageContent::factory(1000)->create([
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
-
-        $this->command->info('✅ Creati '.$contents->count().' contenuti di pagina');
+        /** @var \Illuminate\Database\Eloquent\Collection<int, PageContent> $contents */
+        $contentCount = is_object($contents) && method_exists($contents, 'count') ? $contents->count() : 0;
+        $this->command->info('✅ Creati '.$contentCount.' contenuti di pagina');
     }
 
     /**
@@ -139,14 +133,13 @@ class CmsMassSeeder extends Seeder
         $this->command->info('🍽️ Creazione menu...');
 
         // Crea 50 menu
-        /** @var \Illuminate\Database\Eloquent\Collection<int, Menu> $menus */
         /** @phpstan-ignore-next-line */
         $menus = Menu::factory(50)->create([
-            'is_active' => true,
             'created_at' => Carbon::now()->subDays(rand(1, 365)),
         ]);
-
-        $this->command->info('✅ Creati '.$menus->count().' menu');
+        /** @var \Illuminate\Database\Eloquent\Collection<int, Menu> $menus */
+        $menuCount = is_object($menus) && method_exists($menus, 'count') ? $menus->count() : 0;
+        $this->command->info('✅ Creati '.$menuCount.' menu');
     }
 
     /**
@@ -174,35 +167,23 @@ class CmsMassSeeder extends Seeder
         try {
             // Conta moduli
             $totalModules = Module::count();
-            $activeModules = Module::where('is_active', true)->count();
 
             $this->command->info('│ 🔧 Moduli totali:             '.
             str_pad((string) $totalModules, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attivi:                  '.
-            str_pad((string) $activeModules, 6, ' ', STR_PAD_LEFT).
-                ' │');
 
             // Conta sezioni
             $totalSections = Section::count();
-            $activeSections = Section::where('is_active', true)->count();
 
             $this->command->info('│ 📑 Sezioni totali:            '.
             str_pad((string) $totalSections, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attive:                  '.
-            str_pad((string) $activeSections, 6, ' ', STR_PAD_LEFT).
-                ' │');
 
             // Conta pagine
             $totalPages = Page::count();
-            $activePages = Page::where('is_active', true)->count();
 
             $this->command->info('│ 📄 Pagine totali:             '.
             str_pad((string) $totalPages, 6, ' ', STR_PAD_LEFT).
-                ' │');
-            $this->command->info('│    - Attive:                  '.
-            str_pad((string) $activePages, 6, ' ', STR_PAD_LEFT).
                 ' │');
 
             // Conta contenuti
@@ -214,17 +195,17 @@ class CmsMassSeeder extends Seeder
 
             // Conta menu
             $totalMenus = Menu::count();
-            $activeMenus = Menu::where('is_active', true)->count();
 
             $this->command->info('│ 🍽️ Menu totali:               '.
             str_pad((string) $totalMenus, 6, ' ', STR_PAD_LEFT).
                 ' │');
-            $this->command->info('│    - Attivi:                  '.
-            str_pad((string) $activeMenus, 6, ' ', STR_PAD_LEFT).
-                ' │');
 
             // Conta configurazioni
-            $totalConfigs = Conf::count();
+            try {
+                $totalConfigs = Conf::count();
+            } catch (\Exception $e) {
+                $totalConfigs = 0;
+            }
 
             $this->command->info('│ ⚙️ Configurazioni totali:     '.
             str_pad((string) $totalConfigs, 6, ' ', STR_PAD_LEFT).

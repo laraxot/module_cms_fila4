@@ -19,9 +19,9 @@
 ### ⚠️ AREE DI MIGLIORAMENTO CRITICHE
 
 #### 1. Riusabilità Compromessa (CRITICO)
-- **194+ occorrenze hardcoded** di "<nome progetto>" 
+- **194+ occorrenze hardcoded** di "saluteora" 
 - **Path assoluti** in configurazioni e esempi
-- **Content specifico** per <nome progetto> in examples
+- **Content specifico** per SaluteOra in examples
 - **URL hardcoded** in documentazione
 
 #### 2. Documentazione Frammentata (IMPORTANTE)
@@ -42,9 +42,9 @@
 #### Generalizzazione Content Examples
 ```php
 // ❌ PROBLEMI ATTUALI
-'title' => 'Servizi Sanitari <nome progetto>',
+'title' => 'Servizi Sanitari SaluteOra',
 'content' => 'Benvenuti nel nostro studio medico...',
-'url' => 'https://<nome progetto>.com/servizi'
+'url' => 'https://saluteora.com/servizi'
 
 // ✅ SOLUZIONI
 'title' => 'Servizi {{business_type}} {{app_name}}',
@@ -273,7 +273,7 @@ class SeoService
 ### Pre-Implementazione
 ```bash
 # Verifica hardcoding
-grep -r -i "<nome progetto>" Modules/Cms/ --include="*.md" | wc -l
+grep -r -i "saluteora" Modules/Cms/ --include="*.md" | wc -l
 
 # Conta file documentazione
 find Modules/Cms/docs -name "*.md" | wc -l
@@ -306,7 +306,7 @@ php artisan cms:seo-audit
 - **NON alterare** l'integrazione Filament (funzionante)
 
 ### Focus Miglioramenti
-- **Solo** generalizzare content specifico <nome progetto>
+- **Solo** generalizzare content specifico SaluteOra
 - **Solo** ottimizzare performance dove necessario
 - **Solo** riorganizzare documentazione frammentata
 

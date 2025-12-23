@@ -39,7 +39,7 @@ Questo documento analizza tutti i modelli del modulo Cms verificando la presenza
 - **URL Management**: Gestione URL
 - **Visibility Control**: Controllo visibilità
 
-**Business Logic <nome progetto>**:
+**Business Logic SaluteOra**:
 - **Landing Pages**: Pagine presentazione studi
 - **Service Pages**: Pagine servizi medici
 - **About Pages**: Pagine chi siamo
@@ -100,7 +100,7 @@ Questo documento analizza tutti i modelli del modulo Cms verificando la presenza
 4. **ConfSeeder** - Per configurazioni CMS
 5. **ModuleSeeder** - Per moduli CMS
 
-### Seeder Specializzati <nome progetto>
+### Seeder Specializzati SaluteOra
 1. **MedicalPagesSeeder** - Per pagine servizi medici
 2. **StudioMenuSeeder** - Per menu specifici studio
 3. **PrivacyPagesSeeder** - Per pagine privacy/GDPR
@@ -131,7 +131,7 @@ Tutti i modelli attivi hanno le factory corrispondenti.
 - [SEO Optimization](./seo_optimization.md)
 
 ### Moduli Collegati
-- [<nome progetto> Module](../../<nome progetto>/docs/modelli_factory_seeder_analisi.md) - Contenuti medici
+- [SaluteOra Module](../../SaluteOra/docs/modelli_factory_seeder_analisi.md) - Contenuti medici
 - [User Module](../../User/docs/modelli_factory_seeder_analisi.md) - Pagine utente
 - [Lang Module](../../Lang/docs/modelli_factory_seeder_analisi.md) - Contenuti multilingua
 - [Media Module](../../Media/docs/modelli_factory_seeder_analisi.md) - Media contenuti
