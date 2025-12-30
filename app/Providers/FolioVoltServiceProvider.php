@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Exception;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -57,7 +56,7 @@ class FolioVoltServiceProvider extends ServiceProvider
                     }
                 }
             }
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             // Se c'è un errore nel caricamento della configurazione middleware, usa array vuoto
             // Questo evita errori durante il bootstrap quando la configurazione non è disponibile
             $base_middleware = [];

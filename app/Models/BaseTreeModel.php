@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
@@ -15,6 +13,7 @@ use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
 use Modules\Xot\Contracts\ProfileContract;
 use Spatie\MediaLibrary\MediaCollections\Models\Collections\MediaCollection;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\Collection;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 /**
@@ -159,14 +158,14 @@ abstract class BaseTreeModel extends BaseModel implements HasRecursiveRelationsh
         'updated_by' => 'string',
     ];
 
-    #[Override]
+    #[\Override]
     public function getLabel(): string
     {
         return $this->title;
     }
 
     /** @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [
