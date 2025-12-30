@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Http\View\Composers;
 
 // use App\Repositories\UserRepository;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Auth;

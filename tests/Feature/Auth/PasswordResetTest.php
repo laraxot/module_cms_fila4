@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

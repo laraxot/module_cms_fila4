@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Volt;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Builder;

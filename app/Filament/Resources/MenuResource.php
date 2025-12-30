@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
+use Override;
 use Filament\Forms\Components\Radio;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
@@ -20,7 +21,7 @@ class MenuResource extends XotBaseResource
     /**
      * @return array<int, Component>
      */
-    #[\Override]
+    #[Override]
     public static function getFormSchema(): array
     {
         return [

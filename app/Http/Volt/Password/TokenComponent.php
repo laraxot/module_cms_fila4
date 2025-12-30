@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\Volt\Password;
 
+use RuntimeException;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Redirector;
@@ -53,7 +54,7 @@ class TokenComponent extends Component
             ],
             static function (UserContract $user, string $password): void {
                 if (! isset($user->password)) {
-                    throw new \RuntimeException('User contract missing password property');
+                    throw new RuntimeException('User contract missing password property');
                 }
 
                 $user->password = Hash::make($password);
