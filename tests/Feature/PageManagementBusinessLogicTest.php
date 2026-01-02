@@ -10,17 +10,16 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Cms\Models\Page;
 use Modules\Cms\Models\PageContent;
 use Modules\Cms\Models\Section;
+use Tests\TestCase;
 
 use function Safe\json_encode;
-
-use Tests\TestCase;
 
 class PageManagementBusinessLogicTest extends TestCase
 {
     use RefreshDatabase;
 
     /** @test */
-    public function itCanCreatePageWithBasicInformation(): void
+    public function it_can_create_page_with_basic_information(): void
     {
         // Arrange
         $pageData = [
@@ -54,7 +53,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanCreatePageWithContent(): void
+    public function it_can_create_page_with_content(): void
     {
         // Arrange
         /** @var Collection */
@@ -89,7 +88,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanCreatePageWithSections(): void
+    public function it_can_create_page_with_sections(): void
     {
         // Arrange
         /** @var Collection */
@@ -124,7 +123,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanUpdatePageStatus(): void
+    public function it_can_update_page_status(): void
     {
         // Arrange
         /** @var Collection */
@@ -146,7 +145,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanUpdatePageSeoMetadata(): void
+    public function it_can_update_page_seo_metadata(): void
     {
         // Arrange
         /** @var Collection */
@@ -174,7 +173,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageVersions(): void
+    public function it_can_manage_page_versions(): void
     {
         // Arrange
         /** @var Collection */
@@ -211,7 +210,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManageMultilingualPageContent(): void
+    public function it_can_manage_multilingual_page_content(): void
     {
         // Arrange
         /** @var Collection */
@@ -247,7 +246,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageSectionsOrder(): void
+    public function it_can_manage_page_sections_order(): void
     {
         // Arrange
         /** @var Collection */
@@ -288,7 +287,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanReorderPageSections(): void
+    public function it_can_reorder_page_sections(): void
     {
         // Arrange
         /** @var Collection */
@@ -328,7 +327,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanValidatePageSlugUniqueness(): void
+    public function it_can_validate_page_slug_uniqueness(): void
     {
         // Arrange
         Page/* @phpstan-ignore-line */ ::factory()->create(['slug' => 'unique-page']);
@@ -345,7 +344,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanHandlePageSoftDelete(): void
+    public function it_can_handle_page_soft_delete(): void
     {
         // Arrange
         /** @var Collection */
@@ -363,7 +362,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanRestoreSoftDeletedPage(): void
+    public function it_can_restore_soft_deleted_page(): void
     {
         // Arrange
         /** @var Collection */
@@ -383,7 +382,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanForceDeletePageWithRelatedData(): void
+    public function it_can_force_delete_page_with_related_data(): void
     {
         // Arrange
         /** @var Collection */
@@ -416,7 +415,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanSearchPagesByTitle(): void
+    public function it_can_search_pages_by_title(): void
     {
         // Arrange
         /** @var Collection */
@@ -441,7 +440,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanSearchPagesByStatus(): void
+    public function it_can_search_pages_by_status(): void
     {
         // Arrange
         /** @var Collection */
@@ -467,7 +466,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanGetPagesWithRelatedContent(): void
+    public function it_can_get_pages_with_related_content(): void
     {
         // Arrange
         /** @var Collection */
@@ -494,7 +493,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanGetPagesWithRelatedSections(): void
+    public function it_can_get_pages_with_related_sections(): void
     {
         // Arrange
         /** @var Collection */
@@ -521,7 +520,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageTemplates(): void
+    public function it_can_manage_page_templates(): void
     {
         // Arrange
         /** @var Collection */
@@ -543,7 +542,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePagePermissions(): void
+    public function it_can_manage_page_permissions(): void
     {
         // Arrange
         /** @var Collection */
@@ -572,7 +571,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageScheduling(): void
+    public function it_can_manage_page_scheduling(): void
     {
         // Arrange
         /** @var Collection */
@@ -597,7 +596,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageCategories(): void
+    public function it_can_manage_page_categories(): void
     {
         // Arrange
         /** @var Collection */
@@ -624,7 +623,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageTags(): void
+    public function it_can_manage_page_tags(): void
     {
         // Arrange
         /** @var Collection */
@@ -651,7 +650,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageRedirects(): void
+    public function it_can_manage_page_redirects(): void
     {
         // Arrange
         /** @var Collection */
@@ -677,7 +676,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function itCanManagePageAnalytics(): void
+    public function it_can_manage_page_analytics(): void
     {
         // Arrange
         /** @var Collection */

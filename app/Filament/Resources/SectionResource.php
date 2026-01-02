@@ -6,7 +6,6 @@ namespace Modules\Cms\Filament\Resources;
 
 use Filament\Forms\Components\TextInput;
 use Filament\Support\Components\Component;
-use Filament\Support\Components\Component;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
 use Modules\Cms\Models\Section;
 use Modules\Lang\Filament\Resources\LangBaseResource;
