@@ -53,6 +53,38 @@ return new HtmlString($html);
 - Tutti i valori provenienti dal model passano da `SafeStringCastAction` per impedire mixed->string non tipizzati.
 - L’output è HTML sanitizzato via `htmlspecialchars`, conforme alle linee guida Filament v4.
 
+### 3. ViewSection.php (getInfolistSchema() Return Type)
+
+#### Problema
+Il metodo `getInfolistSchema()` in `Modules\Cms\Filament\Resources\SectionResource\Pages\ViewSection.php` generava un errore `return.type`. PHPStan riportava che il metodo doveva restituire `array<string, Filament\Schemas\Components\Component>` ma restituiva `array<int, Filament\Schemas\Components\Section>`. Sebbene l'array fosse già associativo, PHPStan aveva difficoltà a risolvere i tipi dei componenti Filament senza una qualificazione esplicita.
+
+#### Soluzione
+Sono stati utilizzati i Fully Qualified Class Names (FQCNs) per `\Filament\Schemas\Components\Section::make()` e `\Filament\Infolists\Components\ViewEntry::make()` all'interno del metodo `getInfolistSchema()`. Questo ha fornito a PHPStan le informazioni di tipo esplicite necessarie per una corretta risoluzione.
+
+```php
+// PRIMA (generava errore)
+// return [
+//     'preview' => Section::make('Anteprima')->schema([
+//         'preview' => ViewEntry::make('preview')->view($view, [
+//             'section' => $this->record,
+//         ]),
+//     ]),
+// ];
+
+// DOPO (corretto con FQCNs)
+return [
+    'preview' => \Filament\Schemas\Components\Section::make('Anteprima')->schema([
+        'preview' => \Filament\Infolists\Components\ViewEntry::make('preview')->view($view, [
+            'section' => $this->record,
+        ]),
+    ]),
+];
+```
+
+#### Benefici
+- Risoluzione dell'errore `return.type` per `getInfolistSchema()`.
+- Maggiore chiarezza nella definizione dello schema per l'analisi statica.
+
 ## Risultati
 
 - ✅ **0 errori** PHPStan livello 9
