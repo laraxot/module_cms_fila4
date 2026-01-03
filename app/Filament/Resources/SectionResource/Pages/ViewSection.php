@@ -24,8 +24,8 @@ class ViewSection extends LangBaseViewRecord
         }
 
         return [
-            'preview' => \Filament\Schemas\Components\Section::make('Anteprima')->schema([
-                'preview' => \Filament\Infolists\Components\ViewEntry::make('preview')->view($view, [
+            'preview' => Section::make('Anteprima')->schema([
+                'preview' => ViewEntry::make('preview')->view($view, [
                     'section' => $this->record,
                 ]),
             ]),
