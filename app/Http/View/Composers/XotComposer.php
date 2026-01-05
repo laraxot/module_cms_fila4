@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Http\View\Composers;
 
-// use App\Repositories\UserRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +14,7 @@ use Modules\Xot\Contracts\UserContract;
 /**
  * Class XotComposer.
  */
-class XotComposer
+final class XotComposer
 {
     /**
      * Bind data to the view.
@@ -36,9 +35,9 @@ class XotComposer
         $profile = $profileRelation->first();
         $lang = app()->getLocale();
         $params = [];
-        $route_current = Route::current();
-        if ($route_current instanceof \Illuminate\Routing\Route) {
-            $params = $route_current->parameters();
+        $routeCurrent = Route::current();
+        if ($routeCurrent instanceof \Illuminate\Routing\Route) {
+            $params = $routeCurrent->parameters();
         }
 
         $view->with('params', $params);

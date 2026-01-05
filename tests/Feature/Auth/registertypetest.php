@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
-use Illuminate\Support\Facades\Hash;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
-/**
+/*
  * Tests for dynamic registration pages rendered by Themes/One
  * Route pattern: /{locale}/auth/{type}/register
  *
@@ -24,7 +22,7 @@ uses(TestCase::class);
  * 3. Dynamic content is correctly displayed based on user type
  * 4. Required components (Livewire widget) are present
  *
- * The Cms module must remain independent from SaluteOra; all user operations
+ * The Cms module must remain independent from <nome progetto>; all user operations
  * go through XotData to obtain the correct User class.
  */
 
@@ -37,7 +35,6 @@ dataset('userTypes', [
     'patient' => ['patient'],
 ]);
 
-describe('Registration Page Accessibility', function () {
     test('guest can view :type registration page', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
         expect($response->status())->toBe(200);
@@ -52,15 +49,14 @@ describe('Registration Page Accessibility', function () {
     })->with('userTypes');
 });
 
-describe('Registration Page Content', function () {
     test(':type registration page contains expected elements', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
         expect($response->status())->toBe(200);
 
         $content = $response->getContent();
-        expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')//->toContain('<x-ui.logo')
-        //->toContain('RegistrationWidget')
+        expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')// ->toContain('<x-ui.logo')
+        // ->toContain('RegistrationWidget')
         ;
     })->with('userTypes');
 
@@ -77,7 +73,6 @@ describe('Registration Page Content', function () {
     })->with('userTypes');
 });
 
-describe('Registration Page Localization', function () {
     test(':type registration page uses Italian localization', function (string $type): void {
         $response = get("/it/auth/{$type}/register");
 
@@ -88,18 +83,16 @@ describe('Registration Page Localization', function () {
     })->with('userTypes');
 });
 
-describe('Registration Page Security', function () {
-    //test('handles invalid user type gracefully', function (): void {
+    // test('handles invalid user type gracefully', function (): void {
     //    $response = get('/it/auth/invalid-type/register');
     //     expect($response->status())->toBe(404);
-    //});
-    //test('handles missing type parameter appropriately', function (): void {
+    // });
+    // test('handles missing type parameter appropriately', function (): void {
     //    $response = get('/it/auth/register');
     //    expect($response->status())->toBeGreaterThanOrEqual(300);
-    //});
+    // });
 });
 
-describe('Registration Page Performance', function () {
     test(':type registration page loads within acceptable time limits', function (string $type): void {
         $startTime = microtime(true);
 
