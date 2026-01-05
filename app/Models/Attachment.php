@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -196,7 +195,7 @@ class Attachment extends BaseModelLang implements HasMedia
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

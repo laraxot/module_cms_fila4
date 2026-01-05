@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\Support\Arr;
 use Illuminate\View\Component;
@@ -91,7 +90,7 @@ class Page extends Component
         $view_params = [];
         // @phpstan-ignore-next-line
         if (! view()->exists($view)) {
-            throw new Exception('view not found: '.$view);
+            throw new \Exception('view not found: '.$view);
         }
 
         return view($view, $view_params);

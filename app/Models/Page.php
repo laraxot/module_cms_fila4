@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Carbon;
@@ -248,7 +247,7 @@ class Page extends BaseModelLang
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

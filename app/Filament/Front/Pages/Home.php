@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
-use RuntimeException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -62,7 +61,7 @@ class Home extends XotBasePage
 
                 // Ensure the model class has the where method
                 if (! method_exists($modelClass, 'where')) {
-                    throw new RuntimeException("Model class {$modelClass} does not have where method");
+                    throw new \RuntimeException("Model class {$modelClass} does not have where method");
                 }
 
                 /** @var Builder<Model> $query */

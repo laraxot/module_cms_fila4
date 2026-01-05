@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Fields;
 
-use Error;
 use Filament\Forms\Components\Builder;
 use Filament\Forms\Components\Builder\Block;
 use Modules\UI\Actions\Block\GetAllBlocksAction;
@@ -46,7 +45,7 @@ class PageContentBuilder
                     name: $block->name,
                     context: $context,
                 );
-            } catch (Error $e) {
+            } catch (\Error $e) {
                 dddx([
                     'e' => $e->getMessage(),
                     'block' => $block,

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
-use Override;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
@@ -25,7 +24,7 @@ class AttachmentResource extends LangBaseResource
     /**
      * @return array<string, BaseComponent>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -53,7 +52,7 @@ class AttachmentResource extends LangBaseResource
         ];
     }
 
-    #[Override]
+    #[\Override]
     public static function getPages(): array
     {
         return [

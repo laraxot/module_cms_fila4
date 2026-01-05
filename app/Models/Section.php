@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Cms\Database\Factories\SectionFactory;
@@ -95,7 +94,7 @@ class Section extends BaseModelLang
      *
      * @return array<string, string>
      */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [
