@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Database\Seeders;
 
+use Exception;
 use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Collection;
@@ -55,7 +56,7 @@ class CmsMassSeeder extends Seeder
 
             $this->command->info("🎉 Seeding modulo Cms completato in {$executionTime} secondi!");
             $this->displaySummary();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->error('❌ Errore durante il seeding: '.$e->getMessage());
             throw $e;
         }
@@ -204,14 +205,14 @@ class CmsMassSeeder extends Seeder
             // Conta configurazioni
             try {
                 $totalConfigs = Conf::count();
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 $totalConfigs = 0;
             }
 
             $this->command->info('│ ⚙️ Configurazioni totali:     '.
             str_pad((string) $totalConfigs, 6, ' ', STR_PAD_LEFT).
                 ' │');
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             $this->command->info('│ ❌ Errore nel conteggio: '.$e->getMessage());
         }
 

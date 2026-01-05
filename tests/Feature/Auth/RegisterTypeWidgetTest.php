@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
+use Exception;
 use Livewire\Livewire;
 use Modules\User\Filament\Widgets\RegistrationWidget;
 use Modules\Xot\Datas\XotData;
@@ -40,7 +41,7 @@ test('registration widget renders correctly for doctor type', function (): void 
 test('registration widget throws exception without type parameter', function (): void {
     expect(function () {
         Livewire::test(RegistrationWidget::class);
-    })->toThrow(\Exception::class);
+    })->toThrow(Exception::class);
 });
 
 test('registration widget can set and get form data', function (): void {
@@ -85,9 +86,9 @@ test('registration widget register method can be called', function (): void {
     try {
         $widget->call('register');
         expect(true)->toBeTrue(); // Success path
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         // Se fallisce per action class o validation, è normale in test
-        expect($e)->toBeInstanceOf(\Exception::class);
+        expect($e)->toBeInstanceOf(Exception::class);
     }
 });
 
@@ -108,9 +109,9 @@ test('registration widget works for different user types', function (): void {
         try {
             $widget->call('register');
             expect(true)->toBeTrue();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Normale per environment di test
-            expect($e)->toBeInstanceOf(\Exception::class);
+            expect($e)->toBeInstanceOf(Exception::class);
         }
     }
 });

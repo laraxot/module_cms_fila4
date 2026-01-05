@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Override;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Cms\Database\Factories\MenuFactory;
 use Modules\Tenant\Models\Traits\SushiToJsons;
@@ -186,7 +187,7 @@ class Menu extends BaseModel implements HasRecursiveRelationshipsContract
         return $this->getSushiRows();
     }
 
-    #[\Override]
+    #[Override]
     public function getLabel(): string
     {
         // PHPStan Level 10: Ensure string return
@@ -194,7 +195,7 @@ class Menu extends BaseModel implements HasRecursiveRelationshipsContract
     }
 
     /** @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

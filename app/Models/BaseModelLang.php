@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
+use Override;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -53,7 +54,7 @@ abstract class BaseModelLang extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[\Override]
+    #[Override]
     protected function casts(): array
     {
         return [

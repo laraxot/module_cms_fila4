@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
+use Override;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Config;
 use Modules\Xot\Actions\File\FixPathAction;
@@ -21,7 +22,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
 
     protected string $module_ns = __NAMESPACE__;
 
-    #[\Override]
+    #[Override]
     public function boot(): void
     {
         parent::boot();
@@ -39,7 +40,7 @@ class CmsServiceProvider extends XotBaseServiceProvider
     /**
      * Register the service provider.
      */
-    #[\Override]
+    #[Override]
     public function register(): void
     {
         parent::register();
