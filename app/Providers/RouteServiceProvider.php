@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Override;
 use Exception;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\App;
@@ -33,7 +32,7 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
     protected string $module_ns = __NAMESPACE__;
     public string $name = 'Cms';
 
-    #[Override]
+    #[\Override]
     public function boot(): void
     {
         parent::boot();
@@ -85,25 +84,25 @@ class RouteServiceProvider extends XotBaseRouteServiceProvider
             ? config('laravellocalization.supportedLocales')
             : ['it' => 'it', 'en' => 'en'];
 
-        if (!\is_array($langs)) {
+        if (! \is_array($langs)) {
             // throw new \Exception('[.__LINE__.]['.class_basename(__CLASS__).']');
             $langs = ['it' => 'it', 'en' => 'en'];
         }
 
         $lang_pattern = collect(array_keys($langs))->implode('|');
-        $lang_pattern = '/|' . $lang_pattern . '|/i';
+        $lang_pattern = '/|'.$lang_pattern.'|/i';
 
         $router->pattern('lang', $lang_pattern);
         // -------------------------------------------------------------
         $models = config('morph_map');
-        if (!\is_array($models)) {
+        if (! \is_array($models)) {
             // throw new Exception('[' . print_r($models, true) . '][' . __LINE__ . '][' . class_basename(__CLASS__) . ']');
             $models = [];
         }
 
         $models_collect = collect(array_keys($models));
         $models_collect->implode('|');
-        $models_collect->map(static fn($item) => Str::plural((string) $item))->implode('|');
+        $models_collect->map(static fn ($item) => Str::plural((string) $item))->implode('|');
 
         /*--pattern vuoto
          * dddx([

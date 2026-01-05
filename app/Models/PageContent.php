@@ -4,29 +4,29 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
-use Illuminate\Support\Carbon;
-use Modules\Xot\Contracts\ProfileContract;
-use Modules\Cms\Database\Factories\PageContentFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
+use Modules\Cms\Database\Factories\PageContentFactory;
 use Modules\Tenant\Models\Traits\SushiToJsons;
+use Modules\Xot\Contracts\ProfileContract;
 use Spatie\Translatable\HasTranslations;
 
 /**
  * Modules\Cms\Models\PageContent.
  *
- * @property array|null                                  $blocks
- * @property string|null                                 $id
- * @property array|null                                  $name
- * @property string|null                                 $slug
- * @property Carbon|null $created_at
- * @property Carbon|null $updated_at
- * @property string|null                                 $created_by
- * @property string|null                                 $updated_by
+ * @property array|null           $blocks
+ * @property string|null          $id
+ * @property array|null           $name
+ * @property string|null          $slug
+ * @property Carbon|null          $created_at
+ * @property Carbon|null          $updated_at
+ * @property string|null          $created_by
+ * @property string|null          $updated_by
  * @property ProfileContract|null $creator
- * @property mixed                                       $translations
+ * @property mixed                $translations
  * @property ProfileContract|null $updater
- * @method static PageContentFactory factory($count = null, $state = [])
+ *
+ * @method static PageContentFactory  factory($count = null, $state = [])
  * @method static Builder|PageContent newModelQuery()
  * @method static Builder|PageContent newQuery()
  * @method static Builder|PageContent query()
@@ -42,6 +42,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|PageContent whereSlug($value)
  * @method static Builder|PageContent whereUpdatedAt($value)
  * @method static Builder|PageContent whereUpdatedBy($value)
+ *
  * @mixin IdeHelperPageContent
  * @mixin \Eloquent
  */
@@ -92,7 +93,7 @@ class PageContent extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

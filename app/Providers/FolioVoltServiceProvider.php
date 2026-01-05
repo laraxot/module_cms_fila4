@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Providers;
 
-use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
-use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\File;
@@ -13,6 +11,8 @@ use Illuminate\Support\ServiceProvider;
 use Laravel\Folio\Folio;
 use Livewire\Volt\Volt;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
+use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
@@ -25,7 +25,6 @@ class FolioVoltServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        
     }
 
     /**
@@ -41,16 +40,16 @@ class FolioVoltServiceProvider extends ServiceProvider
          * ]);
          */
         $middleware = TenantService::config('middleware');
-        if (!is_array($middleware)) {
+        if (! is_array($middleware)) {
             $middleware = [];
         }
         Assert::isArray($base_middleware = Arr::get($middleware, 'base', []));
 
-        //$base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class;
+        // $base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class;
         $base_middleware[] = LocaleSessionRedirect::class;
         $base_middleware[] = LaravelLocalizationRedirectFilter::class;
-        //$base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class;
-        //$base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class;
+        // $base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class;
+        // $base_middleware[]=\Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class;
 
         $theme_path = XotData::make()->getPubThemeViewPath('pages');
         /*
@@ -62,11 +61,11 @@ class FolioVoltServiceProvider extends ServiceProvider
          * app()->setLocale($currentLocale);
          * }
          */
-        //$currentLocale = LaravelLocalization::setLocale() ?? app()->getLocale();
+        // $currentLocale = LaravelLocalization::setLocale() ?? app()->getLocale();
 
         Folio::path($theme_path)
             ->uri(LaravelLocalization::setLocale() ?? app()->getLocale())
-            //->uri('{lang}')
+            // ->uri('{lang}')
             ->middleware([
                 '*' => $base_middleware,
             ]);
@@ -78,14 +77,14 @@ class FolioVoltServiceProvider extends ServiceProvider
         $paths = [];
         $paths[] = $theme_path;
         foreach ($modules as $module) {
-            $path = $module->getPath() . '/resources/views/pages';
-            if (!File::exists($path)) {
+            $path = $module->getPath().'/resources/views/pages';
+            if (! File::exists($path)) {
                 continue;
             }
             $paths[] = $path;
             Folio::path($path)
                 ->uri(LaravelLocalization::setLocale() ?? app()->getLocale())
-                //->uri('{lang}')
+                // ->uri('{lang}')
                 ->middleware([
                     '*' => $base_middleware,
                 ]);

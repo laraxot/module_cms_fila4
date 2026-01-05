@@ -61,7 +61,7 @@ class TokenComponent extends Component
                 Auth::guard()->login($user);
             },
         );
-        Assert::string($response, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+        Assert::string($response, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
         Assert::string($trans = trans($response));
         if (Password::PASSWORD_RESET === $response) {
             session()->flash($trans);

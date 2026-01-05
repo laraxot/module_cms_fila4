@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 namespace Modules\Cms\Models\Traits;
 
 use Illuminate\Support\Facades\Blade;
@@ -16,12 +15,12 @@ trait HasBlocks
     {
         $blocks = $this->blocks;
 
-        if (!is_array($blocks)) {
+        if (! is_array($blocks)) {
             $primary_lang = XotData::make()->primary_lang;
             $blocks = $this->getTranslation('blocks', $primary_lang);
         }
 
-        if (!is_array($blocks)) {
+        if (! is_array($blocks)) {
             $blocks = [];
         }
 
@@ -42,6 +41,7 @@ trait HasBlocks
                 $blocks[$key] = Blade::render($value);
             }
         }
+
         return $blocks;
     }
 
@@ -49,9 +49,10 @@ trait HasBlocks
     {
         $model = static::class;
         $record = $model::firstWhere('slug', $slug);
-        if (!$record) {
+        if (! $record) {
             return [];
         }
+
         return $record->getBlocks();
     }
 }

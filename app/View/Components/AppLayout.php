@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
@@ -26,8 +25,8 @@ class AppLayout extends Component
         $view = 'pub_theme::layouts.app';
         $view_params = [];
         // @phpstan-ignore-next-line
-        if (!view()->exists($view)) {
-            throw new Exception('view not found: ' . $view);
+        if (! view()->exists($view)) {
+            throw new \Exception('view not found: '.$view);
         }
 
         return view($view, $view_params);

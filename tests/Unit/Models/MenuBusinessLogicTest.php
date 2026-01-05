@@ -3,11 +3,11 @@
 declare(strict_types=1);
 
 use Modules\Cms\Models\BaseModel;
-use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
-use Modules\Tenant\Models\Traits\SushiToJsons;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\Builder;
 use Modules\Cms\Models\Menu;
+use Modules\Tenant\Models\Traits\SushiToJsons;
+use Modules\Xot\Contracts\HasRecursiveRelationshipsContract;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\Builder;
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 describe('Menu Business Logic', function () {
     test('menu extends base model', function () {

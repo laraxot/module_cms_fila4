@@ -3,9 +3,9 @@
 declare(strict_types=1);
 
 use Modules\Cms\Models\BaseModelLang;
-use Modules\Tenant\Models\Traits\SushiToJsons;
-use Modules\Cms\Models\Traits\HasBlocks;
 use Modules\Cms\Models\Section;
+use Modules\Cms\Models\Traits\HasBlocks;
+use Modules\Tenant\Models\Traits\SushiToJsons;
 
 describe('Section Business Logic', function () {
     test('section extends base model lang for multilingual support', function () {

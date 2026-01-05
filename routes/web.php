@@ -15,8 +15,8 @@ use Modules\Cms\Filament\Front\Pages\Welcome;
 
 Route::get(
     '/',
-    fn() => (
+    fn () =>
         // return view('welcome');
-        redirect('/' . app()->getLocale())
-    ),
+        redirect('/'.app()->getLocale())
+    ,
 );

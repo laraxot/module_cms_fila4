@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Modules\Cms\Models\Conf;
 
 /**
- * Conf Factory
+ * Conf Factory.
  *
  * @extends Factory<Conf>
  */

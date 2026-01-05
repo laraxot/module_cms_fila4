@@ -16,15 +16,15 @@ class PageManagementBusinessLogicTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function it_can_create_page_with_basic_information(): void
+    public function itCanCreatePageWithBasicInformation(): void
     {
         // Arrange
         $pageData = [
             'title' => 'Home Page',
             'slug' => 'home',
             'status' => 'published',
-            'meta_title' => 'Home Page - ' . config('app.name', 'Our Platform'),
-            'meta_description' => 'Pagina principale di ' . config('app.name', 'Our Platform'),
+            'meta_title' => 'Home Page - '.config('app.name', 'Our Platform'),
+            'meta_description' => 'Pagina principale di '.config('app.name', 'Our Platform'),
         ];
 
         // Act
@@ -36,8 +36,8 @@ class PageManagementBusinessLogicTest extends TestCase
             'title' => 'Home Page',
             'slug' => 'home',
             'status' => 'published',
-            'meta_title' => 'Home Page - ' . config('app.name', 'Our Platform'),
-            'meta_description' => 'Pagina principale di ' . config('app.name', 'Our Platform'),
+            'meta_title' => 'Home Page - '.config('app.name', 'Our Platform'),
+            'meta_description' => 'Pagina principale di '.config('app.name', 'Our Platform'),
         ]);
 
         $this->assertEquals('Home Page', $page->title);
@@ -46,18 +46,15 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_page_with_content(): void
+    public function itCanCreatePageWithContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
         $contentData = [
             'page_id' => $page->id,
-            'content' =>
-
-                    '<h1>Benvenuti su ' .
-                    config('app.name', 'Our Platform') .
-                    '</h1><p>La vostra salute è la nostra priorità.</p>'
-                ,
+            'content' => '<h1>Benvenuti su '.
+                    config('app.name', 'Our Platform').
+                    '</h1><p>La vostra salute è la nostra priorità.</p>',
             'locale' => 'it',
             'version' => 1,
         ];
@@ -79,7 +76,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_create_page_with_sections(): void
+    public function itCanCreatePageWithSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -109,7 +106,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_page_status(): void
+    public function itCanUpdatePageStatus(): void
     {
         // Arrange
         $page = Page::factory()->create(['status' => 'draft']);
@@ -127,7 +124,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_update_page_seo_metadata(): void
+    public function itCanUpdatePageSeoMetadata(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -135,7 +132,7 @@ class PageManagementBusinessLogicTest extends TestCase
             'meta_title' => 'Nuovo Meta Title',
             'meta_description' => 'Nuova meta description per SEO',
             'meta_keywords' => 'salute, dentista, milano',
-            'canonical_url' => 'https://' . config('app.domain', 'example.com') . '/pagina',
+            'canonical_url' => 'https://'.config('app.domain', 'example.com').'/pagina',
         ];
 
         // Act
@@ -147,12 +144,12 @@ class PageManagementBusinessLogicTest extends TestCase
             'meta_title' => 'Nuovo Meta Title',
             'meta_description' => 'Nuova meta description per SEO',
             'meta_keywords' => 'salute, dentista, milano',
-            'canonical_url' => 'https://' . config('app.domain', 'example.com') . '/pagina',
+            'canonical_url' => 'https://'.config('app.domain', 'example.com').'/pagina',
         ]);
     }
 
     /** @test */
-    public function it_can_manage_page_versions(): void
+    public function itCanManagePageVersions(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -184,7 +181,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_multilingual_page_content(): void
+    public function itCanManageMultilingualPageContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -215,7 +212,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_sections_order(): void
+    public function itCanManagePageSectionsOrder(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -251,7 +248,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_reorder_page_sections(): void
+    public function itCanReorderPageSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -286,7 +283,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_validate_page_slug_uniqueness(): void
+    public function itCanValidatePageSlugUniqueness(): void
     {
         // Arrange
         Page::factory()->create(['slug' => 'unique-page']);
@@ -302,7 +299,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_handle_page_soft_delete(): void
+    public function itCanHandlePageSoftDelete(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -316,7 +313,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_restore_soft_deleted_page(): void
+    public function itCanRestoreSoftDeletedPage(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -331,7 +328,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_force_delete_page_with_related_data(): void
+    public function itCanForceDeletePageWithRelatedData(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -359,7 +356,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_search_pages_by_title(): void
+    public function itCanSearchPagesByTitle(): void
     {
         // Arrange
         $page1 = Page::factory()->create(['title' => 'Home Page']);
@@ -377,7 +374,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_search_pages_by_status(): void
+    public function itCanSearchPagesByStatus(): void
     {
         // Arrange
         $publishedPage = Page::factory()->create(['status' => 'published']);
@@ -396,7 +393,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_pages_with_related_content(): void
+    public function itCanGetPagesWithRelatedContent(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -418,7 +415,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_get_pages_with_related_sections(): void
+    public function itCanGetPagesWithRelatedSections(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -440,7 +437,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_templates(): void
+    public function itCanManagePageTemplates(): void
     {
         // Arrange
         $page = Page::factory()->create(['template' => 'default']);
@@ -458,7 +455,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_permissions(): void
+    public function itCanManagePagePermissions(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -482,7 +479,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_scheduling(): void
+    public function itCanManagePageScheduling(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -504,7 +501,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_categories(): void
+    public function itCanManagePageCategories(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -525,7 +522,7 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_tags(): void
+    public function itCanManagePageTags(): void
     {
         // Arrange
         $page = Page::factory()->create();
@@ -546,13 +543,13 @@ class PageManagementBusinessLogicTest extends TestCase
     }
 
     /** @test */
-    public function it_can_manage_page_redirects(): void
+    public function itCanManagePageRedirects(): void
     {
         // Arrange
         $page = Page::factory()->create();
         $redirectData = [
             'redirect_type' => '301',
-            'redirect_url' => 'https://' . config('app.domain', 'example.com') . '/nuova-pagina',
+            'redirect_url' => 'https://'.config('app.domain', 'example.com').'/nuova-pagina',
             'redirect_reason' => 'Page moved permanently',
         ];
 
@@ -563,13 +560,13 @@ class PageManagementBusinessLogicTest extends TestCase
         $this->assertDatabaseHas('pages', [
             'id' => $page->id,
             'redirect_type' => '301',
-            'redirect_url' => 'https://' . config('app.domain', 'example.com') . '/nuova-pagina',
+            'redirect_url' => 'https://'.config('app.domain', 'example.com').'/nuova-pagina',
             'redirect_reason' => 'Page moved permanently',
         ]);
     }
 
     /** @test */
-    public function it_can_manage_page_analytics(): void
+    public function itCanManagePageAnalytics(): void
     {
         // Arrange
         $page = Page::factory()->create();

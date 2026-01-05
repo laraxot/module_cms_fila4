@@ -12,7 +12,7 @@ use Tests\CreatesApplication;
 
 abstract class TestHelper extends BaseTestCase
 {
-    //use CreatesApplication;
+    // use CreatesApplication;
 
     // in User
     public function getSuperAdminUser()
@@ -25,7 +25,7 @@ abstract class TestHelper extends BaseTestCase
     {
         return User::all()
             ->map(function ($item) {
-                if (!$item->hasRole('super-admin')) {
+                if (! $item->hasRole('super-admin')) {
                     return $item;
                 }
             })
@@ -42,7 +42,7 @@ abstract class TestHelper extends BaseTestCase
     public function getMainAdminNavigationUrlItems()
     {
         return $item_navs = collect(app(GetModulesNavigationItems::class)->execute())
-            ->map(fn($item) => $item->getUrl());
+            ->map(fn ($item) => $item->getUrl());
     }
 
     // in Tenant o Cms
@@ -52,9 +52,9 @@ abstract class TestHelper extends BaseTestCase
             ->getRoleNames()
             ->map(function ($item) {
                 if ('super-admin' !== $item) {
-                    return '/' . mb_substr($item, 0, -7) . '/admin';
+                    return '/'.mb_substr($item, 0, -7).'/admin';
                 }
             })
-            ->filter(fn($value): bool => !is_null($value));
+            ->filter(fn ($value): bool => ! is_null($value));
     }
 }

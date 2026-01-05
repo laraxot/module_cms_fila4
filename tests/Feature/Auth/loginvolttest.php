@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Livewire\Volt\Volt as LivewireVolt;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\assertAuthenticated;
 use function Pest\Laravel\assertGuest;
@@ -197,7 +196,7 @@ describe('Volt Component Security', function () {
         ]);
 
         // Multiple failed attempts
-        for ($i = 0; $i < 5; $i++) {
+        for ($i = 0; $i < 5; ++$i) {
             LivewireVolt::test('auth.login')
                 ->set('email', $email)
                 ->set('password', 'wrong_password')
@@ -235,7 +234,7 @@ describe('Volt Component Security', function () {
         $email = $this->generateUniqueEmail();
 
         $response = LivewireVolt::test('auth.login')
-            ->set('email', '<script>alert("xss")</script>' . $email)
+            ->set('email', '<script>alert("xss")</script>'.$email)
             ->set('password', 'password123')
             ->call('save');
 

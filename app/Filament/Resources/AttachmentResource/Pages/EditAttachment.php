@@ -38,7 +38,7 @@ class EditAttachment extends LangBaseEditRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         // Handle translatable attachment field for FileUpload
-        if (isset($data['attachment']) && is_string($data['attachment']) && !empty($data['attachment'])) {
+        if (isset($data['attachment']) && is_string($data['attachment']) && ! empty($data['attachment'])) {
             $uuid = Str::uuid()->toString();
             $data['attachment'] = [$uuid => $data['attachment']];
         } elseif (isset($data['attachment']) && empty($data['attachment'])) {

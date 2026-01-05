@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests\Feature\Auth;
 
-use Modules\Xot\Tests\TestCase;
-use Illuminate\Support\Facades\Hash;
-use Modules\Xot\Contracts\UserContract;
 use Modules\Xot\Datas\XotData;
+use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 uses(TestCase::class);
 
-/**
+/*
  * Tests for dynamic registration pages rendered by Themes/One
  * Route pattern: /{locale}/auth/{type}/register
  *
@@ -59,8 +57,8 @@ describe('Registration Page Content', function () {
         expect($response->status())->toBe(200);
 
         $content = $response->getContent();
-        expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')//->toContain('<x-ui.logo')
-        //->toContain('RegistrationWidget')
+        expect($content)->toContain('Registrazione')->toContain('Crea il tuo account')// ->toContain('<x-ui.logo')
+        // ->toContain('RegistrationWidget')
         ;
     })->with('userTypes');
 
@@ -89,14 +87,14 @@ describe('Registration Page Localization', function () {
 });
 
 describe('Registration Page Security', function () {
-    //test('handles invalid user type gracefully', function (): void {
+    // test('handles invalid user type gracefully', function (): void {
     //    $response = get('/it/auth/invalid-type/register');
     //     expect($response->status())->toBe(404);
-    //});
-    //test('handles missing type parameter appropriately', function (): void {
+    // });
+    // test('handles missing type parameter appropriately', function (): void {
     //    $response = get('/it/auth/register');
     //    expect($response->status())->toBeGreaterThanOrEqual(300);
-    //});
+    // });
 });
 
 describe('Registration Page Performance', function () {

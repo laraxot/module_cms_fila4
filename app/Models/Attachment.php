@@ -4,32 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
 use Illuminate\Support\Carbon;
-use Filament\Forms\Components\RichEditor\FileAttachmentProviders\SpatieMediaLibraryFileAttachmentProvider;
-use Filament\Forms\Components\RichEditor\Models\Concerns\InteractsWithRichContent;
-use Filament\Forms\Components\RichEditor\Models\Contracts\HasRichContent;
 use Illuminate\Support\Facades\Storage;
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Xot\Contracts\ProfileContract;
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\Translatable\HasTranslations;
 
 /**
- * ---
- * @property string $id
- * @property string $title
- * @property string $description
- * @property string $slug
- * @property string $disk
- * @property array $attachment
- * @property Carbon $created_at
- * @property Carbon $updated_at
- * @property string $created_by
- * @property string $updated_by
- * @property Carbon $deleted_at
- * @property string $deleted_by
+ * ---.
+ *
+ * @property string          $id
+ * @property string          $title
+ * @property string          $description
+ * @property string          $slug
+ * @property string          $disk
+ * @property array           $attachment
+ * @property Carbon          $created_at
+ * @property Carbon          $updated_at
+ * @property string          $created_by
+ * @property string          $updated_by
+ * @property Carbon          $deleted_at
+ * @property string          $deleted_by
  * @property ProfileContract $created_by_profile
  * @property ProfileContract $updated_by_profile
  * @property ProfileContract $deleted_by_profile
@@ -58,7 +54,7 @@ class Attachment extends BaseModelLang implements HasMedia
     ];
 
     protected $casts = [
-        //'title' => 'array',
+        // 'title' => 'array',
         'attachment' => 'array',
     ];
 
@@ -107,6 +103,7 @@ class Attachment extends BaseModelLang implements HasMedia
     public function getRows(): array
     {
         $rows = $this->getSushiRows();
+
         return $rows;
     }
 
@@ -114,7 +111,7 @@ class Attachment extends BaseModelLang implements HasMedia
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [
@@ -146,7 +143,7 @@ class Attachment extends BaseModelLang implements HasMedia
         ]);
     }
 
-    public function getAttachmentForLocale(string|null $locale = null): null|string
+    public function getAttachmentForLocale(?string $locale = null): ?string
     {
         $locale ??= app()->getLocale();
         $media = $this->getFirstMedia('attachments');
@@ -162,6 +159,7 @@ class Attachment extends BaseModelLang implements HasMedia
     {
         $file = array_values($this->attachment)[0];
         $path = Storage::disk($this->disk)->url($file);
+
         return $path;
     }
 }

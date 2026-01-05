@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Blocks;
 
-use Override;
-use Filament\Forms\Components\Builder\Block;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -13,7 +11,7 @@ use Modules\Xot\Filament\Blocks\XotBaseBlock;
 
 class SocialLinksBlock extends XotBaseBlock
 {
-    #[Override]
+    #[\Override]
     public static function getBlockSchema(): array
     {
         return [

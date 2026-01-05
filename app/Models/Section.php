@@ -4,33 +4,34 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Modules\Cms\Models\Traits\HasBlocks;
-use Override;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use Modules\Cms\Database\Factories\SectionFactory;
-use Illuminate\Database\Eloquent\Builder;
+use Modules\Cms\Models\Traits\HasBlocks;
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Xot\Contracts\ProfileContract;
-use Spatie\Translatable\HasTranslations;
 
 /**
- * Modules\Cms\Models\Section
+ * Modules\Cms\Models\Section.
  *
- * @property array|null                                  $blocks
- * @property string|null                                 $id
- * @property array|null                                  $name
- * @property string|null                                 $slug
+ * @property array|null  $blocks
+ * @property string|null $id
+ * @property array|null  $name
+ * @property string|null $slug
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property string|null                                 $created_by
- * @property string|null                                 $updated_by
- * @property mixed                                       $translations
- * @method static SectionFactory factory($count = null, $state = [])
+ * @property string|null $created_by
+ * @property string|null $updated_by
+ * @property mixed       $translations
+ *
+ * @method static SectionFactory  factory($count = null, $state = [])
  * @method static Builder|Section newModelQuery()
  * @method static Builder|Section newQuery()
  * @method static Builder|Section query()
- * @property-read ProfileContract|null $creator
- * @property-read ProfileContract|null $updater
+ *
+ * @property ProfileContract|null $creator
+ * @property ProfileContract|null $updater
+ *
  * @method static Builder<static>|Section whereBlocks($value)
  * @method static Builder<static>|Section whereCreatedAt($value)
  * @method static Builder<static>|Section whereCreatedBy($value)
@@ -43,6 +44,7 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|Section whereSlug($value)
  * @method static Builder<static>|Section whereUpdatedAt($value)
  * @method static Builder<static>|Section whereUpdatedBy($value)
+ *
  * @mixin IdeHelperSection
  * @mixin \Eloquent
  */
@@ -80,7 +82,7 @@ class Section extends BaseModelLang
      *
      * @return array<string, string>
      */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Illuminate\Database\Eloquent\Model;
-use Sushi\Sushi;
 use Modules\Cms\Models\Conf;
+use Sushi\Sushi;
 
 describe('Conf Business Logic', function () {
     test('conf extends eloquent model', function () {

@@ -4,30 +4,25 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
-use Override;
-use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\Repeater;
-use Filament\Schemas\Components\Grid;
-use Filament\Forms\Components\Radio;
 use Filament\Forms;
+use Filament\Forms\Components\Radio;
+use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
-use Filament\Forms\Form;
-use Filament\Tables;
-use Filament\Tables\Table;
+use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Grid;
 use Illuminate\Support\HtmlString;
-use Modules\Cms\Filament\Resources\MenuResource\Pages;
 use Modules\Cms\Models\Menu;
 use Modules\UI\Filament\Forms\Components\IconPicker;
 use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class MenuResource extends XotBaseResource
 {
-    protected static null|string $model = Menu::class;
+    protected static ?string $model = Menu::class;
 
     /**
      * @return array<\Filament\Schemas\Components\Component>
      */
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [
@@ -74,7 +69,7 @@ class MenuResource extends XotBaseResource
                         ->collection('menu'),
                     // ->preserveFilenames()
                     // Forms\Components\Select::make('parent_id')
-                    
+
                     //     ->options(
                     //         Menu::getTreeMenuOptions()
                     //     )

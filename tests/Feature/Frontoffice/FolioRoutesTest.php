@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Modules\Cms\Tests\TestCase;
 use Illuminate\Support\Facades\Artisan;
+use Modules\Cms\Tests\TestCase;
 
 uses(TestCase::class);
 
@@ -22,7 +22,7 @@ function getFolioPaths(): array
 
     foreach (preg_split("/\r?\n/", $output) as $line) {
         // Lines look like: "  GET       /it ...."
-        if (preg_match('#\bGET\s+(/[^\s]+)#', $line, $m) === 1) {
+        if (1 === preg_match('#\bGET\s+(/[^\s]+)#', $line, $m)) {
             $paths[] = $m[1];
         }
     }
@@ -42,9 +42,9 @@ it('validates Folio routes basic accessibility and localization', function (): v
 
     foreach ($paths as $path) {
         // Root should redirect to /{locale}
-        if ($path === '/') {
+        if ('/' === $path) {
             $response = $this->get($path);
-            $response->assertRedirect('/' . $locale);
+            $response->assertRedirect('/'.$locale);
             continue;
         }
 
@@ -58,7 +58,7 @@ it('validates Folio routes basic accessibility and localization', function (): v
         $status = $response->getStatusCode();
 
         // Skip Not Found (routing misalignment) and any server error with context
-        if ($status === 404) {
+        if (404 === $status) {
             $this->markTestSkipped("Folio route not found (404): {$path}");
         }
         if ($status >= 500) {
@@ -69,10 +69,10 @@ it('validates Folio routes basic accessibility and localization', function (): v
         expect($status)->toBeIn([200, 204, 301, 302, 303, 307, 308, 401, 403]);
 
         // If homepage, assert HTML lang attribute and 200 OK
-        if ($path === ('/' . $locale)) {
+        if ($path === ('/'.$locale)) {
             $response->assertStatus(200);
             $response->assertSee('<html', false);
-            $response->assertSee(' lang="' . $locale . '"', false);
+            $response->assertSee(' lang="'.$locale.'"', false);
         }
     }
 });

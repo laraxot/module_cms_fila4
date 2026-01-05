@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Unit\Models;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Modules\Cms\Models\Page;
-use Modules\Cms\Models\PageContent;
 use Tests\TestCase;
 
 uses(TestCase::class, RefreshDatabase::class);

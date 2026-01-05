@@ -4,15 +4,16 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Actions\Module;
 
-use Modules\Xot\Actions\File\FixPathAction;
 use Exception;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Facades\File;
+use Modules\Xot\Actions\File\FixPathAction;
 use Nwidart\Modules\Laravel\Module;
-use Spatie\QueueableAction\QueueableAction;
-use Symfony\Component\Finder\SplFileInfo;
 
 use function Safe\realpath;
+
+use Spatie\QueueableAction\QueueableAction;
+use Symfony\Component\Finder\SplFileInfo;
 
 final class FixJigSawByModuleAction
 {
@@ -21,14 +22,14 @@ final class FixJigSawByModuleAction
     public function execute(Module $module): array
     {
         $res = [];
-        $stubs_dir = realpath(__DIR__ . '/../../Console/Commands/stubs/docs');
+        $stubs_dir = realpath(__DIR__.'/../../Console/Commands/stubs/docs');
         // if ($stubs_dir === false) {
         //    throw new Exception('['.__LINE__.']['.__FILE__.']');
         // }
 
         $stubs = File::allFiles($stubs_dir);
         foreach ($stubs as $stub) {
-            if (!$stub->isFile()) {
+            if (! $stub->isFile()) {
                 continue;
             }
 
@@ -45,7 +46,7 @@ final class FixJigSawByModuleAction
     public function publish(SplFileInfo $stub, Module $module): string
     {
         $filename = str_replace('.stub', '', $stub->getRelativePathname());
-        $file_path = $module->getPath() . '/docs/' . $filename;
+        $file_path = $module->getPath().'/docs/'.$filename;
         $file_path = app(FixPathAction::class)->execute($file_path);
         /*
          * //mkdir(): Permission denied

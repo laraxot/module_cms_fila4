@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\View\Components;
 
-use Exception;
 use Illuminate\Contracts\View\View as ViewContract;
 use Illuminate\View\Component;
 use Illuminate\View\View;
@@ -25,8 +24,8 @@ class Metatags extends Component
             'meta' => $metatag,
         ];
         // @phpstan-ignore-next-line
-        if (!view()->exists($view)) {
-            throw new Exception('view not found: ' . $view);
+        if (! view()->exists($view)) {
+            throw new \Exception('view not found: '.$view);
         }
 
         return view($view, $view_params);

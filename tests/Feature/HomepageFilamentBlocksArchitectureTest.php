@@ -5,11 +5,12 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Feature;
 
 use Modules\Cms\Tests\TestCase;
-use Spatie\LaravelData\DataCollection;
-use Modules\UI\View\Components\Render\Blocks;
 use Modules\UI\Actions\Block\GetAllBlocksAction;
+use Modules\UI\View\Components\Render\Blocks;
 
 use function Pest\Laravel\get;
+
+use Spatie\LaravelData\DataCollection;
 
 uses(TestCase::class);
 
@@ -19,7 +20,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     });
 
     test('homepage renders through cms page component system', function () {
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -57,7 +58,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
         expect($allBlocks->count())->toBeGreaterThan(0);
 
         // Verify CMS blocks are discovered
-        $cmsBlocks = $allBlocks->filter(fn($block) => $block->module === 'Cms');
+        $cmsBlocks = $allBlocks->filter(fn ($block) => 'Cms' === $block->module);
         if ($cmsBlocks->count() > 0) {
             $cmsBlocks->each(function ($block) {
                 expect($block->toArray())->toHaveKeys(['name', 'class', 'module', 'path']);
@@ -85,7 +86,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     });
 
     test('homepage content management through cms works correctly', function () {
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -110,7 +111,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     });
 
     test('cms theme integration renders blocks correctly', function () {
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -148,7 +149,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
         expect($homepageData['title'])->toHaveKey($this->lang);
 
         // Test rendering with current locale
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -156,7 +157,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     });
 
     test('cms page component passes correct data to blocks', function () {
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -175,7 +176,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
         $pagesPath = config_path('local/saluteora/database/content/pages/');
         expect(file_exists($pagesPath))->toBeTrue('CMS pages directory should exist');
 
-        $homepageJsonPath = $pagesPath . 'home.json';
+        $homepageJsonPath = $pagesPath.'home.json';
         expect(file_exists($homepageJsonPath))->toBeTrue('Homepage JSON should exist');
 
         $homepageData = json_decode(file_get_contents($homepageJsonPath), true);
@@ -212,7 +213,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
             expect($landingBlock['data']['cta_link'])->toContain("{{ route('register') }}");
 
             // Verify it's processed correctly on the page
-            $response = get('/' . $this->lang);
+            $response = get('/'.$this->lang);
             $content = $response->getContent();
 
             $expectedUrl = route('register');
@@ -221,7 +222,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     });
 
     test('cms renders valid html structure', function () {
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $content = $response->getContent();
@@ -241,7 +242,7 @@ describe('Homepage Filament Builder Blocks - CMS Module', function () {
     test('cms performance for block rendering is acceptable', function () {
         $startTime = microtime(true);
 
-        $response = get('/' . $this->lang);
+        $response = get('/'.$this->lang);
         $response->assertOk();
 
         $renderTime = microtime(true) - $startTime;

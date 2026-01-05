@@ -116,9 +116,9 @@ test('page content blocks support complex structures', function () {
         ->toBeArray()
         ->toHaveCount(3)
         ->sequence(
-            fn($block) => $block->type->toBe('hero'),
-            fn($block) => $block->type->toBe('features'),
-            fn($block) => $block->type->toBe('testimonial'),
+            fn ($block) => $block->type->toBe('hero'),
+            fn ($block) => $block->type->toBe('features'),
+            fn ($block) => $block->type->toBe('testimonial'),
         );
 });
 
@@ -177,7 +177,7 @@ test('page content factory creates valid instances', function () {
 test('page content slug must be unique', function () {
     $pageContent1 = PageContent::factory()->create(['slug' => 'unique-content']);
 
-    expect(fn() => PageContent::factory()->create(['slug' => 'unique-content']))
+    expect(fn () => PageContent::factory()->create(['slug' => 'unique-content']))
         ->toThrow(QueryException::class);
 });
 
@@ -189,7 +189,7 @@ test('page content blocks validation', function () {
 
 test('page content handles large blocks efficiently', function () {
     $largeBlocks = array_map(
-        fn($i) => [
+        fn ($i) => [
             'type' => 'card',
             'title' => "Card {$i}",
             'content' => "Content for card {$i} with detailed description.",
@@ -232,10 +232,10 @@ test('page content with complex nested block structures', function () {
             'type' => 'accordion',
             'title' => 'FAQ Section',
             'items' => array_map(
-                fn($i) => [
+                fn ($i) => [
                     'question' => "Question {$i}",
                     'answer' => "Answer to question {$i} with detailed explanation.",
-                    'expanded' => $i === 0,
+                    'expanded' => 0 === $i,
                 ],
                 range(1, 20),
             ),
@@ -244,7 +244,7 @@ test('page content with complex nested block structures', function () {
             'type' => 'gallery',
             'title' => 'Image Gallery',
             'images' => array_map(
-                fn($i) => [
+                fn ($i) => [
                     'src' => "gallery/image{$i}.jpg",
                     'alt' => "Image {$i}",
                     'caption' => "Caption for image {$i}",
@@ -285,8 +285,8 @@ test('page content with complex nested block structures', function () {
         ->toBeArray()
         ->toHaveCount(3)
         ->sequence(
-            fn($block) => $block->type->toBe('accordion')->items->toHaveCount(20),
-            fn($block) => $block->type->toBe('gallery')->images->toHaveCount(15),
-            fn($block) => $block->type->toBe('pricing')->plans->toHaveCount(3),
+            fn ($block) => $block->type->toBe('accordion')->items->toHaveCount(20),
+            fn ($block) => $block->type->toBe('gallery')->images->toHaveCount(15),
+            fn ($block) => $block->type->toBe('pricing')->plans->toHaveCount(3),
         );
 });

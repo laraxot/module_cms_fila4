@@ -16,7 +16,7 @@ class PageContent
         $blocks = app(GetAllBlocksAction::class)->execute();
 
         $blocks = $blocks->map(function ($block) use ($context) {
-            Assert::isInstanceOf($block, ComponentFileData::class, '[' . __LINE__ . '][' . __FILE__ . ']');
+            Assert::isInstanceOf($block, ComponentFileData::class, '['.__LINE__.']['.__FILE__.']');
             $class = $block->class;
 
             return $class::make(context: $context);

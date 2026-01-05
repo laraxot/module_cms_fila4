@@ -16,7 +16,7 @@ use Livewire\Volt\Component;
 class ResetComponent extends Component
 {
     #[Validate('required|email')]
-    public null|string $email = null;
+    public ?string $email = null;
 
     /**
      * Summary of emailSentMessage.

@@ -4,29 +4,28 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
-use Illuminate\Support\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Carbon;
 use Modules\Cms\Database\Factories\PageFactory;
 use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Xot\Contracts\ProfileContract;
-use Spatie\Translatable\HasTranslations;
 
 /**
  * Modules\Cms\Models\Page.
  *
- * @property string                          $id
+ * @property string      $id
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
- * @property string                          $slug
- * @property string                          $title
- * @property string|null                     $description
- * @property string                          $content
- * @property string|null                     $updated_by
- * @property string|null                     $created_by
+ * @property string      $slug
+ * @property string      $title
+ * @property string|null $description
+ * @property string      $content
+ * @property string|null $updated_by
+ * @property string|null $created_by
  * @property Carbon|null $deleted_at
- * @property string|null                     $deleted_by
- * @property array|null                      $content_blocks
+ * @property string|null $deleted_by
+ * @property array|null  $content_blocks
+ *
  * @method static Builder|Page newModelQuery()
  * @method static Builder|Page newQuery()
  * @method static Builder|Page onlyTrashed()
@@ -44,20 +43,29 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder|Page whereUpdatedBy($value)
  * @method static Builder|Page withTrashed()
  * @method static Builder|Page withoutTrashed()
+ *
  * @property array|null $sidebar_blocks
  * @property array      $footer_blocks
+ *
  * @method static Builder|Page whereFooterBlocks($value)
  * @method static Builder|Page whereSidebarBlocks($value)
+ *
  * @property mixed $translations
+ *
  * @method static Builder|Page whereLocale(string $column, string $locale)
  * @method static Builder|Page whereLocales(string $column, array $locales)
  * @method static Builder|Page whereJsonContainsLocale(string $column, string $locale, ?mixed $value)
  * @method static Builder|Page whereJsonContainsLocales(string $column, array $locales, ?mixed $value)
+ *
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $updater
+ *
  * @method static PageFactory factory($count = null, $state = [])
+ *
  * @property array<array-key, mixed>|null $middleware
+ *
  * @method static Builder<static>|Page whereMiddleware($value)
+ *
  * @mixin IdeHelperPage
  * @mixin \Eloquent
  */
@@ -110,7 +118,7 @@ class Page extends BaseModelLang
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [
@@ -132,6 +140,7 @@ class Page extends BaseModelLang
     public static function getMiddlewareBySlug(string $slug): array
     {
         $page = self::where('slug', $slug)->first();
+
         return $page->middleware ?? [];
     }
 }

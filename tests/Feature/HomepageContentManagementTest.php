@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Feature;
 
 use Modules\Cms\Tests\TestCase;
-use Modules\SaluteOra\Enums\UserTypeEnum;
-use Modules\SaluteOra\Models\User;
 
-use function Pest\Laravel\actingAs;
 use function Pest\Laravel\get;
 
 uses(TestCase::class);
@@ -76,7 +73,7 @@ describe('Homepage Content Management', function () {
         $response->assertStatus(200);
         // Verifica CTA button
         $response->assertSee('INIZIA ORA');
-        $response->assertSee('href="' . route('register') . '"');
+        $response->assertSee('href="'.route('register').'"');
         $response->assertSee('bg-indigo-600 hover:bg-indigo-700');
     });
 

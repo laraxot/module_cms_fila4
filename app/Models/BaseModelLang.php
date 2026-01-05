@@ -4,11 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Models;
 
-use Override;
-use GeneaLabs\LaravelModelCaching\Traits\Cachable;
-use Illuminate\Database\Eloquent\Model;
-use Modules\Xot\Actions\Factory\GetFactoryAction;
-use Modules\Xot\Traits\Updater;
 use Spatie\Translatable\HasTranslations;
 
 /**
@@ -55,7 +50,7 @@ abstract class BaseModelLang extends BaseModel
      * The attributes that should be mutated to dates.
      *
      * @return array<string, string> */
-    #[Override]
+    #[\Override]
     protected function casts(): array
     {
         return [

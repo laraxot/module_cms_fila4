@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 return [
     'stats' => [
         'title' => 'Statistics',

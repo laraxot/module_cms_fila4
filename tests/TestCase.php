@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Tests;
 
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase as BaseTestCase;
 
 /**
@@ -12,5 +11,4 @@ use Tests\TestCase as BaseTestCase;
  */
 abstract class TestCase extends BaseTestCase
 {
-    
 }

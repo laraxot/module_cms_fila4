@@ -4,29 +4,22 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Resources;
 
-use Override;
-use Filament\Forms\Components\TextInput;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
-use Filament\Tables;
-use Filament\Tables\Table;
+use Filament\Forms\Components\TextInput;
 use Modules\Cms\Filament\Blocks\FooterContactBlock;
 use Modules\Cms\Filament\Blocks\FooterInfoBlock;
 use Modules\Cms\Filament\Blocks\FooterLinksBlock;
 use Modules\Cms\Filament\Blocks\FooterQuickLinksBlock;
 use Modules\Cms\Filament\Blocks\FooterSocialBlock;
 use Modules\Cms\Filament\Fields\PageContentBuilder;
-use Modules\Cms\Filament\Resources\SectionResource\Pages;
 use Modules\Cms\Models\Section;
 use Modules\Lang\Filament\Resources\LangBaseResource;
-use Modules\Xot\Filament\Resources\XotBaseResource;
 
 class SectionResource extends LangBaseResource
 {
-    protected static null|string $model = Section::class;
+    protected static ?string $model = Section::class;
 
-    #[Override]
+    #[\Override]
     public static function getFormSchema(): array
     {
         return [

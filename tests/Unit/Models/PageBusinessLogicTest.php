@@ -3,8 +3,8 @@
 declare(strict_types=1);
 
 use Modules\Cms\Models\BaseModelLang;
-use Modules\Tenant\Models\Traits\SushiToJsons;
 use Modules\Cms\Models\Page;
+use Modules\Tenant\Models\Traits\SushiToJsons;
 
 describe('Page Business Logic', function () {
     test('page extends base model lang for multilingual support', function () {

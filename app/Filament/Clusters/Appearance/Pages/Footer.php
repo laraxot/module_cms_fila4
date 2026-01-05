@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Clusters\Appearance\Pages;
 
-use Filament\Schemas\Schema;
 use Filament\Actions\Action;
-use Filament\Forms;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Select;
@@ -14,6 +12,7 @@ use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Notifications\Notification;
 use Filament\Pages\Page;
+use Filament\Schemas\Schema;
 use Filament\Support\Exceptions\Halt;
 use Illuminate\Support\Arr;
 use Modules\Cms\Actions\SaveFooterConfigAction;
@@ -27,7 +26,7 @@ use Webmozart\Assert\Assert;
 /**
  * Page class for managing footer appearance settings.
  *
- * @property \Filament\Schemas\Schema $form
+ * @property Schema $form
  */
 class Footer extends Page implements HasForms
 {
@@ -36,17 +35,17 @@ class Footer extends Page implements HasForms
     /**
      * @var FooterData|null the form data
      */
-    public null|FooterData $footerData = null;
+    public ?FooterData $footerData = null;
 
-    public null|array $data = [];
+    public ?array $data = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     protected string $view = 'cms::filament.clusters.appearance.pages.headernav';
 
-    protected static null|string $cluster = Appearance::class;
+    protected static ?string $cluster = Appearance::class;
 
-    protected static null|int $navigationSort = 2;
+    protected static ?int $navigationSort = 2;
 
     /**
      * Initialize the page and fill the form state.

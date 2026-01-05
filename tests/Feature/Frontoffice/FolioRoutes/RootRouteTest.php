@@ -8,5 +8,5 @@ uses(TestCase::class);
 
 it('GET / redirects to /{locale}', function (): void {
     $locale = app()->getLocale();
-    $this->get('/')->assertRedirect('/' . $locale);
+    $this->get('/')->assertRedirect('/'.$locale);
 });

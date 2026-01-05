@@ -15,7 +15,7 @@ class CreateAttachment extends LangBaseCreateRecord
     protected function mutateFormDataBeforeSave(array $data): array
     {
         // Handle translatable attachment field for FileUpload in create mode
-        if (isset($data['attachment']) && is_string($data['attachment']) && !empty($data['attachment'])) {
+        if (isset($data['attachment']) && is_string($data['attachment']) && ! empty($data['attachment'])) {
             $currentLocale = app()->getLocale();
 
             // Generate UUID for the file
@@ -29,7 +29,8 @@ class CreateAttachment extends LangBaseCreateRecord
                 $currentLocale => [$uuid => $filename],
             ];
         }
-        /** @phpstan-ignore-next-line */
+
+        /* @phpstan-ignore-next-line */
         return parent::mutateFormDataBeforeSave($data);
     }
 }

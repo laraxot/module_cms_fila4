@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Filament\Pages;
 
 use Filament\Facades\Filament;
-use Filament\Pages\Page;
 use Filament\Panel;
 use Filament\Support\Facades\FilamentIcon;
 use Filament\Widgets\Widget;
@@ -16,11 +15,10 @@ use Modules\Xot\Filament\Pages\XotBaseDashboard;
 
 class Dashboard extends XotBaseDashboard
 {
-    
     // protected static ?string $navigationIcon = 'heroicon-o-document-text';
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-home';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-home';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Dashboards';
+    protected static string|\UnitEnum|null $navigationGroup = 'Dashboards';
 
     protected string $view = 'filament-panels::pages.dashboard';
 
@@ -29,16 +27,16 @@ class Dashboard extends XotBaseDashboard
         return static::$navigationLabel ?? static::$title ?? __('filament-panels::pages/dashboard.title');
     }
 
-    public static function getNavigationIcon(): null|string
+    public static function getNavigationIcon(): ?string
     {
         $icon = static::$navigationIcon ??
             FilamentIcon::resolve('panels::pages.dashboard.navigation-item') ??
                 (Filament::hasTopNavigation() ? 'heroicon-m-home' : 'heroicon-o-home');
-        
+
         if ($icon instanceof \BackedEnum) {
             return (string) $icon->value;
         }
-        
+
         return is_string($icon) ? $icon : null;
     }
 

@@ -13,19 +13,20 @@ use Filament\Pages\Page;
 use Illuminate\Support\Facades\File;
 use Modules\Cms\Datas\ThemeData;
 use Modules\Tenant\Services\TenantService;
-use Webmozart\Assert\Assert;
 
 use function Safe\json_decode;
+
+use Webmozart\Assert\Assert;
 
 class Themes extends Page
 {
     public array $data = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-paint-brush';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-paint-brush';
 
     protected string $view = 'cms::filament.pages.themes';
 
-    protected static string | \UnitEnum | null $navigationGroup = 'Settings';
+    protected static string|\UnitEnum|null $navigationGroup = 'Settings';
 
     public function changePubTheme(string $name): void
     {
@@ -50,13 +51,13 @@ class Themes extends Page
      */
     protected function getViewData(): array
     {
-        $themes = File::directories(base_path() . str('/Themes')->replace('/', \DIRECTORY_SEPARATOR));
+        $themes = File::directories(base_path().str('/Themes')->replace('/', \DIRECTORY_SEPARATOR));
         $data = [];
         if ($themes) {
             foreach ($themes as $key => $item) {
-                Assert::string($item, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
-                $filename = $item . DIRECTORY_SEPARATOR . 'theme.json';
-                if (!File::exists($filename)) {
+                Assert::string($item, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
+                $filename = $item.DIRECTORY_SEPARATOR.'theme.json';
+                if (! File::exists($filename)) {
                     $theme_data = ThemeData::from(['name' => basename((string) $item)]);
                     File::put($filename, $theme_data->toJson());
                 }

@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 return [
     'adm_theme' => 'AdminLTE',
     'enable_ads' => false,

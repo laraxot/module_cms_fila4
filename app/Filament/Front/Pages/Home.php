@@ -8,8 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Filament\Pages\Page;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Webmozart\Assert\Assert;
@@ -26,7 +26,7 @@ class Home extends Page
 
     public array $items = [];
 
-    protected static string | \BackedEnum | null $navigationIcon = 'heroicon-o-document-text';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-document-text';
 
     // protected static string $view = 'cms::filament.front.pages.welcome';
     protected string $view = 'pub_theme::home';
@@ -43,14 +43,14 @@ class Home extends Page
     {
         $data = [];
         if ([] !== $this->containers) {
-            Assert::string($container_last = last($this->containers),'['.__LINE__.']['.__FILE__.']');
+            Assert::string($container_last = last($this->containers), '['.__LINE__.']['.__FILE__.']');
             $item_last = last($this->items);
 
             $container_last_singular = Str::singular($container_last);
             Assert::notNull(
                 $container_last_model =
                     Relation::getMorphedModel($container_last_singular),
-                '[' . __LINE__ . '][' . __FILE__ . ']',
+                '['.__LINE__.']['.__FILE__.']',
             );
 
             $container_last_key_name = app($container_last_model)->getRouteKeyName();
@@ -101,20 +101,20 @@ class Home extends Page
         $views = [];
 
         if ([] !== $containers) {
-            $views[] = 'pub_theme::' . implode('.', $containers) . '.' . $view;
+            $views[] = 'pub_theme::'.implode('.', $containers).'.'.$view;
 
             $model_root = Str::singular($containers[0]);
-            Assert::string($res = Relation::getMorphedModel($model_root),'['.__LINE__.']['.__FILE__.']');
+            Assert::string($res = Relation::getMorphedModel($model_root), '['.__LINE__.']['.__FILE__.']');
 
             $module_name = Str::between($res, 'Modules\\', '\Models\\');
             $module_name_low = Str::lower($module_name);
-            $views[] = $module_name_low . '::' . implode('.', $containers) . '.' . $view;
+            $views[] = $module_name_low.'::'.implode('.', $containers).'.'.$view;
         } else {
-            $views[] = 'pub_theme::' . $view;
+            $views[] = 'pub_theme::'.$view;
         }
 
         $view_work = Arr::first($views, view()->exists(...));
-        Assert::string($view_work, __FILE__ . ':' . __LINE__ . ' - ' . class_basename(__CLASS__));
+        Assert::string($view_work, __FILE__.':'.__LINE__.' - '.class_basename(__CLASS__));
 
         $this->view = $view_work;
     }
