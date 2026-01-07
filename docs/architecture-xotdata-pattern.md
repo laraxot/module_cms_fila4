@@ -7,7 +7,11 @@ Durante lo sviluppo del LoginTest è stato commesso un **errore architetturale g
 
 ```php
 // ❌ ERRORE CRITICO - ACCOPPIAMENTO DIRETTO VIETATO!
+<<<<<<< HEAD
 use Modules\<main module>\Models\User;
+=======
+use Modules\SaluteOra\Models\User;
+>>>>>>> 46d657c (.)
 
 /** @var User $user */
 $user = User::factory()->create([...]);
@@ -19,7 +23,11 @@ Successivamente è stato commesso un **errore di analisi superficiale**:
 - **Ignorato** la struttura esistente di test già corretti
 - **Non approfondito** la comprensione del sistema prima di agire
 
+<<<<<<< HEAD
 ## 🧠 **Struttura Corretta del Sistema <main module>**
+=======
+## 🧠 **Struttura Corretta del Sistema SaluteOra**
+>>>>>>> 46d657c (.)
 
 ### **Architettura di Autenticazione**
 ```
@@ -97,7 +105,11 @@ function createTestUser(array $attributes = []): UserContract
 ```
 
 ### **Vantaggi del Pattern XotData**
+<<<<<<< HEAD
 1. **Disaccoppiamento**: Cms non conosce <main module>
+=======
+1. **Disaccoppiamento**: Cms non conosce SaluteOra
+>>>>>>> 46d657c (.)
 2. **Configurabilità**: User class dinamica da config
 3. **Multi-tenancy**: Supporto tenant differenti
 4. **Testabilità**: Test indipendenti dai moduli specifici
@@ -127,7 +139,11 @@ function createTestUser(array $attributes = []): UserContract
 ## 🔄 **Processo di Correzione**
 
 ### **Fase 1: Riconoscimento Errore**
+<<<<<<< HEAD
 - Identificato accoppiamento diretto Cms → <main module>
+=======
+- Identificato accoppiamento diretto Cms → SaluteOra
+>>>>>>> 46d657c (.)
 - Riconosciuto pattern XotData violato
 
 ### **Fase 2: Analisi Superficiale (Errore)**
@@ -149,16 +165,16 @@ function createTestUser(array $attributes = []): UserContract
 ## 📖 **Documentazione di Riferimento**
 
 ### **Pattern XotData**
-- [docs/xotdata-architecture-critical-error-fix.md](../../../project_docs/xotdata-architecture-critical-error-fix.md)
-- [laravel/Modules/Xot/project_docs/architecture-violations-and-fixes.md](../../Xot/project_docs/architecture-violations-and-fixes.md)
+- [docs/xotdata-architecture-critical-error-fix.md](../../../docs/xotdata-architecture-critical-error-fix.md)
+- [laravel/Modules/Xot/docs/architecture-violations-and-fixes.md](../../Xot/docs/architecture-violations-and-fixes.md)
 
 ### **Struttura Testing**
 - [laravel/Modules/User/tests/Feature/Filament/Widgets/LoginWidgetTest.php](../../User/tests/Feature/Filament/Widgets/LoginWidgetTest.php)
 - [laravel/Modules/Cms/tests/Feature/Auth/AuthenticationTest.php](../tests/Feature/Auth/AuthenticationTest.php)
 
 ### **Sistema Folio/Volt** 
-- [laravel/Themes/One/project_docs/folio-pages.md](../../../Themes/One/project_docs/folio-pages.md)
-- [laravel/Themes/One/project_docs/routing_with_folio_volt.md](../../../Themes/One/project_docs/routing_with_folio_volt.md)
+- [laravel/Themes/One/docs/folio-pages.md](../../../Themes/One/docs/folio-pages.md)
+- [laravel/Themes/One/docs/routing_with_folio_volt.md](../../../Themes/One/docs/routing_with_folio_volt.md)
 
 ## 🎯 **Obiettivo Finale**
 
