@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Cms\Tests\Feature\Auth;
 
 use Livewire\Volt\Volt as LivewireVolt;
-use Modules\Xot\Datas\XotData;
 use Modules\Xot\Tests\TestCase;
 
 use function Pest\Laravel\actingAs;
@@ -76,7 +75,6 @@ test('email verification status is not reset if email does not change', function
 
     expect($user->refresh()->email_verified_at)->not->toBeNull(); // Should still be verified
 });
-
 
 test('user account can be deleted', function () {
     $userClass = $this->getUserClass();
