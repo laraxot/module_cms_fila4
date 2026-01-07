@@ -12,6 +12,8 @@ use function Pest\Laravel\actingAs;
 
 uses(TestCase::class);
 
+test('password confirmation page can be rendered', function () {
+    $userClass = $this->getUserClass();
     $user = $userClass::factory()->create();
 
     $lang = app()->getLocale();
@@ -20,6 +22,8 @@ uses(TestCase::class);
     $response->assertStatus(200);
 });
 
+test('user can confirm password', function () {
+    $userClass = $this->getUserClass();
     $user = $userClass::factory()->create();
 
     actingAs($user);
@@ -29,6 +33,8 @@ uses(TestCase::class);
     $response->assertHasNoErrors()->assertRedirect(route('dashboard', absolute: false));
 });
 
+test('password confirmation fails with wrong password', function () {
+    $userClass = $this->getUserClass();
     $user = $userClass::factory()->create();
 
     actingAs($user);
