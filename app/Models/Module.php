@@ -25,9 +25,15 @@ use Sushi\Sushi;
  * @method static Builder<static>|Module whereName($value)
  * @method static int                    count()
  *
+<<<<<<< HEAD
  * @property ProfileContract|null $deleter
  *
  * @method static ModuleFactory factory($count = null, $state = [])
+=======
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Cms\Database\Factories\ModuleFactory factory($count = null, $state = [])
+>>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */

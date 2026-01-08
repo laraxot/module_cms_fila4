@@ -5,9 +5,13 @@ declare(strict_types=1);
 namespace Modules\Cms\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+<<<<<<< HEAD
 use Modules\Cms\Database\Factories\ConfFactory;
 use Modules\Tenant\Actions\Config\GetTenantConfigNamesAction;
 use Modules\Xot\Contracts\ProfileContract;
+=======
+use Modules\Tenant\Actions\Config\GetTenantConfigNamesAction;
+>>>>>>> c95f826 (.)
 use Sushi\Sushi;
 
 /**
@@ -23,11 +27,19 @@ use Sushi\Sushi;
  * @method static Builder<static>|Conf whereName($value)
  * @method static int                  count()
  *
+<<<<<<< HEAD
  * @property ProfileContract|null $creator
  * @property ProfileContract|null $deleter
  * @property ProfileContract|null $updater
  *
  * @method static ConfFactory factory($count = null, $state = [])
+=======
+ * @property \Modules\Xot\Contracts\ProfileContract|null $creator
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property \Modules\Xot\Contracts\ProfileContract|null $updater
+ *
+ * @method static \Modules\Cms\Database\Factories\ConfFactory factory($count = null, $state = [])
+>>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */

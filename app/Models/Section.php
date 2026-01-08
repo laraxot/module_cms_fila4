@@ -26,6 +26,7 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property mixed                        $translations
  * @property ProfileContract|null         $updater
  *
+<<<<<<< HEAD
  * @method static Builder<static>|Section newModelQuery()
  * @method static Builder<static>|Section newQuery()
  * @method static Builder<static>|Section query()
@@ -47,6 +48,29 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property ProfileContract|null $deleter
  *
  * @method static SectionFactory factory($count = null, $state = [])
+=======
+ * @method static Builder<static>|Section                               newModelQuery()
+ * @method static Builder<static>|Section                               newQuery()
+ * @method static Builder<static>|Section                               query()
+ * @method static Builder<static>|Section                               whereBlocks($value)
+ * @method static Builder<static>|Section                               whereCreatedAt($value)
+ * @method static Builder<static>|Section                               whereCreatedBy($value)
+ * @method static Builder<static>|Section                               whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereJsonContainsLocale(string $column, string $locale, ?mixed $value, string $operand = '=')
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereJsonContainsLocales(string $column, array $locales, ?mixed $value, string $operand = '=')
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereLocale(string $column, string $locale)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Section whereLocales(string $column, array $locales)
+ * @method static Builder<static>|Section                               whereName($value)
+ * @method static Builder<static>|Section                               whereSlug($value)
+ * @method static Builder<static>|Section                               whereUpdatedAt($value)
+ * @method static Builder<static>|Section                               whereUpdatedBy($value)
+ * @method static int                                                   count()
+ * @method static Builder<static>|Section                               where($column, $operator = null, $value = null, $boolean = 'and')
+ *
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Cms\Database\Factories\SectionFactory factory($count = null, $state = [])
+>>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */

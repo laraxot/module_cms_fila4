@@ -19,7 +19,11 @@ class PageContentResource extends LangBaseResource
     protected static ?string $model = PageContent::class;
 
     /**
+<<<<<<< HEAD
      * @return array<int|string, Component>
+=======
+     * @return array<int|string, \Filament\Schemas\Components\Component>
+>>>>>>> c95f826 (.)
      */
     #[\Override]
     public static function getFormSchema(): array

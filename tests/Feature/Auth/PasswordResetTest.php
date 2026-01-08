@@ -25,9 +25,15 @@ test('reset password link screen can be rendered', function (): void {
 test('reset password link can be requested', function (): void {
     Notification::fake();
 
+<<<<<<< HEAD
     /** @var class-string<Model> $userClass */
     $userClass = XotData::make()->getUserClass();
     /** @var Authenticatable&Model $user */
+=======
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+>>>>>>> c95f826 (.)
     $user = $userClass::factory()->create();
 
     LivewireVolt::test('auth.forgot-password')->set('email', $user->email)->call('sendPasswordResetLink');
@@ -38,9 +44,15 @@ test('reset password link can be requested', function (): void {
 test('reset password screen can be rendered', function (): void {
     Notification::fake();
 
+<<<<<<< HEAD
     /** @var class-string<Model> $userClass */
     $userClass = XotData::make()->getUserClass();
     /** @var Authenticatable&Model $user */
+=======
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+>>>>>>> c95f826 (.)
     $user = $userClass::factory()->create();
     $lang = app()->getLocale();
 
@@ -57,9 +69,15 @@ test('reset password screen can be rendered', function (): void {
 test('password can be reset with valid token', function (): void {
     Notification::fake();
 
+<<<<<<< HEAD
     /** @var class-string<Model> $userClass */
     $userClass = XotData::make()->getUserClass();
     /** @var Authenticatable&Model $user */
+=======
+    /** @var class-string<\Illuminate\Database\Eloquent\Model> $userClass */
+    $userClass = XotData::make()->getUserClass();
+    /** @var \Illuminate\Contracts\Auth\Authenticatable&\Illuminate\Database\Eloquent\Model $user */
+>>>>>>> c95f826 (.)
     $user = $userClass::factory()->create();
     $lang = app()->getLocale();
 

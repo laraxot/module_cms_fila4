@@ -34,6 +34,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property mixed                        $translations
  * @property ProfileContract|null         $updater
  *
+<<<<<<< HEAD
  * @method static Builder<static>|Attachment newModelQuery()
  * @method static Builder<static>|Attachment newQuery()
  * @method static Builder<static>|Attachment query()
@@ -56,6 +57,30 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property ProfileContract|null $deleter
  *
  * @method static AttachmentFactory factory($count = null, $state = [])
+=======
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereAttachment($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereCreatedBy($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereDisk($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereJsonContainsLocale(string $column, string $locale, ?mixed $value, string $operand = '=')
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereJsonContainsLocales(string $column, array $locales, ?mixed $value, string $operand = '=')
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereLocale(string $column, string $locale)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereLocales(string $column, array $locales)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedBy($value)
+ * @method static static|null                                              firstWhere(string $column, mixed $operator = null, mixed $value = null)
+ *
+ * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ *
+ * @method static \Modules\Cms\Database\Factories\AttachmentFactory factory($count = null, $state = [])
+>>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */
