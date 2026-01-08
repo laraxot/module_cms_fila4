@@ -26,7 +26,8 @@ use Modules\Xot\Contracts\ProfileContract;
  * @property mixed                        $translations
  * @property ProfileContract|null         $updater
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @method static Builder<static>|Section newModelQuery()
  * @method static Builder<static>|Section newQuery()
  * @method static Builder<static>|Section query()
@@ -47,8 +48,8 @@ use Modules\Xot\Contracts\ProfileContract;
  *
  * @property ProfileContract|null $deleter
  *
- * @method static SectionFactory factory($count = null, $state = [])
-=======
+ * @method static SectionFactory                                        factory($count = null, $state = [])
+ *                                                                                                                                                                     =======
  * @method static Builder<static>|Section                               newModelQuery()
  * @method static Builder<static>|Section                               newQuery()
  * @method static Builder<static>|Section                               query()
@@ -67,10 +68,10 @@ use Modules\Xot\Contracts\ProfileContract;
  * @method static int                                                   count()
  * @method static Builder<static>|Section                               where($column, $operator = null, $value = null, $boolean = 'and')
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @method static \Modules\Cms\Database\Factories\SectionFactory factory($count = null, $state = [])
->>>>>>> c95f826 (.)
+ *                                                                                                   >>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */

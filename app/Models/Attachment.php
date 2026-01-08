@@ -34,7 +34,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @property mixed                        $translations
  * @property ProfileContract|null         $updater
  *
-<<<<<<< HEAD
+ * <<<<<<< HEAD
+ *
  * @method static Builder<static>|Attachment newModelQuery()
  * @method static Builder<static>|Attachment newQuery()
  * @method static Builder<static>|Attachment query()
@@ -56,8 +57,8 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  *
  * @property ProfileContract|null $deleter
  *
- * @method static AttachmentFactory factory($count = null, $state = [])
-=======
+ * @method static AttachmentFactory                                        factory($count = null, $state = [])
+ *                                                                                                                                                                        =======
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment newQuery()
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment query()
@@ -77,10 +78,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|Attachment whereUpdatedBy($value)
  * @method static static|null                                              firstWhere(string $column, mixed $operator = null, mixed $value = null)
  *
- * @property \Modules\Xot\Contracts\ProfileContract|null $deleter
+ * @property ProfileContract|null $deleter
  *
  * @method static \Modules\Cms\Database\Factories\AttachmentFactory factory($count = null, $state = [])
->>>>>>> c95f826 (.)
+ *                                                                                                      >>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */
