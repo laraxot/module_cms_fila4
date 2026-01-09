@@ -19,16 +19,24 @@ class PageSlugMiddleware
 
         // Handle case where slug might be null or not a string
         if (! \is_string($slug)) {
-            /* @var Response */
-            return $next($request);
+            $response = $next($request);
+            if (! $response instanceof Response) {
+                // Middleware chain should always return Response, but if not, wrap it
+                return new Response('Internal Server Error', 500);
+            }
+            return $response;
         }
 
         $middlewares = Page::getMiddlewareBySlug($slug);
         // Should return ["auth", "Modules\User\Http\Middleware\EnsureUserHasType:doctor"]
 
         if (empty($middlewares)) {
-            /* @var Response */
-            return $next($request);
+            $response = $next($request);
+            if (! $response instanceof Response) {
+                // Middleware chain should always return Response, but if not, wrap it
+                return new Response('Internal Server Error', 500);
+            }
+            return $response;
         }
         $this->kernel = app(Kernel::class);
 
@@ -63,14 +71,20 @@ class PageSlugMiddleware
     protected function executeMiddlewareChain(Request $request, array $middlewares, \Closure $finalNext): Response
     {
         if (empty($middlewares)) {
-            /* @var Response */
-            return $finalNext($request);
+            $response = $finalNext($request);
+            if (! $response instanceof Response) {
+                return new Response('Internal Server Error', 500);
+            }
+            return $response;
         }
 
         $middleware = array_shift($middlewares);
         if (! \is_string($middleware)) {
-            /* @var Response */
-            return $finalNext($request);
+            $response = $finalNext($request);
+            if (! $response instanceof Response) {
+                return new Response('Internal Server Error', 500);
+            }
+            return $response;
         }
 
         [$middlewareClass, $parameters] = $this->parseMiddleware($middleware);
@@ -87,12 +101,18 @@ class PageSlugMiddleware
         // Execute current middleware
         if (\is_object($middlewareInstance) && method_exists($middlewareInstance, 'handle')) {
             if (empty($parameters)) {
-                /* @var Response */
-                return $middlewareInstance->handle($request, $next);
+                $response = $middlewareInstance->handle($request, $next);
+                if (! $response instanceof Response) {
+                    return $next($request); // Use next if current middleware didn't return Response
+                }
+                return $response;
             }
 
-            /* @var Response */
-            return $middlewareInstance->handle($request, $next, ...$parameters);
+            $response = $middlewareInstance->handle($request, $next, ...$parameters);
+            if (! $response instanceof Response) {
+                return $next($request); // Use next if current middleware didn't return Response
+            }
+            return $response;
         }
 
         // If middleware doesn't exist or doesn't have handle method, continue with next
