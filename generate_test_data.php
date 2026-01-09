@@ -27,9 +27,9 @@ use Modules\Media\Database\Factories\TemporaryUploadFactory;
 
 require_once __DIR__.'/laravel/vendor/autoload.php';
 
-/** @var \Illuminate\Contracts\Foundation\Application $app */
+/** @var Illuminate\Contracts\Foundation\Application $app */
 $app = require_once __DIR__.'/laravel/bootstrap/app.php';
-assert($app instanceof \Illuminate\Contracts\Foundation\Application);
+assert($app instanceof Illuminate\Contracts\Foundation\Application);
 $app->make(Kernel::class)->bootstrap();
 
 class TestDataGenerator
@@ -83,8 +83,8 @@ class TestDataGenerator
             echo "📦 Module: {$module}\n";
 
             foreach ($models as $modelName => $factoryClass) {
-                /** @var string $modelName */
-                /** @var string $factoryClass */
+                /* @var string $modelName */
+                /* @var string $factoryClass */
                 $this->generateModelData($module, $modelName, $factoryClass);
             }
 
@@ -143,7 +143,7 @@ class TestDataGenerator
 
             // Check if the factory has the count method (Laravel Factory pattern)
             if (method_exists($factory, 'count')) {
-                /** @var \Illuminate\Database\Eloquent\Collection<int, \Illuminate\Database\Eloquent\Model>|array<int, \Illuminate\Database\Eloquent\Model> $records */
+                /** @var Illuminate\Database\Eloquent\Collection<int, Illuminate\Database\Eloquent\Model>|array<int, Illuminate\Database\Eloquent\Model> $records */
                 $records = $factory->count(100)->create();
             } else {
                 // Fallback for custom factories
@@ -151,7 +151,7 @@ class TestDataGenerator
                 for ($i = 0; $i < 100; ++$i) {
                     if (method_exists($factory, 'create')) {
                         // Use call_user_func to avoid mixed type issues
-                        /** @var \Illuminate\Database\Eloquent\Model $record */
+                        /** @var Illuminate\Database\Eloquent\Model $record */
                         $record = call_user_func([$factory, 'create']);
                         $records[] = $record;
                     } else {
@@ -210,10 +210,10 @@ class TestDataGenerator
             foreach ($models as $modelName => $result) {
                 /** @var string $modelName */
                 /** @var array{status: string, count?: int, reason?: string, factory?: string} $result */
-                $status = $result['status'] === 'success' ? '✅' : '❌';
+                $status = 'success' === $result['status'] ? '✅' : '❌';
                 echo "  {$status} {$modelName}";
 
-                if ($result['status'] === 'success') {
+                if ('success' === $result['status']) {
                     /** @var int $count */
                     $count = $result['count'] ?? 0;
                     echo " - {$count} records";
