@@ -13,17 +13,10 @@ use Modules\Xot\Tests\TestCase;
 uses(TestCase::class);
 
 // Ensure XotData is mocked for every test
-<<<<<<< HEAD
 // beforeEach(function (): void {
 //     // ✅ Utilizzo funzione centralizzata dal TestCase
 //     Modules\Xot\Tests\TestCase::mockXotData();
 // });
-=======
-beforeEach(function (): void {
-    // ✅ Utilizzo funzione centralizzata dal TestCase
-    Modules\Xot\Tests\TestCase::mockXotData();
-});
->>>>>>> c95f826 (.)
 
 // REGISTRATION WIDGET TESTS - Filament Component
 // ✅ Test del WIDGET Filament, non della pagina

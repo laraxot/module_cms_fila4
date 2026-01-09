@@ -10,11 +10,7 @@ use Modules\Xot\Traits\Updater;
 /**
  * Class BaseMorphPivot.
  */
-<<<<<<< HEAD
 abstract class BaseMorphPivot extends XotBaseMorphPivot
-=======
-abstract class BaseMorphPivot extends \Modules\Xot\Models\XotBaseMorphPivot
->>>>>>> c95f826 (.)
 {
     use Updater;
 

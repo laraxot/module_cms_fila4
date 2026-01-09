@@ -30,11 +30,7 @@ final class XotComposer
             return;
         }
 
-<<<<<<< HEAD
         /** @var HasOne $profileRelation */
-=======
-        /** @var \Illuminate\Database\Eloquent\Relations\HasOne $profileRelation */
->>>>>>> c95f826 (.)
         $profileRelation = $user->profile();
         $profile = $profileRelation->first();
         $lang = app()->getLocale();

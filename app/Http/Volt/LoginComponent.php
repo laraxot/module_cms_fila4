@@ -41,11 +41,7 @@ class LoginComponent extends Component
 
         $guard = 'web';
 
-<<<<<<< HEAD
         /** @var Builder<User> $query */
-=======
-        /** @var \Illuminate\Database\Eloquent\Builder<User> $query */
->>>>>>> c95f826 (.)
         $query = User::where('email', $this->email);
         $user = $query->first();
 

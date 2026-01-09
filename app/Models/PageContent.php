@@ -43,17 +43,9 @@ use Spatie\Translatable\HasTranslations;
  * @method static Builder<static>|PageContent whereUpdatedBy($value)
  * @method static int                         count()
  *
- * <<<<<<< HEAD
- *
  * @property ProfileContract|null $deleter
  *
  * @method static PageContentFactory factory($count = null, $state = [])
- *                                                                       =======
- *
- * @property ProfileContract|null $deleter
- *
- * @method static \Modules\Cms\Database\Factories\PageContentFactory factory($count = null, $state = [])
- *                                                                                                       >>>>>>> c95f826 (.)
  *
  * @mixin \Eloquent
  */

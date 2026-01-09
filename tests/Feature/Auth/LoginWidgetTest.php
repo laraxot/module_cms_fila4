@@ -61,13 +61,8 @@ test('can set form data', function (): void {
 
 test('authenticates user with valid credentials', function (): void {
     // ✅ Utilizzo funzione centralizzata dal TestCase
-<<<<<<< HEAD
-    $email = $this->generateUniqueEmail();
-    $user = $this->createTestUser([
-=======
     $email = TestCase::generateUniqueEmail();
     $user = static::createTestUser([
->>>>>>> c95f826 (.)
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);
@@ -90,13 +85,8 @@ test('authenticates user with valid credentials', function (): void {
 
 test('handles invalid credentials gracefully', function (): void {
     // ✅ Utilizzo funzioni centralizzate dal TestCase
-<<<<<<< HEAD
-    $email = $this->generateUniqueEmail();
-    $this->createTestUser([
-=======
     $email = TestCase::generateUniqueEmail();
     static::createTestUser([
->>>>>>> c95f826 (.)
         'email' => $email,
         'password' => Hash::make('correct_password'),
     ]);
@@ -117,13 +107,8 @@ test('handles invalid credentials gracefully', function (): void {
 
 test('authentication works regardless of user type', function (): void {
     // ✅ Utilizzo funzioni centralizzate dal TestCase
-<<<<<<< HEAD
-    $email = $this->generateUniqueEmail();
-    $user = $this->createTestUser([
-=======
     $email = TestCase::generateUniqueEmail();
     $user = static::createTestUser([
->>>>>>> c95f826 (.)
         'email' => $email,
         'password' => Hash::make('password123'),
     ]);

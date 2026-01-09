@@ -8,11 +8,8 @@ declare(strict_types=1);
 
 namespace Modules\Cms\Filament\Front\Pages;
 
-<<<<<<< HEAD
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-=======
->>>>>>> c95f826 (.)
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
@@ -45,7 +42,7 @@ class Home extends XotBasePage
     public function getViewData(): array
     {
         $data = [];
-        if ([] !== $this->containers) {
+        if ($this->containers !== []) {
             Assert::string($container_last = last($this->containers), '['.__LINE__.']['.__FILE__.']');
             $item_last = last($this->items);
 
@@ -59,11 +56,7 @@ class Home extends XotBasePage
                 $container_last_key_name = $modelInstance->getRouteKeyName();
                 Assert::string($container_last_key_name, 'Route key name must be a string');
 
-<<<<<<< HEAD
                 /** @var class-string<Model> $modelClass */
-=======
-                /** @var class-string<\Illuminate\Database\Eloquent\Model> $modelClass */
->>>>>>> c95f826 (.)
                 $modelClass = $container_last_model;
 
                 // Ensure the model class has the where method
@@ -71,11 +64,7 @@ class Home extends XotBasePage
                     throw new \RuntimeException("Model class {$modelClass} does not have where method");
                 }
 
-<<<<<<< HEAD
                 /** @var Builder<Model> $query */
-=======
-                /** @var \Illuminate\Database\Eloquent\Builder<\Illuminate\Database\Eloquent\Model> $query */
->>>>>>> c95f826 (.)
                 $query = $modelClass::where($container_last_key_name, $item_last);
                 $row = $query->first();
                 $data[$container_last_singular] = $row;
@@ -115,7 +104,7 @@ class Home extends XotBasePage
         if (\count($containers) > \count($items)) {
             $view = 'index';
         }
-        if ([] === $containers) {
+        if ($containers === []) {
             $view = 'home';
         }
 
@@ -123,7 +112,7 @@ class Home extends XotBasePage
 
         $views = [];
 
-        if ([] !== $containers) {
+        if ($containers !== []) {
             $views[] = 'pub_theme::'.implode('.', $containers).'.'.$view;
 
             $firstContainer = $containers[0] ?? '';
@@ -152,7 +141,7 @@ class Home extends XotBasePage
         $parameters['lang'] = app()->getLocale();
         $record = $parameters['record'] ?? null;
 
-        if ($record && is_object($record) && 'show' === $name) {
+        if ($record && is_object($record) && $name === 'show') {
             $container0 = class_basename($record);
             $container0 = Str::plural($container0);
             $container0 = Str::snake($container0);
@@ -162,7 +151,7 @@ class Home extends XotBasePage
             return route('test', $parameters);
         }
 
-        if ($record && is_object($record) && 'index' === $name) {
+        if ($record && is_object($record) && $name === 'index') {
             $container0 = class_basename($record);
             $container0 = Str::plural($container0);
             $container0 = Str::snake($container0);

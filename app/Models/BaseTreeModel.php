@@ -138,11 +138,7 @@ use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
  */
 abstract class BaseTreeModel extends BaseModel implements HasRecursiveRelationshipsContract
 {
-<<<<<<< HEAD
     use HasRecursiveRelationships;
-=======
-    use \Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
->>>>>>> c95f826 (.)
 
     /** @var list<string> */
     protected $fillable = [
