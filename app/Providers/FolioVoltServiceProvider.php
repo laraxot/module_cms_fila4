@@ -15,6 +15,7 @@ use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 use Modules\Tenant\Services\TenantService;
 use Modules\Xot\Datas\XotData;
 use Nwidart\Modules\Facades\Module;
+use Webmozart\Assert\Assert;
 
 class FolioVoltServiceProvider extends ServiceProvider
 {
@@ -70,7 +71,10 @@ class FolioVoltServiceProvider extends ServiceProvider
         $theme_path = XotData::make()->getPubThemeViewPath('pages');
 
         // Ottieni tutte le lingue supportate
-        $supportedLocales = array_keys(config('laravellocalization.supportedLocales', ['it' => []]));
+        $supportedLocalesConfig = config('laravellocalization.supportedLocales', ['it' => []]);
+        Assert::isArray($supportedLocalesConfig);
+        /** @var array<string, mixed> $supportedLocalesConfig */
+        $supportedLocales = array_map('strval', array_keys($supportedLocalesConfig));
         $defaultLocale = config('app.locale', 'it');
 
         /**
@@ -87,7 +91,7 @@ class FolioVoltServiceProvider extends ServiceProvider
                     ->uri($locale)
                     ->middleware([
                         '*' => array_merge($base_middleware, [
-                            function ($request, $next) use ($locale) {
+                            function ($request, callable $next) use ($locale) {
                                 app()->setLocale($locale);
 
                                 return $next($request);
@@ -110,7 +114,7 @@ class FolioVoltServiceProvider extends ServiceProvider
                     ->uri($locale)
                     ->middleware([
                         '*' => array_merge($base_middleware, [
-                            function ($request, $next) use ($locale) {
+                            function ($request, callable $next) use ($locale) {
                                 app()->setLocale($locale);
 
                                 return $next($request);
