@@ -8,7 +8,7 @@ use Modules\Xot\Filament\Clusters\XotBaseCluster;
 
 /**
  * Cluster per la gestione dell'aspetto visivo del CMS.
- * 
+ *
  * ⚠️ IMPORTANTE: Estende XotBaseCluster, MAI Filament\Clusters\Cluster direttamente!
  */
 class Appearance extends XotBaseCluster
