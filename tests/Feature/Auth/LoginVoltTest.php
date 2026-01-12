@@ -359,7 +359,7 @@ it('redirects to intended URL after successful login', function () {
 
     $response->assertHasNoErrors();
     assertAuthenticated();
-});});
+});
 
 it('renders with accessibility attributes', function () {
     $component = LivewireVolt::test('auth.login');
