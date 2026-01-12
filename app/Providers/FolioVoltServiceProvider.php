@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Folio\Folio;
 use Livewire\Volt\Volt;
-use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter;
 use Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect;
 use Modules\Tenant\Services\TenantService;
@@ -90,6 +89,7 @@ class FolioVoltServiceProvider extends ServiceProvider
                         '*' => array_merge($base_middleware, [
                             function ($request, $next) use ($locale) {
                                 app()->setLocale($locale);
+
                                 return $next($request);
                             },
                         ]),
@@ -112,6 +112,7 @@ class FolioVoltServiceProvider extends ServiceProvider
                         '*' => array_merge($base_middleware, [
                             function ($request, $next) use ($locale) {
                                 app()->setLocale($locale);
+
                                 return $next($request);
                             },
                         ]),

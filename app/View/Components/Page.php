@@ -31,9 +31,9 @@ class Page extends Component
         }
         $this->slug = $slug;
         $field = $side.'_blocks';
-        //$page = PageModel::firstOrCreate(['slug' => $slug], ['title' => $slug, $field => []]);
+        // $page = PageModel::firstOrCreate(['slug' => $slug], ['title' => $slug, $field => []]);
         $page = PageModel::firstWhere('slug', $slug);
-        
+
         if (null === $page) {
             abort(404, 'page not found: '.$slug);
         }
