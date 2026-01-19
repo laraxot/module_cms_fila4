@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+
 namespace Modules\Cms\Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;

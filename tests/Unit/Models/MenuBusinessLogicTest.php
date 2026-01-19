@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+
+uses(\Modules\Cms\Tests\TestCase::class);
 use Modules\Cms\Models\BaseModel;
 use Modules\Cms\Models\Menu;
 use Modules\Tenant\Models\Traits\SushiToJsons;
@@ -17,13 +19,15 @@ describe('Menu Business Logic', function () {
     });
 
     test('menu implements recursive relationships contract', function () {
-        expect(Menu::class)->toImplement(HasRecursiveRelationshipsContract::class);
+        $menu = new Menu();
+        expect($menu)->toBeInstanceOf(HasRecursiveRelationshipsContract::class);
     });
 
     test('menu has recursive relationships trait', function () {
-        $traits = class_uses(Menu::class);
+        $traits = class_uses_recursive(Menu::class);
 
-        expect($traits)->toHaveKey(TypedHasRecursiveRelationships::class);
+        // Menu uses HasRecursiveRelationships from staudenmeir/laravel-adjacency-list
+        expect(array_values($traits))->toContain(\Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships::class);
     });
 
     test('menu has sushi to json trait', function () {
@@ -67,9 +71,16 @@ describe('Menu Business Logic', function () {
     test('menu has schema definition for structured data', function () {
         $menu = new Menu();
 
-        expect($menu)->toHaveProperty('schema');
-        expect($menu->schema['title'])->toBe('string');
-        expect($menu->schema['parent_id'])->toBe('integer');
+        // Use reflection to access protected $schema property
+        $reflection = new \ReflectionClass($menu);
+        $schemaProperty = $reflection->getProperty('schema');
+
+        expect($schemaProperty->isProtected())->toBeTrue();
+
+        $schema = $schemaProperty->getValue($menu);
+        expect($schema)->toBeArray();
+        expect($schema['title'])->toBe('string');
+        expect($schema['parent_id'])->toBe('integer');
     });
 
     test('menu can get rows for sushi functionality', function () {
