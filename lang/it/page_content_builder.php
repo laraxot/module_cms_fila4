@@ -28,5 +28,11 @@ return [
             'helper_text' => 'footer_blocks',
             'description' => 'footer_blocks',
         ],
+        'content' => [
+            'label' => 'content',
+            'placeholder' => 'content',
+            'helper_text' => 'content',
+            'description' => 'content',
+        ],
     ],
 ];

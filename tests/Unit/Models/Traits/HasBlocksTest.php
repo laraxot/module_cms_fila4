@@ -18,6 +18,17 @@ test('HasBlocks trait can be used', function () {
     $model = new TestModelWithBlocks();
 
     // Check if the trait methods exist
+<<<<<<< Updated upstream
     expect(method_exists($model, 'getBlock'))->toBeTrue()
         ->and(method_exists($model, 'getBlocks'))->toBeTrue();
 });
+=======
+    expect(method_exists($model, 'getBlocks'))->toBeTrue()
+        ->and(method_exists($model, 'compile'))->toBeTrue();
+});
+
+test('HasBlocks trait has static method getBlocksBySlug', function () {
+    // Check if the static trait method exists
+    expect(method_exists(TestModelWithBlocks::class, 'getBlocksBySlug'))->toBeTrue();
+});
+>>>>>>> Stashed changes
